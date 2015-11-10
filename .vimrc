@@ -17,7 +17,9 @@ Plug 'tpope/vim-surround'
 Plug 'mxw/vim-jsx'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdcommenter'
+Plug 'itspriddle/vim-marked'
 Plug 'mattn/emmet-vim'
+Plug 'vim-scripts/mru.vim'
 
 " Group dependencies, vim-snippets depends on ultisnips
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -33,9 +35,6 @@ Plug 'dylansm/one-dark.vim'
 " Add plugins to &runtimepath
 call plug#end()
 
-
-
-
 syntax on
 filetype plugin indent on
 
@@ -44,7 +43,7 @@ filetype plugin indent on
 "highlight CursorColumn ctermbg=black
 "highlight Comment cterm=italic
 "highlight ColorColumn ctermbg=23
-let &colorcolumn=join(range(81,999),",")
+"let &colorcolumn=join(range(81,999),",")
 
 " use 'f' to toggle filter
 let NERDTreeIgnore = ['\.DS_Store', '\.sass-cache']
@@ -85,7 +84,6 @@ set shortmess+=I
 set clipboard=unnamed
 set nofoldenable
 set showmode
-"set background=dark
 colorscheme onedark
 set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
