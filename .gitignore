@@ -84,8 +84,8 @@
 .v8*
 .vagrant.d/
 .vim_mru_files
-.vimgolf/
 .viminf*
+.vim/plugged
 .zcompdump
 .zsh_history
 
