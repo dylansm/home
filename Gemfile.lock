@@ -1,0 +1,14 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    paint (0.8.7)
+    rcodetools (0.8.5.0)
+    wirb (1.0.3)
+      paint (~> 0.8)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  rcodetools
+  wirb

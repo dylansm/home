@@ -1,0 +1,8 @@
+inoremap jj <ESC>
+map // :xccmd commentAndUncommentCurrentLines<CR>
+"set blinkcursor
+set expandtab
+set shiftwidth=4
+set smarttab
+set autoindent
+set smartindent

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# use dirname or basename to parse results of find
+
+for i in $(find .vim/bundle -maxdepth 1 -mindepth 1 -type d); do
+  basename=`basename $i`
+  git fetch $basename
+  git subtree pull --prefix $i $basename master --squash
+done
