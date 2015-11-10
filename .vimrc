@@ -55,6 +55,7 @@ set noswapfile
 set showmatch
 set cursorline
 set cursorcolumn
+set laststatus=0
 "set backspace=2
 set backspace=indent,eol,start
 set expandtab
@@ -374,27 +375,46 @@ endfunction
 "let g:vimrubocop_config = '~/.rubocop.yml'
 
 " Paste automagically
-let &t_SI .= "\<Esc>[?2004h"
-let &t_EI .= "\<Esc>[?2004l"
+"let &t_SI .= "\<Esc>[?2004h"
+"let &t_EI .= "\<Esc>[?2004l"
 
-function! WrapForTmux(s)
-  if !exists('$TMUX')
-    return a:s
-  endif
+"function! WrapForTmux(s)
+  "if !exists('$TMUX')
+    "return a:s
+  "endif
 
-  let tmux_start = "\<Esc>Ptmux;"
-  let tmux_end = "\<Esc>\\"
+  "let tmux_start = "\<Esc>Ptmux;"
+  "let tmux_end = "\<Esc>\\"
 
-  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+  "return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+"endfunction
+
+"let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+"let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+
+"function! XTermPasteBegin()
+  "set pastetoggle=<Esc>[201~
+  "set paste
+  "return ""
+"endfunction
+
+"inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+let s:hidden_all = 0
+function! ToggleHiddenAll()
+    if s:hidden_all  == 0
+        let s:hidden_all = 1
+        set noshowmode
+        set noruler
+        set laststatus=0
+        set noshowcmd
+    else
+        let s:hidden_all = 0
+        set showmode
+        set ruler
+        set laststatus=2
+        set showcmd
+    endif
 endfunction
 
-let &t_SI .= WrapForTmux("\<Esc>[?2004h")
-let &t_EI .= WrapForTmux("\<Esc>[?2004l")
-
-function! XTermPasteBegin()
-  set pastetoggle=<Esc>[201~
-  set paste
-  return ""
-endfunction
-
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+nnoremap <silent>;h :call ToggleHiddenAll()<CR>
