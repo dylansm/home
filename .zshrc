@@ -19,34 +19,11 @@ colors
 compinit
 promptinit
 
-set -o vi
 setopt promptsubst
 setopt autocd
 setopt nocaseglob  # set ignore case for ls etc
 setopt autopushd
 setopt always_to_end
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'   # case insensitive completion for cd etc *N*
-zstyle ':completion:*:*:git:*' script ~/bin/.git-completion.sh
-
-[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
-
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
-bindkey -e
-bindkey '^[[1;9C' forward-word
-bindkey '^[[1;9D' backward-word
-bindkey '^b' backward-word
-bindkey '^f' forward-word
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search
-bindkey "^[[B" down-line-or-beginning-search
-bindkey "^p" up-line-or-beginning-search
-bindkey "^n" down-line-or-beginning-search
-
-HISTSIZE=1024
-SAVEHIST=1024
-HISTFILE=~/.zsh_history
 setopt append_history           # append
 setopt hist_ignore_all_dups     # no duplicate
 unsetopt hist_ignore_space      # ignore space prefixed commands
@@ -54,6 +31,24 @@ setopt hist_reduce_blanks       # trim blanks
 setopt hist_verify              # show before executing history commands
 setopt inc_append_history       # add commands as they are typed, don't wait until shell exit
 setopt share_history            # share hist between sessions
+bindkey -e
+bindkey '^[[1;9C' forward-word
+bindkey '^[[1;9D' backward-word
+bindkey '^b' backward-word
+bindkey '^f' forward-word
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
+bindkey "^p" up-line-or-beginning-search
+bindkey "^n" down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'   # case insensitive completion for cd etc *N*
+zstyle ':completion:*:*:git:*' script ~/bin/.git-completion.sh
+
+
+[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
+
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # show full history from line 1 or grep for something
 h() { if [ -z "$*" ]; then history 1; else history 1 | egrep "$@"; fi; }
