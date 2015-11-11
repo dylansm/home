@@ -1,5 +1,4 @@
 call plug#begin('~/.vim/plugged')
-
 " Make sure you use single quotes
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-easy-align'
@@ -20,34 +19,22 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'itspriddle/vim-marked'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/mru.vim'
-
 " Group dependencies, vim-snippets depends on ultisnips # !> possibly useless use of a literal in void context
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'dylansm/my-vim-snippets'
 " On-demand loading
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'guns/vim-slamhound', { 'for': 'clojure' }
-
 " Themes
 Plug 'dylansm/one-dark.vim'
-
 " Add plugins to &runtimepath
 call plug#end()
 
 syntax on
 filetype plugin indent on
-
-"highlight LineNr ctermfg=DarkGrey
-"highlight CursorLine ctermbg=black
-"highlight CursorColumn ctermbg=black
-"highlight Comment cterm=italic
-"highlight ColorColumn ctermbg=23
 "let &colorcolumn=join(range(81,999),",")
-
 " use 'f' to toggle filter
 let NERDTreeIgnore = ['\.DS_Store', '\.sass-cache']
-
 let html_no_rendering=1
 let mapleader=","
 set viminfo=""
@@ -91,7 +78,6 @@ set completeopt=longest,menuone
 "set synmaxcol=120
 set tags+=gems.tags
 set tags+=js.tags
-
 set encoding=utf-8
 setglobal fileencoding=utf-8
 set fileencoding=utf-8
@@ -146,7 +132,7 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Toggle paste mode
-nnoremap <C-P> :set invpaste paste?<CR>
+"nnoremap <C-P> :set invpaste paste?<CR>
 
 nnoremap <F5> "=strftime("%Y-%m-%d")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
@@ -164,7 +150,6 @@ nnoremap { {zz
 nmap <buffer> ;e <Plug>(xmpfilter-run)
 xmap <buffer> ;e <Plug>(xmpfilter-run)
 imap <buffer> ;e <Plug>(xmpfilter-run)
-
 nmap <buffer> ;d <Plug>(xmpfilter-mark)
 xmap <buffer> ;d <Plug>(xmpfilter-mark)
 imap <buffer> ;d <Plug>(xmpfilter-mark)
@@ -177,6 +162,7 @@ let g:mustache_abbreviations = 1
 map // <plug>NERDCommenterToggle
 
 "map ;b :!open -a Safari %<CR><CR>
+"map <C-b> :!open -a Safari %<CR>
 
 " remap jk to escape
 imap jk <ESC>
@@ -197,8 +183,8 @@ endfunction
 nmap <silent><leader>[ :call LookupCurrentWordInDash()<CR>
 
 " remap autocomplete navigation to j/k keys
-inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
-inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+"inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+"inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 
 nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<CR>
 
@@ -255,7 +241,6 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-map <C-b> :!open -a Safari %<CR>
 
 " cmd-f for Ack
 "map <C-F> :Ack -i<space>
@@ -340,19 +325,19 @@ map <leader>g :call RopeGotoDefinition()<CR>
 let ropevim_enable_shortcuts = 1
 
 " toggle colored right border after 80 chars
-let s:color_column_old = 81
+"let s:color_column_old = 81
 
-function! s:ToggleColorColumn()
-    if s:color_column_old == 0
-        let s:color_column_old = &colorcolumn
-        windo let &colorcolumn = 0
-    else
-        windo let &colorcolumn=s:color_column_old
-        let s:color_column_old = 0
-    endif
-endfunction
+"function! s:ToggleColorColumn()
+    "if s:color_column_old == 0
+        "let s:color_column_old = &colorcolumn
+        "windo let &colorcolumn = 0
+    "else
+        "windo let &colorcolumn=s:color_column_old
+        "let s:color_column_old = 0
+    "endif
+"endfunction
 
-nnoremap <silent>;l :call <SID>ToggleColorColumn()<CR>
+"nnoremap <silent>;l :call <SID>ToggleColorColumn()<CR>
 
 autocmd FileType javascript,css nmap <silent> ,; :call cosco#commaOrSemiColon()<CR>
 autocmd FileType javascript,css inoremap <silent> ,; <ESC>:call cosco#commaOrSemiColon()"<CR>a
