@@ -14,7 +14,7 @@ Plug 'tpope/vim-liquid'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-surround'
 Plug 'mxw/vim-jsx'
-Plug 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic' | Plug 'jaxbot/syntastic-react'
 Plug 'scrooloose/nerdcommenter'
 Plug 'itspriddle/vim-marked'
 Plug 'mattn/emmet-vim'
@@ -136,6 +136,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 nnoremap <F5> "=strftime("%Y-%m-%d")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
+inoremap <C-]> <C-x><C-o>
 
 " set j/k keys to treat wrapped lines as multiple rows
 nnoremap j gj
@@ -246,12 +247,6 @@ endif
 "map <C-F> :Ack -i<space>
 " cmd-f for Silver Search
 map <C-F> :Ag<space>
-
-
-"map + :cnext<CR>
-"map _ :cprevious<CR>
-"map + :cnfile<CR>
-"map _ :cpfile<CR>
 
 " CommandT with double-comma
 "let g:ctrlp_map = ',,'

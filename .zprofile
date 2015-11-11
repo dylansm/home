@@ -7,6 +7,10 @@ export SCALA_HOME=/usr/local/scala
 export XCODE="`xcode-select --print-path`"
 export PATH="/usr/local/bin:$HOME/bin:/usr/local/sbin:/usr/local/mysql/bin:${SCALA_HOME}/bin:$PATH"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export KEYTIMEOUT=1
+HISTFILE=~/.zshrc.d/.zsh_history
+HISTSIZE=1024
+SAVEHIST=1024
 
 if [[ -f ~/.api_secrets.yml ]]; then
 
