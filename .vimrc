@@ -21,7 +21,7 @@ Plug 'itspriddle/vim-marked'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/mru.vim'
 
-" Group dependencies, vim-snippets depends on ultisnips
+" Group dependencies, vim-snippets depends on ultisnips # !> possibly useless use of a literal in void context
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
@@ -55,6 +55,7 @@ set noswapfile
 set showmatch
 set cursorline
 set cursorcolumn
+set laststatus=0
 "set backspace=2
 set backspace=indent,eol,start
 set expandtab
@@ -175,7 +176,7 @@ let g:mustache_abbreviations = 1
 " toggle comments
 map // <plug>NERDCommenterToggle
 
-map ;b :!open -a Safari %<CR><CR>
+"map ;b :!open -a Safari %<CR><CR>
 
 " remap jk to escape
 imap jk <ESC>
@@ -204,7 +205,7 @@ nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<CR>
 " set filetype to Ruby with :FR
 command! FR set filetype=ruby
 
-map ;k :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+"map ;k :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>ll :set list!<CR>
@@ -262,8 +263,8 @@ map <C-b> :!open -a Safari %<CR>
 map <C-F> :Ag<space>
 
 
-map + :cnext<CR>
-map _ :cprevious<CR>
+"map + :cnext<CR>
+"map _ :cprevious<CR>
 "map + :cnfile<CR>
 "map _ :cpfile<CR>
 
@@ -374,27 +375,49 @@ endfunction
 "let g:vimrubocop_config = '~/.rubocop.yml'
 
 " Paste automagically
-let &t_SI .= "\<Esc>[?2004h"
-let &t_EI .= "\<Esc>[?2004l"
+"let &t_SI .= "\<Esc>[?2004h"
+"let &t_EI .= "\<Esc>[?2004l"
 
-function! WrapForTmux(s)
-  if !exists('$TMUX')
-    return a:s
-  endif
+"function! WrapForTmux(s)
+  "if !exists('$TMUX')
+    "return a:s
+  "endif
 
-  let tmux_start = "\<Esc>Ptmux;"
-  let tmux_end = "\<Esc>\\"
+  "let tmux_start = "\<Esc>Ptmux;"
+  "let tmux_end = "\<Esc>\\"
 
-  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+  "return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+"endfunction
+
+"let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+"let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+
+"function! XTermPasteBegin()
+  "set pastetoggle=<Esc>[201~
+  "set paste
+  "return ""
+"endfunction
+
+"inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+let s:hidden_all = 0
+function! ToggleHiddenAll()
+    if s:hidden_all  == 0
+        let s:hidden_all = 1
+        set noshowmode
+        set noruler
+        set laststatus=0
+        set noshowcmd
+    else
+        let s:hidden_all = 0
+        set showmode
+        set ruler
+        set laststatus=2
+        set showcmd
+    endif
 endfunction
 
-let &t_SI .= WrapForTmux("\<Esc>[?2004h")
-let &t_EI .= WrapForTmux("\<Esc>[?2004l")
-
-function! XTermPasteBegin()
-  set pastetoggle=<Esc>[201~
-  set paste
-  return ""
-endfunction
-
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+nnoremap <silent>;h :call ToggleHiddenAll()<CR>
+# ~> -:24: syntax error, unexpected tCONSTANT, expecting end-of-input
+# ~> " Group dependencies, vim-snippets depends on ultisnips
+# ~>        ^

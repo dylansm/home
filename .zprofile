@@ -1,4 +1,4 @@
-export EDITOR="vim"
+export EDITOR="nvim"
 export LC_CTYPE=en_US.UTF-8
 export TERM=xterm-256color
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
