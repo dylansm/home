@@ -22,6 +22,7 @@ rm .pry_history
 rm .python_history # consider keeping this
 rm .rdebugrc
 rm .rediscli_history
+rm .scala_history
 rm .siegerc # consider keeping this
 rm -rf .subversion
 rm .v8flags*
