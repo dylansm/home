@@ -1,0 +1,28 @@
+!#/usr/bin/bash
+
+rm .CFUserTextEncoding
+rm .DS_Store
+rm -rf .Trash
+rm .NERDTreeBookmarks
+rm .bash_history
+rm -rf .cache
+rm .dbk_info
+rm -rf .gore # consider keeping this
+rm -rf .gradle # consider keeping this
+rm .guard_history
+rm .irb-history
+rm -rf .lldb
+rm .mysql_history
+rm -rf .node-gyp
+rm .node_repl_history
+rm -rf .oracle_jre_usage
+rm -rf .overtone
+rm .pry_history
+rm .python_history # consider keeping this
+rm .rdebugrc
+rm .rediscli_history
+rm .siegerc # consider keeping this
+rm -rf .subversion
+rm .v8flags*
+rm .viminf*
+rm .zcompdump
