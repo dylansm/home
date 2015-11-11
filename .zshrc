@@ -19,6 +19,7 @@ colors
 compinit
 promptinit
 
+set -o vi
 setopt promptsubst
 setopt autocd
 setopt nocaseglob  # set ignore case for ls etc
