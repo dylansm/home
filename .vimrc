@@ -418,6 +418,3 @@ function! ToggleHiddenAll()
 endfunction
 
 nnoremap <silent>;h :call ToggleHiddenAll()<CR>
-# ~> -:24: syntax error, unexpected tCONSTANT, expecting end-of-input
-# ~> " Group dependencies, vim-snippets depends on ultisnips
-# ~>        ^
