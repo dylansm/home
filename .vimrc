@@ -221,7 +221,7 @@ endfunction
 nmap <silent>;c :call ToggleCoffeeCompilation()<CR>
 " pull up most recent docs
 nmap <silent>;r :MRU<CR>
-"let MRU_File = '~/.vim/.vim_mru_files'
+
 let MRU_Max_Entries = 1000
 let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
 let MRU_Add_Menu = 0
