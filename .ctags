@@ -1,3 +1,5 @@
+--exclude=*.min.js
+
 --languages=-JavaScript
 --langdef=js
 --langmap=js:.js

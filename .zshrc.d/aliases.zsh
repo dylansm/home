@@ -26,6 +26,7 @@ alias gitu='git add -u'
 alias gr='cd /Users/Shared/Development/GitRepos'
 alias history='history 0'
 alias ipc="curl ifconfig.me | pbcopy"
+alias kite='open -a Kitematic\ \(Beta\)'
 alias l="ls -lG"
 alias ll="ls -alG"
 alias mmv='noglob zmv -W'
@@ -57,6 +58,7 @@ alias todo='cd ~/Dropbox/Todo'
 alias tree='tree -a'
 alias vag='vagrant'
 alias vim='nvim'
+alias vimalias='vim ~/.zshrc.d/aliases.zsh'
 #alias vim="reattach-to-user-namespace vim"
 alias xcode='cd /Users/Shared/Development/Xcode/Projects'
 

@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 Plug 'junegunn/seoul256.vim'
+Plug 'majutsushi/tagbar'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
 Plug 'rking/ag.vim'
@@ -73,11 +74,11 @@ set clipboard=unnamed
 set nofoldenable
 set showmode
 colorscheme onedark
-set omnifunc=syntaxcomplete#Complete
+"set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
 "set synmaxcol=120
-set tags+=gems.tags
-set tags+=js.tags
+"set tags+=gems.tags
+"set tags+=js.tags
 set encoding=utf-8
 setglobal fileencoding=utf-8
 set fileencoding=utf-8
