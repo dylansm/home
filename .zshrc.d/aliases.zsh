@@ -26,6 +26,7 @@ alias gitu='git add -u'
 alias gr='cd /Users/Shared/Development/GitRepos'
 alias history='history 0'
 alias ipc="curl ifconfig.me | pbcopy"
+alias l="ls -lG"
 alias ll="ls -alG"
 alias mmv='noglob zmv -W'
 alias nl="npm list --depth=0 2>/dev/null"
