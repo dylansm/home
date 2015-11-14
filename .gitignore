@@ -30,6 +30,7 @@
 .dvdcss/
 .eaglerc
 .gem/
+.pylint.d/
 .gitk
 .gittrees
 .gnupg

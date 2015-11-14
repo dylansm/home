@@ -1,10 +1,18 @@
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
+Plug 'dylansm/Synbad'
+Plug 'rking/ag.vim'
+Plug 'Raimondi/delimitMate'
+Plug 'mattn/emmet-vim'
+Plug 'vim-scripts/mru.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
-Plug 'rking/ag.vim'
+Plug 'helino/vim-json'
+Plug 'marijnh/tern_for_vim'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'pangloss/vim-javascript'
 Plug 'dylansm/vim-stripper'
 Plug 't9md/vim-ruby-xmpfilter'
 Plug 'vim-ruby/vim-ruby'
@@ -18,10 +26,11 @@ Plug 'mxw/vim-jsx'
 Plug 'scrooloose/syntastic' | Plug 'jaxbot/syntastic-react'
 Plug 'scrooloose/nerdcommenter'
 Plug 'itspriddle/vim-marked'
-Plug 'mattn/emmet-vim'
-Plug 'vim-scripts/mru.vim'
+Plug 'Valloric/YouCompleteMe'
+
 " Group dependencies, vim-snippets depends on ultisnips # !> possibly useless use of a literal in void context
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'dylansm/my-vim-snippets'
+
 " On-demand loading
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -95,6 +104,8 @@ let g:syntastic_check_on_wq = 1
 let g:syntastic_error_symbol = "➣"
 let g:syntastic_warning_symbol = "➢"
 let g:jsx_ext_required = 0
+"let g:syntastic_python_python_exec = '~/.pyenv/shims/python'
+let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_php_checkers = ['php']
 
@@ -128,9 +139,30 @@ let g:UltiSnipsSnippetDirectories=['vim-snippets', 'my-vim-snippets']
 "let g:UltiSnipsJumpForwardTrigger="<c-b>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " Set ultisnips triggers
-let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsExpandTrigger="jj"
+let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+"let g:ycm_key_list_select_completion=[]
+"let g:ycm_key_list_previous_completion=[]
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
+"let g:ycm_key_list_select_completion = ['<Enter>']
+"let g:ycm_key_invoke_completion = '<Enter>'
+
+let g:ycm_filetype_blacklist = {
+      \ 'gitcommit' : 1,
+      \ 'tagbar' : 1,
+      \ 'qf' : 1,
+      \ 'notes' : 1,
+      \ 'taskpaper' : 1,
+      \ 'markdown' : 1,
+      \ 'text' : 1,
+      \ 'infolog' : 1,
+      \ 'mail' : 1
+      \}
 
 " Toggle paste mode
 "nnoremap <C-P> :set invpaste paste?<CR>
