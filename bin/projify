@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 
-echo "hi"
+mkdir -p dist/build
+touch dist/build/.gitkeep
+mkdir -p dist/concat
+touch dist/concat/.gitkeep
+mkdir -p src/js
+touch src/js/.gitkeep
+mkdir -p test
+touch test/.gitkeep
