@@ -1,17 +1,21 @@
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
-Plug 'dylansm/Synbad'
 Plug 'rking/ag.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'mattn/emmet-vim'
+"Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'vim-scripts/mru.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'majutsushi/tagbar'
+Plug 'kchmck/vim-coffee-script'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
 Plug 'helino/vim-json'
 Plug 'marijnh/tern_for_vim'
+Plug 'mklabs/vim-backbone'
 Plug 'Lokaltog/vim-easymotion'
+Plug 'fatih/vim-go'
+Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'dylansm/vim-stripper'
 Plug 't9md/vim-ruby-xmpfilter'
@@ -93,13 +97,18 @@ setglobal fileencoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,latin1
 
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+
 " configure syntastic
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 let g:syntastic_error_symbol = "➣"
 let g:syntastic_warning_symbol = "➢"
@@ -108,6 +117,7 @@ let g:jsx_ext_required = 0
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_php_checkers = ['php']
+imap ;s <plug>SyntasticCheck
 
 function! <SID>LocationPrevious()
   if !empty(getloclist(0))
@@ -141,7 +151,7 @@ let g:UltiSnipsSnippetDirectories=['vim-snippets', 'my-vim-snippets']
 " Set ultisnips triggers
 "let g:UltiSnipsExpandTrigger="<tab>"
 "let g:UltiSnipsExpandTrigger="jj"
-let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsExpandTrigger="<C-J>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
@@ -164,6 +174,9 @@ let g:ycm_filetype_blacklist = {
       \ 'mail' : 1
       \}
 
+let g:ycm_semantic_triggers =  {
+  \   'coffee' : [' -> ', ' => ', '.'],
+  \ }
 " Toggle paste mode
 "nnoremap <C-P> :set invpaste paste?<CR>
 
@@ -187,6 +200,8 @@ imap <buffer> ;e <Plug>(xmpfilter-run)
 nmap <buffer> ;d <Plug>(xmpfilter-mark)
 xmap <buffer> ;d <Plug>(xmpfilter-mark)
 imap <buffer> ;d <Plug>(xmpfilter-mark)
+
+imap <C-c> <CR><Esc>O
 
 let g:mustache_abbreviations = 1
 
@@ -252,7 +267,7 @@ function! ToggleCoffeeCompilation()
 endfunction
 
 nmap <silent>;c :call ToggleCoffeeCompilation()<CR>
-" pull up most recent docs
+" most recently used
 nmap <silent>;r :MRU<CR>
 
 let MRU_Max_Entries = 1000
@@ -272,8 +287,10 @@ if has("autocmd")
   autocmd BufWritePost *.swift :make
   " format hamlc files as haml
   au BufRead,BufNewFile *.hamlc set ft=haml
-  au BufRead,BufNewFile *.go set st=8 sw=8 sts=8
-  au BufRead,BufNewFile *.java set st=4 sw=4 sts=4
+  "au BufRead,BufNewFile *.go set st=8 sw=8 sts=8
+  au BufRead,BufNewFile *.go set noet ts=4 sw=4
+  "au BufRead,BufNewFile *.java set st=4 sw=4 sts=4
+  au BufRead,BufNewFile *.java set ts=4 sw=4 sts=4
   autocmd BufNewFile,BufRead * setlocal formatoptions-=o
   "remember last position
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
