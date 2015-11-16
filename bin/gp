@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+gist_id = `pbpaste`
+unless gist_id
+  puts "Copy a Gist ID prior to using this tool."
+  exit
+end
+
+gist = %x(curl -H "Authorization: token #{ENV['GITHUB_AUTH_TOKEN']}" "https://gist.githubusercontent.com/dylansm/#{gist_id}/raw")
+
+def prompt(default, *args)
+  print(*args)
+  result = gets.strip
+  return result.empty? ? default : result
+end
+
+unless gist
+  puts "Nothing found. You pasted: #{gist_id}"
+else
+  filename = prompt('gist.txt', 'File name for gist: ')
+  output = File.open(filename, 'w')
+  output << gist
+  output.close
+  puts "Gist written to #{filename}"
+end
