@@ -1,12 +1,18 @@
 #!/usr/bin/env ruby
+require 'json'
 
 gist_id = `pbpaste`
+
 unless gist_id
   puts "Copy a Gist ID prior to using this tool."
   exit
 end
 
-gist = %x(curl -H "Authorization: token #{ENV['GITHUB_AUTH_TOKEN']}" "https://gist.githubusercontent.com/dylansm/#{gist_id}/raw")
+#gist = %x(curl -H "Authorization: token #{ENV['GITHUB_AUTH_TOKEN']}" "https://gist.githubusercontent.com/dylansm/#{gist_id}/raw")
+gist_all = `curl -H "Authorization: token $GITHUB_AUTH_TOKEN" https://api.github.com/gists/#{gist_id}`
+gist_json = JSON.parse(gist_all)
+filename_from_json = gist_json['files'].first[0]
+gist = gist_json['files'].first[1]['content']
 
 def prompt(default, *args)
   print(*args)
@@ -17,7 +23,7 @@ end
 unless gist
   puts "Nothing found. You pasted: #{gist_id}"
 else
-  filename = prompt('gist.txt', 'File name for gist: ')
+  filename = prompt(filename_from_json, "File name for gist (#{filename_from_json}): ")
   output = File.open(filename, 'w')
   output << gist
   output.close
