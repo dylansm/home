@@ -40,6 +40,8 @@ bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 bindkey "^p" up-line-or-beginning-search
 bindkey "^n" down-line-or-beginning-search
+bindkey -s '^g' '^Ugit status -s^M'
+bindkey -s '^h' ~/
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'   # case insensitive completion for cd etc *N*
