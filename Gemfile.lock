@@ -1,7 +1,12 @@
+GIT
+  remote: git://github.com/dylansm/gist.git
+  revision: 30d3228c2f68c707669c734c052eb7a10362c051
+  specs:
+    gist (4.4.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    gist (4.4.2)
     paint (0.8.7)
     rcodetools (0.8.5.0)
     wirb (1.0.3)
@@ -11,6 +16,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  gist
+  gist!
   rcodetools
   wirb

@@ -47,7 +47,6 @@ zle -N down-line-or-beginning-search
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'   # case insensitive completion for cd etc *N*
 zstyle ':completion:*:*:git:*' script ~/bin/.git-completion.sh
 
-
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
@@ -75,4 +74,5 @@ fi
 
 RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current')%{$fg[cyan]%} $(~/.gvm/bin/gvm-prompt)%{$reset_color%}%{$fg[green]%} py-$(pyenv global)%{$fg[magenta]%} $(~/.rvm/bin/rvm-prompt)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
 
+# Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

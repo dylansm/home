@@ -27,11 +27,6 @@ if [[ -f ~/.app_secrets.yml ]]; then
 
   export THE_DRAW_DEPLOY_USER=`ruby -ryaml -e "puts YAML::load_file(File.join(File.expand_path('~'), '.app_secrets.yml'))['thedraw']['defaults']['deploy_user']"`
 
-  #export LC_STUMPTOWN_CONTENTFUL_SPACE_ID=`ruby -ryaml -e "puts YAML::load_file(File.join(File.expand_path('~'), '.app_secrets.yml'))['stumptown']['defaults']['contentful']['space_id']"`
-  #export LC_STUMPTOWN_CONTENTFUL_PROD_TOKEN=`ruby -ryaml -e "puts YAML::load_file(File.join(File.expand_path('~'), '.app_secrets.yml'))['stumptown']['defaults']['contentful']['production_api_access_token']"`
-  #export LC_STUMPTOWN_CONTENTFUL_PREVIEW_TOKEN=`ruby -ryaml -e "puts YAML::load_file(File.join(File.expand_path('~'), '.app_secrets.yml'))['stumptown']['defaults']['contentful']['preview_api_access_token']"`
-  #export LC_STUMPTOWN_CONTENTFUL_MGMT_TOKEN=`ruby -ryaml -e "puts YAML::load_file(File.join(File.expand_path('~'), '.app_secrets.yml'))['stumptown']['defaults']['contentful']['management_api_oauth_access_token']"`
-
   #export RHIZOME_POSTMARK=`ruby -ryaml -e "puts YAML::load_file(File.join(File.expand_path('~'), '.app_secrets.yml'))['rhizome']['defaults']['postmark']"`
   #export RHIZOME_BUILDER_KEY=`ruby -ryaml -e "puts YAML::load_file(File.join(File.expand_path('~'), '.app_secrets.yml'))['rhizome']['defaults']['builder_key']"`
   #export RHIZOME_DROPBOX_KEY=`ruby -ryaml -e "puts YAML::load_file(File.join(File.expand_path('~'), '.app_secrets.yml'))['rhizome']['defaults']['dropbox_key']"`
@@ -52,4 +47,3 @@ if [[ -f ~/.app_secrets.yml ]]; then
 fi
 
 export NVM_DIR=~/.nvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
