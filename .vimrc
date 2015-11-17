@@ -97,10 +97,10 @@ setglobal fileencoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,latin1
 
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>r <Plug>(go-run)
+au FileType go nmap <Leader>b <Plug>(go-build)
+au FileType go nmap <Leader>t <Plug>(go-test)
+au FileType go nmap <Leader>c <Plug>(go-coverage)
 
 " configure syntastic
 "set statusline+=%#warningmsg#
@@ -229,7 +229,12 @@ function! LookupCurrentWordInDash()
   :redraw!
 endfunction
 
-nmap <silent><leader>[ :call LookupCurrentWordInDash()<CR>
+nmap <silent><Leader>[ :call LookupCurrentWordInDash()<CR>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ;a <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ;a <Plug>(EasyAlign)
 
 " remap autocomplete navigation to j/k keys
 "inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
@@ -243,9 +248,9 @@ command! FR set filetype=ruby
 "map ;k :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 " Shortcut to rapidly toggle `set list`
-nmap <leader>ll :set list!<CR>
+nmap <Leader>ll :set list!<CR>
 
-nnoremap <leader>sh :Slamhound<CR>
+nnoremap <Leader>sh :Slamhound<CR>
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬,trail:.
@@ -310,12 +315,12 @@ map ,, :FZF<CR>
 map \\ :NERDTreeToggle<CR>
 
 " change window
-map <leader>ww :winc w<CR>
+map <Leader>ww :winc w<CR>
 
 " quickfix open
-map <leader>aa :cope<CR>
+map <Leader>aa :cope<CR>
 " close
-map <leader>vv :ccl<CR>
+map <Leader>vv :ccl<CR>
 
 " Emmet / Zen Coding
 let g:user_emmet_install_global = 0
@@ -336,8 +341,8 @@ map <silent> ∆ <C-W>-
 map <silent> ˚ <C-W>+
 map <silent> ¬ <C-w>>
 
-let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
-"let g:rspec_command = '!rspec spec --drb --drb-port 8988'
+"let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+let g:rspec_command = '!rspec spec --drb --drb-port 8988'
 " vim-rspec mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
@@ -370,7 +375,7 @@ if executable('coffeetags')
 endif
 
 " python-mode
-map <leader>g :call RopeGotoDefinition()<CR>
+map <Leader>g :call RopeGotoDefinition()<CR>
 let ropevim_enable_shortcuts = 1
 
 " toggle colored right border after 80 chars
