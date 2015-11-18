@@ -1,4 +1,8 @@
 export EDITOR="nvim"
+#export PATH="$HOME/.rbenv/bin:$PATH"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+#if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+export NVM_DIR=~/.nvm
 export LC_CTYPE=en_US.UTF-8
 export TERM=xterm-256color
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -7,7 +11,6 @@ export SCALA_HOME=/usr/local/scala
 export XCODE="`xcode-select --print-path`"
 export PATH="/usr/local/bin:$HOME/bin:/usr/local/sbin:/usr/local/mysql/bin:${SCALA_HOME}/bin:$PATH"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export PYENV_ROOT=/usr/local/var/pyenv
 export KEYTIMEOUT=1
 HISTFILE=~/.zshrc.d/.zsh_history
 HISTSIZE=1024
@@ -45,5 +48,3 @@ if [[ -f ~/.app_secrets.yml ]]; then
   #export OAUTH_RAILS_DB_SECRET=`ruby -ryaml -e "puts YAML::load_file(File.join(File.expand_path('~'), '.app_secrets.yml'))['oauth_rails']['defaults']['dropbox_secret']"`
 
 fi
-
-export NVM_DIR=~/.nvm

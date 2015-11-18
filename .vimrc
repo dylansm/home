@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'rking/ag.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'mattn/emmet-vim'
-"Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'vim-scripts/mru.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'majutsushi/tagbar'
@@ -31,9 +30,11 @@ Plug 'scrooloose/syntastic' | Plug 'jaxbot/syntastic-react'
 Plug 'scrooloose/nerdcommenter'
 Plug 'itspriddle/vim-marked'
 Plug 'Valloric/YouCompleteMe'
+"Plug 'Shougo/deoplete.nvim'
 
-" Group dependencies, vim-snippets depends on ultisnips # !> possibly useless use of a literal in void context
+" Group dependencies, vim-snippets depends on ultisnips
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'dylansm/my-vim-snippets'
+"Plug 'Shougo/neosnippet.vim' | Plug 'honza/vim-snippets' | Plug 'dylansm/my-vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree'
@@ -43,6 +44,9 @@ Plug 'guns/vim-slamhound', { 'for': 'clojure' }
 Plug 'dylansm/one-dark.vim'
 " Add plugins to &runtimepath
 call plug#end()
+
+let g:deoplete#enable_at_startup = 1
+let g:neosnippet#enable_snipmate_compatibility = 1
 
 syntax on
 filetype plugin indent on
@@ -144,23 +148,20 @@ nnoremap <silent> <Plug>LocationNext        :<C-u>exe 'call <SID>LocationNext()'
 nmap <silent> <C-K> <Plug>LocationPrevious
 nmap <silent> <C-J> <Plug>LocationNext
 
+let g:UltiSnipsUsePythonVersion = 2
 let g:UltiSnipsSnippetDirectories=['vim-snippets', 'my-vim-snippets']
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" Set ultisnips triggers
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsExpandTrigger="jj"
 let g:UltiSnipsExpandTrigger="<C-J>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-"let g:ycm_key_list_select_completion=[]
-"let g:ycm_key_list_previous_completion=[]
+" NeoSnippet
+"imap <C-j>     <Plug>(neosnippet_expand_or_jump)
+"smap <C-j>     <Plug>(neosnippet_expand_or_jump)
+"xmap <C-j>     <Plug>(neosnippet_expand_target)
+"let g:neosnippet#snippets_directory='~/.vim/plugged/my-vim-snippets/snippets'
+
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
-"let g:ycm_key_list_select_completion = ['<Enter>']
-"let g:ycm_key_invoke_completion = '<Enter>'
 
 let g:ycm_filetype_blacklist = {
       \ 'gitcommit' : 1,
@@ -177,6 +178,7 @@ let g:ycm_filetype_blacklist = {
 let g:ycm_semantic_triggers =  {
   \   'coffee' : [' -> ', ' => ', '.'],
   \ }
+
 " Toggle paste mode
 "nnoremap <C-P> :set invpaste paste?<CR>
 

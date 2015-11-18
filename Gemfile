@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 gem 'wirb'
 gem 'rcodetools' # has xmpfilter for vim code eval
-gem 'gist', github: 'dylansm/gist'
+gem 'gist', git: 'https://github.com/dylansm/gist'
+
 #gem 'CoffeeTags'
 #gem 'guard'
 #gem 'guard-ctags-bundler'

@@ -69,6 +69,7 @@
 .pyenv/
 .python-eggs/
 .python_history
+.rbenv/
 .rbx
 .rdebug_hist
 .rediscli_history
