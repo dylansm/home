@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/dylansm/gist.git
+  remote: https://github.com/dylansm/gist
   revision: b35d7acf2de059f3a9f111e1aacb32352cbfaae2
   specs:
     gist (4.4.3)
@@ -19,3 +19,6 @@ DEPENDENCIES
   gist!
   rcodetools
   wirb
+
+BUNDLED WITH
+   1.10.6

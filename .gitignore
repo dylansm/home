@@ -29,6 +29,7 @@
 .dropbox*
 .dvdcss/
 .eaglerc
+.fzf/
 .gem/
 .pylint.d/
 .gist
@@ -69,6 +70,7 @@
 .pyenv/
 .python-eggs/
 .python_history
+.rbenv/
 .rbx
 .rdebug_hist
 .rediscli_history

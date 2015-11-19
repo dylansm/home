@@ -3,13 +3,13 @@ call plug#begin('~/.vim/plugged')
 Plug 'rking/ag.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'mattn/emmet-vim'
-"Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'vim-scripts/mru.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'majutsushi/tagbar'
 Plug 'kchmck/vim-coffee-script'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'helino/vim-json'
 Plug 'marijnh/tern_for_vim'
 Plug 'mklabs/vim-backbone'
@@ -18,7 +18,7 @@ Plug 'fatih/vim-go'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'dylansm/vim-stripper'
-Plug 't9md/vim-ruby-xmpfilter'
+"Plug 't9md/vim-ruby-xmpfilter'
 Plug 'vim-ruby/vim-ruby'
 Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-rails'
@@ -31,9 +31,11 @@ Plug 'scrooloose/syntastic' | Plug 'jaxbot/syntastic-react'
 Plug 'scrooloose/nerdcommenter'
 Plug 'itspriddle/vim-marked'
 Plug 'Valloric/YouCompleteMe'
+"Plug 'Shougo/deoplete.nvim'
 
-" Group dependencies, vim-snippets depends on ultisnips # !> possibly useless use of a literal in void context
+" Group dependencies, vim-snippets depends on ultisnips
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'dylansm/my-vim-snippets'
+"Plug 'Shougo/neosnippet.vim' | Plug 'honza/vim-snippets' | Plug 'dylansm/my-vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree'
@@ -43,6 +45,9 @@ Plug 'guns/vim-slamhound', { 'for': 'clojure' }
 Plug 'dylansm/one-dark.vim'
 " Add plugins to &runtimepath
 call plug#end()
+
+let g:deoplete#enable_at_startup = 1
+let g:neosnippet#enable_snipmate_compatibility = 1
 
 syntax on
 filetype plugin indent on
@@ -70,7 +75,6 @@ set nohlsearch
 set mouse=a
 set visualbell
 set nu
-set rtp+=/usr/local/opt/fzf
 set ruler
 set shada='1000,f1,<500,:100,/100
 set nowrap
@@ -97,10 +101,10 @@ setglobal fileencoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,latin1
 
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>r <Plug>(go-run)
+au FileType go nmap <Leader>b <Plug>(go-build)
+au FileType go nmap <Leader>t <Plug>(go-test)
+au FileType go nmap <Leader>c <Plug>(go-coverage)
 
 " configure syntastic
 "set statusline+=%#warningmsg#
@@ -144,23 +148,20 @@ nnoremap <silent> <Plug>LocationNext        :<C-u>exe 'call <SID>LocationNext()'
 nmap <silent> <C-K> <Plug>LocationPrevious
 nmap <silent> <C-J> <Plug>LocationNext
 
+let g:UltiSnipsUsePythonVersion = 2
 let g:UltiSnipsSnippetDirectories=['vim-snippets', 'my-vim-snippets']
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" Set ultisnips triggers
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsExpandTrigger="jj"
 let g:UltiSnipsExpandTrigger="<C-J>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-"let g:ycm_key_list_select_completion=[]
-"let g:ycm_key_list_previous_completion=[]
+" NeoSnippet
+"imap <C-j>     <Plug>(neosnippet_expand_or_jump)
+"smap <C-j>     <Plug>(neosnippet_expand_or_jump)
+"xmap <C-j>     <Plug>(neosnippet_expand_target)
+"let g:neosnippet#snippets_directory='~/.vim/plugged/my-vim-snippets/snippets'
+
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
-"let g:ycm_key_list_select_completion = ['<Enter>']
-"let g:ycm_key_invoke_completion = '<Enter>'
 
 let g:ycm_filetype_blacklist = {
       \ 'gitcommit' : 1,
@@ -177,6 +178,7 @@ let g:ycm_filetype_blacklist = {
 let g:ycm_semantic_triggers =  {
   \   'coffee' : [' -> ', ' => ', '.'],
   \ }
+
 " Toggle paste mode
 "nnoremap <C-P> :set invpaste paste?<CR>
 
@@ -194,12 +196,12 @@ nnoremap N Nzz
 nnoremap } }zz
 nnoremap { {zz
 
-nmap <buffer> ;e <Plug>(xmpfilter-run)
-xmap <buffer> ;e <Plug>(xmpfilter-run)
-imap <buffer> ;e <Plug>(xmpfilter-run)
-nmap <buffer> ;d <Plug>(xmpfilter-mark)
-xmap <buffer> ;d <Plug>(xmpfilter-mark)
-imap <buffer> ;d <Plug>(xmpfilter-mark)
+"nmap <buffer> ;e <Plug>(xmpfilter-run)
+"xmap <buffer> ;e <Plug>(xmpfilter-run)
+"imap <buffer> ;e <Plug>(xmpfilter-run)
+"nmap <buffer> ;d <Plug>(xmpfilter-mark)
+"xmap <buffer> ;d <Plug>(xmpfilter-mark)
+"imap <buffer> ;d <Plug>(xmpfilter-mark)
 
 imap <C-c> <CR><Esc>O
 
@@ -229,7 +231,12 @@ function! LookupCurrentWordInDash()
   :redraw!
 endfunction
 
-nmap <silent><leader>[ :call LookupCurrentWordInDash()<CR>
+nmap <silent><Leader>[ :call LookupCurrentWordInDash()<CR>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ;a <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ;a <Plug>(EasyAlign)
 
 " remap autocomplete navigation to j/k keys
 "inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
@@ -243,9 +250,9 @@ command! FR set filetype=ruby
 "map ;k :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 " Shortcut to rapidly toggle `set list`
-nmap <leader>ll :set list!<CR>
+nmap <Leader>ll :set list!<CR>
 
-nnoremap <leader>sh :Slamhound<CR>
+nnoremap <Leader>sh :Slamhound<CR>
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬,trail:.
@@ -310,12 +317,12 @@ map ,, :FZF<CR>
 map \\ :NERDTreeToggle<CR>
 
 " change window
-map <leader>ww :winc w<CR>
+map <Leader>ww :winc w<CR>
 
 " quickfix open
-map <leader>aa :cope<CR>
+map <Leader>aa :cope<CR>
 " close
-map <leader>vv :ccl<CR>
+map <Leader>vv :ccl<CR>
 
 " Emmet / Zen Coding
 let g:user_emmet_install_global = 0
@@ -336,8 +343,8 @@ map <silent> ∆ <C-W>-
 map <silent> ˚ <C-W>+
 map <silent> ¬ <C-w>>
 
-let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
-"let g:rspec_command = '!rspec spec --drb --drb-port 8988'
+"let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+let g:rspec_command = '!rspec spec --drb --drb-port 8988'
 " vim-rspec mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
@@ -370,7 +377,7 @@ if executable('coffeetags')
 endif
 
 " python-mode
-map <leader>g :call RopeGotoDefinition()<CR>
+map <Leader>g :call RopeGotoDefinition()<CR>
 let ropevim_enable_shortcuts = 1
 
 " toggle colored right border after 80 chars
