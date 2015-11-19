@@ -2,9 +2,12 @@
 
 mkdir -p dist/build
 touch dist/build/.gitkeep
-mkdir -p dist/concat
-touch dist/concat/.gitkeep
+#mkdir -p dist/concat
+#touch dist/concat/.gitkeep
 mkdir -p src/js
 touch src/js/.gitkeep
 mkdir -p test
-touch test/.gitkeep
+touch test/test.coffee
+printf "expect = chai.expect\n\nexpect(1).to.equal 1" > test/test.coffee
+mkdir -p gulp_tasks
+touch gulp_tasks/.gitkeep
