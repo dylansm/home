@@ -29,6 +29,7 @@
 .dropbox*
 .dvdcss/
 .eaglerc
+.fzf/
 .gem/
 .pylint.d/
 .gist

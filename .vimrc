@@ -9,6 +9,7 @@ Plug 'majutsushi/tagbar'
 Plug 'kchmck/vim-coffee-script'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'helino/vim-json'
 Plug 'marijnh/tern_for_vim'
 Plug 'mklabs/vim-backbone'
@@ -17,7 +18,7 @@ Plug 'fatih/vim-go'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'dylansm/vim-stripper'
-Plug 't9md/vim-ruby-xmpfilter'
+"Plug 't9md/vim-ruby-xmpfilter'
 Plug 'vim-ruby/vim-ruby'
 Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-rails'
@@ -74,7 +75,6 @@ set nohlsearch
 set mouse=a
 set visualbell
 set nu
-set rtp+=/usr/local/opt/fzf
 set ruler
 set shada='1000,f1,<500,:100,/100
 set nowrap
@@ -196,12 +196,12 @@ nnoremap N Nzz
 nnoremap } }zz
 nnoremap { {zz
 
-nmap <buffer> ;e <Plug>(xmpfilter-run)
-xmap <buffer> ;e <Plug>(xmpfilter-run)
-imap <buffer> ;e <Plug>(xmpfilter-run)
-nmap <buffer> ;d <Plug>(xmpfilter-mark)
-xmap <buffer> ;d <Plug>(xmpfilter-mark)
-imap <buffer> ;d <Plug>(xmpfilter-mark)
+"nmap <buffer> ;e <Plug>(xmpfilter-run)
+"xmap <buffer> ;e <Plug>(xmpfilter-run)
+"imap <buffer> ;e <Plug>(xmpfilter-run)
+"nmap <buffer> ;d <Plug>(xmpfilter-mark)
+"xmap <buffer> ;d <Plug>(xmpfilter-mark)
+"imap <buffer> ;d <Plug>(xmpfilter-mark)
 
 imap <C-c> <CR><Esc>O
 

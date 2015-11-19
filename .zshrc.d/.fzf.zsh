@@ -1,20 +1,20 @@
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
-  export PATH="$PATH:/usr/local/opt/fzf/bin"
+if [[ ! "$PATH" == */Users/dylan/.fzf/bin* ]]; then
+  export PATH="$PATH:/Users/dylan/.fzf/bin"
 fi
 
 # Man path
 # --------
-if [[ ! "$MANPATH" == */usr/local/opt/fzf/man* && -d "/usr/local/opt/fzf/man" ]]; then
-  export MANPATH="$MANPATH:/usr/local/opt/fzf/man"
+if [[ ! "$MANPATH" == */Users/dylan/.fzf/man* && -d "/Users/dylan/.fzf/man" ]]; then
+  export MANPATH="$MANPATH:/Users/dylan/.fzf/man"
 fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "/Users/dylan/.fzf/shell/completion.zsh" 2> /dev/null
 
 # Key bindings
 # ------------
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+source "/Users/dylan/.fzf/shell/key-bindings.zsh"
 

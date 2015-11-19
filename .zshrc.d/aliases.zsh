@@ -31,6 +31,7 @@ alias l="ls -lG"
 alias ll="ls -alG"
 alias mmv='noglob zmv -W'
 alias nl="npm list --depth=0 2>/dev/null"
+alias n="vim ~/Dropbox/Documents/Notes"
 alias npmg="npm list -g --depth=0 2>/dev/null"
 alias npmlo="npm outdated --depth=0"
 alias npmgo="npm outdated -g --depth=0"
@@ -50,7 +51,7 @@ alias repos="cd /Users/Shared/Development/GitRepos"
 alias res='cd ~/Dropbox/Documents/Resume'
 alias rmorig="find . -name \"*.orig\" -exec rm '{}' ';'"
 alias secret="ruby -rsecurerandom -e 'puts SecureRandom.hex(32)' | pbcopy; echo '32-byte hex secret copied to clipboard!'"
-alias sites='cd /Users/Shared/Development/Sites'
+alias s='cd /Users/Shared/Development/Sites'
 alias ta="tmux attach -t"
 alias tk="tmux kill-session -t"
 alias tl="tmux list-sessions"
