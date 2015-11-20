@@ -49,8 +49,6 @@ zstyle ':completion:*:*:git:*' script ~/bin/.git-completion.sh
 
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
 # show full history from line 1 or grep for something
 h() { if [ -z "$*" ]; then history 1; else history 1 | egrep "$@"; fi; }
 
@@ -77,4 +75,4 @@ fi
 #pyenv prompt
 #RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current')%{$fg[cyan]%} $(~/.gvm/bin/gvm-prompt)%{$reset_color%}%{$fg[green]%} py-$(pyenv global) %{$fg[magenta]%}ruby-$(rbenv global)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
 # no pyenv
-RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current')%{$fg[cyan]%} $(~/.gvm/bin/gvm-prompt)%{$reset_color%} %{$fg[magenta]%}ruby-$(rbenv global)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
+RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current')%{$fg[cyan]%} $(~/.gvm/bin/gvm-prompt)%{$reset_color%} %{$fg[magenta]%}ruby-$(ruby_version)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
