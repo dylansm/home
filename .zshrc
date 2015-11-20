@@ -70,9 +70,4 @@ else
 ${smiley} %{$reset_color%}'
 fi
 
-# rvm prompt
-#RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current')%{$fg[cyan]%} $(~/.gvm/bin/gvm-prompt)%{$reset_color%}%{$fg[green]%} py-$(pyenv global)%{$fg[magenta]%} $(~/.rvm/bin/rvm-prompt)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
-#pyenv prompt
-#RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current')%{$fg[cyan]%} $(~/.gvm/bin/gvm-prompt)%{$reset_color%}%{$fg[green]%} py-$(pyenv global) %{$fg[magenta]%}ruby-$(rbenv global)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
-# no pyenv
-RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current')%{$fg[cyan]%} $(~/.gvm/bin/gvm-prompt)%{$reset_color%} %{$fg[magenta]%}ruby-$(ruby_version)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
+RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current')%{$fg[cyan]%} $(~/.gvm/bin/gvm-prompt)%{$reset_color%}%{$fg[green]%} py-$(python_version) %{$fg[magenta]%}ruby-$(ruby_version)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
