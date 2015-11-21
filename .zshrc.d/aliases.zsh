@@ -29,9 +29,7 @@ alias ipc="curl ifconfig.me | pbcopy"
 alias kite='open -a Kitematic\ \(Beta\)'
 alias l="ls -lG"
 alias ll="ls -alG"
-alias mmv='noglob zmv -W'
-alias nl="npm list --depth=0 2>/dev/null"
-alias n="vim ~/Dropbox/Documents/Notes"
+#alias n="cd ~/Dropbox/Documents/Notes; vim -c 'FZF'"
 alias npmg="npm list -g --depth=0 2>/dev/null"
 alias npmlo="npm outdated --depth=0"
 alias npmgo="npm outdated -g --depth=0"

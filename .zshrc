@@ -7,8 +7,6 @@ if [ -d $HOME/.zshrc.d ]; then
   done
 fi
 
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 autoload -U colors \
   compinit \
   promptinit \
@@ -42,6 +40,8 @@ bindkey "^p" up-line-or-beginning-search
 bindkey "^n" down-line-or-beginning-search
 bindkey -s '^g' '^Ugit status -s^M'
 bindkey -s '^h' ~/
+bindkey -s '^f' '^Ufzf-tmux^M'
+bindkey -s '^n' '^Ufuzzy_open_notes^M'
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'   # case insensitive completion for cd etc *N*
@@ -71,3 +71,5 @@ ${smiley} %{$reset_color%}'
 fi
 
 RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current')%{$fg[cyan]%} $(~/.gvm/bin/gvm-prompt)%{$reset_color%}%{$fg[green]%} py-$(python_version) %{$fg[magenta]%}ruby-$(ruby_version)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
+
+[ -f ~/.zshrc.d/fzf.zsh ] && source ~/.zshrc.d/fzf.zsh

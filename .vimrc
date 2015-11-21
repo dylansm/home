@@ -10,6 +10,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'helino/vim-json'
 Plug 'marijnh/tern_for_vim'
 Plug 'mklabs/vim-backbone'
@@ -76,7 +77,6 @@ set mouse=a
 set visualbell
 set nu
 set ruler
-set shada='1000,f1,<500,:100,/100
 set nowrap
 set linebreak
 set showcmd
@@ -100,6 +100,10 @@ set encoding=utf-8
 setglobal fileencoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,latin1
+
+if has('nvim')
+  set shada='1000,f1,<500,:100,/100
+endif
 
 au FileType go nmap <Leader>r <Plug>(go-run)
 au FileType go nmap <Leader>b <Plug>(go-build)
@@ -311,7 +315,7 @@ map <C-F> :Ag<space>
 
 " CommandT with double-comma
 "let g:ctrlp_map = ',,'
-map ,, :FZF<CR>
+map ,, :Files<CR>
 
 " toggle NERDTree
 map \\ :NERDTreeToggle<CR>
