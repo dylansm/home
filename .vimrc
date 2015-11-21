@@ -4,7 +4,6 @@ Plug 'rking/ag.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/mru.vim'
-Plug 'junegunn/seoul256.vim'
 Plug 'majutsushi/tagbar'
 Plug 'kchmck/vim-coffee-script'
 Plug 'junegunn/vim-easy-align'
@@ -19,7 +18,6 @@ Plug 'fatih/vim-go'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'dylansm/vim-stripper'
-"Plug 't9md/vim-ruby-xmpfilter'
 Plug 'vim-ruby/vim-ruby'
 Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-rails'
@@ -29,15 +27,13 @@ Plug 'tpope/vim-haml'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'mxw/vim-jsx'
-Plug 'scrooloose/syntastic' | Plug 'jaxbot/syntastic-react'
+Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdcommenter'
 Plug 'itspriddle/vim-marked'
 Plug 'Valloric/YouCompleteMe'
-"Plug 'Shougo/deoplete.nvim'
 
 " Group dependencies, vim-snippets depends on ultisnips
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'dylansm/my-vim-snippets'
-"Plug 'Shougo/neosnippet.vim' | Plug 'honza/vim-snippets' | Plug 'dylansm/my-vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree'
@@ -115,13 +111,18 @@ au FileType go nmap <Leader>c <Plug>(go-coverage)
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
+"let g:syntastic_mode_map = { 'mode': 'active',
+  "\ 'active_filetypes': [],
+  "\ 'passive_filetypes': ['coffee', 'html'] }
+let g:syntastic_eruby_ruby_quiet_messages =
+    \ {'regex': 'possibly useless'}
 let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 let g:syntastic_error_symbol = "➣"
 let g:syntastic_warning_symbol = "➢"
-let g:jsx_ext_required = 0
+"let g:jsx_ext_required = 0
 "let g:syntastic_python_python_exec = '~/.pyenv/shims/python'
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_javascript_checkers = ['eslint']
@@ -186,6 +187,7 @@ let g:ycm_semantic_triggers =  {
 
 " Toggle paste mode
 "nnoremap <C-P> :set invpaste paste?<CR>
+nmap ,, :set invpaste paste?<CR>
 
 nnoremap <F5> "=strftime("%Y-%m-%d")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
@@ -262,11 +264,6 @@ nnoremap <Leader>sh :Slamhound<CR>
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬,trail:.
 set list listchars=tab:▸\ ,trail:.
-
-" Turn off validation on save for certain types
-let g:syntastic_mode_map = { 'mode': 'active',
-  \ 'active_filetypes': [],
-  \ 'passive_filetypes': ['coffee', 'html'] }
 
 function! ToggleCoffeeCompilation()
   if exists("g:coffee")
@@ -421,9 +418,6 @@ autocmd FileType javascript,css inoremap <silent> ,; <ESC>:call cosco#commaOrSem
 
 let g:CoffeeAutoTagDisabled=0         " Disables autotaging on save (Default: 0 [false])
 let g:CoffeeAutoTagIncludeVars=0  " Includes variables (Default: 0 [false])
-
-let g:syntastic_eruby_ruby_quiet_messages =
-    \ {'regex': 'possibly useless'}
 
 " Incr function will add numbers in search and replace
 " Usage: %s/change@me/\="change@me" . Incr()/
