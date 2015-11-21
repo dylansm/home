@@ -27,6 +27,7 @@ Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-liquid'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
 Plug 'mxw/vim-jsx'
 Plug 'scrooloose/syntastic' | Plug 'jaxbot/syntastic-react'
 Plug 'scrooloose/nerdcommenter'
@@ -310,12 +311,28 @@ endif
 
 " cmd-f for Ack
 "map <C-F> :Ack -i<space>
-" cmd-f for Silver Search
-map <C-F> :Ag<space>
+" ctrl-f for The Silver Searcher
+map <C-f> :Ag<space>
 
-" CommandT with double-comma
-"let g:ctrlp_map = ',,'
-map ,, :Files<CR>
+nmap <C-f><C-f> :FZF<CR>
+"let g:fzf_action = {
+  "\ 'ctrl-m': 'e',
+  "\ 'ctrl-t': 'tabedit',
+  "\ 'alt-j':  'botright split',
+  "\ 'alt-k':  'topleft split',
+  "\ 'alt-h':  'vertical topleft split',
+  "\ 'alt-l':  'vertical botright split' }
+
+" Normal mappings
+"nmap <leader><tab> <plug>(fzf-maps-n)
+"xmap <leader><tab> <plug>(fzf-maps-x)
+"omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+"imap <c-x><c-k> <plug>(fzf-complete-word)
+"imap <c-x><c-f> <plug>(fzf-complete-path)
+"imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+"imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " toggle NERDTree
 map \\ :NERDTreeToggle<CR>
