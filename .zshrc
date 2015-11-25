@@ -32,14 +32,16 @@ setopt share_history            # share hist between sessions
 bindkey -e
 bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word
-bindkey '^b' backward-word
-bindkey '^f' forward-word
+bindkey '˙' backward-word
+bindkey '¬' forward-word
+bindkey '^h' backward-char
+bindkey '^l' forward-char
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 bindkey "^p" up-line-or-beginning-search
 bindkey "^n" down-line-or-beginning-search
 bindkey -s '^g' '^Ugit status -s^M'
-bindkey -s '^h' ~/
+#bindkey -s '^h' ~/
 bindkey -s '^f' '^Ufzf-tmux^M'
 bindkey -s '^n' '^Ufuzzy_open_notes^M'
 zle -N up-line-or-beginning-search

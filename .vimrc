@@ -26,6 +26,7 @@ Plug 'tpope/vim-liquid'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'davidoc/taskpaper.vim'
 Plug 'mxw/vim-jsx'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdcommenter'
@@ -39,21 +40,35 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'dylansm/my-vim-snipp
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'guns/vim-slamhound', { 'for': 'clojure' }
+
 " Themes
 Plug 'dylansm/one-dark.vim'
+
 " Add plugins to &runtimepath
 call plug#end()
-
-let g:deoplete#enable_at_startup = 1
-let g:neosnippet#enable_snipmate_compatibility = 1
 
 syntax on
 filetype plugin indent on
 "let &colorcolumn=join(range(81,999),",")
 " use 'f' to toggle filter
 let NERDTreeIgnore = ['\.DS_Store', '\.sass-cache']
-let html_no_rendering=1
-let mapleader=","
+"highlight NERDTreeOpenable ctermfg=Blue
+"highlight NERDTreeClosable ctermfg=Blue
+highlight Title guifg=#20b950
+highlight NERDTreeOpenable guifg=#20b950
+highlight NERDTreeClosable guifg=#20b950
+"let loaded_nerd_tree=0
+
+let mapleader           = ","
+let html_no_rendering   = 1
+let g:netrw_liststyle   = 1
+let g:netrw_winsize     = 28
+let g:netrw_keepdir     = 0
+let g:netrw_list_hide   = '.*\.swp\*,.*\.swp$,.*\.swp\s,.*/$,.*/\s'
+let g:netrw_banner      = 0
+let g:netrw_dirhistmax  = 10
+let g:netrw_dirhist_cnt = 0
+"let g:netrw_altv        = 1
 set viminfo=""
 set noswapfile
 set showmatch
@@ -88,7 +103,7 @@ set clipboard=unnamed
 set nofoldenable
 set showmode
 colorscheme onedark
-"set omnifunc=syntaxcomplete#Complete
+set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
 "set synmaxcol=120
 "set tags+=gems.tags
@@ -114,6 +129,10 @@ au FileType go nmap <Leader>c <Plug>(go-coverage)
 "let g:syntastic_mode_map = { 'mode': 'active',
   "\ 'active_filetypes': [],
   "\ 'passive_filetypes': ['coffee', 'html'] }
+
+highlight SyntasticWarningSign guifg=Yellow guibg=#303030
+highlight SyntasticErrorSign guifg=Red guibg=#303030
+
 let g:syntastic_eruby_ruby_quiet_messages =
     \ {'regex': 'possibly useless'}
 let g:syntastic_always_populate_loc_list = 1
@@ -126,6 +145,7 @@ let g:syntastic_warning_symbol = "➢"
 "let g:syntastic_python_python_exec = '~/.pyenv/shims/python'
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_css_checkers = ['stylelint']
 let g:syntastic_php_checkers = ['php']
 imap ;s <plug>SyntasticCheck
 
@@ -333,6 +353,7 @@ nmap <C-f><C-f> :FZF<CR>
 
 " toggle NERDTree
 map \\ :NERDTreeToggle<CR>
+"map \\ :Lexplore<CR>
 
 " change window
 map <Leader>ww :winc w<CR>
