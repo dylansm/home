@@ -1,0 +1,9 @@
+*.swp
+*.retry
+.DS_Store
+tags
+.api_secrets.yml
+.app_secrets.yml
+.cache/
+.bundle/
+node_modules/

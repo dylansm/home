@@ -1,20 +1,13 @@
-*.swp
-*.retry
 .CFUserTextEncoding
-.DS_Store
 .FrontDesign/
 .NERDTreeBookmarks
 .Trash/
 .adobe/
-.api_secrets.yml
-.app_secrets.yml
-.atom
 .avrduderc
 .babel.json
 .bash*
 .boot2docker/
 .byebug_hist
-.cache/
 .cassandra/
 .cocoapods
 .coffee_history
@@ -115,5 +108,3 @@ Sites
 VirtualBox VMs/
 derby.log
 mbox
-node_modules/
-tags

@@ -3,7 +3,7 @@
   email = dylan@rh.izo.me
 [core]
   pager = less -FRSX
-  excludesfile = ~/.gitignore
+  excludesfile = ~/.git_excludes
 [color]
   ui = auto
   pager = true
