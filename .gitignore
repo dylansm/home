@@ -13,6 +13,7 @@
 .babel.json
 .bash*
 .boot2docker/
+.bundle/
 .byebug_hist
 .cache/
 .cassandra/

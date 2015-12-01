@@ -8,6 +8,7 @@ alias bin='if [ -d ./bin ]; then cd bin; else cd ~/bin; fi'
 alias brake='bundle exec rake'
 alias brewup='brew update && brew upgrade brew-cask && brew cleanup'
 alias bundled="echo '\nInstalling gems for development and test only...\n'; bundle install --without production staging"
+alias caski="brew cask install --appdir=/Applications --colorpickerdir=~/Library/ColorPickers"
 alias clearlog="sudo cat /dev/null > "
 alias cloj='cd /Users/Shared/Development/Clojure'
 alias code='cd /Users/Shared/Development/Code_Library'
