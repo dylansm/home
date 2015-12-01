@@ -105,7 +105,7 @@ set showmode
 colorscheme onedark
 set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
-"set synmaxcol=120
+set synmaxcol=120
 "set tags+=gems.tags
 "set tags+=js.tags
 set encoding=utf-8
@@ -206,8 +206,7 @@ let g:ycm_semantic_triggers =  {
   \ }
 
 " Toggle paste mode
-"nnoremap <C-P> :set invpaste paste?<CR>
-nmap ,, :set invpaste paste?<CR>
+nmap <C-P> :set invpaste paste?<CR>
 
 nnoremap <F5> "=strftime("%Y-%m-%d")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
@@ -230,7 +229,11 @@ nnoremap { {zz
 "xmap <buffer> ;d <Plug>(xmpfilter-mark)
 "imap <buffer> ;d <Plug>(xmpfilter-mark)
 
-imap <C-c> <CR><Esc>O
+" correct cursor placement after linebreak
+"imap <C-c> <CR><Esc>O
+inoremap {<cr> {<cr>}<c-o>O
+inoremap [<cr> [<cr>]<c-o>O
+inoremap (<cr> (<cr>)<c-o>O
 
 let g:mustache_abbreviations = 1
 
@@ -238,6 +241,7 @@ let g:mustache_abbreviations = 1
 
 " toggle comments
 map // <plug>NERDCommenterToggle
+let NERDSpaceDelims=1
 
 "map ;b :!open -a Safari %<CR><CR>
 "map <C-b> :!open -a Safari %<CR>
@@ -258,7 +262,8 @@ function! LookupCurrentWordInDash()
   :redraw!
 endfunction
 
-nmap <silent><Leader>[ :call LookupCurrentWordInDash()<CR>
+" nmap <silent><Leader>[ :call LookupCurrentWordInDash()<CR>
+nmap <silent>?? :call LookupCurrentWordInDash()<CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ;a <Plug>(EasyAlign)
@@ -434,8 +439,8 @@ let ropevim_enable_shortcuts = 1
 
 "nnoremap <silent>;l :call <SID>ToggleColorColumn()<CR>
 
-autocmd FileType javascript,css nmap <silent> ,; :call cosco#commaOrSemiColon()<CR>
-autocmd FileType javascript,css inoremap <silent> ,; <ESC>:call cosco#commaOrSemiColon()"<CR>a
+"autocmd FileType javascript,css nmap <silent> ,; :call cosco#commaOrSemiColon()<CR>
+"autocmd FileType javascript,css inoremap <silent> ,; <ESC>:call cosco#commaOrSemiColon()"<CR>a
 
 let g:CoffeeAutoTagDisabled=0         " Disables autotaging on save (Default: 0 [false])
 let g:CoffeeAutoTagIncludeVars=0  " Includes variables (Default: 0 [false])
@@ -450,32 +455,6 @@ function! Incr()
 endfunction
 
 "let g:vimrubocop_config = '~/.rubocop.yml'
-
-" Paste automagically
-"let &t_SI .= "\<Esc>[?2004h"
-"let &t_EI .= "\<Esc>[?2004l"
-
-"function! WrapForTmux(s)
-  "if !exists('$TMUX')
-    "return a:s
-  "endif
-
-  "let tmux_start = "\<Esc>Ptmux;"
-  "let tmux_end = "\<Esc>\\"
-
-  "return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
-"endfunction
-
-"let &t_SI .= WrapForTmux("\<Esc>[?2004h")
-"let &t_EI .= WrapForTmux("\<Esc>[?2004l")
-
-"function! XTermPasteBegin()
-  "set pastetoggle=<Esc>[201~
-  "set paste
-  "return ""
-"endfunction
-
-"inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 let s:hidden_all = 0
 function! ToggleHiddenAll()
