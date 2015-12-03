@@ -7,7 +7,9 @@ alias bfg="java -jar ~/bin/bfg-1.12.6.jar"
 alias bin='if [ -d ./bin ]; then cd bin; else cd ~/bin; fi'
 alias brake='bundle exec rake'
 alias brewup='brew update && brew upgrade brew-cask && brew cleanup'
+alias brewi='brew install'
 alias bundled="echo '\nInstalling gems for development and test only...\n'; bundle install --without production staging"
+alias caski="brew cask install --appdir=/Applications --colorpickerdir=~/Library/ColorPickers"
 alias clearlog="sudo cat /dev/null > "
 alias cloj='cd /Users/Shared/Development/Clojure'
 alias code='cd /Users/Shared/Development/Code_Library'
@@ -15,6 +17,7 @@ alias ctag='ctags -R --exclude=.git --exclude=log --exclude=tmp *'
 alias cuc='cucumber'
 alias curlh='curl -IL '
 alias d='cd ~/Desktop'
+alias dk='docker'
 alias dm='docker-machine'
 alias dev='cd /Users/Shared/Development'
 alias doc='cd ~/Dropbox/Documents'
@@ -49,7 +52,6 @@ alias repos="cd /Users/Shared/Development/GitRepos"
 alias res='cd ~/Dropbox/Documents/Resume'
 alias rmorig="find . -name \"*.orig\" -exec rm '{}' ';'"
 alias secret="ruby -rsecurerandom -e 'puts SecureRandom.hex(32)' | pbcopy; echo '32-byte hex secret copied to clipboard!'"
-alias s='cd /Users/Shared/Development/Sites'
 alias ta="tmux attach -t"
 alias tk="tmux kill-session -t"
 alias tl="tmux list-sessions"
