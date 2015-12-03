@@ -17,6 +17,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'fatih/vim-go'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
+Plug 'dylansm/nginx.vim'
 Plug 'dylansm/vim-stripper'
 Plug 'vim-ruby/vim-ruby'
 Plug 'thoughtbot/vim-rspec'
@@ -321,6 +322,7 @@ if has("autocmd")
   autocmd BufWritePost *.swift :make
   " format hamlc files as haml
   au BufRead,BufNewFile *.hamlc set ft=haml
+  au BufRead,BufNewFile *.conf set ft=apache
   "au BufRead,BufNewFile *.go set st=8 sw=8 sts=8
   au BufRead,BufNewFile *.go set noet ts=4 sw=4
   "au BufRead,BufNewFile *.java set st=4 sw=4 sts=4
