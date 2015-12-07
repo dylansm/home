@@ -6,6 +6,7 @@ if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 export JENV_ROOT=/usr/local/var/jenv
 export PYENV_ROOT=/usr/local/var/pyenv
 export NVM_DIR=~/.nvm
+eval $(docker-machine env default)
 export LC_CTYPE=en_US.UTF-8
 export TERM=xterm-256color
 export NVIM_TUI_ENABLE_TRUE_COLOR=1

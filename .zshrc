@@ -7,15 +7,14 @@ if [ -d $HOME/.zshrc.d ]; then
   done
 fi
 
-autoload -U colors \
-  compinit \
-  promptinit \
+autoload -Uz \
   up-line-or-beginning-search \
   down-line-or-beginning-search
+autoload -Uz colors && colors -i
+autoload -Uz compinit && compinit -i
+autoload -Uz promptinit && promptinit -i
 
-colors
-compinit
-promptinit
+fpath=(~/.zshrc.d/completion $fpath)
 
 setopt promptsubst
 setopt autocd
@@ -43,7 +42,7 @@ bindkey "^n" down-line-or-beginning-search
 bindkey -s '^g' '^Ugit status -s^M'
 #bindkey -s '^h' ~/
 bindkey -s '^f' '^Ufzf-tmux^M'
-bindkey -s '^n' '^Ufuzzy_open_notes^M'
+# bindkey -s '^n' '^Ufuzzy_open_notes^M'
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'   # case insensitive completion for cd etc *N*
