@@ -40,8 +40,9 @@ bindkey "^[[B" down-line-or-beginning-search
 bindkey "^p" up-line-or-beginning-search
 bindkey "^n" down-line-or-beginning-search
 bindkey -s '^g' '^Ugit status -s^M'
+bindkey -s '^f' '^Uag --nobreak --nonumbers --noheading . | fzf^M'
 #bindkey -s '^h' ~/
-bindkey -s '^f' '^Ufzf-tmux^M'
+# bindkey -s '^f' '^Ufzf-tmux^M'
 # bindkey -s '^n' '^Ufuzzy_open_notes^M'
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search

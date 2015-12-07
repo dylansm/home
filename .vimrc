@@ -333,19 +333,14 @@ if has("autocmd")
 endif
 
 
-" cmd-f for Ack
-"map <C-F> :Ack -i<space>
-" ctrl-f for The Silver Searcher
-map <C-f> :Ag<space>
+" map ;f :Ag -i<space>
+map ;f :Locate -i<space>
+map <C-F> :FZF<CR>
 
 nmap <C-f><C-f> :FZF<CR>
-"let g:fzf_action = {
-  "\ 'ctrl-m': 'e',
-  "\ 'ctrl-t': 'tabedit',
-  "\ 'alt-j':  'botright split',
-  "\ 'alt-k':  'topleft split',
-  "\ 'alt-h':  'vertical topleft split',
-  "\ 'alt-l':  'vertical botright split' }
+
+command! -nargs=1 Locate call fzf#run(
+  \ {'source': 'locate <q-args>', 'sink': 'e', 'options': '-m'})
 
 " Normal mappings
 "nmap <leader><tab> <plug>(fzf-maps-n)
