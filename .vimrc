@@ -333,9 +333,8 @@ if has("autocmd")
 endif
 
 
-" map ;f :Ag -i<space>
-map ;f :Locate -i<space>
-map <C-F> :FZF<CR>
+map <C-F> :Ag<space>
+map ;f :FZF<CR>
 
 nmap <C-f><C-f> :FZF<CR>
 
