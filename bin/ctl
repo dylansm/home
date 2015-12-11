@@ -11,6 +11,10 @@ class Controller
   CHILD_OFFSET_WIDTH = 10
   NOT_RUNNING_OFFSET_WIDTH = 4
 
+  PROCESS_EXCEPTIONS = {
+    "docker-machine" => { name: "VBoxNetDHCP", stop_cmd: "docker-machine stop default" }
+  }
+
   def initialize(cmd, app)
     @inactive_dir = find_or_create_inactive_dir
     apps = read_launch_agents
@@ -40,13 +44,13 @@ class Controller
       @app = k
       print k
       if running?
-        if @app == 'boot2docker'
-          (WIDTH - CHILD_OFFSET_WIDTH - k.length).times { print ' '}
-          puts "child process running".green
-        else
+        # if @app == 'boot2docker'
+          # (WIDTH - CHILD_OFFSET_WIDTH - k.length).times { print ' '}
+          # puts "child process running".green
+        # else
           (WIDTH + NOT_RUNNING_OFFSET_WIDTH - k.length).times { print ' '}
           puts "running".green
-        end
+        # end
       else
         (WIDTH - k.length).times { print ' '}
         puts "not running".red
@@ -82,10 +86,9 @@ class Controller
     else
       puts "\nStopping #{@app} with #{plist}..."
       `launchctl unload #{plist}`
-      if @app == 'boot2docker'
-        `boot2docker down`
+      if PROCESS_EXCEPTIONS.keys.include? @app
+        `#{PROCESS_EXCEPTIONS[@app][:stop_cmd]}`
       end
-      #puts $?
     end
 
     if !plist['inactive'] and File.exists? plist
@@ -94,17 +97,19 @@ class Controller
   end
 
   def running?
-    if @app == 'boot2docker'
-      `ps aux | grep #{@app} | grep -v grep | grep -v VirtualBox | grep -v #{__FILE__}`.length > 0
-    else
-      `ps aux | grep -w #{@app} | grep -v grep | grep -v tail | grep -v vim | grep -v #{__FILE__}`.length > 0
+    app_process_name = @app
+    if PROCESS_EXCEPTIONS.keys.include? @app
+      app_process_name = PROCESS_EXCEPTIONS[@app][:name]
     end
+    `ps aux | grep -w #{app_process_name} | grep -v grep | grep -v tail | grep -v vim | grep -v #{__FILE__}`.length > 0
   end
 
   def read_launch_agents
-    plists = Dir.glob(File.join(LAUNCH_AGENT_DIR, "homebrew*.plist"))
+    # plists = Dir.glob(File.join(LAUNCH_AGENT_DIR, "homebrew*.plist"))
+    plists = Dir.glob(File.join(LAUNCH_AGENT_DIR, "*.plist"))
     unless Dir[@inactive_dir].empty?
-      plists.concat Dir.glob(File.join(@inactive_dir, "homebrew*.plist"))
+      # plists.concat Dir.glob(File.join(@inactive_dir, "homebrew*.plist"))
+      plists.concat Dir.glob(File.join(@inactive_dir, "*.plist"))
     end
     Hash[plists.collect { |agent| [app_name(agent), agent] }]
   end
