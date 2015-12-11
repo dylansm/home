@@ -27,3 +27,4 @@ fkill() {
     kill -${1:-9} $pid
   fi
 }
+

@@ -17,6 +17,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'fatih/vim-go'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
+Plug 'dylansm/vim-super-retab'
 Plug 'dylansm/nginx.vim'
 Plug 'dylansm/vim-stripper'
 Plug 'vim-ruby/vim-ruby'
@@ -313,6 +314,8 @@ let MRU_Add_Menu = 0
 let g:tagbar_autofocus = 1
 nmap <silent>;; :TagbarOpenAutoClose<CR>
 "nmap <silent>;; :TagbarToggle<CR>
+nmap <silent><leader>s :call Tab2Space()<CR>
+nmap <silent><leader>t :call Space2Tab()<CR>
 nmap <silent>;w :set wrap!<CR>
 nmap <silent>;m :MarkedOpen!<CR>
 
@@ -325,6 +328,7 @@ if has("autocmd")
   au BufRead,BufNewFile *.conf set ft=apache
   "au BufRead,BufNewFile *.go set st=8 sw=8 sts=8
   au BufRead,BufNewFile *.go set noet ts=4 sw=4
+  au BufRead,BufNewFile *.markdown set noet sts=4 sw=4
   "au BufRead,BufNewFile *.java set st=4 sw=4 sts=4
   au BufRead,BufNewFile *.java set ts=4 sw=4 sts=4
   autocmd BufNewFile,BufRead * setlocal formatoptions-=o
@@ -384,12 +388,12 @@ map <silent> ˚ <C-W>+
 map <silent> ¬ <C-w>>
 
 "let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
-let g:rspec_command = '!rspec spec --drb --drb-port 8988'
+" let g:rspec_command = '!rspec spec --drb --drb-port 8988'
 " vim-rspec mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+" map <Leader>t :call RunCurrentSpecFile()<CR>
+" map <Leader>s :call RunNearestSpec()<CR>
+" map <Leader>l :call RunLastSpec()<CR>
+" map <Leader>a :call RunAllSpecs()<CR>
 
 function! SourceConfig()
   if filereadable(".config.vim")

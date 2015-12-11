@@ -39,6 +39,7 @@ alias gr='cd /Users/Shared/Development/GitRepos'
 alias history='history 0'
 alias ipc="curl ifconfig.me | pbcopy"
 alias kite='open -a Kitematic\ \(Beta\)'
+alias launchdir='cd ~/Library/LaunchAgents'
 alias l="ls -lG"
 alias ll="ls -alG"
 #alias n="cd ~/Dropbox/Documents/Notes; vim -c 'FZF'"
