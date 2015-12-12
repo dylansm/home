@@ -12,7 +12,7 @@ class Controller
   NOT_RUNNING_OFFSET_WIDTH = 4
 
   PROCESS_EXCEPTIONS = {
-    "docker-machine" => { name: "VBoxNetDHCP\|vmnet-dhcpd", stop_cmd: "docker-machine stop default" }
+    "docker-machine" => { name: "VBoxNetDHCP\|.docker/machine", stop_cmd: "docker-machine stop default" }
   }
 
   def initialize(cmd, app)
