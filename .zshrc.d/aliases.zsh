@@ -22,6 +22,7 @@ alias dkp='docker ps'
 alias dka='docker ps -a'
 alias dki='docker images'
 alias dkk='docker kill'
+alias dkl='docker logs'
 alias dkr='docker rm'
 alias dkrmi='docker rmi'
 alias dkb='docker build'
@@ -40,6 +41,7 @@ alias history='history 0'
 alias ipc="curl ifconfig.me | pbcopy"
 alias kite='open -a Kitematic\ \(Beta\)'
 alias launchdir='cd ~/Library/LaunchAgents'
+# alias ls='gls --color=auto -F'
 alias l="ls -lG"
 alias ll="ls -alG"
 #alias n="cd ~/Dropbox/Documents/Notes; vim -c 'FZF'"
