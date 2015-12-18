@@ -64,6 +64,7 @@ alias repos="cd /Users/Shared/Development/GitRepos"
 alias res='cd ~/Dropbox/Documents/Resume'
 alias rmorig="find . -name \"*.orig\" -exec rm '{}' ';'"
 alias secret="ruby -rsecurerandom -e 'puts SecureRandom.hex(32)' | pbcopy; echo '32-byte hex secret copied to clipboard!'"
+alias sites="cd ~/sites"
 alias ta="tmux attach -t"
 alias tk="tmux kill-session -t"
 alias tl="tmux list-sessions"
