@@ -75,5 +75,3 @@ fi
 RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current')%{$fg[cyan]%} $(~/.gvm/bin/gvm-prompt)%{$reset_color%}%{$fg[green]%} py-$(python_version) %{$fg[magenta]%}ruby-$(ruby_version)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
 
 [ -f ~/.zshrc.d/fzf.zsh ] && source ~/.zshrc.d/fzf.zsh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
