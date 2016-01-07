@@ -4,6 +4,7 @@
 .Trash/
 .adobe/
 .avrduderc
+.aws/
 .babel.json
 .bash*
 .boot2docker/
