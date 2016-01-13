@@ -150,7 +150,10 @@ let g:syntastic_warning_symbol = "➢"
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_css_checkers = ['stylelint']
+let g:syntastic_scss_checkers = ['stylelint']
 let g:syntastic_php_checkers = ['php']
+let g:syntastic_html_checkers = ['tidy']
+
 imap ;s <plug>SyntasticCheck
 
 function! <SID>LocationPrevious()

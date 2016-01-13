@@ -13,6 +13,7 @@ export TERM=xterm-256color
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export NODE_PATH=/usr/local/lib/node_modules
 export SCALA_HOME=/usr/local/scala
+export TIDY_HTML=~/.tidyrc
 export XCODE="`xcode-select --print-path`"
 export PATH="/usr/local/bin:$HOME/bin:/usr/local/sbin:/usr/local/opt/mysql56/bin/:${SCALA_HOME}/bin:$PATH"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
