@@ -1,0 +1,22 @@
+break-before-br: no
+char-encoding: latin1
+fix-uri: no
+indent-spaces: 2
+indent: auto
+input-xml: no
+markup: yes
+new-blocklevel-tags: cfoutput, cfquery
+new-empty-tags: cfelse
+new-inline-tags: cfif, cfelse, math, mroot,
+  mrow, mi, mn, mo, msqrt, mfrac, msubsup, munderover,
+  munder, mover, mmultiscripts, msup, msub, mtext,
+  mprescripts, mtable, mtr, mtd, mth
+numeric-entities: yes
+output-xml: no
+quote-ampersand: no
+quote-marks: yes
+quote-nbsp: yes
+show-warnings: yes
+uppercase-attributes: no
+uppercase-tags: no
+wrap: 80
