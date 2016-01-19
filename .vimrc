@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
-Plug 'rking/ag.vim'
+" Plug 'rking/ag.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/mru.vim'
@@ -309,7 +309,8 @@ endfunction
 
 nmap <silent>;c :call ToggleCoffeeCompilation()<CR>
 " most recently used
-nmap <silent>;r :MRU<CR>
+" nmap <silent>;r :MRU<CR>
+nmap <silent>;r :FZFMru<CR>
 
 let MRU_Max_Entries = 1000
 let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
@@ -341,25 +342,17 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-
 map <C-F> :Ag<space>
 map ;f :FZF<CR>
-
-nmap <C-f><C-f> :FZF<CR>
 
 command! -nargs=1 Locate call fzf#run(
   \ {'source': 'locate <q-args>', 'sink': 'e', 'options': '-m'})
 
-" Normal mappings
-"nmap <leader><tab> <plug>(fzf-maps-n)
-"xmap <leader><tab> <plug>(fzf-maps-x)
-"omap <leader><tab> <plug>(fzf-maps-o)
-
-" Insert mode completion
-"imap <c-x><c-k> <plug>(fzf-complete-word)
-"imap <c-x><c-f> <plug>(fzf-complete-path)
-"imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-"imap <c-x><c-l> <plug>(fzf-complete-line)
+command! FZFMru call fzf#run({
+\  'source':  v:oldfiles,
+\  'sink':    'e',
+\  'options': '-m -x +s',
+\  'down':    '40%'})
 
 " toggle NERDTree
 map \\ :NERDTreeToggle<CR>
