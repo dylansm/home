@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+git st | grep ?? | awk '{$1=""; print $0}' | xargs -L1 `mv $1 ~/Desktop/`

@@ -1,40 +1,79 @@
 #!/usr/bin/env ruby
 
+DEFAULT_BUNDLE_PATH = 'vendor/bundle'
 current_ruby_version = `ruby -v`[/(?!\s)\d.\d.\d/]
 
 if ARGV.length == 1
   ruby_version = current_ruby_version
-  gemset_name = ARGV[0]
-
+  bundle_path = ARGV[0].downcase
 elsif ARGV.length == 0
   puts "What Ruby version? (Default: #{current_ruby_version})"
 
   input = gets.chomp
   ruby_version = (input == '' ? current_ruby_version : input)
 
-  puts "What is the RVM gemset name?"
+  puts "Where should gems be saved? (Default: #{DEFAULT_BUNDLE_PATH})"
 
-  while gemset_name = gets.chomp.downcase
-    case gemset_name
+  # while bundle_path = gets.chomp.downcase
+    bundle_path = gets.chomp.downcase
+    case bundle_path
     when ''
-      puts 'A gemset name is required (or \'q\' to quit)'
+      bundle_path = DEFAULT_BUNDLE_PATH
+      puts "Using #{DEFAULT_BUNDLE_PATH} directory for gem dependencies..."
+      # break
     when 'q'
       puts 'Quitting...'
       exit
     else
-      puts "Using #{gemset_name.downcase}"
-      break
+      puts "Using '#{bundle_path}' to install gem dependencies..."
+      # break
     end
-  end
+  # end
 else
-  puts "Use either one argument for the gemset name or none to choose in step-by-step mode."
+  puts "Use either one argument for the bundle path or none to choose in step-by-step mode."
   exit
 end
 
-if File.exist? 'Gemfile'
-  puts "There's already a Gemfile here. Aborting."
-else
-  `printf "#ruby=ruby-#{ruby_version}\n#ruby-gemset=#{gemset_name}\n\nsource 'https://rubygems.org'\n\n" > Gemfile`
-  `rvm system do rvm gemset use #{gemset_name}`
+`mkdir -p #{bundle_path}`
+`mkdir -p '.bundle'`
+unless File.exist? '.bundle/config'
+  open('.bundle/config', 'w') do |f|
+    f << "---\n"
+    f << "BUNDLE_PATH: #{bundle_path}\n"
+    f << "BUNDLE_DISABLE_SHARED_GEMS: '1'"
+  end
 end
 
+def write_to_gitignore(mode, path)
+  open('.gitignore', mode) { |f| f.puts "#{path}/*" }
+end
+
+if File.exist? 'Gemfile'
+  puts "There is already a Gemfile here. Aborting."
+else
+  if File.exist? '.gitignore'
+    unless File.read('.gitignore').include?(bundle_path)
+      write_to_gitignore('a', bundle_path)
+    end
+  else
+    write_to_gitignore('w', bundle_path)
+  end
+  `printf "source 'https://rubygems.org'\n\n" > Gemfile`
+  `printf "#{ruby_version}" > .ruby-version`
+end
+
+puts "\nAdd gems to Gemfile?\n(comma-separated list of names with or without version using '@' e.g. 'capistrano@~>3.1')"
+
+gems_to_add = gets.chomp.downcase
+
+gems_to_add.split(',').each do |g|
+  open('Gemfile', 'a') do |f|
+    if g['@']
+      gv = g.split('@')
+      f.puts "gem '#{gv[0]}', '#{gv[1]}'"
+    else
+      f.puts "gem '#{g}'"
+    end
+  end
+end
+puts "\nGems added to Gemfile. Bundle away!"
