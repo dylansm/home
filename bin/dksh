@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-if [[ -z "$1" ]]; then
+if [[ $# -eq 0 ]]; then
   echo "Please specify the container on which to run bash interactively."
   exit
 fi

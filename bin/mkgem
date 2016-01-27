@@ -60,12 +60,19 @@ else
   end
   `printf "source 'https://rubygems.org'\n\n" > Gemfile`
   `printf "#{ruby_version}" > .ruby-version`
+
+  begin
+    `rvm -v`
+  rescue
+    puts "Not using rvm."
+  else
+    `rvm system do rvm use #{ruby_version}`
+  end
 end
 
 puts "\nAdd gems to Gemfile?\n(comma-separated list of names with or without version using '@' e.g. 'capistrano@~>3.1')"
 
 gems_to_add = gets.chomp.downcase
-
 gems_to_add.split(',').each do |g|
   open('Gemfile', 'a') do |f|
     if g['@']
@@ -76,4 +83,5 @@ gems_to_add.split(',').each do |g|
     end
   end
 end
+
 puts "\nGems added to Gemfile. Bundle away!"

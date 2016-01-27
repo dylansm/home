@@ -1,12 +1,14 @@
 #!/bin/bash
 
-read -p "Are you sure you want to remove all containers and images? (y/n): " -n 2 -r
-echo # cleaner prompt
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
-    exit 1
+if [[ $# -eq 0 ]]; then
+  read -p "Are you sure you want to remove all images? (y/n): " -n 2 -r
+  echo # cleaner prompt
+
+  if [[ ! $REPLY =~ ^[Yy]$ ]]
+  then
+      exit 1
+  fi
+  docker rmi -f $(docker images -q)
+else
+  docker rmi -f $(docker images | grep "$1" | awk '{print $3}')
 fi
-# Delete all containers
-docker rm $(docker ps -a -q)
-# Delete all images
-docker rmi $(docker images -q)
