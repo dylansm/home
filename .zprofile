@@ -9,7 +9,8 @@ eval $(docker-machine env default)
 export EDITOR="nvim"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export LC_CTYPE=en_US.UTF-8
-export TERM=xterm-256color
+# export TERM=xterm-256color-italic
+export TERM=screen-256color-italic
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export NODE_PATH=/usr/local/lib/node_modules
 export SCALA_HOME=/usr/local/scala

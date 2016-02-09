@@ -53,6 +53,9 @@ call plug#end()
 
 syntax on
 filetype plugin indent on
+
+highlight Comment cterm=italic
+
 "let &colorcolumn=join(range(81,999),",")
 " use 'f' to toggle filter
 let NERDTreeIgnore = ['\.DS_Store', '\.sass-cache']
