@@ -43,7 +43,7 @@ alias ipc="curl ifconfig.me | pbcopy"
 alias kite='open -a Kitematic\ \(Beta\)'
 alias launchdir='cd ~/Library/LaunchAgents'
 alias l="ls -lG"
-alias ll="ls -alG"
+alias ll="ls -AlGp"
 #alias n="cd ~/Dropbox/Documents/Notes; vim -c 'FZF'"
 alias npmg="npm list -g --depth=0 2>/dev/null"
 alias npmlo="npm outdated --depth=0"
@@ -64,6 +64,7 @@ alias repos="cd /Users/Shared/Development/GitRepos"
 alias res='cd ~/Dropbox/Documents/Resume'
 alias rmorig="find . -name \"*.orig\" -exec rm '{}' ';'"
 alias secret="ruby -rsecurerandom -e 'puts SecureRandom.hex(32)' | pbcopy; echo '32-byte hex secret copied to clipboard!'"
+alias ssh='TERM=xterm-256color ssh'
 alias sites="cd ~/sites"
 alias t="tmux"
 alias ta="tmux attach -t"

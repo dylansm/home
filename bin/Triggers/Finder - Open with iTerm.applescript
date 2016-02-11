@@ -16,6 +16,6 @@ end tell
 tell application "iTerm"
   set newWindow to (create window with default profile)
   tell current session of first window
-    write text "cd " & thePath & "; ls -al; pwd"
+    write text "cd " & thePath & "; ls -al; pwd; tmux"
   end tell
 end tell
