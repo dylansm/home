@@ -77,9 +77,9 @@ gems_to_add.split(',').each do |g|
   open('Gemfile', 'a') do |f|
     if g['@']
       gv = g.split('@')
-      f.puts "gem '#{gv[0]}', '#{gv[1]}'"
+      f.puts "gem '#{gv[0].lstrip}', '#{gv[1]}'"
     else
-      f.puts "gem '#{g}'"
+      f.puts "gem '#{g.lstrip}'"
     end
   end
 end
