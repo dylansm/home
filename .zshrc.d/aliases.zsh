@@ -43,8 +43,7 @@ alias history='history 0'
 alias ipc="curl ifconfig.me | pbcopy"
 alias kite='open -a Kitematic\ \(Beta\)'
 alias launchdir='cd ~/Library/LaunchAgents'
-alias l="ls -lG"
-alias ll="ls -AlGp"
+alias l="ls -AlGp"
 #alias n="cd ~/Dropbox/Documents/Notes; vim -c 'FZF'"
 alias npmg="npm list -g --depth=0 2>/dev/null"
 alias npmlo="npm outdated --depth=0"
