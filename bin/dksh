@@ -5,4 +5,4 @@ if [[ $# -eq 0 ]]; then
   exit
 fi
 
-docker exec -it "$1" bash
+docker exec -it "$1" bash || docker exec -it "$1" sh
