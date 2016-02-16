@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+if [[ ! $# -eq 2 ]]; then
+  echo "Please pass a Matroska (.mkv) filename and a destination filename."
+  exit
+fi
+
+ffmpeg -i $1 -vcodec libx264 $2
