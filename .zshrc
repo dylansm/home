@@ -60,7 +60,9 @@ function dash() {
 }
 
 # Save a smiley to a local variable if the last command exited with success.
-local smiley="%(?.%{$fg[green]%}☀︎ %{$reset_color%}.%{$fg[red]%}☁︎ %{$reset_color%})"
+# local smiley="%(?.%{$fg[green]%}☀︎ %{$reset_color%}.%{$fg[red]%}⚑ %{$reset_color%})"
+local smiley="%(?.%{$fg[green]%}✚ %{$reset_color%}.%{$fg[red]%}✚ %{$reset_color%})"
+
 # set tmux colors on error
 if [ "$TMUX" ]; then
   PROMPT='$(if [[ $? == '0' ]]; then $(tmux set status-left-bg "black"); else $(tmux set status-left-bg "red"); fi)
