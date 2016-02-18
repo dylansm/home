@@ -12,7 +12,7 @@ dkp() {
   docker ps | awk -v OFS='\t' '
   {
     if ($1 == "CONTAINER") {
-      printf(ENVIRON["Underscore"]ENVIRON["Italic"]ENVIRON["Green"]"%-16s %-30s\n"ENVIRON["Plain"], "Container", "Name")
+      printf(ENVIRON["Underscore"]ENVIRON["Italic"]ENVIRON["Green"]"%-16s %-40s\n"ENVIRON["Plain"], "Container", "Name")
       print ""
     } else {
       printf(ENVIRON["Bone"]"%-16s %s\n"ENVIRON["Plain"], $1, $NF)
@@ -25,7 +25,7 @@ dka() {
   docker ps -a | awk -v OFS='\t' '
   {
     if ($1 == "CONTAINER") {
-      printf(ENVIRON["Underscore"]ENVIRON["Italic"]ENVIRON["Cyan"]"%-16s %-30s\n"ENVIRON["Plain"], "Container", "Name")
+      printf(ENVIRON["Underscore"]ENVIRON["Italic"]ENVIRON["Cyan"]"%-16s %-40s\n"ENVIRON["Plain"], "Container", "Name")
       print ""
     } else {
       if ($0 ~ /Exited/) {
