@@ -113,7 +113,7 @@ set showmode
 colorscheme onedark
 set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
-set synmaxcol=120
+" set synmaxcol=120
 "set tags+=gems.tags
 "set tags+=js.tags
 set encoding=utf-8
@@ -327,6 +327,7 @@ nmap <silent>;c :call ToggleCoffeeCompilation()<CR>
 " most recently used
 " nmap <silent>;r :MRU<CR>
 nmap <silent>;r :FZFMru<CR>
+inoremap <expr> ;d fzf#complete('cat /usr/share/dict/web2')
 
 let MRU_Max_Entries = 1000
 let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'

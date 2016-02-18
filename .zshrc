@@ -54,26 +54,18 @@ zstyle ':completion:*:*:git:*' script ~/bin/.git-completion.sh
 # show full history from line 1 or grep for something
 h() { if [ -z "$*" ]; then history 1; else history 1 | egrep "$@"; fi; }
 
-# Open argument in Dash
-function dash() {
-  open "dash://$*"
-}
-
-# Save a smiley to a local variable if the last command exited with success.
-# local smiley="%(?.%{$fg[green]%}☀︎ %{$reset_color%}.%{$fg[red]%}⚑ %{$reset_color%})"
-local smiley="%(?.%{$fg[green]%}✚ %{$reset_color%}.%{$fg[red]%}✚ %{$reset_color%})"
-
+# prompt stuff
+prompt_icon="%(?.%{$fg[green]%}✚ %{$reset_color%}.%{$fg[red]%}✚ %{$reset_color%})"
 # set tmux colors on error
 if [ "$TMUX" ]; then
   PROMPT='$(if [[ $? == '0' ]]; then $(tmux set status-left-bg "black"); else $(tmux set status-left-bg "red"); fi)
 %~
-${smiley} %{$reset_color%}'
+${prompt_icon} %{$reset_color%}'
 else
   PROMPT='
 %~
-${smiley} %{$reset_color%}'
+${prompt_icon} %{$reset_color%}'
 fi
-
 RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current')%{$fg[cyan]%} $(~/.gvm/bin/gvm-prompt)%{$reset_color%}%{$fg[green]%} py-$(python_version) %{$fg[magenta]%}ruby-$(ruby_version)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
 
 [ -f ~/.zshrc.d/fzf.zsh ] && source ~/.zshrc.d/fzf.zsh

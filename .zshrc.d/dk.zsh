@@ -1,12 +1,3 @@
-export Bone=$'\x1b[38;2;180;192;170m'
-export DarkBone=$'\x1b[38;2;150;138;126m'
-export Cyan=$'\x1b[38;2;72;168;181m'
-export Green=$'\x1b[38;2;135;185;102m'
-export Italic=$'\e[3m'
-export Magenta=$'\x1b[38;2;184;93;213m'
-export Plain=$'\e[0m'
-export Underscore=$'\e[4m'
-
 dkp() {
   print ""
   docker ps | awk -v OFS='\t' '
@@ -42,10 +33,64 @@ dki() {
   docker images | awk -v OFS='\t' '
   {
     if ($1 == "REPOSITORY") {
-      printf(ENVIRON["Underscore"]ENVIRON["Italic"]ENVIRON["Cyan"]"%-35s %-10s %-15s %-15s %-8s\n"ENVIRON["Plain"], "Repository", "Tag", "Image ID", "Created", "Size")
+      printf(ENVIRON["Underscore"]ENVIRON["Italic"]ENVIRON["Cyan"]"%-28s %-10s %-15s %-17s %-9s\n"ENVIRON["Plain"], "Repository", "Tag", "Image ID", "Created", "Size")
       print ""
     } else {
-      printf(ENVIRON["Bone"]"%-35s %-10s %-15s %-2s %5s %-6s %s %s\n", $1, $2, $3, $4, $5, $6, $7, $8)
+      printf(ENVIRON["Bone"]"%-28s %-10s %-15s %-2s %7s %-6s %s %s\n", $1, $2, $3, $4, $5, $6, $7, $8)
     }
   }'
+}
+
+dkrm() {
+  running_count=$(docker info | grep Running: | awk '{print $NF}')
+  paused_count=$(docker info | grep Paused: | awk '{print $NF}')
+  stopped_count=$(docker info | grep Stopped: | awk '{print $NF}')
+  if [[ $running_count == "0" && $paused_count == "0" && $stopped_count == "0" ]]; then
+    print "\n`echo $Red`There are no containers to remove."
+  elif [[ ! $running_count == "0" || ! $paused_count == "0" ]]; then
+    if [[ $# -eq 0 ]]; then
+      unset tmp
+      vared -p "`print $Yellow`Are you sure you want to stop and remove all containers? (y/n):`echo $Plain` " -c tmp
+
+      if [[ $tmp =~ ^[Yy]$ ]]; then
+        docker stop $(docker ps -a -q)
+        docker rm $(docker ps -a -q)
+      fi
+
+    else
+      docker stop $(docker ps -a -f name=$1 -q)
+      docker rm $(docker ps -a -f name=$1 -q)
+    fi
+  elif [[ ! $stopped_count == "0" ]]; then
+    if [[ $# -eq 0 ]]; then
+      unset tmp
+      vared -p "`print $Yellow`Are you sure you want to remove all stopped containers? (y/n):`echo $Plain` " -c tmp
+
+      if [[ $tmp =~ ^[Yy]$ ]]; then
+        docker rm $(docker ps -a -q)
+      fi
+
+    else
+      docker rm $(docker ps -a -f name=$1 -q)
+    fi
+  fi
+}
+
+dkde() {
+  image_count=$(docker info | grep Images: | awk '{print $NF}')
+  if [[ $image_count == "0" ]]; then
+    print "\n`echo $Red`There are no docker images to delete."
+  else
+    if [[ $# -eq 0 ]]; then
+      unset tmp
+      print ''
+      vared -p "`echo $Yellow`Are you sure you want to remove all images? (y/n):`echo $Plain` " -c tmp
+
+      if [[ $tmp =~ ^[Yy]$ ]]; then
+        docker rmi -f $(docker images -q)
+      fi
+    else
+      docker rmi -f $(docker images | grep "$1" | awk '{print $3}')
+    fi
+  fi
 }

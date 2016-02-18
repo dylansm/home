@@ -9,7 +9,6 @@ eval $(docker-machine env default)
 export EDITOR="nvim"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export LC_CTYPE=en_US.UTF-8
-# export TERM=xterm-256color-italic
 if [[ $(uname) == "Darwin" ]]; then
   export TERM=screen-256color-italic
 fi
@@ -25,14 +24,16 @@ HISTFILE=~/.zshrc.d/.zsh_history
 HISTSIZE=1024
 SAVEHIST=1024
 
-if [[ -f ~/.api_secrets.yml ]]; then
-  export GITHUB_AUTH_TOKEN=`ruby -ryaml -e "puts YAML::load_file(File.join(File.expand_path('~'), '.api_secrets.yml'))['default']['github_auth_token']"`
-  export AWS_ACCESS_KEY_ID=`ruby -ryaml -e "puts YAML::load_file(File.join(File.expand_path('~'), '.api_secrets.yml'))['default']['aws_access_key_id']"`
-  export AWS_SECRET_ACCESS_KEY=`ruby -ryaml -e "puts YAML::load_file(File.join(File.expand_path('~'), '.api_secrets.yml'))['default']['aws_secret_access_key']"`
-  export NPM_TOKEN=`ruby -ryaml -e "puts YAML::load_file(File.join(File.expand_path('~'), '.api_secrets.yml'))['default']['npm_token']"`
-  export PINBOARD_API_KEY=`ruby -ryaml -e "puts YAML::load_file(File.join(File.expand_path('~'), '.api_secrets.yml'))['default']['pinboard_api_key']"`
+if [[ -f ~/.config/api_secrets.yml ]]; then
+  . ~/.zshrc.d/parse_yaml.zsh
+  eval $(parse_yaml ~/.config/api_secrets.yml)
+  export GITHUB_AUTH_TOKEN=`echo $default_github_auth_token`
+  export AWS_ACCESS_KEY_ID=`echo $default_aws_access_key_id`
+  export AWS_SECRET_ACCESS_KEY=`echo $default_aws_secret_access_key`
+  export NPM_TOKEN=`echo $default_npm_token`
+  export PINBOARD_API_KEY=`echo $default_pinboard_api_key`
 fi
 
-if [[ -f ~/.app_secrets.yml ]]; then
-  export THE_DRAW_DEPLOY_USER=`ruby -ryaml -e "puts YAML::load_file(File.join(File.expand_path('~'), '.app_secrets.yml'))['thedraw']['defaults']['deploy_user']"`
+if [[ -f ~/.config/app_secrets.yml ]]; then
+  export THE_DRAW_DEPLOY_USER=`echo $thedraw_defaults_deploy_user`
 fi
