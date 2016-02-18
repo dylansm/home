@@ -36,3 +36,16 @@ dka() {
     }
   }'
 }
+
+dki() {
+  print ""
+  docker images | awk -v OFS='\t' '
+  {
+    if ($1 == "REPOSITORY") {
+      printf(ENVIRON["Underscore"]ENVIRON["Italic"]ENVIRON["Cyan"]"%-35s %-10s %-15s %-15s %-8s\n"ENVIRON["Plain"], "Repository", "Tag", "Image ID", "Created", "Size")
+      print ""
+    } else {
+      printf(ENVIRON["Bone"]"%-35s %-10s %-15s %-2s %5s %-6s %s %s\n", $1, $2, $3, $4, $5, $6, $7, $8)
+    }
+  }'
+}
