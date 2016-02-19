@@ -49,7 +49,6 @@ alias ojp='cd ~/Dropbox/Documents/Project\ Documents/Owen\ Jones'
 alias p='cd /Users/Shared/Development/Projects'
 alias pdoc='cd ~/Dropbox/Documents/Project\ Documents'
 alias precomp="RAILS_ENV=production bundle exec rake assets:precompile"
-alias pwdc="pwd | pbcopy"
 alias rake='noglob rake' # allows rake and zsh to get along
 alias be='bundle exec'
 alias rakem="bundle exec rake db:migrate"
