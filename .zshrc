@@ -52,7 +52,7 @@ zstyle ':completion:*:*:git:*' script ~/bin/.git-completion.sh
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
 # show full history from line 1 or grep for something
-h() { if [ -z "$*" ]; then history 1; else history 1 | egrep "$@"; fi; }
+h() { if [ -z "$*" ]; then history; else history | egrep "$@"; fi; }
 
 # prompt stuff
 prompt_icon="%(?.%{$fg[green]%}✚ %{$reset_color%}.%{$fg[red]%}✚ %{$reset_color%})"

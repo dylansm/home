@@ -1,16 +1,3 @@
-dkp() {
-  print ""
-  docker ps | awk -v OFS='\t' '
-  {
-    if ($1 == "CONTAINER") {
-      printf(ENVIRON["Underscore"]ENVIRON["Italic"]ENVIRON["Green"]"%-16s %-40s\n"ENVIRON["Plain"], "Container", "Name")
-      print ""
-    } else {
-      printf(ENVIRON["Bone"]"%-16s %s\n"ENVIRON["Plain"], $1, $NF)
-    }
-  }'
-}
-
 dka() {
   print ""
   docker ps -a | awk -v OFS='\t' '
@@ -28,6 +15,34 @@ dka() {
   }'
 }
 
+dkb() {
+  if [[ $# -eq 0 ]]; then
+    dockerfile_dir=$(echo `pwd`)
+  else
+    dockerfile_dir=$(echo "`pwd`/$1")
+  fi
+  docker build $dockerfile_dir
+}
+
+dkde() {
+  image_count=$(docker info | grep Images: | awk '{print $NF}')
+  if [[ $image_count == "0" ]]; then
+    print "\n`echo $Red`There are no docker images to delete."
+  else
+    if [[ $# -eq 0 ]]; then
+      unset tmp
+      print ''
+      vared -p "`echo $Yellow`Are you sure you want to remove all images? (y/n):`echo $Plain` " -c tmp
+
+      if [[ $tmp =~ ^[Yy]$ ]]; then
+        docker rmi -f $(docker images -q)
+      fi
+    else
+      docker rmi -f $(docker images | grep "$1" | awk '{print $3}')
+    fi
+  fi
+}
+
 dki() {
   print ""
   docker images | awk -v OFS='\t' '
@@ -37,6 +52,37 @@ dki() {
       print ""
     } else {
       printf(ENVIRON["Bone"]"%-28s %-10s %-15s %-2s %7s %-6s %s %s\n", $1, $2, $3, $4, $5, $6, $7, $8)
+    }
+  }'
+}
+
+dkins() {
+  if [[ $# -eq 0 ]]; then
+    print "\n`echo $Yellow`Container name or ID required."
+  else
+    name=$(docker ps -a | awk '{print $NF}' | grep "$@" | awk '{print $1}')
+    if [[ $name == '' ]]; then
+      docker inspect "$@" | pygmentize -l json | less -R
+    else
+      # if [[ $name =~ \w+\n\w+ ]]; then
+      if [[ $name =~ $'\n' ]]; then
+        print "${Red}\nMore than one container found. Try using a longer name."
+      else
+        docker inspect "$name" | pygmentize -l json | less -R
+      fi
+    fi
+  fi
+}
+
+dkp() {
+  print ""
+  docker ps | awk -v OFS='\t' '
+  {
+    if ($1 == "CONTAINER") {
+      printf(ENVIRON["Underscore"]ENVIRON["Italic"]ENVIRON["Green"]"%-16s %-40s\n"ENVIRON["Plain"], "Container", "Name")
+      print ""
+    } else {
+      printf(ENVIRON["Bone"]"%-16s %s\n"ENVIRON["Plain"], $1, $NF)
     }
   }'
 }
@@ -72,25 +118,6 @@ dkrm() {
 
     else
       docker rm $(docker ps -a -f name=$1 -q)
-    fi
-  fi
-}
-
-dkde() {
-  image_count=$(docker info | grep Images: | awk '{print $NF}')
-  if [[ $image_count == "0" ]]; then
-    print "\n`echo $Red`There are no docker images to delete."
-  else
-    if [[ $# -eq 0 ]]; then
-      unset tmp
-      print ''
-      vared -p "`echo $Yellow`Are you sure you want to remove all images? (y/n):`echo $Plain` " -c tmp
-
-      if [[ $tmp =~ ^[Yy]$ ]]; then
-        docker rmi -f $(docker images -q)
-      fi
-    else
-      docker rmi -f $(docker images | grep "$1" | awk '{print $3}')
     fi
   fi
 }

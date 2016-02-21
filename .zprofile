@@ -4,11 +4,11 @@ if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 export JENV_ROOT=/usr/local/var/jenv
 export PYENV_ROOT=/usr/local/var/pyenv
 export NVM_DIR=~/.nvm
-export FZF_DEFAULT_COMMAND='ag -g ""'
 eval $(docker-machine env default)
+export FZF_DEFAULT_COMMAND='ag -g ""'
 export EDITOR="nvim"
-export PATH="$HOME/.rbenv/bin:$PATH"
 export LC_CTYPE=en_US.UTF-8
+export PATH="$HOME/.rbenv/bin:$PATH"
 if [[ $(uname) == "Darwin" ]]; then
   export TERM=screen-256color-italic
 fi
