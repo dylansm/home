@@ -6,10 +6,10 @@ dka() {
       printf(ENVIRON["Underscore"]ENVIRON["Italic"]ENVIRON["Cyan"]"%-16s %-40s\n"ENVIRON["Plain"], "Container", "Name")
       print ""
     } else {
-      if ($0 ~ /Exited/) {
-        printf(ENVIRON["DarkBone"]"%-16s %s\n"ENVIRON["Plain"], $1, $NF)
-      } else {
+      if ($0 ~ /Up/) {
         printf(ENVIRON["Bone"]"%-16s %s\n"ENVIRON["Plain"], $1, $NF)
+      } else {
+        printf(ENVIRON["DarkBone"]"%-16s %s\n"ENVIRON["Plain"], $1, $NF)
       }
     }
   }'
@@ -96,6 +96,7 @@ dkrm() {
   elif [[ ! $running_count == "0" || ! $paused_count == "0" ]]; then
     if [[ $# -eq 0 ]]; then
       unset tmp
+      print ''
       vared -p "`print $Yellow`Are you sure you want to stop and remove all containers? (y/n):`echo $Plain` " -c tmp
 
       if [[ $tmp =~ ^[Yy]$ ]]; then
@@ -110,6 +111,7 @@ dkrm() {
   elif [[ ! $stopped_count == "0" ]]; then
     if [[ $# -eq 0 ]]; then
       unset tmp
+      print ''
       vared -p "`print $Yellow`Are you sure you want to remove all stopped containers? (y/n):`echo $Plain` " -c tmp
 
       if [[ $tmp =~ ^[Yy]$ ]]; then
