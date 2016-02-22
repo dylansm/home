@@ -63,7 +63,7 @@ alias ssh='TERM=xterm-256color ssh'
 alias sites="cd ~/sites"
 alias t="tmux"
 alias ta="tmux attach -t"
-alias tk="tmux kill-session -t"
+# alias tk="tmux kill-session -t"
 # alias tl="tmux list-sessions"
 alias todo='cd ~/Dropbox/Todo'
 alias tree='tree -a'
