@@ -22,6 +22,7 @@ Plug 'dylansm/vim-super-retab'
 Plug 'dylansm/nginx.vim'
 Plug 'dylansm/vim-stripper'
 Plug 'dylansm/vim-twig'
+Plug 'ruanyl/vim-fixmyjs'
 Plug 'vim-ruby/vim-ruby'
 Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-rails'
@@ -341,6 +342,7 @@ nmap <silent><leader>s :call Tab2Space()<CR>
 nmap <silent><leader>t :call Space2Tab()<CR>
 nmap <silent>;w :set wrap!<CR>
 nmap <silent>;m :MarkedOpen!<CR>
+noremap <Leader>f :Fixmyjs<CR>
 
 if has("autocmd")
   " if global custom variable "coffee" is set (using let)

@@ -64,7 +64,6 @@ dkins() {
     if [[ $name == '' ]]; then
       docker inspect "$@" | pygmentize -l json | less -R
     else
-      # if [[ $name =~ \w+\n\w+ ]]; then
       if [[ $name =~ $'\n' ]]; then
         print "${Red}\nMore than one container found. Try using a longer name."
       else
@@ -121,5 +120,22 @@ dkrm() {
     else
       docker rm $(docker ps -a -f name=$1 -q)
     fi
+  fi
+}
+
+dksh() {
+  if [[ $# -eq 0 ]]; then
+    print ''
+    echo "${Red}Please specify a container to shell into."
+  else
+    id=$(docker ps | grep "$1" | awk '{print $1}')
+    if [[ $id == '' ]]; then
+      name_or_id="$1"
+    elif [[ $id =~ $'\n' ]]; then
+      print "${Red}\nMore than one container found. Try using a longer name.\n${Plain}"
+    else
+      name_or_id="$id"
+    fi
+    docker exec -it "$name_or_id" bash || docker exec -it "$name_or_id" sh
   fi
 }

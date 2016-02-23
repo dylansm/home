@@ -51,6 +51,7 @@ alias pdoc='cd ~/Dropbox/Documents/Project\ Documents'
 alias precomp="RAILS_ENV=production bundle exec rake assets:precompile"
 alias rake='noglob rake' # allows rake and zsh to get along
 alias be='bundle exec'
+alias n='cd ~/Dropbox/Documents/Notes'
 alias rakem="bundle exec rake db:migrate"
 alias rakemt="bundle exec rake db:migrate RAILS_ENV=test"
 alias raker="bundle exec rake db:rollback"

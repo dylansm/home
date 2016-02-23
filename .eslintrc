@@ -41,6 +41,7 @@
 
   "rules": {
     "array-bracket-spacing": [1, "never"],
+    "block-spacing": [2, "always"],
     "computed-property-spacing": [1, "never"],
     "no-comma-dangle": 0,
     "no-cond-assign": 0,
@@ -138,7 +139,7 @@
     "no-restricted-modules": 0,
     "no-sync": 0,
 
-    "brace-style": 0,
+    "brace-style": [2, "1tbs", { "allowSingleLine": true }],
     "camelcase": 0,
     "comma-spacing": [1, {"before": false, "after": true}],
     "comma-style": 0,
@@ -147,6 +148,7 @@
     "func-names": 0,
     "func-style": 0,
     "key-spacing": 0,
+    "keyword-spacing": 1,
     "max-nested-callbacks": 0,
     "new-cap": 0,
     "new-parens": 0,
@@ -171,7 +173,6 @@
     "semi": [2, "always"],
     "sort-vars": 0,
     "space-after-function-name": 0,
-    "space-after-keywords": 0,
     "space-before-blocks": 1,
     "space-before-function-paren": [1, "never"],
     "space-in-brackets": 0,
