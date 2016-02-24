@@ -27,15 +27,6 @@ fd() {
   dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
 }
 
-# edit in vim
-fe() {
-  IFS='
-'
-  local declare files=($(fzf-tmux --query="$1" --select-1 --exit-0))
-  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
-  unset IFS
-}
-
 # fuzzy kill processes
 fkill() {
   pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
@@ -44,4 +35,9 @@ fkill() {
   then
     kill -${1:-9} $pid
   fi
+}
+
+fuzzy_notes() {
+  cd ~/Dropbox/Documents/Notes;
+  vim "$(fzf)"
 }

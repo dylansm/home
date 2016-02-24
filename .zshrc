@@ -13,6 +13,7 @@ autoload -Uz \
 autoload -Uz colors && colors -i
 autoload -Uz compinit && compinit -i
 autoload -Uz promptinit && promptinit -i
+autoload -Uz zmv
 
 fpath=(~/.zshrc.d/completion $fpath)
 
@@ -41,9 +42,8 @@ bindkey "^p" up-line-or-beginning-search
 bindkey "^n" down-line-or-beginning-search
 bindkey -s '^g' '^Ugit status -s^M'
 bindkey -s '^f' '^Uag --nobreak --nonumbers --noheading . | fzf^M'
-#bindkey -s '^h' ~/
-# bindkey -s '^f' '^Ufzf-tmux^M'
-# bindkey -s '^n' '^Ufuzzy_open_notes^M'
+bindkey -s '^f' '^Uvim "$(fzf)"^M'
+bindkey -s '^n' '^Ufuzzy_notes^M'
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'   # case insensitive completion for cd etc *N*
