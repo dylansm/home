@@ -4,7 +4,9 @@ if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 export JENV_ROOT=/usr/local/var/jenv
 export PYENV_ROOT=/usr/local/var/pyenv
 export NVM_DIR=~/.nvm
-eval $(docker-machine env default)
+if which docker-machine > /dev/null; then
+  eval $(docker-machine env default)
+fi
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export EDITOR="nvim"
 export LC_CTYPE=en_US.UTF-8
