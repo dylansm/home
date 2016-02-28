@@ -7,6 +7,8 @@ export NVM_DIR=~/.nvm
 if which docker-machine > /dev/null; then
   eval $(docker-machine env default)
 fi
+export MPD_HOST="music-mini.local"
+export MPD_PORT=32768
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export EDITOR="nvim"
 export LC_CTYPE=en_US.UTF-8

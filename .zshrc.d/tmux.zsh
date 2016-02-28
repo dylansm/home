@@ -1,3 +1,12 @@
+t() {
+  if [[ $# -gt 0 ]]; then
+    session=$(replaceSpaces "$*")
+    `tmux new-session -s "$session"`
+  else
+    `tmux`
+  fi
+}
+
 tk() {
   if [[ $# -eq 1 ]]; then
     `tmux kill-session -t $1`

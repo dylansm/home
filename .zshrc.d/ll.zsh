@@ -7,7 +7,7 @@ function ll {
     export target=`pwd`
   fi
 
-  ls -Alp $target | awk '
+  ls -Alp "$target" | awk '
     function details(color) {
       printf(ENVIRON[color]"%-13s%5s   %8s • %-6s  %8s    %s %2s", $1, $2, $3, $4, $5, $6, $7)
     }

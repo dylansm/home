@@ -25,6 +25,7 @@ alias dkk='docker kill'
 alias dmip='docker-machine ip default'
 alias dmipc='docker-machine ip default | pbcopy'
 alias dkl='docker logs -f'
+alias dkr='docker-machine regenerate-certs default'
 alias dks='docker stop $(docker ps -q)'
 alias dku='docker-compose up -d'
 alias dm='docker-machine'
@@ -62,8 +63,7 @@ alias rmorig="find . -name \"*.orig\" -exec rm '{}' ';'"
 alias secret="ruby -rsecurerandom -e 'puts SecureRandom.hex(32)' | pbcopy; echo '32-byte hex secret copied to clipboard!'"
 alias ssh='TERM=xterm-256color ssh'
 alias sites="cd ~/sites"
-alias t="tmux"
-alias ta="tmux attach -t"
+# alias ta="tmux attach -t"
 # alias tk="tmux kill-session -t"
 # alias tl="tmux list-sessions"
 alias todo='cd ~/Dropbox/Todo'

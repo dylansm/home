@@ -8,3 +8,11 @@ url_encode() {
 purlc() {
   url_encode
 }
+
+replaceSpaces() {
+  # use "$@*" to pass $@ as a single parameter to this function
+  # default to '_' unless 2nd arg passed
+  replacement=${2:-_}
+  echo ${1// /$replacement}
+}
+

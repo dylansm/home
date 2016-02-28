@@ -1,3 +1,5 @@
+" set runtimepath+=/Users/Shared/Development/Projects/Vim/Synbad
+set runtimepath+=/Users/Shared/Development/Projects/Vim/HuePickens
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 " Plug 'rking/ag.vim'
@@ -22,6 +24,7 @@ Plug 'dylansm/vim-super-retab'
 Plug 'dylansm/nginx.vim'
 Plug 'dylansm/vim-stripper'
 Plug 'dylansm/vim-twig'
+Plug 'dylansm/synbad'
 Plug 'ruanyl/vim-fixmyjs'
 Plug 'vim-ruby/vim-ruby'
 Plug 'thoughtbot/vim-rspec'
@@ -80,6 +83,8 @@ let g:netrw_dirhist_cnt = 0
 "let g:netrw_altv        = 1
 set viminfo=""
 set noswapfile
+set splitbelow
+set splitright
 set showmatch
 set cursorline
 set cursorcolumn
@@ -356,6 +361,7 @@ if has("autocmd")
   au BufRead,BufNewFile *.markdown set noet sts=4 sw=4
   "au BufRead,BufNewFile *.java set st=4 sw=4 sts=4
   au BufRead,BufNewFile *.java set ts=4 sw=4 sts=4
+  au BufRead,BufNewFile *.scss set sw=2 sts=2
   autocmd BufNewFile,BufRead * setlocal formatoptions-=o
   "remember last position
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
