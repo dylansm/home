@@ -2,7 +2,7 @@
 function ll {
 
   if [[ $# -eq 1 ]]; then
-    export target="`pwd`/$1"
+    export target="$1"
   else
     export target=`pwd`
   fi

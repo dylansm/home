@@ -1,9 +1,11 @@
 t() {
   if [[ $# -gt 0 ]]; then
     session=$(replaceSpaces "$*")
-    `tmux new-session -s "$session"`
+    tmux new-session -s "$session"
   else
-    `tmux`
+    dir=$(pwd)
+    last_dir=`echo ${dir##*/}`
+    tmux new-session -s "$last_dir"
   fi
 }
 

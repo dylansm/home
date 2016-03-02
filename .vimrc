@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'Raimondi/delimitMate'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/mru.vim'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'kchmck/vim-coffee-script'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
@@ -14,11 +14,12 @@ Plug 'junegunn/vim-github-dashboard'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'
 Plug 'helino/vim-json'
-Plug 'marijnh/tern_for_vim'
+" Plug 'marijnh/tern_for_vim'
 Plug 'mklabs/vim-backbone'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'fatih/vim-go'
 Plug 'jelera/vim-javascript-syntax'
+Plug 'dylansm/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'dylansm/vim-super-retab'
 Plug 'dylansm/nginx.vim'
@@ -27,7 +28,7 @@ Plug 'dylansm/vim-twig'
 Plug 'dylansm/synbad'
 Plug 'ruanyl/vim-fixmyjs'
 Plug 'vim-ruby/vim-ruby'
-Plug 'thoughtbot/vim-rspec'
+" Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-liquid'
@@ -36,7 +37,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'davidoc/taskpaper.vim'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'mxw/vim-jsx'
+" Plug 'mxw/vim-jsx'
+Plug 'dylansm/vim-jsx'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdcommenter'
 Plug 'itspriddle/vim-marked'
@@ -203,6 +205,11 @@ nnoremap <silent> <Plug>LocationNext        :<C-u>exe 'call <SID>LocationNext()'
 nmap <silent> <C-K> <Plug>LocationPrevious
 nmap <silent> <C-J> <Plug>LocationNext
 
+nmap ;y :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+
 let g:UltiSnipsUsePythonVersion = 2
 let g:UltiSnipsSnippetDirectories=['vim-snippets', 'my-vim-snippets']
 let g:UltiSnipsExpandTrigger="<C-J>"
@@ -340,11 +347,11 @@ let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
 let MRU_Add_Menu = 0
 
 " tagbar
-let g:tagbar_autofocus = 1
-nmap <silent>;; :TagbarOpenAutoClose<CR>
+" let g:tagbar_autofocus = 1
+" nmap <silent>;; :TagbarOpenAutoClose<CR>
 "nmap <silent>;; :TagbarToggle<CR>
-nmap <silent><leader>s :call Tab2Space()<CR>
-nmap <silent><leader>t :call Space2Tab()<CR>
+" nmap <silent><leader>s :call Tab2Space()<CR>
+" nmap <silent><leader>t :call Space2Tab()<CR>
 nmap <silent>;w :set wrap!<CR>
 nmap <silent>;m :MarkedOpen!<CR>
 noremap <Leader>f :Fixmyjs<CR>
