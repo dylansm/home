@@ -1,5 +1,6 @@
 " set runtimepath+=/Users/Shared/Development/Projects/Vim/Synbad
 set runtimepath+=/Users/Shared/Development/Projects/Vim/HuePickens
+set runtimepath+=/Users/Shared/Development/Projects/Vim/ES6y
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 " Plug 'rking/ag.vim'
@@ -18,13 +19,13 @@ Plug 'helino/vim-json'
 Plug 'mklabs/vim-backbone'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'fatih/vim-go'
-Plug 'jelera/vim-javascript-syntax'
 Plug 'dylansm/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'dylansm/vim-super-retab'
 Plug 'dylansm/nginx.vim'
 Plug 'dylansm/vim-stripper'
 Plug 'dylansm/vim-twig'
+Plug 'dylansm/vim-es6'
 Plug 'dylansm/synbad'
 Plug 'ruanyl/vim-fixmyjs'
 Plug 'vim-ruby/vim-ruby'
@@ -205,6 +206,7 @@ nnoremap <silent> <Plug>LocationNext        :<C-u>exe 'call <SID>LocationNext()'
 nmap <silent> <C-K> <Plug>LocationPrevious
 nmap <silent> <C-J> <Plug>LocationNext
 
+" Utility function to echo syntax under cursor
 nmap ;y :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
@@ -355,6 +357,16 @@ let MRU_Add_Menu = 0
 nmap <silent>;w :set wrap!<CR>
 nmap <silent>;m :MarkedOpen!<CR>
 noremap <Leader>f :Fixmyjs<CR>
+
+" let g:javascript_conceal_function   = "ƒ"
+" let g:javascript_conceal_null       = "ø"
+" let g:javascript_conceal_this       = "@"
+" let g:javascript_conceal_return     = "⇚"
+" let g:javascript_conceal_undefined  = "¿"
+" let g:javascript_conceal_NaN        = "ℕ"
+" let g:javascript_conceal_prototype  = "¶"
+" let g:javascript_conceal_static     = "•"
+" let g:javascript_conceal_super      = "Ω"
 
 if has("autocmd")
   " if global custom variable "coffee" is set (using let)
