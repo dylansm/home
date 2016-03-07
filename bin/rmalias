@@ -1,0 +1,27 @@
+#!/bin/bash
+
+ALIASES_FILE=~/.zshrc.d/aliases.zsh
+ALIASES_BACKUP=~/.zshrc.d/aliases.zsh.bak
+
+if [[ $# -eq 1 ]]; then
+  found=$(cat $ALIASES_FILE | grep "alias $1=")
+  if [ -n "$found" ]; then
+    printf "${Yellow}\nAre you sure you want to remove the alias \"$1\"?\n$Plain"
+    read -s -n1 key
+    case $key in
+      $'\e' | [nN])
+        printf "${Red}\nAborted.\n$Plain";
+        exit 0;;
+      [yY])
+        escaped="${found//\'/\'}"
+        sed -i '.bak' "/$found/d" $ALIASES_FILE
+        printf "$Green\nDone.\n$Plain";;
+    esac
+  fi
+  # echo "alias $1='$2'" >> $ALIASES_FILE
+  # cp $ALIASES_FILE $ALIASES_BACKUP
+  # sort $ALIASES_BACKUP > $ALIASES_FILE
+  source $ALIASES_FILE
+else
+  printf "${Yellow}\nThis command requires one argument, the alias name you want to remove.\n"
+fi

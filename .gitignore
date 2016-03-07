@@ -3,6 +3,7 @@
 .NERDTreeBookmarks
 .Trash/
 .adobe/
+.atom/
 .avrduderc
 .aws/
 .babel.json
@@ -85,6 +86,7 @@
 .vim/plugged
 .zcompdump
 .zsh_history
+.zshrc.d/aliases.zsh.bak
 
 Applications*
 Creative Cloud Files

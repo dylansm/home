@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [[ $# -eq 1 ]]; then
+  git clone "$(pbpaste)" "$1"
+else
+  git clone "$(pbpaste)"
+fi

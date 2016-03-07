@@ -7,8 +7,8 @@ alias be='bundle exec'
 alias bfg="java -jar ~/bin/bfg-1.12.6.jar"
 alias bin='if [ -d ./bin ]; then cd bin; else cd ~/bin; fi'
 alias brake='bundle exec rake'
-alias brewup='brew update && brew upgrade brew-cask && brew cleanup'
 alias brewi='brew install'
+alias brewup='brew update && brew upgrade brew-cask && brew cleanup'
 alias bundled="echo '\nInstalling gems for development and test only...\n'; bundle install --without production staging"
 alias caski="brew cask install --appdir=/Applications --colorpickerdir=~/Library/ColorPickers"
 alias clearlog="sudo cat /dev/null > "
@@ -18,36 +18,35 @@ alias ctag='ctags -R --exclude=.git --exclude=log --exclude=tmp *'
 alias cuc='cucumber'
 alias curlh='curl -IL '
 alias d='cd ~/Desktop'
+alias dev='cd /Users/Shared/Development'
 alias dk='docker'
 alias dkc='docker-compose'
 alias dkinf='docker info'
 alias dkk='docker kill'
-alias dmip='docker-machine ip default'
-alias dmipc='docker-machine ip default | pbcopy'
 alias dkl='docker logs -f'
 alias dkr='docker-machine regenerate-certs default'
 alias dks='docker stop $(docker ps -q)'
 alias dku='docker-compose up -d'
 alias dm='docker-machine'
-alias dev='cd /Users/Shared/Development'
+alias dmip='docker-machine ip default'
+alias dmipc='docker-machine ip default | pbcopy'
 alias doc='cd ~/Dropbox/Documents'
 alias dock='cd /Users/Shared/Development/Docker'
 alias gitf='git fetch'
 alias gitm='git merge'
-alias gitp='git clone "$(pbpaste)"'
 alias gitu='git add -u'
 alias gr='cd /Users/Shared/Development/GitRepos'
 alias history='history 0'
 alias ipc="curl ifconfig.me | pbcopy"
 alias kite='open -a Kitematic\ \(Beta\)'
-alias launchdir='cd ~/Library/LaunchAgents'
 alias l="ls -AlGp"
+alias launchdir='cd ~/Library/LaunchAgents'
 alias mmv='noglob zmv -W'
 alias n='cd ~/Dropbox/Documents/Notes'
 alias npmg="npm list -g --depth=0 2>/dev/null"
-alias npmlo="npm outdated --depth=0"
 alias npmgo="npm outdated -g --depth=0"
 alias npml="npm list --depth=0"
+alias npmlo="npm outdated --depth=0"
 alias ojp='cd ~/Dropbox/Documents/Project\ Documents/Owen\ Jones'
 alias p='cd /Users/Shared/Development/Projects'
 alias pdoc='cd ~/Dropbox/Documents/Project\ Documents'
@@ -61,35 +60,20 @@ alias repos="cd /Users/Shared/Development/GitRepos"
 alias res='cd ~/Dropbox/Documents/Resume'
 alias rmorig="find . -name \"*.orig\" -exec rm '{}' ';'"
 alias secret="ruby -rsecurerandom -e 'puts SecureRandom.hex(32)' | pbcopy; echo '32-byte hex secret copied to clipboard!'"
-alias ssh='TERM=xterm-256color ssh'
 alias sites="cd ~/sites"
-# alias ta="tmux attach -t"
-# alias tk="tmux kill-session -t"
-# alias tl="tmux list-sessions"
+alias ssh='TERM=xterm-256color ssh'
 alias todo='cd ~/Dropbox/Todo'
-alias tree='tree -a'
-alias tree="tree -I 'node_modules|.git'"
 alias tree2="tree -L 2"
 alias tree3="tree -L 3"
 alias tree4="tree -L 4"
+alias tree="tree -I 'node_modules|.git'"
+alias tree='tree -a'
 alias vag='vagrant'
-alias vim='nvim'
-alias vimalias='vim ~/.zshrc.d/aliases.zsh'
-#alias vim="reattach-to-user-namespace vim"
-alias xcode='cd /Users/Shared/Development/Xcode/Projects'
-
-# The Program
-#alias stumpup="vagrant ssh dev -c 'sudo salt-call state.highstate' && vagrant ssh dev -c 'sudo supervisorctl restart stumptown-puma'"
-#alias stumptail="vagrant ssh dev -c 'sudo tail -f /var/log/supervisor/stumptown-puma-std* /var/log/supervisor/supervisord.log ~/stumptown/log/*.log'"
-#alias stumptest="vagrant ssh dev -c 'cd stumptown/ && bundle exec rspec'"
-#alias stumpbug="vagrant ssh dev -c 'cd stumptown/ && FORCE_SSL=false bundle exec rails server'"
-#alias stumpbug="vagrant ssh dev -c 'cd stumptown/ && FORCE_SSL=false bundle exec rails server' -- -oSendEnv=dylansmith"
-#alias stumpcon="vagrant ssh dev -c 'cd stumptown/ && bundle exec rails console'"
-#alias stumpdb="vagrant ssh dev -c 'cd stumptown/ && bundle exec rails dbconsole -p'"
-#alias stumpre="vagrant ssh dev -c 'sudo supervisorctl restart stumptown-puma'"
-alias vagst="vagrant global-status"
 alias vagde="vagrant destroy"
-alias vagup="vagrant up"
 alias vagssh="vagrant ssh"
 alias vagsshc="vagrant ssh-config"
-#alias vag="vagrant"
+alias vagst="vagrant global-status"
+alias vagup="vagrant up"
+alias vim='nvim'
+alias vimalias='vim ~/.zshrc.d/aliases.zsh'
+alias xcode='cd /Users/Shared/Development/Xcode/Projects'

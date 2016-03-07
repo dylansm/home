@@ -284,8 +284,8 @@ let NERDSpaceDelims=1
 "map ;b :!open -a Safari %<CR><CR>
 "map <C-b> :!open -a Safari %<CR>
 
-" remap jk to escape
-imap jk <ESC>
+" remap jj to escape
+imap jj <ESC>
 
 " yank to end of line
 nnoremap Y y$
@@ -399,8 +399,8 @@ command! FZFMru call fzf#run({
 \  'down':    '40%'})
 
 " toggle NERDTree
-map \\ :NERDTreeToggle<CR>
-"map \\ :Lexplore<CR>
+map ;; :NERDTreeToggle<CR>
+"map ;; :Lexplore<CR>
 
 " change window
 map <Leader>ww :winc w<CR>
