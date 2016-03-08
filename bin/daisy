@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ $# -eq 1 ]]; then
+  open "$1" -a DaisyDisk
+elif [[ $# -eq 0 ]]; then
+  open . -a DaisyDisk
+else
+  printf "\n${Red}Multiple arguments not allowed.\n"
+fi
