@@ -1,0 +1,93 @@
+priority -50
+
+snippet bindac
+import { bindActionCreators } from 'redux'$0
+endsnippet
+
+snippet c
+constructor(props) {
+  super(props);
+
+  this.state = { ${1:${2:key}: '${3:value}'} }
+}${0}
+endsnippet
+
+snippet desc
+describe(${1:thing}, function() {
+  it("${2:does something}", function() {
+    expect()
+  })
+})
+endsnippet
+
+snippet ex "export default"
+export default ${1:MyComp}${0}
+endsnippet
+
+snippet exs "Module.exports"
+module.exports = function(${1:args}) {
+  ${2}
+}$0
+endsnippet
+
+snippet excomp
+export default ${1:ComponentName} extends Component {
+  render() {
+    return (
+      ${2:<$1 />}
+    )
+  }
+}$0
+endsnippet
+
+snippet exredc
+export default connect(mapStateToProps${1: mapDispatchToProps})${2:(Component)}$0
+endsnippet
+
+snippet imcomp "From file"
+import ${1:ComponentName} from '${2:../}components/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'
+endsnippet
+
+snippet imcomp
+import { Component } from 'react'
+endsnippet
+
+snippet imcont "From file"
+import ${1:ContainerName} from '${2:../}containers/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'
+endsnippet
+
+snippet imre
+import React from 'react'$0
+endsnippet
+
+snippet imrec
+import React, { Component } from 'react'$0
+endsnippet
+
+snippet imredc
+import { connect } from 'react-redux'$0
+endsnippet
+
+snippet log "console.log"
+console.log($1)$0
+endsnippet
+
+snippet mapdis
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({${1:${1:key}: ${2:value}}}, dispatch);
+}
+endsnippet
+
+snippet mapstate
+function mapStateToProps(state) {
+  return {$1}
+}$0
+endsnippet
+
+snippet render
+render() {
+  return (
+    $0
+  )
+}
+endsnippet

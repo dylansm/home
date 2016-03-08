@@ -46,7 +46,7 @@ Plug 'itspriddle/vim-marked'
 Plug 'Valloric/YouCompleteMe'
 
 " Group dependencies, vim-snippets depends on ultisnips
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'dylansm/my-vim-snippets'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree'
@@ -213,10 +213,12 @@ nmap ;y :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 
 
 let g:UltiSnipsUsePythonVersion = 2
-let g:UltiSnipsSnippetDirectories=['vim-snippets', 'my-vim-snippets']
+" let g:UltiSnipsSnippetDirectories=['vim-snippets', 'my-vim-snippets']
 let g:UltiSnipsExpandTrigger="<C-J>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="horizontal"
+nmap ;j <Plug>UltiSnipsEdit
 
 " NeoSnippet
 "imap <C-j>     <Plug>(neosnippet_expand_or_jump)
