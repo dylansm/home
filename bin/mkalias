@@ -9,10 +9,12 @@ if [[ $# -eq 2 ]]; then
     printf "${Red}\nThat alias already exists.\n"
     exit 1
   fi
-  echo "alias $1='$2'" >> $ALIASES_FILE
+
+  escaped_spaces="${2// /\\ }"
+
+  echo "alias $1=\"$escaped_spaces\"" >> $ALIASES_FILE
   cp $ALIASES_FILE $ALIASES_BACKUP
   sort $ALIASES_BACKUP > $ALIASES_FILE
-  source $ALIASES_FILE
 else
   printf "${Yellow}\nThis command requires two arguments, an alias name and value.\n"
 fi

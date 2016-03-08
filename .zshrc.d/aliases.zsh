@@ -10,6 +10,7 @@ alias brake='bundle exec rake'
 alias brewi='brew install'
 alias brewup='brew update && brew upgrade brew-cask && brew cleanup'
 alias bundled="echo '\nInstalling gems for development and test only...\n'; bundle install --without production staging"
+alias calias="cat ~/.zshrc.d/aliases.zsh"
 alias caski="brew cask install --appdir=/Applications --colorpickerdir=~/Library/ColorPickers"
 alias clearlog="sudo cat /dev/null > "
 alias cloj='cd /Users/Shared/Development/Clojure'
@@ -76,4 +77,5 @@ alias vagst="vagrant global-status"
 alias vagup="vagrant up"
 alias vim='nvim'
 alias vimalias='vim ~/.zshrc.d/aliases.zsh'
-alias xcode='cd /Users/Shared/Development/Xcode/Projects'
+alias xcode="/Users/Shared/Development/Xcode/Projects"
+alias xplug="~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins"

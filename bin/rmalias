@@ -4,7 +4,8 @@ ALIASES_FILE=~/.zshrc.d/aliases.zsh
 ALIASES_BACKUP=~/.zshrc.d/aliases.zsh.bak
 
 if [[ $# -eq 1 ]]; then
-  found=$(cat $ALIASES_FILE | grep "alias $1=")
+  needle="alias $1="
+  found=$(cat $ALIASES_FILE | grep "$needle")
   if [ -n "$found" ]; then
     printf "${Yellow}\nAre you sure you want to remove the alias \"$1\"?\n$Plain"
     read -s -n1 key
@@ -13,8 +14,8 @@ if [[ $# -eq 1 ]]; then
         printf "${Red}\nAborted.\n$Plain";
         exit 0;;
       [yY])
-        escaped="${found//\'/\'}"
-        sed -i '.bak' "/$found/d" $ALIASES_FILE
+        grep -v "$needle" $ALIASES_FILE > $ALIASES_BACKUP
+        cp $ALIASES_BACKUP $ALIASES_FILE
         printf "$Green\nDone.\n$Plain";;
     esac
   fi

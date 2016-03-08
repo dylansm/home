@@ -1,10 +1,9 @@
-
 function ll {
 
   if [[ $# -eq 1 ]]; then
     export target="$1"
   else
-    export target=`pwd`
+    export target="$(pwd)"
   fi
 
   ls -Alp "$target" | awk '

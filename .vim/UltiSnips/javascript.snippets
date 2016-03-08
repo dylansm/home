@@ -6,10 +6,14 @@ endsnippet
 
 snippet c "ES6 Class constructor"
 constructor(props) {
-  super(props);
+  super(props)
 
   this.state = { ${1:${2:key}: '${3:value}'} }
 }${0}
+endsnippet
+
+snippet cn "JSX className"
+className="${1:name}"$0
 endsnippet
 
 snippet desc "TDD: Describe"
@@ -20,8 +24,16 @@ describe(${1:thing}, function() {
 })
 endsnippet
 
-snippet ex "export default"
+snippet ex "ES6 export default"
 export default ${1:MyComp}${0}
+endsnippet
+
+snippet exf "ES6 export function"
+export function ${1:name}() {
+  return {
+    $2
+  }
+}$0
 endsnippet
 
 snippet exs "Module.exports"
@@ -30,8 +42,8 @@ module.exports = function(${1:args}) {
 }$0
 endsnippet
 
-snippet excomp "Export component"
-export default ${1:ComponentName} extends Component {
+snippet excomp "Export React component"
+export default class ${1:ComponentName} extends Component {
   render() {
     return (
       ${2:<$1 />}
@@ -48,25 +60,33 @@ snippet imcomp "Import component file"
 import ${1:ComponentName} from '${2:../}components/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'
 endsnippet
 
-snippet imcomp "Import from React"
-import { Component } from 'react'
-endsnippet
-
 snippet imcont "Import container from file"
 import ${1:ContainerName} from '${2:../}containers/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'
 endsnippet
 
-snippet imre
-import React from 'react'$0
+snippet imp "ES6 import module"
+import ${1:Module} from '${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:-\l$2:$2)/g}'
 endsnippet
 
-snippet imrec
+snippet imo "ES6 { module } from"
+import { ${1:module} } from '${2:lib}'$0
+endsnippet
+
+# snippet imre
+# import React from 'react'$0
+# endsnippet
+
+# snippet imrec "Import from React"
+# import { Component } from 'react'
+# endsnippet
+
+snippet imre
 import React, { Component } from 'react'$0
 endsnippet
 
-snippet imredc
-import { connect } from 'react-redux'$0
-endsnippet
+# snippet imredc
+# import { connect } from 'react-redux'$0
+# endsnippet
 
 snippet log "console.log"
 console.log($1)$0
@@ -74,7 +94,7 @@ endsnippet
 
 snippet mapdis
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({${1:${1:key}: ${2:value}}}, dispatch);
+  return bindActionCreators({${1:${1:key}: ${2:value}}}, dispatch)
 }
 endsnippet
 
@@ -90,4 +110,8 @@ render() {
     $0
   )
 }
+endsnippet
+
+snippet storemid "createStoreWithMiddleware"
+const createStoreWithMiddleware = applyMiddleware(${1:middleware})(createStore)$0
 endsnippet
