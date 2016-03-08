@@ -1,10 +1,10 @@
 priority -50
 
-snippet bindac
+snippet bindac "Redux: bindActionCreators"
 import { bindActionCreators } from 'redux'$0
 endsnippet
 
-snippet c
+snippet c "ES6 Class constructor"
 constructor(props) {
   super(props);
 
@@ -12,7 +12,7 @@ constructor(props) {
 }${0}
 endsnippet
 
-snippet desc
+snippet desc "TDD: Describe"
 describe(${1:thing}, function() {
   it("${2:does something}", function() {
     expect()
@@ -30,7 +30,7 @@ module.exports = function(${1:args}) {
 }$0
 endsnippet
 
-snippet excomp
+snippet excomp "Export component"
 export default ${1:ComponentName} extends Component {
   render() {
     return (
@@ -40,19 +40,19 @@ export default ${1:ComponentName} extends Component {
 }$0
 endsnippet
 
-snippet exredc
+snippet exredc "Redux: Export connected component"
 export default connect(mapStateToProps${1: mapDispatchToProps})${2:(Component)}$0
 endsnippet
 
-snippet imcomp "From file"
+snippet imcomp "Import component file"
 import ${1:ComponentName} from '${2:../}components/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'
 endsnippet
 
-snippet imcomp
+snippet imcomp "Import from React"
 import { Component } from 'react'
 endsnippet
 
-snippet imcont "From file"
+snippet imcont "Import container from file"
 import ${1:ContainerName} from '${2:../}containers/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'
 endsnippet
 
