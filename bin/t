@@ -26,11 +26,11 @@ tl() {
   if [[ ${tmux_status} =~ ^no\ server ]]; then
     print "${Yellow}Tmux is not running."
   else
-    printf "${Underscore}${Blue}%s   %s \n${Plain}" "     Session       " "# Windows"
+    printf "${Underscore}${Blue}%s   %s \n${Plain}" "     Session                         " "# Windows"
     print ''
     output=$(print $tmux_status | awk {'
       split($0, arrTSessions, ":")
-      printf(ENVIRON["Green"]" %d) "ENVIRON["Bone"]" %-16s %-10d\n"ENVIRON["Plain"], NR, arrTSessions[1], arrTSessions[2])
+      printf(ENVIRON["Green"]" %d) "ENVIRON["Bone"]" %-34s %-10d\n"ENVIRON["Plain"], NR, arrTSessions[1], arrTSessions[2])
     '})
     echo $output
 

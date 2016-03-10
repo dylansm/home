@@ -1,0 +1,20 @@
+#!/bin/bash
+
+cur_origin=$(gitr)
+
+echo "$cur_origin"
+
+if [[ ! "$cur_origin" =~ 'No git' ]]; then
+
+  printf "${Yellow}\nAre you sure you want to remove the current origin?\n${Blue}$cur_origin\n$Plain"
+  read -s -n1 key
+  case $key in
+    $'\e' | [nN])
+      printf "${Red}\nAborted.\n$Plain";
+      exit 0;;
+    [yY])
+      git remote rm origin
+  esac
+fi
+
+printf "\n${Blue}Remote origin '`pbpaste`' removed.${Plain}\n"

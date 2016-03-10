@@ -1,0 +1,7 @@
+#!/bin/bash
+
+source ~/.zprofile
+
+echo "$IWANTMYNAME_USERNAME"
+
+curl -u "$IWANTMYNAME_USERNAME":"$IWANTMYNAME_PASSWORD" https://iwantmyname.com/basicauth/ddns?hostname=me.izo.me

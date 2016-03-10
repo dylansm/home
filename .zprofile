@@ -36,6 +36,8 @@ if [[ -f ~/.config/api_secrets.yml ]]; then
   export AWS_SECRET_ACCESS_KEY=`echo $default_aws_secret_access_key`
   export NPM_TOKEN=`echo $default_npm_token`
   export PINBOARD_API_KEY=`echo $default_pinboard_api_key`
+  export IWANTMYNAME_USERNAME=`echo $default_iwantmyname_username`
+  export IWANTMYNAME_PASSWORD=`echo $default_iwantmyname_password`
 fi
 
 if [[ -f ~/.config/app_secrets.yml ]]; then

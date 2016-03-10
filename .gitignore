@@ -15,6 +15,7 @@
 .cocoapods
 .config/
 .conscript/
+.cordova/
 .cups/
 .dbk_info
 .dbshell

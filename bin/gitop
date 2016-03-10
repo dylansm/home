@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+result="$(git remote add origin `pbpaste` 2>&1)"
+
+if [[ $result =~ 'fatal' ]]; then
+  printf "\n${Red}Remote origin already set to '${Yellow}`gitr`'.${Plain}\n"
+else
+  printf "\n${Blue}Remote origin set to '${Green}`pbpaste`'.${Plain}\n"
+fi
+

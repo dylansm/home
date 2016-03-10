@@ -303,7 +303,7 @@ function! LookupCurrentWordInDash()
 endfunction
 
 " nmap <silent><Leader>[ :call LookupCurrentWordInDash()<CR>
-nmap <silent>?? :call LookupCurrentWordInDash()<CR>
+nmap <silent>;/ :call LookupCurrentWordInDash()<CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ;a <Plug>(EasyAlign)
@@ -415,8 +415,8 @@ map <Leader>vv :ccl<CR>
 " Emmet / Zen Coding
 let g:user_emmet_install_global = 1
 " autocmd FileType html,css,php, EmmetInstall
-let g:user_emmet_leader_key = '<c-y>'
-"let g:user_emmet_leader_key = 'm'
+" let g:user_emmet_leader_key = '<c-y>'
+let g:user_emmet_leader_key = '<c-m>'
 let g:user_emmet_settings = {
   \  'indentation' : '  '
   \}

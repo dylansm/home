@@ -1,6 +1,6 @@
 priority -50
 
-snippet bindac "Redux: bindActionCreators"
+snippet imbac "Redux bindActionCreators"
 import { bindActionCreators } from 'redux'$0
 endsnippet
 
@@ -16,7 +16,7 @@ snippet cn "JSX className"
 className="${1:name}"$0
 endsnippet
 
-snippet desc "TDD: Describe"
+snippet desc "TDD Describe"
 describe(${1:thing}, function() {
   it("${2:does something}", function() {
     expect()
@@ -24,11 +24,15 @@ describe(${1:thing}, function() {
 })
 endsnippet
 
-snippet ex "ES6 export default"
+snippet exd "ES6 export default"
 export default ${1:MyComp}${0}
 endsnippet
 
-snippet exf "ES6 export function"
+snippet exc "ES6 export const"
+export const ${1:CONSTANT}${0}
+endsnippet
+
+snippet exf "ES6 export function ƒ"
 export function ${1:name}() {
   return {
     $2
@@ -36,13 +40,19 @@ export function ${1:name}() {
 }$0
 endsnippet
 
-snippet exs "Module.exports"
+snippet exdf "ES6 export function ƒ"
+export default function(${1:args}) {
+  return $2
+}$0
+endsnippet
+
+snippet exs "ES6 Module.exports"
 module.exports = function(${1:args}) {
   ${2}
 }$0
 endsnippet
 
-snippet excomp "Export React component"
+snippet exdcomp "Export React component"
 export default class ${1:ComponentName} extends Component {
   render() {
     return (
@@ -52,8 +62,8 @@ export default class ${1:ComponentName} extends Component {
 }$0
 endsnippet
 
-snippet exredc "Redux: Export connected component"
-export default connect(mapStateToProps${1: mapDispatchToProps})${2:(Component)}$0
+snippet edc "Redux export connected component"
+export default connect(${1:mapStateToProps}${2:, ${3:mapDispatchToProps}})${4:(${5:Component})}$0
 endsnippet
 
 snippet imcomp "Import component file"
@@ -68,7 +78,7 @@ snippet imp "ES6 import module"
 import ${1:Module} from '${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:-\l$2:$2)/g}'
 endsnippet
 
-snippet imo "ES6 { module } from"
+snippet imo "ES6 import { module }"
 import { ${1:module} } from '${2:lib}'$0
 endsnippet
 
@@ -92,13 +102,21 @@ snippet log "console.log"
 console.log($1)$0
 endsnippet
 
-snippet mapdis
+snippet mdtp "React-Redux mapDispatchToProps"
+mapDispatchToProps$0
+endsnippet
+
+snippet mdtpf "React-Redux mapDispatchToProps ƒ"
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({${1:${1:key}: ${2:value}}}, dispatch)
+  return bindActionCreators({ ${1:${1:key}: ${2:value}} }, dispatch)
 }
 endsnippet
 
-snippet mapstate
+snippet mstp
+mapStateToProps$0
+endsnippet
+
+snippet mstpf "React-Redux mapStateToProps ƒ"
 function mapStateToProps(state) {
   return {$1}
 }$0
@@ -112,6 +130,6 @@ render() {
 }
 endsnippet
 
-snippet storemid "createStoreWithMiddleware"
+snippet cswm "React createStoreWithMiddleware"
 const createStoreWithMiddleware = applyMiddleware(${1:middleware})(createStore)$0
 endsnippet
