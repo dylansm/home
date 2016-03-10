@@ -48,8 +48,7 @@ tl() {
     vared -p "`echo $Green`Attach session:`echo $Plain` " -c tmp
     if [[ $tmp =~ '^[0-9]+' ]]; then
       session=$(echo $output | grep -E "\s?$tmp\)" | awk '{print $4}')
-      echo $session
-      # tmux attach-session -t "$session"
+      tmux attach-session -t "$session"
       exit
     elif [[ $tmp =~ '^[kK]' ]]; then
       tk
