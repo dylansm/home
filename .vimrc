@@ -66,7 +66,7 @@ highlight Comment cterm=italic
 
 "let &colorcolumn=join(range(81,999),",")
 " use 'f' to toggle filter
-let NERDTreeIgnore = ['\.DS_Store', '\.sass-cache']
+let NERDTreeIgnore = ['\.DS_Store', '\.sass-cache', 'node_modules']
 "highlight NERDTreeOpenable ctermfg=Blue
 "highlight NERDTreeClosable ctermfg=Blue
 highlight Title guifg=#20b950

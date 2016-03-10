@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-[ ! -z "$TMUX" ] && print "${Red}Exiting. Nesting of tmux sessions is not good." && exit 1
+[ ! -z "$TMUX" ] && print "${Red}\nExiting. Nesting of tmux sessions is not good." && exit 1
 
 replaceSpaces() {
   # use "$@*" to pass $@ as a single parameter to this function
@@ -17,6 +17,16 @@ tn() {
     dir=$(pwd)
     last_dir=`echo ${dir##*/}`
     tmux new-session -s "$last_dir"
+  fi
+}
+
+
+tk() {
+  unset tmp
+  vared -p "`print $Yellow`Kill session:`echo $Plain` " -c tmp
+  if [[ $tmp =~ [0-9]+ ]]; then
+    session=$(echo $output | grep -E "\s?$tmp\." | awk '{print $2}')
+    tmux kill-session -t "$session"
   fi
 }
 
@@ -37,16 +47,12 @@ tl() {
     unset tmp
     vared -p "`echo $Green`Attach session:`echo $Plain` " -c tmp
     if [[ $tmp =~ '^[0-9]+' ]]; then
-      session=$(echo $output | grep -E "\s?$tmp\." | awk '{print $2}')
-      tmux attach-session -t "$session"
+      session=$(echo $output | grep -E "\s?$tmp\)" | awk '{print $4}')
+      echo $session
+      # tmux attach-session -t "$session"
       exit
     elif [[ $tmp =~ '^[kK]' ]]; then
-      unset tmp
-      vared -p "`print $Yellow`Kill session:`echo $Plain` " -c tmp
-      if [[ $tmp =~ [0-9]+ ]]; then
-        session=$(echo $output | grep -E "\s?$tmp\." | awk '{print $2}')
-        tmux kill-session -t "$session"
-      fi
+      tk
     elif [[ $tmp =~ '^[nN]' ]]; then
       tn
     fi
