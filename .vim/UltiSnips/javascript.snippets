@@ -1,9 +1,5 @@
 priority -50
 
-snippet imbac "Redux bindActionCreators"
-import { bindActionCreators } from 'redux'$0
-endsnippet
-
 snippet c "ES6 Class constructor"
 constructor(props) {
   super(props)
@@ -14,6 +10,10 @@ endsnippet
 
 snippet cn "JSX className"
 className="${1:name}"$0
+endsnippet
+
+snippet cswm "React createStoreWithMiddleware"
+const createStoreWithMiddleware = applyMiddleware(${1:middleware})(createStore)$0
 endsnippet
 
 snippet desc "TDD Describe"
@@ -56,14 +56,20 @@ snippet exdcomp "Export React component"
 export default class ${1:ComponentName} extends Component {
   render() {
     return (
-      ${2:<$1 />}
+      <div>
+	${2:<$1 />}
+      </div>
     )
   }
 }$0
 endsnippet
 
-snippet edc "Redux export connected component"
+snippet exdc "Redux export connected component"
 export default connect(${1:mapStateToProps}${2:, ${3:mapDispatchToProps}})${4:(${5:Component})}$0
+endsnippet
+
+snippet imbac "Redux bindActionCreators"
+import { bindActionCreators } from 'redux'$0
 endsnippet
 
 snippet imcomp "Import component file"
@@ -130,6 +136,10 @@ render() {
 }
 endsnippet
 
-snippet cswm "React createStoreWithMiddleware"
-const createStoreWithMiddleware = applyMiddleware(${1:middleware})(createStore)$0
+snippet sw "Minimal switch statement"
+switch (${1:term}) {
+  case ${2:CASE1}:
+    return $3
+}$0
 endsnippet
+

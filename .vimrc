@@ -1,17 +1,14 @@
 " set runtimepath+=/Users/Shared/Development/Projects/Vim/Synbad
-set runtimepath+=/Users/Shared/Development/Projects/Vim/HuePickens
-set runtimepath+=/Users/Shared/Development/Projects/Vim/ES6y
+" set runtimepath+=/Users/Shared/Development/Projects/Vim/HuePickens
+" set runtimepath+=/Users/Shared/Development/Projects/Vim/ES6y
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
-" Plug 'rking/ag.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/mru.vim'
-" Plug 'majutsushi/tagbar'
 Plug 'kchmck/vim-coffee-script'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'
 Plug 'helino/vim-json'
@@ -29,7 +26,6 @@ Plug 'dylansm/vim-es6'
 Plug 'dylansm/synbad'
 Plug 'ruanyl/vim-fixmyjs'
 Plug 'vim-ruby/vim-ruby'
-" Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-liquid'
@@ -38,10 +34,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'davidoc/taskpaper.vim'
 Plug 'mustache/vim-mustache-handlebars'
-" Plug 'mxw/vim-jsx'
 Plug 'dylansm/vim-jsx'
 Plug 'scrooloose/syntastic'
-Plug 'scrooloose/nerdcommenter'
+" Plug 'scrooloose/nerdcommenter'
+Plug 'dylansm/nerdcommenter'
 Plug 'itspriddle/vim-marked'
 Plug 'Valloric/YouCompleteMe'
 
@@ -413,8 +409,8 @@ map <Leader>aa :cope<CR>
 map <Leader>vv :ccl<CR>
 
 " Emmet / Zen Coding
-let g:user_emmet_install_global = 1
-" autocmd FileType html,css,php, EmmetInstall
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,php,javascript,xml EmmetInstall
 " let g:user_emmet_leader_key = '<c-y>'
 let g:user_emmet_leader_key = '<c-m>'
 let g:user_emmet_settings = {
