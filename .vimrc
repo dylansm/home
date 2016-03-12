@@ -22,7 +22,7 @@ Plug 'dylansm/vim-super-retab'
 Plug 'dylansm/nginx.vim'
 Plug 'dylansm/vim-stripper'
 Plug 'dylansm/vim-twig'
-Plug 'dylansm/vim-es6'
+" Plug 'dylansm/vim-es6'
 Plug 'dylansm/synbad'
 Plug 'ruanyl/vim-fixmyjs'
 Plug 'vim-ruby/vim-ruby'
@@ -42,7 +42,8 @@ Plug 'itspriddle/vim-marked'
 Plug 'Valloric/YouCompleteMe'
 
 " Group dependencies, vim-snippets depends on ultisnips
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips' | Plug 'dylansm/vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree'
@@ -151,9 +152,11 @@ let g:syntastic_eruby_ruby_quiet_messages =
 let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 1
+let g:syntastic_check_on_wq = 0
 let g:syntastic_error_symbol = "➣"
 let g:syntastic_warning_symbol = "➢"
+let g:syntastic_style_error_symbol = "➣"
+let g:syntastic_style_warning_symbol = "➢"
 "let g:jsx_ext_required = 0
 "let g:syntastic_python_python_exec = '~/.pyenv/shims/python'
 let g:syntastic_python_checkers = ['pylint']
@@ -397,7 +400,7 @@ command! FZFMru call fzf#run({
 \  'down':    '40%'})
 
 " toggle NERDTree
-map ;; :NERDTreeToggle<CR>
+map \\ :NERDTreeToggle<CR>
 "map ;; :Lexplore<CR>
 
 " change window

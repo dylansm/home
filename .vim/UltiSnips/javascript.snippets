@@ -8,6 +8,10 @@ constructor(props) {
 }${0}
 endsnippet
 
+snippet co
+const ${1:name} = ${2:value}
+endsnippet
+
 snippet cn "JSX className"
 className="${1:name}"$0
 endsnippet
@@ -28,8 +32,8 @@ snippet exd "ES6 export default"
 export default ${1:MyComp}${0}
 endsnippet
 
-snippet exc "ES6 export const"
-export const ${1:CONSTANT}${0}
+snippet exco "ES6 export const"
+export const ${1:name} = '${2:value}'
 endsnippet
 
 snippet exf "ES6 export function ƒ"
@@ -40,17 +44,17 @@ export function ${1:name}() {
 }$0
 endsnippet
 
-snippet exdf "ES6 export function ƒ"
-export default function(${1:args}) {
+snippet exdf "ES6 export default ƒ"
+export default (${1:args}) => {
   return $2
 }$0
 endsnippet
 
-snippet exs "ES6 Module.exports"
-module.exports = function(${1:args}) {
-  ${2}
-}$0
-endsnippet
+# snippet exs "ES6 Module.exports"
+# module.exports = function(${1:args}) {
+  # ${2}
+# }$0
+# endsnippet
 
 snippet exdcomp "Export React component"
 export default class ${1:ComponentName} extends Component {
@@ -96,6 +100,14 @@ endsnippet
 # import { Component } from 'react'
 # endsnippet
 
+snippet af "() => {} ƒ"
+(${1:args}) => { ${2:body} }$0
+endsnippet
+
+snippet => "() => {} ƒ"
+(${1:args}) => { ${2:body} }$0
+endsnippet
+
 snippet imre
 import React, { Component } from 'react'$0
 endsnippet
@@ -103,6 +115,10 @@ endsnippet
 # snippet imredc
 # import { connect } from 'react-redux'$0
 # endsnippet
+
+snippet k "React iterator key"
+key={${1:value}}$0
+endsnippet
 
 snippet log "console.log"
 console.log($1)$0
