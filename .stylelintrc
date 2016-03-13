@@ -63,7 +63,7 @@
     "declaration-block-no-duplicate-properties": true,
     "declaration-block-properties-order": "alphabetical",
     "declaration-block-trailing-semicolon": "always",
-    "rule-no-shorthand-property-overrides": true,
+    "declaration-block-no-shorthand-property-overrides": true,
     "rule-non-nested-empty-line-before": "always",
     "selector-combinator-space-after": "always",
     "selector-combinator-space-before": "always",

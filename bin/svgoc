@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Copy minified SVG
+
+if [[ $# -eq 1 ]]; then
+  svgo "$1" -o - | pbcopy
+  printf "\n${Green}Minified SVG markup copied to clipboard.${Plain}\n"
+else
+  printf "\n${Yellow}This tool takes the name of an SVG file as its only argument.${Plain}\n"
+fi

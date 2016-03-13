@@ -43,6 +43,7 @@ alias ipc="curl ifconfig.me | pbcopy"
 alias kite='open -a Kitematic\ \(Beta\)'
 alias l="ls -AlGp"
 alias launchdir='cd ~/Library/LaunchAgents'
+alias letterhead="cd ~/Dropbox/Documents/Letterhead"
 alias mmv='noglob zmv -W'
 alias n='cd ~/Dropbox/Documents/Notes'
 alias npmg="npm list -g --depth=0 2>/dev/null"
@@ -61,6 +62,7 @@ alias rakert="bundle exec rake db:rollback RAILS_ENV=test"
 alias repos="cd /Users/Shared/Development/GitRepos"
 alias res='cd ~/Dropbox/Documents/Resume'
 alias rmorig="find . -name \"*.orig\" -exec rm '{}' ';'"
+alias salias="source ~/.zshrc.d/aliases.zsh"
 alias secret="ruby -rsecurerandom -e 'puts SecureRandom.hex(32)' | pbcopy; echo '32-byte hex secret copied to clipboard!'"
 alias sites="cd ~/sites"
 alias ssh='TERM=xterm-256color ssh'

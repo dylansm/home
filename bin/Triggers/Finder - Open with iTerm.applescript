@@ -1,6 +1,5 @@
 #!/usr/bin/osascript
 
-
 tell application "Finder"
   try
     set t to target of Finder window 1
@@ -16,6 +15,6 @@ end tell
 tell application "iTerm"
   set newWindow to (create window with default profile)
   tell current session of first window
-    write text "cd " & thePath & "; ls -al; pwd; tmux"
+    write text "cd " & thePath & "; ls -al; pwd; t"
   end tell
 end tell
