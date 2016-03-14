@@ -1,0 +1,32 @@
+#!/bin/bash
+
+if [[ $# -eq 1 ]]; then
+  if [[ `command -v ttx` > /dev/null ]]; then
+    font_name=$(ttx -qt name -o - Awkward.ttf | xmllint --xpath '//namerecord[@nameID="1"][1]//text()' --format - | xargs echo)
+  else
+    printf "\n${Yellow}The 'ttx' tool was not found. Install fonttools to use this command (\`pip install fonttools\`).\n"
+  fi
+else
+  printf "\n${Yellow}Pass a font file to this script to generate base64 data in a @font-face block.\n"
+fi
+
+printf "@font-face {\n\
+  font-family: '$font_name';\n\
+  src: url(data:font/opentype;base64,[paste-here-baby]);\n\
+  font-style: normal;\n\
+  font-weight: 400;\n\
+}\n"
+
+# @font-face {
+  # font-family:"font-name";
+  # src:url(data:font/opentype;base64,[paste-here-baby]);
+  # font-style:normal;
+  # font-weight:600;
+# }
+
+# @font-face {
+  # font-family:"font-name";
+  # src:url(data:font/opentype;base64,[paste-here-baby]);
+  # font-style:normal;
+  # font-weight:900;
+# }
