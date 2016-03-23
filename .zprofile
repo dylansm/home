@@ -24,6 +24,12 @@ export XCODE="`xcode-select --print-path`"
 export PATH="/usr/local/bin:$HOME/bin:/usr/local/sbin:/usr/local/opt/mysql56/bin:${SCALA_HOME}/bin:$PATH"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export KEYTIMEOUT=1
+
+# export DOCKER_TLS_VERIFY="1"
+# export DOCKER_HOST="tcp://172.16.245.128:2376"
+# export DOCKER_CERT_PATH="/Users/dylan/.docker/machine/machines/default"
+# export DOCKER_MACHINE_NAME="default"
+
 HISTFILE=~/.zshrc.d/.zsh_history
 HISTSIZE=1024
 SAVEHIST=1024

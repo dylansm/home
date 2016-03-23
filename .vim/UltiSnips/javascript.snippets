@@ -1,10 +1,27 @@
 priority -50
 
+snippet a "Arrow ƒ"
+(${1:args}) => { ${2:body} }$0
+endsnippet
+
+snippet => "Arrow ƒ"
+(${1:args}) => { ${2:body} }$0
+endsnippet
+
 snippet bac "bindActionCreators"
 bindActionCreators({ ${1:action} }, dispatch)
 endsnippet
 
-snippet c "ES6 Class constructor"
+snippet befre "TDD React beforeEach component"
+let component;
+
+beforeEach(() => {
+  component = renderComponent(${1:ComponentName})
+})
+$0
+endsnippet
+
+snippet c "ES2015 Class constructor"
 constructor(props) {
   super(props)
 
@@ -12,15 +29,22 @@ constructor(props) {
 }${0}
 endsnippet
 
+snippet cla "ES2015 Class"
+class ${1:Class} {
+  ${1:constructor() {
+    $2
+  }}
+}$0
+
 snippet cn "JSX className"
 className="${1:name}"$0
 endsnippet
 
-snippet co "ES6 constant"
+snippet co "ES2015 constant"
 const ${1:name} = ${2:value}
 endsnippet
 
-snippet coo "ES6 shorthand obj constant"
+snippet coo "ES2015 shorthand obj constant"
 const { ${1:name} } = ${2:value}
 endsnippet
 
@@ -49,124 +73,154 @@ componentWillMount() {
 endsnippet
 
 snippet desc "TDD Describe"
-describe(${1:thing}, function() {
-  it("${2:does something}", function() {
-    expect()
-  })
+describe('${1:Thing}', () => {
+  it('${2:does something}', () => {
+    expect($3).to.${4:matcher}(${5:matched})
+  })$0
 })
 endsnippet
 
-snippet exdcomp "React export component"
-export default (
-  ${1:MyComp}${0}
-)
-endsnippet
-
-snippet exd "ES6 export default"
-export default ${1:MyComp}${2:({
+snippet exd "ES2015 export default"
+export default ${1:MyComp}${2:(${3:{
   $0
-})${3:(${4:Component})}}
+}})${4:(${5:Component})}}
 endsnippet
 
-snippet exco "ES6 export const"
+snippet exco "ES2015 export const"
 export const ${1:name} = '$1'
 endsnippet
 
-snippet exdf "ES6 export default function ƒ"
+snippet exdf "ES2015 export default function ƒ"
 export default function(${1:args}) {
   $0
 }
 endsnippet
 
-snippet exf "ES6 export function ƒ"
-export function ${1:name}() {
+snippet exf "ES2015 export function ƒ"
+export function ${1:name}(${2:args}) {
   return {
-    $2
+    $3
   }
 }$0
 endsnippet
 
-snippet ex= "ES6 export default ƒ"
+snippet ex= "ES2015 export default ƒ"
 export default (${1:args}) => {
   return $2
 }$0
 endsnippet
 
-# snippet exs "ES6 Module.exports"
+# snippet exs "ES2015 Module.exports"
 # module.exports = function(${1:args}) {
   # ${2}
 # }$0
 # endsnippet
 
-snippet exc "Export ES6 class"
+snippet exc "Export ES2015 class"
 export default class ${1:ClassName} {
   ${2:<$1 />}
 }$0
 endsnippet
 
-# snippet excomp "Export React component"
-# export default class ${1:ComponentName} extends Component {
-  # render() {
-    # return (
-      # <div>
-	# ${2:<$1 />}
-      # </div>
-    # )
-  # }
-# }$0
-# endsnippet
+snippet excomp "Export React component"
+class ${1:ComponentName} extends Component {
+  render() {
+    return (
+      <div className="${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:-\l$2:$2)/g}">
+        $0
+      </div>
+    )
+  }
+}
 
-snippet excc "Redux export connected component"
+export default $1
+endsnippet
+
+snippet exdc "Export ES2015 class"
+export default class ${1:ClassName} {
+  return $0
+}
+endsnippet
+
+snippet exdcomp "Export React component"
+export default class ${1:ComponentName} extends Component {
+  render() {
+    return (
+      <div className="${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:-\l$2:$2)/g}">
+        $0
+      </div>
+    )
+  }
+}
+endsnippet
+
+snippet ex "ES2015 module.exports"
+module.exports = ${1:module}
+endsnippet
+
+snippet excon "Redux export connected component"
 export default connect(${1:mapStateToProps}${2:, ${3:mapDispatchToProps}})${4:(${5:Component})}$0
 endsnippet
 
 snippet imbac "Redux bindActionCreators"
-import { bindActionCreators } from 'redux'$0
+import { bindActionCreators } from 'redux'
+$0
 endsnippet
 
 snippet imcomp "Import component file"
 import ${1:ComponentName} from '${2:..}/components/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'
+$0
 endsnippet
 
 snippet imcont "Import container from file"
 import ${1:ContainerName} from '${2:..}/containers/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'
+$0
 endsnippet
 
 snippet imf "Import from file"
 import ${1:module} from '${2:..}/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'
+$0
 endsnippet
 
-snippet im "ES6 import module"
-import ${1:Module} from '${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:-\l$2:$2)/g}'
+snippet im "ES2015 import module"
+import ${1:Module} from '${2:..}/${3:${4:path}/}${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:-\l$2:$2)/g}'
+$0
 endsnippet
 
-snippet imo "ES6 import { module }"
+snippet imconn
+import { connect } from 'react-redux'
+$0
+endsnippet
+
+snippet imo "ES2015 import { module }"
 import { ${1:module} } from '${2:lib}'$0
+$0
 endsnippet
 
-# snippet imre
-# import React from 'react'$0
-# endsnippet
-
-# snippet imrec "Import from React"
-# import { Component } from 'react'
-# endsnippet
-
-snippet af "() => {} ƒ"
-(${1:args}) => { ${2:body} }$0
+snippet imre "React and { Component} import"
+import React, { Component } from 'react'
+$0
 endsnippet
 
-snippet => "() => {} ƒ"
-(${1:args}) => { ${2:body} }$0
+snippet imtest "React component test"
+import { renderComponent, expect } from '../test_helper'
+import ${1:ComponentName} from '${2:../../src/components}/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'
+
+describe('$1', () => {
+  it('${3:does something}', () => {
+    const component = renderComponent($1)
+    expect(component${4:.find('${5:element}')}).to.${6:exist}
+  })$0
+})
 endsnippet
 
-snippet imre
-import React, { Component } from 'react'$0
+snippet it "TDD it block"
+it('${1:does something}', () => {
+  const component = renderComponent(${2:ComponentName})
+  expect(component${3:.find('${4:element}')}).to.${5:exist}
+})
 endsnippet
 
-# snippet imredc
-# import { connect } from 'react-redux'$0
-# endsnippet
 snippet irou "React IndexRoute"
 <IndexRoute component={${2:IndexComp}} />
 endsnippet
@@ -203,6 +257,12 @@ snippet r "Return"
 return $0
 endsnippet
 
+snippet rc "React return component"
+return (
+  ${1:<div>$2</div>}
+)$0
+endsnippet
+
 snippet render
 render() {
   return (
@@ -213,6 +273,10 @@ endsnippet
 
 snippet rou "React Router route entry"
 <Route path="${1:/}" component={${2:App}} />
+endsnippet
+
+snippet roubh "Router component, browserHist"
+<Router history={browserHistory} routes={${1:routes}} />
 endsnippet
 
 snippet sw "Minimal switch statement"

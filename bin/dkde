@@ -1,0 +1,18 @@
+#!/bin/bash
+
+image_count=$(docker info | grep Images: | awk '{print $NF}')
+if [[ $image_count == "0" ]]; then
+  printf "\n`echo $Red`There are no docker images to delete.\n"
+else
+  if [[ $# -eq 0 ]]; then
+    unset tmp
+    printf "\n"
+    vared -p "`echo $Yellow`Are you sure you want to remove all images? (y/n):`echo $Plain` " -c tmp
+
+    if [[ $tmp =~ ^[Yy]$ ]]; then
+      docker rmi -f $(docker images -q)
+    fi
+  else
+    docker rmi -f $(docker images | grep "$1" | awk '{print $3}')
+  fi
+fi
