@@ -162,20 +162,24 @@ snippet excon "Redux export connected component"
 export default connect(${1:mapStateToProps}${2:, ${3:mapDispatchToProps}})${4:(${5:Component})}$0
 endsnippet
 
+snippet exp "TDD expect"
+expect(component${1:.find('${2:element}')}).to.${3:exist}
+endsnippet
+
 snippet imbac "Redux bindActionCreators"
 import { bindActionCreators } from 'redux'
 $0
 endsnippet
 
 snippet imcomp "Import component file"
-import ${1:ComponentName} from '${2:..}/components/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'
+import ${1:ComponentName} from '${2:..}/${3:components/}${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'
 $0
 endsnippet
 
-snippet imcont "Import container from file"
-import ${1:ContainerName} from '${2:..}/containers/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'
-$0
-endsnippet
+# snippet imcont "Import container from file"
+# import ${1:ContainerName} from '${2:..}/containers/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'
+# $0
+# endsnippet
 
 snippet imf "Import from file"
 import ${1:module} from '${2:..}/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'
@@ -189,6 +193,11 @@ endsnippet
 
 snippet imconn
 import { connect } from 'react-redux'
+$0
+endsnippet
+
+snippet imexp "Import react testing helpers"
+import { renderComponent, expect } from '${1:..}/${2:test_helper}'
 $0
 endsnippet
 
@@ -216,13 +225,18 @@ endsnippet
 
 snippet it "TDD it block"
 it('${1:does something}', () => {
-  const component = renderComponent(${2:ComponentName})
-  expect(component${3:.find('${4:element}')}).to.${5:exist}
+  ${2:const component = renderComponent(${3:ComponentName})}
+  expect(component${4:.find('${5:element}')}).to.${6:exist}
 })
 endsnippet
 
 snippet irou "React IndexRoute"
 <IndexRoute component={${2:IndexComp}} />
+endsnippet
+
+snippet jsdoc "Global document for jsdom"
+global.document = jsdom.jsdom('<!doctype html><html><body></body></html>')
+global.window = global.document.defaultView
 endsnippet
 
 snippet k "React iterator key"

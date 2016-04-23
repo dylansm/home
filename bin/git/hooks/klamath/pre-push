@@ -1,0 +1,53 @@
+#!/bin/sh
+
+if [[ -n "$DEPLOY_ENV" ]]; then
+  DEPLOY_ENV='staging'
+fi
+
+if [[ -n "$FETCH_ASSETS" ]]; then
+  FETCH_ASSETS=false
+fi
+
+if [[ -n "$PUSH_ASSETS" ]]; then
+  PUSH_ASSETS=false
+fi
+
+SSH_CONFIG=klamath
+
+# local
+LOCAL_APP_DIR=/Users/dylan/sites/klamath
+LOCAL_PUBLIC_DIR="$LOCAL_APP_DIR/public"
+LOCAL_ASSETS_DIR="$LOCAL_PUBLIC_DIR/assets"
+LOCAL_BUILD_DIR="$LOCAL_PUBLIC_DIR/build"
+
+# staging
+STAGING_APP_DIR=/home/deployer/staging.meetmeinklamath.com
+STAGING_PUBLIC_DIR="$STAGING_APP_DIR/public"
+STAGING_ASSETS_DIR="$STAGING_PUBLIC_DIR/assets"
+STAGING_BUILD_DIR="$STAGING_PUBLIC_DIR/build"
+
+# production
+PRODUCTION_APP_DIR=/home/deployer/www.meetmeinklamath.com
+PRODUCTION_PUBLIC_DIR="$PRODUCTION_APP_DIR/public"
+PRODUCTION_ASSETS_DIR="$PRODUCTION_PUBLIC_DIR/assets"
+PRODUCTION_BUILD_DIR="$PRODUCTION_PUBLIC_DIR/build"
+
+npm run build
+
+# push up assets while in DEV ONLY
+# rsync -zavr "$LOCAL_ASSETS_DIR/" "$SSH_CONFIG":"$STAGING_ASSETS_DIR"
+
+# push up build dir - staging
+rsync -zavr "$LOCAL_BUILD_DIR/" "$SSH_CONFIG":"$STAGING_BUILD_DIR"
+
+# push up build dir - production
+if [[ "$DEPLOY_ENV" == 'production'  ]]; then
+  rsync -zavr "$LOCAL_BUILD_DIR/" "$SSH_CONFIG":"$PRODUCTION_BUILD_DIR"
+fi
+
+# fetch assets
+# rsync -zavr "$SSH_CONFIG":"$STAGING_ASSETS_DIR/" "$LOCAL_ASSETS_DIR"
+if [[ "$FETCH_ASSETS" = true ]]; then
+  rsync -zavr "$SSH_CONFIG":"$PRODUCTION_ASSETS_DIR/" "$LOCAL_ASSETS_DIR"
+fi
+

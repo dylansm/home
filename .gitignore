@@ -26,6 +26,7 @@
 .eaglerc
 .fzf/
 .gem/
+.homestead
 .pylint.d/
 .gist
 .gitk
@@ -110,4 +111,5 @@ Public/
 Sites
 VirtualBox VMs/
 derby.log
+homestead_sites/
 mbox

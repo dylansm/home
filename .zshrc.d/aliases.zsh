@@ -1,3 +1,4 @@
+
 alias ...='cd ../../'
 alias ..='cd ../'
 alias ani='ansible'
@@ -25,14 +26,15 @@ alias dkc='docker-compose'
 alias dkinf='docker info'
 alias dkk='docker kill'
 alias dkl='docker logs -f'
-alias dmrc='docker-machine regenerate-certs default'
 alias dks='docker stop $(docker ps -q)'
 alias dku='docker-compose up -d'
 alias dm='docker-machine'
 alias dmip='docker-machine ip default'
 alias dmipc='docker-machine ip default | pbcopy'
+alias dmrc='docker-machine regenerate-certs default'
 alias doc='cd ~/Dropbox/Documents'
 alias dock='cd /Users/Shared/Development/Docker'
+alias down="cd ~/Downloads"
 alias gitf='git fetch'
 alias gitm='git merge'
 alias gitu='git add -u'
@@ -44,7 +46,12 @@ alias kite='open -a Kitematic\ \(Beta\)'
 alias l="ls -AlGp"
 alias launchdir='cd ~/Library/LaunchAgents'
 alias letterhead="cd ~/Dropbox/Documents/Letterhead"
+alias mm="bundle exec middleman"
 alias mmv='noglob zmv -W'
+alias mpcc="mpc listall | wc -l"
+alias mpcg="mpc listall | grep -Ei "
+alias mpcp="mpc playlist"
+alias mpct="mpc toggle"
 alias n='cd ~/Dropbox/Documents/Notes'
 alias npmg="npm list -g --depth=0 2>/dev/null"
 alias npmgo="npm outdated -g --depth=0"
@@ -65,6 +72,9 @@ alias rmorig="find . -name \"*.orig\" -exec rm '{}' ';'"
 alias salias="source ~/.zshrc.d/aliases.zsh"
 alias secret="ruby -rsecurerandom -e 'puts SecureRandom.hex(32)' | pbcopy; echo '32-byte hex secret copied to clipboard!'"
 alias sites="cd ~/sites"
+alias spotclear="ssh -t vagrant@10.12.13.18 \"rm -rf /home/vagrant/nike-spot-2.0/storage/framework/sessions/*\""
+alias spotfresh="spotnewdb && spotclear"
+alias spotnewdb="ssh -t vagrant@10.12.13.18 \"mysql -uroot -psecret -e 'drop database if exists nikespot; create database nikespot;' && cd /home/vagrant/nike-spot-2.0 && php artisan migrate --seed --force\""
 alias ssh='TERM=xterm-256color ssh'
 alias todo='cd ~/Dropbox/Todo'
 alias tree2="tree -L 2"
@@ -80,5 +90,6 @@ alias vagst="vagrant global-status"
 alias vagup="vagrant up"
 alias vim='nvim'
 alias vimalias='vim ~/.zshrc.d/aliases.zsh'
+alias vimrc="vim ~/.vimrc"
 alias xcode="/Users/Shared/Development/Xcode/Projects"
 alias xplug="~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins"

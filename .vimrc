@@ -16,8 +16,10 @@ Plug 'helino/vim-json'
 Plug 'mklabs/vim-backbone'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'fatih/vim-go'
-Plug 'dylansm/html5.vim'
+Plug 'digitaltoad/vim-pug'
+Plug 'jwalton512/vim-blade'
 Plug 'pangloss/vim-javascript'
+Plug 'dylansm/html5.vim'
 Plug 'dylansm/vim-super-retab'
 Plug 'dylansm/nginx.vim'
 Plug 'dylansm/vim-stripper'
@@ -160,8 +162,8 @@ let g:syntastic_style_warning_symbol = "➢"
 let g:jsx_ext_required = 0
 "let g:syntastic_python_python_exec = '~/.pyenv/shims/python'
 let g:syntastic_python_checkers = ['pylint']
-" let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_css_checkers = ['stylelint']
 let g:syntastic_scss_checkers = ['stylelint']
 let g:syntastic_php_checkers = ['php']
@@ -205,6 +207,10 @@ nnoremap <silent> <Plug>LocationPrevious    :<C-u>exe 'call <SID>LocationPreviou
 nnoremap <silent> <Plug>LocationNext        :<C-u>exe 'call <SID>LocationNext()'<CR>
 nmap <silent> <C-K> <Plug>LocationPrevious
 nmap <silent> <C-J> <Plug>LocationNext
+
+let g:ycm_filetype_specific_completion_to_disable = {
+      \ 'php': 1
+      \}
 
 " Utility function to echo syntax under cursor
 nmap ;y :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
@@ -384,6 +390,7 @@ if has("autocmd")
   au BufRead,BufNewFile *.java set ts=4 sw=4 sts=4
   au BufRead,BufNewFile *.scss set sw=2 sts=2
   autocmd BufNewFile,BufRead * setlocal formatoptions-=o
+
   "remember last position
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif

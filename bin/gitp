@@ -1,7 +1,15 @@
 #!/bin/bash
 
 if [[ $# -eq 1 ]]; then
-  git clone "$(pbpaste)" "$1"
+  if [[ "$(pbpaste)" =~ 'clone' ]]; then
+    eval pbpaste "$1"| bash
+  else
+    git clone "$(pbpaste)" "$1"
+  fi
 else
-  git clone "$(pbpaste)"
+  if [[ "$(pbpaste)" =~ 'clone' ]]; then
+    eval pbpaste| bash
+  else
+    git clone "$(pbpaste)"
+  fi
 fi

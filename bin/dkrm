@@ -10,9 +10,10 @@ elif [[ ! $running_count == "0" || ! $paused_count == "0" ]]; then
   if [[ $# -eq 0 ]]; then
     unset tmp
     printf "\n"
-    vared -p "`print $Yellow`Are you sure you want to stop and remove all containers? (y/n):`echo $Plain` " -c tmp
+    echo -n "${Yellow}Are you sure you want to stop and remove all containers? (y/n):${Plain} "
+    read response
 
-    if [[ $tmp =~ ^[Yy]$ ]]; then
+    if [[ $response =~ ^[Yy]$ ]]; then
       docker stop $(docker ps -a -q)
       docker rm $(docker ps -a -q)
     fi

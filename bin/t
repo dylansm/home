@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 [ ! -z "$TMUX" ] && print "${Red}\nExiting. Nesting of tmux sessions is not good." && exit 1
 
@@ -9,6 +9,13 @@ replaceSpaces() {
   echo ${1// /$replacement}
 }
 
+replaceDots() {
+  # use "$@*" to pass $@ as a single parameter to this function
+  # default to '_' unless 2nd arg passed
+  replacement=${2:-_}
+  echo ${1//\./$replacement}
+}
+
 tn() {
   if [[ $# -gt 0 ]]; then
     session=$(replaceSpaces "$*")
@@ -16,50 +23,56 @@ tn() {
   else
     dir=$(pwd)
     last_dir=`echo ${dir##*/}`
-    tmux new-session -s "$last_dir"
+    session=$(replaceDots "$last_dir")
+    tmux new-session -s "$session"
   fi
 }
 
 
 tk() {
   unset tmp
-  vared -p "`print $Yellow`Kill session:`echo $Plain` " -c tmp
-  if [[ $tmp =~ [0-9]+ ]]; then
-    session=$(echo $output | grep -E "\s?$tmp\." | awk '{print $2}')
+  read -p "${Yellow}Kill session:${Plain} " -n1 tmp
+  echo ''
+
+  if [[ $tmp =~ [0-9] ]]; then
+    session=$(echo $output | grep -Ei "\s?$tmp\." | awk '{print $2}')
     tmux kill-session -t "$session"
   fi
 }
 
 tl() {
   tmux_status=`tmux list-sessions 2>&1`
-  print ''
+  printf ''
   if [[ ${tmux_status} =~ ^no\ server ]]; then
-    print "${Yellow}Tmux is not running."
+    tn
+    # printf "${Yellow}Tmux is not running.\n"
   else
     printf "${Underscore}${Blue}%s   %s \n${Plain}" "     Session                         " "# Windows"
-    print ''
-    output=$(print $tmux_status | awk {'
+    printf '\n'
+    output=$(echo $tmux_status | awk {'
       split($0, arrTSessions, ":")
-      printf(ENVIRON["Green"]" %d) "ENVIRON["Bone"]" %-34s %-10d\n"ENVIRON["Plain"], NR, arrTSessions[1], arrTSessions[2])
+      printf(ENVIRON["Green"]" %d) "ENVIRON["Bone"]" %34s %-10d\n"ENVIRON["Plain"], NR, arrTSessions[1], arrTSessions[2])
     '})
     echo $output
 
+    printf '\n'
     unset tmp
-    vared -p "`echo $Green`Attach session:`echo $Plain` " -c tmp
-    if [[ $tmp =~ '^[0-9]+' ]]; then
+    read -p "`echo $Green`Attach session:`echo $Plain` " -n1 tmp
+    echo ''
+    if [[ $tmp =~ [0-9] ]]; then
       session=$(echo $output | grep -E "\s?$tmp\)" | awk '{print $4}')
       tmux attach-session -t "$session"
       exit
-    elif [[ $tmp =~ '^[kK]' ]]; then
+    elif [[ $tmp =~ [kK] ]]; then
       tk
-    elif [[ $tmp =~ '^[nN]' ]]; then
+    elif [[ $tmp =~ [nN] ]]; then
       tn
     fi
   fi
 }
 
 tmux_status=`tmux list-sessions 2>&1`
-printf ''
+printf '\n'
 if [[ ${tmux_status} =~ '^no\ server' ]]; then
   tn
 else
