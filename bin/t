@@ -35,7 +35,7 @@ tk() {
   echo ''
 
   if [[ $tmp =~ [0-9] ]]; then
-    session=$(echo $output | grep -Ei "\s?$tmp\." | awk '{print $2}')
+    session=$(echo "$output" | grep -Ei "\s?$tmp\." | awk '{print $2}')
     tmux kill-session -t "$session"
   fi
 }
@@ -49,18 +49,18 @@ tl() {
   else
     printf "${Underscore}${Blue}%s   %s \n${Plain}" "     Session                         " "# Windows"
     printf '\n'
-    output=$(echo $tmux_status | awk {'
+    output=$(printf "$tmux_status" | awk {'
       split($0, arrTSessions, ":")
-      printf(ENVIRON["Green"]" %d) "ENVIRON["Bone"]" %34s %-10d\n"ENVIRON["Plain"], NR, arrTSessions[1], arrTSessions[2])
+      printf(ENVIRON["Green"]" %d) "ENVIRON["Bone"]" %-34s %-10d\n"ENVIRON["Plain"], NR, arrTSessions[1], arrTSessions[2])
     '})
-    echo $output
+    printf "$output"
 
     printf '\n'
     unset tmp
     read -p "`echo $Green`Attach session:`echo $Plain` " -n1 tmp
     echo ''
     if [[ $tmp =~ [0-9] ]]; then
-      session=$(echo $output | grep -E "\s?$tmp\)" | awk '{print $4}')
+      session=$(echo "$output" | grep -E "\s?$tmp\)" | awk '{print $4}')
       tmux attach-session -t "$session"
       exit
     elif [[ $tmp =~ [kK] ]]; then

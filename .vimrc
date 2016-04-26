@@ -34,6 +34,7 @@ Plug 'tpope/vim-liquid'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'kewah/vim-stylefmt'
 Plug 'davidoc/taskpaper.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'dylansm/vim-jsx'
@@ -365,6 +366,8 @@ let MRU_Add_Menu = 0
 nmap <silent>;w :set wrap!<CR>
 nmap <silent>;m :MarkedOpen!<CR>
 noremap <Leader>f :Fixmyjs<CR>
+nnoremap <silent> <leader>f :Stylefmt<CR>
+vnoremap <silent> <leader>f :StylefmtVisual<CR>
 
 " let g:javascript_conceal_function   = "ƒ"
 " let g:javascript_conceal_null       = "ø"

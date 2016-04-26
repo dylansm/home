@@ -5,9 +5,9 @@ export JENV_ROOT=/usr/local/var/jenv
 export PYENV_ROOT=/usr/local/var/pyenv
 export NVM_DIR=~/.nvm
 
-# if which docker-machine > /dev/null; then
-  # eval $(docker-machine env default)
-# fi
+if which docker-machine > /dev/null; then
+  eval $(docker-machine env default)
+fi
 
 # export MPD_HOST="monk.local"
 export MPD_HOST="localhost"
@@ -49,5 +49,7 @@ if [[ -f ~/.config/api_secrets.yml ]]; then
 fi
 
 if [[ -f ~/.config/app_secrets.yml ]]; then
-  export THE_DRAW_DEPLOY_USER=`echo $thedraw_defaults_deploy_user`
+  export AUTH_TEST_JWT_DEVELOPMENT=`echo $auth_test_development_jwt_secret`
+  export CALDUX_JWT_DEVELOPMENT=`echo $caldux_development_jwt_secret`
+  export NIKE_LOCKER_JWT_DEVELOPMENT=`echo $nike_locker_development_jwt_secret`
 fi

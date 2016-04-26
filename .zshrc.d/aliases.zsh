@@ -11,7 +11,7 @@ alias brake='bundle exec rake'
 alias brewi='brew install'
 alias brewup="brew update && brew cleanup"
 alias bundled="echo '\nInstalling gems for development and test only...\n'; bundle install --without production staging"
-alias calias="cat ~/.zshrc.d/aliases.zsh"
+alias calias="pcat ~/.zshrc.d/aliases.zsh"
 alias caski="brew cask install --appdir=/Applications --colorpickerdir=~/Library/ColorPickers"
 alias clearlog="sudo cat /dev/null > "
 alias cloj='cd /Users/Shared/Development/Clojure'
@@ -70,7 +70,7 @@ alias repos="cd /Users/Shared/Development/GitRepos"
 alias res='cd ~/Dropbox/Documents/Resume'
 alias rmorig="find . -name \"*.orig\" -exec rm '{}' ';'"
 alias salias="source ~/.zshrc.d/aliases.zsh"
-alias secret="ruby -rsecurerandom -e 'puts SecureRandom.hex(32)' | pbcopy; echo '32-byte hex secret copied to clipboard!'"
+alias secret="ruby -rsecurerandom -e 'print SecureRandom.hex(32)' | pbcopy; echo '32-byte hex secret copied to clipboard!'"
 alias sites="cd ~/sites"
 alias spotclear="ssh -t vagrant@10.12.13.18 \"rm -rf /home/vagrant/nike-spot-2.0/storage/framework/sessions/*\""
 alias spotfresh="spotnewdb && spotclear"

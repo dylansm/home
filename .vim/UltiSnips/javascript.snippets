@@ -166,6 +166,12 @@ snippet exp "TDD expect"
 expect(component${1:.find('${2:element}')}).to.${3:exist}
 endsnippet
 
+snippet exrou "Express route"
+function(req, res, next) {
+  $1
+}$0
+endsnippet
+
 snippet imbac "Redux bindActionCreators"
 import { bindActionCreators } from 'redux'
 $0
