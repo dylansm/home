@@ -58,6 +58,7 @@ alias npmgo="npm outdated -g --depth=0"
 alias npml="npm list --depth=0"
 alias npmlo="npm outdated --depth=0"
 alias ojp='cd ~/Dropbox/Documents/Project\ Documents/Owen\ Jones'
+alias open="open ."
 alias p='cd /Users/Shared/Development/Projects'
 alias pdoc='cd ~/Dropbox/Documents/Project\ Documents'
 alias precomp="RAILS_ENV=production bundle exec rake assets:precompile"

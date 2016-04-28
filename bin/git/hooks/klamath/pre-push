@@ -32,13 +32,13 @@ PRODUCTION_PUBLIC_DIR="$PRODUCTION_APP_DIR/public"
 PRODUCTION_ASSETS_DIR="$PRODUCTION_PUBLIC_DIR/assets"
 PRODUCTION_BUILD_DIR="$PRODUCTION_PUBLIC_DIR/build"
 
-# npm run build
+npm run build
 
 # push up assets while in DEV ONLY
 # rsync -zavr "$LOCAL_ASSETS_DIR/" "$SSH_CONFIG":"$STAGING_ASSETS_DIR"
 
 # push up build dir - staging
-# rsync -zavr "$LOCAL_BUILD_DIR/" "$SSH_CONFIG":"$STAGING_BUILD_DIR"
+rsync -zavr "$LOCAL_BUILD_DIR/" "$SSH_CONFIG":"$STAGING_BUILD_DIR"
 
 # push up build dir - production
 if [[ "$DEPLOY_ENV" == 'production'  ]]; then

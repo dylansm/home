@@ -39,6 +39,7 @@ SAVEHIST=1024
 if [[ -f ~/.config/api_secrets.yml ]]; then
   . ~/.zshrc.d/parse_yaml.zsh
   eval $(parse_yaml ~/.config/api_secrets.yml)
+
   export GITHUB_AUTH_TOKEN=`echo $default_github_auth_token`
   export AWS_ACCESS_KEY_ID=`echo $default_aws_access_key_id`
   export AWS_SECRET_ACCESS_KEY=`echo $default_aws_secret_access_key`
@@ -49,6 +50,9 @@ if [[ -f ~/.config/api_secrets.yml ]]; then
 fi
 
 if [[ -f ~/.config/app_secrets.yml ]]; then
+  . ~/.zshrc.d/parse_yaml.zsh
+  eval $(parse_yaml ~/.config/app_secrets.yml)
+
   export AUTH_TEST_JWT_DEVELOPMENT=`echo $auth_test_development_jwt_secret`
   export CALDUX_JWT_DEVELOPMENT=`echo $caldux_development_jwt_secret`
   export NIKE_LOCKER_JWT_DEVELOPMENT=`echo $nike_locker_development_jwt_secret`
