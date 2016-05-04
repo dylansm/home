@@ -5,9 +5,9 @@ export JENV_ROOT=/usr/local/var/jenv
 export PYENV_ROOT=/usr/local/var/pyenv
 export NVM_DIR=~/.nvm
 
-if which docker-machine > /dev/null; then
-  eval $(docker-machine env default)
-fi
+# if which docker-machine > /dev/null; then
+  # eval $(docker-machine env default)
+# fi
 
 # export MPD_HOST="monk.local"
 export MPD_HOST="localhost"

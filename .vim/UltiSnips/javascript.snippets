@@ -29,12 +29,18 @@ constructor(props) {
 }${0}
 endsnippet
 
+snippet ca "Switch case statement"
+case ${1:case_name}:
+  return $2
+endsnippet
+
 snippet cla "ES2015 Class"
 class ${1:Class} {
-  ${1:constructor() {
-    $2
+  ${2:constructor() {
+    $3
   }}
 }$0
+endsnippet
 
 snippet cn "JSX className"
 className="${1:name}"$0
@@ -172,6 +178,33 @@ function(req, res, next) {
 }$0
 endsnippet
 
+snippet redform "ReduxForm component"
+import { reduxForm } from 'redux-form'
+
+class ${1:ComponentName} extends Component {
+  render() {
+    return (
+      <form>
+        <fieldset className="form-group">
+          $0
+        </fieldset>
+        <button action="submit" className="btn btn-primary">Submit</button>
+      </form>
+    )
+  }
+}
+
+export default reduxForm({
+  form: '${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:-\l$2:$2)/g}',
+  fields: ['$2']
+})(${3:$1})
+endsnippet
+
+snippet im* "Import all as..."
+import * as ${1:actions} from '${2:./${3:path}}'
+$0
+endsnippet
+
 snippet imbac "Redux bindActionCreators"
 import { bindActionCreators } from 'redux'
 $0
@@ -292,7 +325,7 @@ render() {
 endsnippet
 
 snippet rou "React Router route entry"
-<Route path="${1:/}" component={${2:App}} />
+<Route path="${1:/}" component={${2:Component}} />
 endsnippet
 
 snippet roubh "Router component, browserHist"
@@ -301,10 +334,12 @@ endsnippet
 
 snippet sw "Minimal switch statement"
 switch (${1:term}) {
-  ${2: case ${3:case}
-    return $4 }
-  ${5:default:
-    return $6}
-}$0
+  case ${2:case_name}:
+    return $3
+  }
+
+}
+
+return $0
 endsnippet
 

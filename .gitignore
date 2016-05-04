@@ -26,6 +26,7 @@
 .eaglerc
 .fzf/
 .gem/
+.homebrew_analytics_user_uuid
 .homestead
 .pylint.d/
 .gist

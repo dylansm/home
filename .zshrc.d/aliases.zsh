@@ -52,6 +52,7 @@ alias mpcc="mpc listall | wc -l"
 alias mpcg="mpc listall | grep -Ei "
 alias mpcp="mpc playlist"
 alias mpct="mpc toggle"
+alias mpcu="mpc update"
 alias n='cd ~/Dropbox/Documents/Notes'
 alias npmg="npm list -g --depth=0 2>/dev/null"
 alias npmgo="npm outdated -g --depth=0"
