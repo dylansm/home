@@ -5,6 +5,8 @@ export JENV_ROOT=/usr/local/var/jenv
 export PYENV_ROOT=/usr/local/var/pyenv
 export NVM_DIR=~/.nvm
 
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
 # if which docker-machine > /dev/null; then
   # eval $(docker-machine env default)
 # fi

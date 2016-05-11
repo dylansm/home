@@ -12,7 +12,7 @@ alias brewi='brew install'
 alias brewup="brew update && brew cleanup"
 alias bundled="echo '\nInstalling gems for development and test only...\n'; bundle install --without production staging"
 alias calias="pcat ~/.zshrc.d/aliases.zsh"
-alias caski="brew cask install --appdir=/Applications --colorpickerdir=~/Library/ColorPickers"
+alias caski="brew cask install"
 alias clearlog="sudo cat /dev/null > "
 alias cloj='cd /Users/Shared/Development/Clojure'
 alias code='cd /Users/Shared/Development/Code_Library'
