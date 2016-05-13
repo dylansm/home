@@ -42,6 +42,7 @@ if [[ -f ~/.config/api_secrets.yml ]]; then
   . ~/.zshrc.d/parse_yaml.zsh
   eval $(parse_yaml ~/.config/api_secrets.yml)
 
+  export HOMEBREW_GITHUB_API_TOKEN=`echo $default_github_homebrew_token`
   export GITHUB_AUTH_TOKEN=`echo $default_github_auth_token`
   export AWS_ACCESS_KEY_ID=`echo $default_aws_access_key_id`
   export AWS_SECRET_ACCESS_KEY=`echo $default_aws_secret_access_key`
