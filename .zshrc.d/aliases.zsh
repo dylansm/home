@@ -14,13 +14,13 @@ alias bundled="echo '\nInstalling gems for development and test only...\n'; bund
 alias calias="pcat ~/.zshrc.d/aliases.zsh"
 alias caski="brew cask install"
 alias clearlog="sudo cat /dev/null > "
-alias cloj='cd /Users/Shared/Development/Clojure'
-alias code='cd /Users/Shared/Development/Code_Library'
+alias cloj='cd ~/dev/Clojure'
+alias code='cd ~/dev/Code_Library'
 alias ctag='ctags -R --exclude=.git --exclude=log --exclude=tmp *'
 alias cuc='cucumber'
 alias curlh='curl -IL '
 alias d='cd ~/Desktop'
-alias dev='cd /Users/Shared/Development'
+alias dev='cd ~/dev'
 alias dk='docker'
 alias dkc='docker-compose'
 alias dkinf='docker info'
@@ -33,18 +33,17 @@ alias dmip='docker-machine ip default'
 alias dmipc='docker-machine ip default | pbcopy'
 alias dmrc='docker-machine regenerate-certs default'
 alias doc='cd ~/Dropbox/Documents'
-alias dock='cd /Users/Shared/Development/Docker'
+alias dock='cd ~/dev/Docker'
 alias down="cd ~/Downloads"
 alias gitf='git fetch'
 alias gitm='git merge'
 alias gitu='git add -u'
 alias gitv="git remote -v"
-alias gr='cd /Users/Shared/Development/GitRepos'
+alias gr='cd ~/dev/GitRepos'
 alias history='history 0'
 alias ipc="curl ifconfig.me | pbcopy"
 alias kite='open -a Kitematic\ \(Beta\)'
 alias l="ls -AlGp"
-alias launchdir='cd ~/Library/LaunchAgents'
 alias letterhead="cd ~/Dropbox/Documents/Letterhead"
 alias mm="bundle exec middleman"
 alias mmv='noglob zmv -W'
@@ -60,7 +59,7 @@ alias npml="npm list --depth=0"
 alias npmlo="npm outdated --depth=0"
 alias ojp='cd ~/Dropbox/Documents/Project\ Documents/Owen\ Jones'
 alias open="open ."
-alias p='cd /Users/Shared/Development/Projects'
+alias p='cd ~/dev/Projects'
 alias pdoc='cd ~/Dropbox/Documents/Project\ Documents'
 alias precomp="RAILS_ENV=production bundle exec rake assets:precompile"
 alias rake='noglob rake' # allows rake and zsh to get along
@@ -68,7 +67,6 @@ alias rakem="bundle exec rake db:migrate"
 alias rakemt="bundle exec rake db:migrate RAILS_ENV=test"
 alias raker="bundle exec rake db:rollback"
 alias rakert="bundle exec rake db:rollback RAILS_ENV=test"
-alias repos="cd /Users/Shared/Development/GitRepos"
 alias res='cd ~/Dropbox/Documents/Resume'
 alias rmorig="find . -name \"*.orig\" -exec rm '{}' ';'"
 alias salias="source ~/.zshrc.d/aliases.zsh"
@@ -93,5 +91,5 @@ alias vagup="vagrant up"
 alias vim='nvim'
 alias vimalias='vim ~/.zshrc.d/aliases.zsh'
 alias vimrc="vim ~/.vimrc"
-alias xcode="/Users/Shared/Development/Xcode/Projects"
-alias xplug="~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins"
+alias xcode="cd ~/dev/Xcode/Projects"
+alias xplug="cd ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins"

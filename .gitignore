@@ -112,5 +112,6 @@ Public/
 Sites
 VirtualBox VMs/
 derby.log
+/dev/*
 homestead_sites/
 mbox

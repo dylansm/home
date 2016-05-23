@@ -2,4 +2,11 @@
 
 global_packages = `npm list -g --depth=0 | grep -v npm 2>/dev/null`
 
-puts "npm install -g #{global_packages.scan(/(?<=── ).*(?=@)/)}"
+packages_stripped = global_packages.scan(/(?<=── ).*(?=@)/)
+install_cmd = "npm install -g #{packages_stripped.join(' ')}"
+
+`printf "%s " #{install_cmd} | pbcopy`
+
+puts "\nThe following has been copied to clipboard:\n"
+
+puts "\n#{install_cmd}"
