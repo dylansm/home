@@ -35,6 +35,7 @@ alias dmrc='docker-machine regenerate-certs default'
 alias doc='cd ~/Dropbox/Documents'
 alias dock='cd ~/dev/Docker'
 alias down="cd ~/Downloads"
+alias gistg='gist -l | grep '
 alias gitf='git fetch'
 alias gitm='git merge'
 alias gitu='git add -u'
@@ -44,16 +45,16 @@ alias history='history 0'
 alias ipc="curl ifconfig.me | pbcopy"
 alias kite='open -a Kitematic\ \(Beta\)'
 alias l="ls -AlGp"
-alias letterhead="cd ~/Dropbox/Documents/Letterhead"
-alias mm="bundle exec middleman"
+alias letterhead='cd ~/Dropbox/Documents/Letterhead'
+alias mm='bundle exec middleman'
 alias mmv='noglob zmv -W'
-alias mpcc="mpc listall | wc -l"
-alias mpcg="mpc listall | grep -Ei "
+alias mpcc='mpc listall | wc -l'
+alias mpcg='mpc listall | grep -Ei '
 alias mpcp="mpc playlist"
 alias mpct="mpc toggle"
 alias mpcu="mpc update"
 alias n='cd ~/Dropbox/Documents/Notes'
-alias npmg="npm list -g --depth=0 2>/dev/null"
+alias npmg='npm list -g --depth=0 2>/dev/null'
 alias npmgo="npm outdated -g --depth=0"
 alias npml="npm list --depth=0"
 alias npmlo="npm outdated --depth=0"
