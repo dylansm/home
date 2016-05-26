@@ -1,8 +1,8 @@
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+# if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 export JENV_ROOT=/usr/local/var/jenv
-export PYENV_ROOT=/usr/local/var/pyenv
+# export PYENV_ROOT=/usr/local/var/pyenv
 export NVM_DIR=~/.nvm
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
