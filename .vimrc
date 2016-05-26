@@ -42,7 +42,8 @@ Plug 'scrooloose/syntastic'
 " Plug 'scrooloose/nerdcommenter'
 Plug 'dylansm/nerdcommenter'
 Plug 'itspriddle/vim-marked'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
+Plug 'Shougo/deoplete.nvim'
 
 " Group dependencies, vim-snippets depends on ultisnips
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -211,9 +212,9 @@ nnoremap <silent> <Plug>LocationNext        :<C-u>exe 'call <SID>LocationNext()'
 nmap <silent> <C-K> <Plug>LocationPrevious
 nmap <silent> <C-J> <Plug>LocationNext
 
-let g:ycm_filetype_specific_completion_to_disable = {
-      \ 'php': 1
-      \}
+" let g:ycm_filetype_specific_completion_to_disable = {
+      " \ 'php': 1
+      " \}
 
 " Utility function to echo syntax under cursor
 nmap ;y :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
@@ -235,24 +236,26 @@ nmap ;j <Plug>UltiSnipsEdit
 "xmap <C-j>     <Plug>(neosnippet_expand_target)
 "let g:neosnippet#snippets_directory='~/.vim/plugged/my-vim-snippets/snippets'
 
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
+let g:deoplete#enable_at_startup = 1
 
-let g:ycm_filetype_blacklist = {
-      \ 'gitcommit' : 1,
-      \ 'tagbar' : 1,
-      \ 'qf' : 1,
-      \ 'notes' : 1,
-      \ 'taskpaper' : 1,
-      \ 'markdown' : 1,
-      \ 'text' : 1,
-      \ 'infolog' : 1,
-      \ 'mail' : 1
-      \}
+" let g:ycm_collect_identifiers_from_tags_files = 1
+" let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
 
-let g:ycm_semantic_triggers =  {
-  \   'coffee' : [' -> ', ' => ', '.'],
-  \ }
+" let g:ycm_filetype_blacklist = {
+      " \ 'gitcommit' : 1,
+      " \ 'tagbar' : 1,
+      " \ 'qf' : 1,
+      " \ 'notes' : 1,
+      " \ 'taskpaper' : 1,
+      " \ 'markdown' : 1,
+      " \ 'text' : 1,
+      " \ 'infolog' : 1,
+      " \ 'mail' : 1
+      " \}
+
+" let g:ycm_semantic_triggers =  {
+  " \   'coffee' : [' -> ', ' => ', '.'],
+  " \ }
 
 " Toggle paste mode
 nmap <C-P> :set invpaste paste?<CR>
