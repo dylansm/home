@@ -18,15 +18,3 @@ if [[ -n $ZSH_VERSION ]]; then
   chpwd_functions=($chpwd_functions _autobin_hook)
 fi
 
-if [ "$TMUX" ]; then
-  # read .nvmrc if in present
-  if [[ -f .nvmrc ]]; then
-    cur_node=`nvm current`
-    nvmrc_node=`cat .nvmrc`
-
-    if [[ "$cur_node" != "v$nvmrc_node" ]]; then
-      nvm use
-    fi
-  fi
-fi
-
