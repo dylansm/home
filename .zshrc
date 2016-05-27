@@ -65,6 +65,12 @@ if [ "$TMUX" ]; then
   PROMPT='$(if [[ $? == '0' ]]; then $(tmux set status-left-bg "black"); else $(tmux set status-left-bg "red"); fi)
 %~
 ${prompt_icon} %{$reset_color%}'
+
+  # read .nvmrc if in present
+  if [[ -f .nvmrc ]]; then
+    nvm use
+  fi
+
 else
   PROMPT='
 %~
