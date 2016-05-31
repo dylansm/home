@@ -163,13 +163,14 @@ let g:syntastic_error_symbol = "➣"
 let g:syntastic_warning_symbol = "➢"
 let g:syntastic_style_error_symbol = "➣"
 let g:syntastic_style_warning_symbol = "➢"
-let g:jsx_ext_required = 0
+let g:jsx_ext_required = 1
 "let g:syntastic_python_python_exec = '~/.pyenv/shims/python'
 let g:syntastic_python_checkers = ['pylint']
 " let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_checkers = ['standard']
-autocmd bufwritepost *.js silent !standard-format -w %
-set autoread
+" DO NOT SET THESE
+" autocmd bufwritepost *.js silent !standard-format -w %
+" set autoread
 let g:syntastic_css_checkers = ['stylelint']
 let g:syntastic_scss_checkers = ['stylelint']
 let g:syntastic_php_checkers = ['php']
