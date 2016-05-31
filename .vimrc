@@ -51,7 +51,11 @@ Plug 'SirVer/ultisnips' | Plug 'dylansm/vim-snippets'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree'
+Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+Plug 'tpope/vim-dispatch', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'tpope/vim-projectionist', { 'for': 'clojure' }
+Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'guns/vim-slamhound', { 'for': 'clojure' }
 
 " Themes
@@ -62,7 +66,6 @@ call plug#end()
 
 syntax on
 filetype plugin indent on
-
 highlight Comment cterm=italic
 
 "let &colorcolumn=join(range(81,999),",")
@@ -73,7 +76,6 @@ let NERDTreeIgnore = ['\.DS_Store', '\.sass-cache', 'node_modules']
 highlight Title guifg=#20b950
 highlight NERDTreeOpenable guifg=#20b950
 highlight NERDTreeClosable guifg=#20b950
-"let loaded_nerd_tree=0
 
 let mapleader           = ","
 let html_no_rendering   = 1
@@ -166,8 +168,8 @@ let g:jsx_ext_required = 0
 let g:syntastic_python_checkers = ['pylint']
 " let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_checkers = ['standard']
-" autocmd bufwritepost *.js silent !standard-format -w %
-" set autoread
+autocmd bufwritepost *.js silent !standard-format -w %
+set autoread
 let g:syntastic_css_checkers = ['stylelint']
 let g:syntastic_scss_checkers = ['stylelint']
 let g:syntastic_php_checkers = ['php']
@@ -342,17 +344,17 @@ nnoremap <Leader>sh :Slamhound<CR>
 set listchars=tab:▸\ ,eol:¬,trail:.
 set list listchars=tab:▸\ ,trail:.
 
-function! ToggleCoffeeCompilation()
-  if exists("g:coffee")
-    echo "Coffee compilation disabled"
-    unlet g:coffee
-  else
-    echo "Coffee compilation enabled"
-    let g:coffee=1
-  endif
-endfunction
+" function! ToggleCoffeeCompilation()
+  " if exists("g:coffee")
+    " echo "Coffee compilation disabled"
+    " unlet g:coffee
+  " else
+    " echo "Coffee compilation enabled"
+    " let g:coffee=1
+  " endif
+" endfunction
 
-nmap <silent>;c :call ToggleCoffeeCompilation()<CR>
+" nmap <silent>;c :call ToggleCoffeeCompilation()<CR>
 " most recently used
 " nmap <silent>;r :MRU<CR>
 nmap <silent>;r :FZFMru<CR>
@@ -370,7 +372,7 @@ let MRU_Add_Menu = 0
 " nmap <silent><leader>t :call Space2Tab()<CR>
 nmap <silent>;w :set wrap!<CR>
 nmap <silent>;m :MarkedOpen!<CR>
-noremap <Leader>f :Fixmyjs<CR>
+" noremap <Leader>f :Fixmyjs<CR>
 nnoremap <silent> <leader>f :Stylefmt<CR>
 vnoremap <silent> <leader>f :StylefmtVisual<CR>
 
@@ -436,6 +438,11 @@ let g:user_emmet_settings = {
   \  'indentation' : '  '
   \}
 
+" Vim Fireplace (Clojure only)
+nmap <leader>q cqq
+nmap <leader>c cqc
+nmap ;c :Connect nrepl://127.0.0.1:50133 .<CR>
+
 " alt-shift + h,j,k,l keys
 map <silent>Ó :vertical res -10<CR>
 map <silent> :res -10<CR>
@@ -460,7 +467,7 @@ function! SourceConfig()
   endif
 endfunction
 
-nmap <Leader>c :source %:p:h/.config.vim<CR>
+" nmap <Leader>c :source %:p:h/.config.vim<CR>
 nmap <Leader>x :!chmod a+x %<CR>
 
 if executable('coffeetags')
@@ -501,8 +508,8 @@ let ropevim_enable_shortcuts = 1
 "autocmd FileType javascript,css nmap <silent> ,; :call cosco#commaOrSemiColon()<CR>
 "autocmd FileType javascript,css inoremap <silent> ,; <ESC>:call cosco#commaOrSemiColon()"<CR>a
 
-let g:CoffeeAutoTagDisabled=0         " Disables autotaging on save (Default: 0 [false])
-let g:CoffeeAutoTagIncludeVars=0  " Includes variables (Default: 0 [false])
+" let g:CoffeeAutoTagDisabled=0         " Disables autotaging on save (Default: 0 [false])
+" let g:CoffeeAutoTagIncludeVars=0  " Includes variables (Default: 0 [false])
 
 " Incr function will add numbers in search and replace
 " Usage: %s/change@me/\="change@me" . Incr()/
