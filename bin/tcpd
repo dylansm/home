@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ $# > 0 ]]; then
+  port=$1
+  sudo tcpdump -s 0 -A -i lo0 "tcp port $port and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)"
+else
+  sudo tcpdump -s 0 -A -i lo0 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'
+fi
