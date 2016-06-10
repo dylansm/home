@@ -41,12 +41,7 @@ bindkey "^[[B" down-line-or-beginning-search
 bindkey "^p" up-line-or-beginning-search
 bindkey "^n" down-line-or-beginning-search
 bindkey -s '^g' '^Ugit status -s^M'
-# bindkey -s '^f' '^Uag --nobreak --nonumbers --noheading . | fzf^M'
-# bindkey -s '^f' '^Uvim "$(fzf)"^M'
-# bindkey -s '^f' '^Uvim ~/**\t^M'
 bindkey -s '^f' '^Uff^M'
-# bindkey -s '^o' '^Uvim ~/Dropbox/Documents/Notes/**\t^M'
-# bindkey -s '^o' '^U^M'
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'   # case insensitive completion for cd etc *N*
