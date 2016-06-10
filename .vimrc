@@ -215,6 +215,8 @@ nnoremap <silent> <Plug>LocationNext        :<C-u>exe 'call <SID>LocationNext()'
 nmap <silent> <C-K> <Plug>LocationPrevious
 nmap <silent> <C-J> <Plug>LocationNext
 
+nmap <silent> <leader>s :!standard-format -w %<CR>
+
 " let g:ycm_filetype_specific_completion_to_disable = {
       " \ 'php': 1
       " \}
