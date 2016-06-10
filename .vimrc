@@ -39,8 +39,8 @@ Plug 'davidoc/taskpaper.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'dylansm/vim-jsx'
 Plug 'scrooloose/syntastic'
-" Plug 'scrooloose/nerdcommenter'
-Plug 'dylansm/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
+" Plug 'dylansm/nerdcommenter'
 Plug 'itspriddle/vim-marked'
 " Plug 'Valloric/YouCompleteMe'
 Plug 'Shougo/deoplete.nvim'
@@ -297,6 +297,10 @@ let g:mustache_abbreviations = 1
 " toggle comments
 map // <plug>NERDCommenterToggle
 let NERDSpaceDelims=1
+" custom comments
+let g:NERDCustomDelimiters = {
+    \ 'javascript.jsx': { 'left': '// {/*', 'right': '*/}'}
+\ }
 
 "map ;b :!open -a Safari %<CR><CR>
 "map <C-b> :!open -a Safari %<CR>
