@@ -94,3 +94,4 @@ alias vimalias='vim ~/.zshrc.d/aliases.zsh'
 alias vimrc="vim ~/.vimrc"
 alias xcode="cd ~/dev/Xcode/Projects"
 alias xplug="cd ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins"
+alias zpro="vim ~/.zprofile"

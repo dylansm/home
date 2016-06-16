@@ -212,6 +212,7 @@ nnoremap <silent> <Plug>LocationPrevious    :<C-u>exe 'call <SID>LocationPreviou
 nnoremap <silent> <Plug>LocationNext        :<C-u>exe 'call <SID>LocationNext()'<CR>
 nmap <silent> <C-K> <Plug>LocationPrevious
 nmap <silent> <C-J> <Plug>LocationNext
+nmap <silent> <leader>s :!standard-format -w %<CR>
 
 nnoremap <silent> <leader>f :Stylefmt<CR>
 vnoremap <silent> <leader>f :StylefmtVisual<CR>
