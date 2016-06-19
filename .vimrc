@@ -7,6 +7,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/mru.vim'
 Plug 'kchmck/vim-coffee-script'
+" Plug 'lfilho/cosco.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
@@ -26,7 +27,7 @@ Plug 'dylansm/vim-stripper'
 Plug 'dylansm/vim-twig'
 " Plug 'dylansm/vim-es6'
 Plug 'dylansm/synbad'
-Plug 'ruanyl/vim-fixmyjs'
+" Plug 'ruanyl/vim-fixmyjs'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-markdown'
@@ -168,9 +169,6 @@ let g:jsx_ext_required = 1
 let g:syntastic_python_checkers = ['pylint']
 " let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_checkers = ['standard']
-" DO NOT SET THESE
-" autocmd bufwritepost *.js silent !standard-format -w %
-" set autoread
 let g:syntastic_css_checkers = ['stylelint']
 let g:syntastic_scss_checkers = ['stylelint']
 let g:syntastic_php_checkers = ['php']
@@ -214,8 +212,11 @@ nnoremap <silent> <Plug>LocationPrevious    :<C-u>exe 'call <SID>LocationPreviou
 nnoremap <silent> <Plug>LocationNext        :<C-u>exe 'call <SID>LocationNext()'<CR>
 nmap <silent> <C-K> <Plug>LocationPrevious
 nmap <silent> <C-J> <Plug>LocationNext
-
 nmap <silent> <leader>s :!standard-format -w %<CR>
+
+nnoremap <silent> <leader>f :Stylefmt<CR>
+vnoremap <silent> <leader>f :StylefmtVisual<CR>
+
 
 " let g:ycm_filetype_specific_completion_to_disable = {
       " \ 'php': 1
@@ -381,9 +382,6 @@ let MRU_Add_Menu = 0
 " nmap <silent><leader>t :call Space2Tab()<CR>
 nmap <silent>;w :set wrap!<CR>
 nmap <silent>;m :MarkedOpen!<CR>
-" noremap <Leader>f :Fixmyjs<CR>
-nnoremap <silent> <leader>f :Stylefmt<CR>
-vnoremap <silent> <leader>f :StylefmtVisual<CR>
 
 " let g:javascript_conceal_function   = "ƒ"
 " let g:javascript_conceal_null       = "ø"
@@ -409,6 +407,9 @@ if has("autocmd")
   au BufRead,BufNewFile *.java set ts=4 sw=4 sts=4
   au BufRead,BufNewFile *.scss set sw=2 sts=2
   autocmd BufNewFile,BufRead * setlocal formatoptions-=o
+
+  " autocmd FileType javascript,css,json nmap <silent> ,; :call cosco#commaOrSemiColon()<CR>
+  " autocmd FileType javascript,css,json inoremap <silent> ,; <ESC>:call cosco#commaOrSemiColon()"<CR>
 
   "remember last position
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -479,21 +480,21 @@ endfunction
 " nmap <Leader>c :source %:p:h/.config.vim<CR>
 nmap <Leader>x :!chmod a+x %<CR>
 
-if executable('coffeetags')
-  let g:tagbar_type_coffee = {
-        \ 'ctagsbin' : 'coffeetags',
-        \ 'ctagsargs' : '',
-        \ 'kinds' : [
-        \ 'f:functions',
-        \ 'o:object',
-        \ ],
-        \ 'sro' : ".",
-        \ 'kind2scope' : {
-        \ 'f' : 'object',
-        \ 'o' : 'object',
-        \ }
-        \ }
-endif
+" if executable('coffeetags')
+  " let g:tagbar_type_coffee = {
+        " \ 'ctagsbin' : 'coffeetags',
+        " \ 'ctagsargs' : '',
+        " \ 'kinds' : [
+        " \ 'f:functions',
+        " \ 'o:object',
+        " \ ],
+        " \ 'sro' : ".",
+        " \ 'kind2scope' : {
+        " \ 'f' : 'object',
+        " \ 'o' : 'object',
+        " \ }
+        " \ }
+" endif
 
 " python-mode
 map <Leader>g :call RopeGotoDefinition()<CR>
@@ -514,8 +515,6 @@ let ropevim_enable_shortcuts = 1
 
 "nnoremap <silent>;l :call <SID>ToggleColorColumn()<CR>
 
-"autocmd FileType javascript,css nmap <silent> ,; :call cosco#commaOrSemiColon()<CR>
-"autocmd FileType javascript,css inoremap <silent> ,; <ESC>:call cosco#commaOrSemiColon()"<CR>a
 
 " let g:CoffeeAutoTagDisabled=0         " Disables autotaging on save (Default: 0 [false])
 " let g:CoffeeAutoTagIncludeVars=0  " Includes variables (Default: 0 [false])
