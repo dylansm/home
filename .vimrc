@@ -267,7 +267,9 @@ nmap <C-P> :set invpaste paste?<CR>
 
 nnoremap <F5> "=strftime("%Y-%m-%d")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
-inoremap <C-]> <C-x><C-o>
+
+" tags
+" inoremap <C-]> <C-x><C-o>
 
 " set j/k keys to treat wrapped lines as multiple rows
 nnoremap j gj

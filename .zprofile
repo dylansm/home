@@ -7,8 +7,9 @@ export NVM_DIR=~/.nvm
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+export MPD_HOST="bird.local"
 # export MPD_HOST="monk.local"
-export MPD_HOST="localhost"
+# export MPD_HOST="localhost"
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export EDITOR="nvim"
 export LC_CTYPE=en_US.UTF-8

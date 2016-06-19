@@ -7,9 +7,10 @@ else
   if [[ $# -eq 0 ]]; then
     unset tmp
     printf "\n"
-    vared -p "`echo $Yellow`Are you sure you want to remove all images? (y/n):`echo $Plain` " -c tmp
+    echo -n "${Yellow}Are you sure you want to delete all images? (y/n):${Plain} "
+    read response
 
-    if [[ $tmp =~ ^[Yy]$ ]]; then
+    if [[ $response =~ ^[Yy]$ ]]; then
       docker rmi -f $(docker images -q)
     fi
   else
