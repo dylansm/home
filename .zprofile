@@ -1,8 +1,8 @@
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-# if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 export JENV_ROOT=/usr/local/var/jenv
-# export PYENV_ROOT=/usr/local/var/pyenv
+export PYENV_ROOT="$HOME/.pyenv"
 export NVM_DIR=~/.nvm
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -23,7 +23,8 @@ export SCALA_HOME=/usr/local/scala
 export TIDY_HTML=~/.tidyrc
 export XCODE="`xcode-select --print-path`"
 export PATH="/usr/local/bin:$HOME/bin:/usr/local/sbin:/usr/local/opt/mysql56/bin:${SCALA_HOME}/bin:$PATH"
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH="$PATH:/usr/local/opt/go/libexec/bin"
+export PATH="$PATH:$PYENV_ROOT/bin"
 # copy GOPATH to front of PATH
 export PATH="$PATH:$GOPATH"
 export KEYTIMEOUT=1

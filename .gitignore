@@ -86,6 +86,7 @@
 .vagrant.d/
 .vim_mru_files
 .viminf*
+.vim/.init.vim-rplugin~
 .vim/plugged
 .zcompdump
 .zsh_history

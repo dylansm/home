@@ -228,7 +228,7 @@ nmap ;y :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 
-let g:UltiSnipsUsePythonVersion = 2
+let g:UltiSnipsUsePythonVersion = 3
 " let g:UltiSnipsSnippetDirectories=['vim-snippets', 'my-vim-snippets']
 let g:UltiSnipsExpandTrigger="<C-J>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
