@@ -304,7 +304,7 @@ map // <plug>NERDCommenterToggle
 let NERDSpaceDelims=1
 " custom comments
 let g:NERDCustomDelimiters = {
-    \ 'javascript.jsx': { 'left': '// {/*', 'right': '*/}'}
+    \ 'javascript.jsx': { 'left': '{/*', 'right': '*/}'}
 \ }
 
 "map ;b :!open -a Safari %<CR><CR>
