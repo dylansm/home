@@ -24,7 +24,7 @@ export TIDY_HTML=~/.tidyrc
 export XCODE="`xcode-select --print-path`"
 export PATH="/usr/local/bin:$HOME/bin:/usr/local/sbin:/usr/local/opt/mysql56/bin:${SCALA_HOME}/bin:$PATH"
 export PATH="$PATH:/usr/local/opt/go/libexec/bin"
-export PATH="$PATH:$PYENV_ROOT/bin"
+# export PATH="$PATH:$PYENV_ROOT/bin"
 # copy GOPATH to front of PATH
 export PATH="$PATH:$GOPATH"
 export KEYTIMEOUT=1
