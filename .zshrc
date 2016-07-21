@@ -69,4 +69,4 @@ RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current')%{$fg[cyan]%} $(~/.gvm/bin/gvm-prom
 
 # [ -f ~/.zshrc.d/fzf.zsh ] && source ~/.zshrc.d/fzf.zsh
 
-# [[ -s "~/.gvm/scripts/gvm" ]] && source "~/.gvm/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"

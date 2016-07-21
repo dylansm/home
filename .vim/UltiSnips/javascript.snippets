@@ -201,18 +201,15 @@ export default reduxForm({
 endsnippet
 
 snippet im* "Import all as..."
-import * as ${1:actions} from '${2:./${3:path}}'
-$0
+import * as ${1:actions} from '${2:./${3:path}}'$0
 endsnippet
 
 snippet imbac "Redux bindActionCreators"
-import { bindActionCreators } from 'redux'
-$0
+import { bindActionCreators } from 'redux'$0
 endsnippet
 
 snippet imcomp "Import component file"
-import ${1:ComponentName} from '${2:..}/${3:components/}${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'
-$0
+import ${1:ComponentName} from '${2:..}/${3:components/}${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'$0
 endsnippet
 
 # snippet imcont "Import container from file"
@@ -221,33 +218,27 @@ endsnippet
 # endsnippet
 
 snippet imf "Import from file"
-import ${1:module} from '${2:..}/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'
-$0
+import ${1:module} from '${2:..}/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'$0
 endsnippet
 
 snippet im "ES2015 import module"
-import ${1:Module} from '${2:..}/${3:${4:path}/}${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:-\l$2:$2)/g}'
-$0
+import ${1:Module} from '${2:..}/${3:${4:path}/}${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:-\l$2:$2)/g}'$0
 endsnippet
 
 snippet imconn
-import { connect } from 'react-redux'
-$0
+import { connect } from 'react-redux'$0
 endsnippet
 
 snippet imexp "Import react testing helpers"
-import { renderComponent, expect } from '${1:..}/${2:test_helper}'
-$0
+import { renderComponent, expect } from '${1:..}/${2:test_helper}'$0
 endsnippet
 
 snippet imo "ES2015 import { module }"
 import { ${1:module} } from '${2:lib}'$0
-$0
 endsnippet
 
 snippet imre "React and { Component} import"
-import React, { Component } from 'react'
-$0
+import React, { Component } from 'react'$0
 endsnippet
 
 snippet imtest "React component test"
