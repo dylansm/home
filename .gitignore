@@ -55,6 +55,7 @@
 .node-gyp/
 .node_repl_history
 .npm/
+.npmrc
 .nvm/
 .oracle_jre_usage/
 .overtone/
