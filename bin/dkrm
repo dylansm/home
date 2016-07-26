@@ -8,7 +8,7 @@ if [[ $running_count == "0" && $paused_count == "0" && $stopped_count == "0" ]];
   printf "\n`echo $Red`There are no containers to remove.\n"
 elif [[ ! $running_count == "0" || ! $paused_count == "0" ]]; then
   if [[ $# -eq 0 ]]; then
-    unset tmp
+    # unset tmp
     printf "\n"
     echo -n "${Yellow}Are you sure you want to stop and remove all containers? (y/n):${Plain} "
     read response
@@ -24,11 +24,12 @@ elif [[ ! $running_count == "0" || ! $paused_count == "0" ]]; then
   fi
 elif [[ ! $stopped_count == "0" ]]; then
   if [[ $# -eq 0 ]]; then
-    unset tmp
+    # unset tmp
     printf "\n"
-    vared -p "`print $Yellow`Are you sure you want to remove all stopped containers? (y/n):`echo $Plain` " -c tmp
+    echo -n "${Yellow}Are you sure you want to remove all stopped containers? (y/n):$Plain "
+    read response
 
-    if [[ $tmp =~ ^[Yy]$ ]]; then
+    if [[ "$response" =~ ^[Yy]$ ]]; then
       docker rm $(docker ps -a -q)
     fi
 

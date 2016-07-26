@@ -6,9 +6,9 @@
 --set theApp to appDir & "Acorn.app" as POSIX file
 --display dialog theApp
 
-set theApp to "/opt/homebrew-cask/Caskroom/acorn/latest/Acorn.app" as POSIX file
+set theApp to "/Applications/Acorn.app" as POSIX file
 
 tell application "Finder"
-  set theFile to selection
-  open theFile using theApp
+	set theFile to selection
+	open theFile using theApp
 end tell
