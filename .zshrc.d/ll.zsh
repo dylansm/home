@@ -1,4 +1,4 @@
-function ll {
+function lll {
 
   if [[ $# -eq 1 ]]; then
     export target="$1"
