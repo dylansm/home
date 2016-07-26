@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+PATH="$PATH:/usr/local/bin"
+tmux send-keys -t "test" C-z 'npm run test' C-m
