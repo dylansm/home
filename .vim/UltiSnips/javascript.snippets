@@ -164,7 +164,7 @@ snippet ex "ES2015 module.exports"
 module.exports = ${1:module}
 endsnippet
 
-snippet excon "Redux export connected component"
+snippet exconn "Redux export connected component"
 export default connect(${1:mapStateToProps}${2:, ${3:mapDispatchToProps}})${4:(${5:Component})}$0
 endsnippet
 
@@ -282,7 +282,7 @@ mapDispatchToProps$0
 endsnippet
 
 snippet mdpf "React-Redux mapDispatchToProps ƒ"
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
   return bindActionCreators({ ${1:${2:key}: ${3:value}} }, dispatch)
 }$0
 endsnippet
@@ -292,7 +292,7 @@ mapStateToProps$0
 endsnippet
 
 snippet mspf "React-Redux mapStateToProps ƒ"
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {$1}
 }$0
 endsnippet

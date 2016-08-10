@@ -106,7 +106,7 @@ set autoindent
 set smartindent
 set ai
 set nohlsearch
-set mouse=n
+set mouse=c
 set visualbell
 set nu
 set ruler
