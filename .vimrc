@@ -1,6 +1,3 @@
-" set runtimepath+=/Users/Shared/Development/Projects/Vim/Synbad
-" set runtimepath+=/Users/Shared/Development/Projects/Vim/HuePickens
-" set runtimepath+=/Users/Shared/Development/Projects/Vim/ES6y
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 Plug 'Raimondi/delimitMate'
@@ -60,23 +57,46 @@ Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'guns/vim-slamhound', { 'for': 'clojure' }
 
 " Themes
-Plug 'dylansm/one-dark.vim'
+" Plug 'dylansm/one-dark.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
 
 syntax on
 filetype plugin indent on
-highlight Comment cterm=italic
+
+" set bg=dark
+" color desert
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 "let &colorcolumn=join(range(81,999),",")
 " use 'f' to toggle filter
 let NERDTreeIgnore = ['\.DS_Store', '\.sass-cache', 'node_modules']
-"highlight NERDTreeOpenable ctermfg=Blue
-"highlight NERDTreeClosable ctermfg=Blue
-highlight Title guifg=#20b950
-highlight NERDTreeOpenable guifg=#20b950
-highlight NERDTreeClosable guifg=#20b950
+hi NERDTreeOpenable ctermfg=246
+hi NERDTreeClosable ctermfg=250
+hi Comment cterm=italic
+hi Title guifg=#20b950
+hi NERDTreeOpenable guifg=#20b950
+hi NERDTreeClosable guifg=#20b950
+hi LineNr ctermfg=242
+hi Normal ctermfg=251
+hi NonText ctermfg=236
+
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '–'
+let g:NERDTreeHighlightCursorline = 0
+let g:NERDTreeStatusline = 1
+
+hi SyntasticWarningSign guifg=Yellow guibg=#303030
+hi SyntasticErrorSign guifg=Red guibg=#303030
+" hi SyntasticError ctermbg=28
+" hi SyntasticWarning ctermbg=28
+
+hi VertSplit ctermbg=247 ctermfg=236
+hi StatusLineNC ctermbg=247 ctermfg=236
+set fillchars=vert:⎜,diff:—,fold:—
+
+
 
 let mapleader           = ","
 let html_no_rendering   = 1
@@ -93,8 +113,8 @@ set noswapfile
 set splitbelow
 set splitright
 set showmatch
-set cursorline
-set cursorcolumn
+" set cursorline
+" set cursorcolumn
 set laststatus=0
 "set backspace=2
 set backspace=indent,eol,start
@@ -123,7 +143,7 @@ set shortmess+=I
 set clipboard=unnamed
 set nofoldenable
 set showmode
-colorscheme onedark
+" colorscheme onedark
 set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
 " set synmaxcol=120
@@ -150,9 +170,6 @@ au FileType go nmap <Leader>c <Plug>(go-coverage)
 "let g:syntastic_mode_map = { 'mode': 'active',
   "\ 'active_filetypes': [],
   "\ 'passive_filetypes': ['coffee', 'html'] }
-
-highlight SyntasticWarningSign guifg=Yellow guibg=#303030
-highlight SyntasticErrorSign guifg=Red guibg=#303030
 
 let g:syntastic_eruby_ruby_quiet_messages =
     \ {'regex': 'possibly useless'}
@@ -546,3 +563,4 @@ endfunction
 " endfunction
 
 " nnoremap <silent>;h :call ToggleHiddenAll()<CR>
+
