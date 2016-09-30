@@ -4,6 +4,7 @@ if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 export JENV_ROOT=/usr/local/var/jenv
 export PYENV_ROOT="$HOME/.pyenv"
 export NVM_DIR=~/.nvm
+# export NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
