@@ -9,7 +9,7 @@ class Local_IP
     ip = self.local_ip
     puts "Your IP address: #{ip}\n\n"
 
-    %x[open http://#{ip}.xip.io:4000]
+    %x[open http://#{ip}.xip.io:8080]
   end
   # def self.open_site
     # ip = self.local_ip
