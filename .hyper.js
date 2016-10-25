@@ -63,4 +63,4 @@ module.exports = {
   // `~/.hyperterm_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
   localPlugins: []
-};
+}

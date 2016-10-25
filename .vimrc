@@ -81,7 +81,7 @@ hi NERDTreeClosable guifg=#20b950
 hi LineNr ctermfg=242
 hi Normal ctermfg=251
 hi NonText ctermfg=236
-hi CursorLine ctermbg=236 ctermfg=246
+" hi CursorLine ctermbg=236 ctermfg=246
 
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '–'
@@ -114,7 +114,7 @@ set noswapfile
 set splitbelow
 set splitright
 set showmatch
-set cursorline
+" set cursorline
 " set cursorcolumn
 set laststatus=0
 "set backspace=2
