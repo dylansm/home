@@ -38,6 +38,7 @@ alias down="cd ~/Downloads"
 alias gistg='gist -l | grep '
 alias gitf='git fetch'
 alias gitm='git merge'
+alias gitref="git reflog --date=iso"
 alias gitu='git add -u'
 alias gitv="git remote -v"
 alias gr='cd ~/dev/GitRepos'

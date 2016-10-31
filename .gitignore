@@ -90,6 +90,7 @@
 .viminf*
 .vim/.init.vim-rplugin~
 .vim/plugged
+.yarn/
 .yarn-cache
 .zcompdump
 .zsh_history
