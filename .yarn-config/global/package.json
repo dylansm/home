@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "hpm-cli": "^1.4.0",
+    "mern-cli": "^3.0.1",
+    "standard": "^8.4.0"
+  }
+}

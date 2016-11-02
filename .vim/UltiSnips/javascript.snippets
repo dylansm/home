@@ -137,7 +137,7 @@ endsnippet
 
 snippet excomp "Export React component"
 class ${1:ComponentName} extends Component {
-  render() {
+  render () {
     return (
       <div className="${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:-\l$2:$2)/g}">
         $0
