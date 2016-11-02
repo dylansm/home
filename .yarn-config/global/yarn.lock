@@ -31,7 +31,7 @@ ansi-align@^1.1.0:
   dependencies:
     string-width "^1.0.1"
 
-ansi-escapes@^1.1.0:
+ansi-escapes@^1.0.0, ansi-escapes@^1.1.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/ansi-escapes/-/ansi-escapes-1.4.0.tgz#d3a8a83b319aa67793662b13e761c7911422306e"
 
@@ -160,6 +160,12 @@ cli-spinners@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/cli-spinners/-/cli-spinners-0.2.0.tgz#85078737913b880f6ec9ffe7b65e83ec7776284f"
 
+cli-table@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/cli-table/-/cli-table-0.3.1.tgz#f53b05266a8b1a0b934b3d0821e6e2dc5914ae23"
+  dependencies:
+    colors "1.0.3"
+
 cli-width@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-2.1.0.tgz#b234ca209b29ef66fc518d9b98d5847b00edf00a"
@@ -178,12 +184,22 @@ code-point-at@^1.0.0:
   dependencies:
     number-is-nan "^1.0.0"
 
+colors@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/colors/-/colors-1.0.3.tgz#0433f44d809680fdeb60ed260f1b0c262e82a40b"
+
 columnify@^1.5.4:
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/columnify/-/columnify-1.5.4.tgz#4737ddf1c7b69a8a7c340570782e947eec8e78bb"
   dependencies:
     strip-ansi "^3.0.0"
     wcwidth "^1.0.0"
+
+commander@^2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.9.0.tgz#9c99094176e12240cb22d6c5146098400fe0f7d4"
+  dependencies:
+    graceful-readlink ">= 1.0.0"
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -309,6 +325,14 @@ duplexer2@^0.1.4:
 duplexer3@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/duplexer3/-/duplexer3-0.1.4.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"
+
+ejs@^2.4.1:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.5.2.tgz#21444ba09386f0c65b6eafb96a3d51bcb3be80d1"
+
+elegant-spinner@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/elegant-spinner/-/elegant-spinner-1.0.1.tgz#db043521c95d7e303fd8f345bedc3349cfb0729e"
 
 error-ex@^1.2.0:
   version "1.3.0"
@@ -628,6 +652,10 @@ graceful-fs@^4.1.2:
   version "4.1.9"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.9.tgz#baacba37d19d11f9d146d3578bc99958c3787e29"
 
+"graceful-readlink@>= 1.0.0":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
+
 has-ansi@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/has-ansi/-/has-ansi-2.0.0.tgz#34f5049ce1ecdf2b0649af3ef24e45ed35416d91"
@@ -827,6 +855,12 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
+lift-result@~0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/lift-result/-/lift-result-0.1.5.tgz#a9883b249346fe31cc282d8559839189a66ab383"
+  dependencies:
+    result "~1.0.2"
+
 lodash.zip@^4.0.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/lodash.zip/-/lodash.zip-4.2.0.tgz#ec6662e4896408ed4ab6c542a3990b72cc080020"
@@ -840,6 +874,13 @@ log-symbols@^1.0.2:
   resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-1.0.2.tgz#376ff7b58ea3086a0f09facc74617eca501e1a18"
   dependencies:
     chalk "^1.0.0"
+
+log-update@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/log-update/-/log-update-1.0.2.tgz#19929f64c4093d2d2e7075a1dad8af59c296b8d1"
+  dependencies:
+    ansi-escapes "^1.0.0"
+    cli-cursor "^1.0.2"
 
 loud-rejection@^1.3.0:
   version "1.6.0"
@@ -858,6 +899,19 @@ lru-cache@^4.0.1:
   dependencies:
     pseudomap "^1.0.1"
     yallist "^2.0.0"
+
+mern-cli:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/mern-cli/-/mern-cli-3.0.1.tgz#5b3fafe9f10766bf12d5a736dcae8917b66e1455"
+  dependencies:
+    chalk "^1.1.1"
+    cli-table "^0.3.1"
+    commander "^2.9.0"
+    ejs "^2.4.1"
+    elegant-spinner "^1.0.1"
+    log-update "^1.0.2"
+    shelljs "^0.6.0"
+    writefile "^0.2.8"
 
 minimatch@^3.0.2:
   version "3.0.3"
@@ -890,6 +944,10 @@ mute-stream@0.0.5:
 natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
+
+next-tick@timoxley/next-tick#0.0.2:
+  version "0.0.2"
+  resolved "https://codeload.github.com/timoxley/next-tick/tar.gz/6f25f8c2d25697dead7e49e978ae4c31703f7490"
 
 node-status-codes@^1.0.0:
   version "1.0.0"
@@ -1146,6 +1204,24 @@ restore-cursor@^1.0.1:
     exit-hook "^1.0.0"
     onetime "^1.0.0"
 
+result-core@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/result-core/-/result-core-1.2.1.tgz#dcfcab62cea11ed5aebe12941b23970c17be58ea"
+  dependencies:
+    next-tick timoxley/next-tick#0.0.2
+    result-type "1.0.0"
+
+result-type@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/result-type/-/result-type-1.0.0.tgz#e4f1a5bf226c5c6b1f1450068763ed9f4fe69879"
+
+result@~1.0.2:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/result/-/result-1.0.3.tgz#a82fab4679068e3523bbe3eec8241453dcc5542e"
+  dependencies:
+    result-core "1.2.1"
+    result-type "1.0.0"
+
 rimraf@^2.2.8:
   version "2.5.4"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.5.4.tgz#96800093cbf1a0c86bd95b4625467535c29dfa04"
@@ -1385,6 +1461,14 @@ write@^0.2.1:
   resolved "https://registry.yarnpkg.com/write/-/write-0.2.1.tgz#5fc03828e264cea3fe91455476f7a3c566cb0757"
   dependencies:
     mkdirp "^0.5.1"
+
+writefile@^0.2.8:
+  version "0.2.8"
+  resolved "https://registry.yarnpkg.com/writefile/-/writefile-0.2.8.tgz#dc0d1933798b994308e0eeb5511da1d6f2624b3e"
+  dependencies:
+    lift-result "~0.1.5"
+    mkdirp "^0.5.0"
+    result-type "1.0.0"
 
 xdg-basedir@^2.0.0:
   version "2.0.0"
