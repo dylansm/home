@@ -42,6 +42,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'itspriddle/vim-marked'
 " Plug 'Valloric/YouCompleteMe'
 Plug 'Shougo/deoplete.nvim'
+Plug 'dhruvasagar/vim-table-mode'
 
 " Group dependencies, vim-snippets depends on ultisnips
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
