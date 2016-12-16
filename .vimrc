@@ -473,14 +473,14 @@ nmap <leader>c cqc
 nmap ;c :Connect nrepl://127.0.0.1:50133 .<CR>
 
 " alt-shift + h,j,k,l keys
-map <silent>Ó :vertical res -10<CR>
-map <silent> :res -10<CR>
-map <silent>Ô :res +10<CR>
-map <silent>Ò :vertical res +10<CR>
-map <silent> ˙ <C-w><
-map <silent> ∆ <C-W>-
-map <silent> ˚ <C-W>+
-map <silent> ¬ <C-w>>
+map <silent>Ò :vertical res -10<CR>
+map <silent>Ô :res -10<CR>
+map <silent> :res +10<CR>
+map <silent>Ó :vertical res +10<CR>
+map <silent>¬ <C-w><
+map <silent>∆ <C-W>-
+map <silent>˚ <C-W>+
+map <silent>˙ <C-w>>
 
 "let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 " let g:rspec_command = '!rspec spec --drb --drb-port 8988'

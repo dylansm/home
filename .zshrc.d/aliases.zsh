@@ -26,6 +26,7 @@ alias dkc='docker-compose'
 alias dkinf='docker info'
 alias dkk='docker kill'
 alias dkl='docker logs -f'
+alias dknl="docker network ls"
 alias dks='docker stop $(docker ps -q)'
 alias dku='docker-compose up -d'
 alias dkvl="docker volume ls"

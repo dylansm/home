@@ -8,6 +8,6 @@
   "homepage": "https://hyper.is",
   "dependencies": {
     "hyperterm-1password": "latest",
-    "hyperlinks": "latest"
+    "hyperlinks-iterm": "latest"
   }
 }
