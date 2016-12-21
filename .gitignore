@@ -1,3 +1,4 @@
+!/.lein/profiles.clj
 .CFUserTextEncoding
 .FrontDesign/
 .NERDTreeBookmarks
@@ -19,17 +20,15 @@
 .cups/
 .dbk_info
 .dbshell
-.dockercfg
 .docker
+.dockercfg
 .dropbox*
 .dvdcss/
 .eaglerc
 .fzf/
 .gem/
-.homebrew_analytics_user_uuid
-.homestead
-.pylint.d/
 .gist
+.gitignore.bak
 .gitk
 .gittrees
 .gnupg
@@ -40,11 +39,11 @@
 .gvm/
 .hcl/
 .heroku/
+.homebrew_analytics_user_uuid
+.homestead
 .irb-history
 .ivy2/
 .lesshst
-/.lein/*
-!/.lein/profiles.clj
 .lldb
 .local
 .m2/
@@ -66,7 +65,9 @@
 .pry_history
 .psql_history
 .pyenv/
+.pylint.d/
 .python-eggs/
+.python-version
 .python_history
 .rbenv/
 .rbx
@@ -86,16 +87,17 @@
 .subversion
 .v8*
 .vagrant.d/
-.vim_mru_files
-.viminf*
 .vim/.init.vim-rplugin~
 .vim/plugged
-.yarn/
+.vim_mru_files
+.viminf*
 .yarn-cache
+.yarn/
 .zcompdump
 .zsh_history
 .zshrc.d/aliases.zsh.bak
-
+/.lein/*
+/dev/*
 Applications*
 Creative Cloud Files
 Desktop/
@@ -104,8 +106,8 @@ Documents*
 Downloads/
 Dropbox*
 Dropbox/
-Hightail/
 HOME
+Hightail/
 Library/
 Movies/
 Music/
@@ -117,6 +119,5 @@ Public/
 Sites
 VirtualBox VMs/
 derby.log
-/dev/*
 homestead_sites/
 mbox

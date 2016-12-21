@@ -4,7 +4,7 @@ module.exports = {
     fontSize: 12,
 
     // font family with optional fallbacks
-    fontFamily: 'Menlo, "Hack Custom Regular", "DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily: '"SF Mono Light", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
 
     // terminal cursor background color (hex)
     cursorColor: '#F81CE5',
@@ -55,7 +55,7 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ['hyperterm-1password', "hyperlinks"],
+  plugins: ['hyperterm-1password', "hyperlinks-iterm"],
 
   // in development, you can create a directory under
   // `~/.hyperterm_plugins/local/` and include it here

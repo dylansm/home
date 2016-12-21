@@ -1,0 +1,18 @@
+#!/bin/bash
+
+GIT_IGNORE_FILE=~/.gitignore
+BACKUP_GIT_IGNORE_FILE=~/.gitignore.bak
+
+
+if [[ $# -eq 1 ]]; then
+  found=$(cat $GIT_IGNORE_FILE | grep "$1")
+  if [ -n "$found" ]; then
+    printf "${Red}\n$1 is already ignored.\n"
+    exit 1
+  fi
+  echo "$1" >> $GIT_IGNORE_FILE
+  cp $GIT_IGNORE_FILE $BACKUP_GIT_IGNORE_FILE
+  sort $BACKUP_GIT_IGNORE_FILE > $GIT_IGNORE_FILE
+else
+  printf "${Yellow}\nThis command requires one argument, a file name to ignore.\n"
+fi

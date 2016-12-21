@@ -30,13 +30,19 @@ tn() {
 
 
 tk() {
-  unset tmp
-  read -p "${Yellow}Kill session:${Plain} " -n1 tmp
+  unset input
+  read -p "${Yellow}Kill session:${Plain} " -n1 input
   echo ''
 
-  if [[ $tmp =~ [0-9] ]]; then
-    session=$(echo "$output" | grep -Ei "\s?$tmp\." | awk '{print $2}')
+  output=$(printf "$tmux_status" | awk {'
+    split($0, arrTSessions, ":")
+    printf("%d:%s\n", NR, arrTSessions[1])
+  '})
+
+  if [[ $input =~ [0-9] ]]; then
+    session=$(echo "$output" | grep -Ei "$input" | awk -F':' '{print $2}')
     tmux kill-session -t "$session"
+    # echo "$session"
   fi
 }
 
