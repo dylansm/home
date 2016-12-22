@@ -73,6 +73,7 @@
 .rbx
 .rdebug_hist
 .rediscli_history
+.rmembid
 .rnd
 .ropeproject/
 .ruby-gemset
