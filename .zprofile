@@ -27,7 +27,6 @@ export XCODE="`xcode-select --print-path`"
 export PATH="/usr/local/bin:$HOME/bin:/usr/local/sbin:${SCALA_HOME}/bin:$PATH"
 export GOPATH="/usr/local/go/bin"
 export PATH="$PATH:$GOPATH/bin"
-
 export KEYTIMEOUT=1
 
 HISTFILE=~/.zshrc.d/.zsh_history
