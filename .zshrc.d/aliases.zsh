@@ -45,6 +45,7 @@ alias gitref="git reflog --date=iso"
 alias gitu='git add -u'
 alias gitv="git remote -v"
 alias gr='cd ~/dev/GitRepos'
+alias h="heroku"
 alias history='history 0'
 alias ipc="curl ifconfig.me | pbcopy"
 alias kdiff="git difftool -y -t Kaleidoscope"

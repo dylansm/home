@@ -4,7 +4,6 @@ if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 export JENV_ROOT=/usr/local/var/jenv
 export PYENV_ROOT="$HOME/.pyenv"
 export NVM_DIR=~/.nvm
-# export NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
@@ -12,23 +11,23 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # export MPD_HOST="monk.local"
 export MPD_HOST="birdh"
 # export MPD_HOST="localhost"
+
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export EDITOR="nvim"
 export LC_CTYPE=en_US.UTF-8
 export PATH="$HOME/.rbenv/bin:$PATH"
-if [[ $(uname) == "Darwin" ]]; then
-  export TERM=screen-256color-italic
-fi
+# if [[ $(uname) == "Darwin" ]]; then
+  # export TERM=screen-256color-italic
+# fi
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export NODE_PATH=/usr/local/lib/node_modules
 export SCALA_HOME=/usr/local/scala
 export TIDY_HTML=~/.tidyrc
 export XCODE="`xcode-select --print-path`"
 export PATH="/usr/local/bin:$HOME/bin:/usr/local/sbin:${SCALA_HOME}/bin:$PATH"
-# export PATH="$PATH:/usr/local/opt/go/libexec/bin"
-# export PATH="$PATH:$PYENV_ROOT/bin"
-# copy GOPATH to front of PATH
-# export PATH="$PATH:$GOPATH"
+export GOPATH="/usr/local/go/bin"
+export PATH="$PATH:$GOPATH/bin"
+
 export KEYTIMEOUT=1
 
 HISTFILE=~/.zshrc.d/.zsh_history

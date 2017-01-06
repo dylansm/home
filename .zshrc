@@ -50,7 +50,7 @@ zstyle ':completion:*:*:git:*' script ~/bin/.git-completion.sh
 # [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
 # show full history from line 1 or grep for something
-h() { if [ -z "$*" ]; then history; else history | egrep "$@"; fi; }
+# h() { if [ -z "$*" ]; then history; else history | egrep "$@"; fi; }
 
 # prompt stuff
 prompt_icon="%(?.%{$fg[green]%}✚ %{$reset_color%}.%{$fg[red]%}✚ %{$reset_color%})"

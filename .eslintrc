@@ -172,7 +172,7 @@
     "padded-blocks": 0,
     "quote-props": 0,
     "quotes": [0, "single"],
-    "semi": [2, "never"],
+    "semi": [0, "never"],
     "sort-vars": 0,
     "space-after-function-name": 0,
     "space-before-blocks": 1,
