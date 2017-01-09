@@ -17,7 +17,6 @@ alias clearlog="sudo cat /dev/null > "
 alias cloj='cd ~/dev/Clojure'
 alias code='cd ~/dev/Code_Library'
 alias ctag='ctags -R --exclude=.git --exclude=log --exclude=tmp *'
-alias cuc='cucumber'
 alias curlh='curl -IL '
 alias d='cd ~/Desktop'
 alias dev='cd ~/dev'
@@ -44,6 +43,7 @@ alias gitm='git merge'
 alias gitref="git reflog --date=iso"
 alias gitu='git add -u'
 alias gitv="git remote -v"
+alias gp="cd /Users/dylan/dev/go/bin/src"
 alias gr='cd ~/dev/GitRepos'
 alias h="heroku"
 alias history='history 0'

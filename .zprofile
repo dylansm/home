@@ -16,16 +16,14 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 export EDITOR="nvim"
 export LC_CTYPE=en_US.UTF-8
 export PATH="$HOME/.rbenv/bin:$PATH"
-# if [[ $(uname) == "Darwin" ]]; then
-  # export TERM=screen-256color-italic
-# fi
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export NODE_PATH=/usr/local/lib/node_modules
 export SCALA_HOME=/usr/local/scala
 export TIDY_HTML=~/.tidyrc
 export XCODE="`xcode-select --print-path`"
 export PATH="/usr/local/bin:$HOME/bin:/usr/local/sbin:${SCALA_HOME}/bin:$PATH"
-export GOPATH="/usr/local/go/bin"
+# export GOPATH="/usr/local/go/bin"
+export GOPATH="$HOME/dev/go/bin"
 export PATH="$PATH:$GOPATH/bin"
 export KEYTIMEOUT=1
 

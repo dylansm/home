@@ -86,6 +86,7 @@
 .ssh/
 .standard-cache/
 .subversion
+.terminfo
 .v8*
 .vagrant.d/
 .vim/.init.vim-rplugin~

@@ -1,3 +1,5 @@
+ssh-add -A &> /dev/null
+
 source $(brew --prefix nvm)/nvm.sh
 
 if [ -d $HOME/.zshrc.d ]; then

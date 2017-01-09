@@ -18,6 +18,7 @@ Plug 'digitaltoad/vim-pug'
 Plug 'jwalton512/vim-blade'
 Plug 'pangloss/vim-javascript'
 Plug 'dylansm/html5.vim'
+Plug 'dylansm/one-dark.vim'
 Plug 'dylansm/vim-super-retab'
 Plug 'dylansm/nginx.vim'
 Plug 'dylansm/vim-stripper'
@@ -57,31 +58,27 @@ Plug 'tpope/vim-projectionist', { 'for': 'clojure' }
 Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'guns/vim-slamhound', { 'for': 'clojure' }
 
-" Themes
-" Plug 'dylansm/one-dark.vim'
-
 " Add plugins to &runtimepath
 call plug#end()
 
 syntax on
 filetype plugin indent on
-
-" set bg=dark
-" color desert
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+colorscheme onedark
 
 "let &colorcolumn=join(range(81,999),",")
 " use 'f' to toggle filter
 let NERDTreeIgnore = ['\.DS_Store', '\.sass-cache', 'node_modules']
 hi NERDTreeOpenable ctermfg=246
 hi NERDTreeClosable ctermfg=250
-hi Comment cterm=italic
 hi Title guifg=#20b950
 hi NERDTreeOpenable guifg=#20b950
 hi NERDTreeClosable guifg=#20b950
 hi LineNr ctermfg=242
 hi Normal ctermfg=251
 hi NonText ctermfg=236
+hi VertSplit ctermbg=247 ctermfg=236
+hi StatusLineNC ctermbg=247 ctermfg=236
+highlight Comment cterm=italic
 " hi CursorLine ctermbg=236 ctermfg=246
 
 let g:NERDTreeDirArrowExpandable = '+'
@@ -93,12 +90,7 @@ hi SyntasticWarningSign guifg=Yellow guibg=#303030
 hi SyntasticErrorSign guifg=Red guibg=#303030
 " hi SyntasticError ctermbg=28
 " hi SyntasticWarning ctermbg=28
-
-hi VertSplit ctermbg=247 ctermfg=236
-hi StatusLineNC ctermbg=247 ctermfg=236
 set fillchars=vert:⎜,diff:—,fold:—
-
-
 
 let mapleader           = ","
 let html_no_rendering   = 1
@@ -109,7 +101,6 @@ let g:netrw_list_hide   = '.*\.swp\*,.*\.swp$,.*\.swp\s,.*/$,.*/\s'
 let g:netrw_banner      = 0
 let g:netrw_dirhistmax  = 10
 let g:netrw_dirhist_cnt = 0
-"let g:netrw_altv        = 1
 set viminfo=""
 set noswapfile
 set splitbelow
@@ -145,7 +136,6 @@ set shortmess+=I
 set clipboard=unnamed
 set nofoldenable
 set showmode
-" colorscheme onedark
 set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
 " set synmaxcol=120
@@ -299,13 +289,6 @@ nnoremap n nzz
 nnoremap N Nzz
 nnoremap } }zz
 nnoremap { {zz
-
-"nmap <buffer> ;e <Plug>(xmpfilter-run)
-"xmap <buffer> ;e <Plug>(xmpfilter-run)
-"imap <buffer> ;e <Plug>(xmpfilter-run)
-"nmap <buffer> ;d <Plug>(xmpfilter-mark)
-"xmap <buffer> ;d <Plug>(xmpfilter-mark)
-"imap <buffer> ;d <Plug>(xmpfilter-mark)
 
 " correct cursor placement after linebreak
 "imap <C-c> <CR><Esc>O
