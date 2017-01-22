@@ -1,6 +1,8 @@
 ssh-add -A &> /dev/null
 
-source $(brew --prefix nvm)/nvm.sh
+# source $(brew --prefix
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm nvm)/nvm.sh
 
 if [ -d $HOME/.zshrc.d ]; then
   for file in $HOME/.zshrc.d/*.zsh; do

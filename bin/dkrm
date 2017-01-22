@@ -4,6 +4,7 @@ printf "\n"
 running_count=$(docker info | grep Running: | awk '{print $NF}')
 paused_count=$(docker info | grep Paused: | awk '{print $NF}')
 stopped_count=$(docker info | grep Stopped: | awk '{print $NF}')
+
 if [[ $running_count == "0" && $paused_count == "0" && $stopped_count == "0" ]]; then
   printf "\n`echo $Red`There are no containers to remove.\n"
 elif [[ ! $running_count == "0" || ! $paused_count == "0" ]]; then

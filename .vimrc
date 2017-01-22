@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
+Plug 'cespare/vim-toml'
 Plug 'Raimondi/delimitMate'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/mru.vim'
@@ -26,6 +27,7 @@ Plug 'dylansm/vim-twig'
 " Plug 'dylansm/vim-es6'
 Plug 'dylansm/synbad'
 " Plug 'ruanyl/vim-fixmyjs'
+Plug 'majutsushi/tagbar'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-markdown'
@@ -176,6 +178,7 @@ let g:syntastic_style_warning_symbol = "➢"
 let g:jsx_ext_required = 1
 "let g:syntastic_python_python_exec = '~/.pyenv/shims/python'
 let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_json_checkers = ['jsonlint']
 " let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_css_checkers = ['stylelint']
@@ -186,6 +189,24 @@ let g:syntastic_html_tidy_ignore_errors = [
     \  '<base> escaping malformed URI reference',
     \  '<script> escaping malformed URI reference',
     \ ]
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:go_list_type = "quickfix"
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+" automatically show info for identifier under cursor
+" let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
+autocmd FileType go nmap <Leader>i <Plug>(go-info)
+
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
 
 " let g:syntastic_html_tidy_ignore_errors = [
     " \  'plain text isn''t allowed in <head> elements',
@@ -244,41 +265,13 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="horizontal"
 nmap ;j <Plug>UltiSnipsEdit
 
-" NeoSnippet
-"imap <C-j>     <Plug>(neosnippet_expand_or_jump)
-"smap <C-j>     <Plug>(neosnippet_expand_or_jump)
-"xmap <C-j>     <Plug>(neosnippet_expand_target)
-"let g:neosnippet#snippets_directory='~/.vim/plugged/my-vim-snippets/snippets'
-
 let g:deoplete#enable_at_startup = 1
-
-" let g:ycm_collect_identifiers_from_tags_files = 1
-" let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
-
-" let g:ycm_filetype_blacklist = {
-      " \ 'gitcommit' : 1,
-      " \ 'tagbar' : 1,
-      " \ 'qf' : 1,
-      " \ 'notes' : 1,
-      " \ 'taskpaper' : 1,
-      " \ 'markdown' : 1,
-      " \ 'text' : 1,
-      " \ 'infolog' : 1,
-      " \ 'mail' : 1
-      " \}
-
-" let g:ycm_semantic_triggers =  {
-  " \   'coffee' : [' -> ', ' => ', '.'],
-  " \ }
 
 " Toggle paste mode
 nmap <C-P> :set invpaste paste?<CR>
 
 nnoremap <F5> "=strftime("%Y-%m-%d")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
-
-" tags
-" inoremap <C-]> <C-x><C-o>
 
 " set j/k keys to treat wrapped lines as multiple rows
 nnoremap j gj
@@ -376,11 +369,41 @@ let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
 let MRU_Add_Menu = 0
 
 " tagbar
-" let g:tagbar_autofocus = 1
-" nmap <silent>;; :TagbarOpenAutoClose<CR>
-"nmap <silent>;; :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
+nmap <silent>;; :TagbarOpenAutoClose<CR>
+" nmap <silent>;; :TagbarToggle<CR>
 " nmap <silent><leader>s :call Tab2Space()<CR>
 " nmap <silent><leader>t :call Space2Tab()<CR>
+" inoremap <C-]> <C-x><C-o>
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
 nmap <silent>;w :set wrap!<CR>
 nmap <silent>;m :MarkedOpen!<CR>
 
@@ -430,7 +453,7 @@ command! FZFMru call fzf#run({
 
 " toggle NERDTree
 map \\ :NERDTreeToggle<CR>
-"map ;; :Lexplore<CR>
+" map ;; :Lexplore<CR>
 
 " change window
 map <Leader>ww :winc w<CR>
@@ -480,22 +503,6 @@ endfunction
 
 " nmap <Leader>c :source %:p:h/.config.vim<CR>
 nmap <Leader>x :!chmod a+x %<CR>
-
-" if executable('coffeetags')
-  " let g:tagbar_type_coffee = {
-        " \ 'ctagsbin' : 'coffeetags',
-        " \ 'ctagsargs' : '',
-        " \ 'kinds' : [
-        " \ 'f:functions',
-        " \ 'o:object',
-        " \ ],
-        " \ 'sro' : ".",
-        " \ 'kind2scope' : {
-        " \ 'f' : 'object',
-        " \ 'o' : 'object',
-        " \ }
-        " \ }
-" endif
 
 " python-mode
 map <Leader>g :call RopeGotoDefinition()<CR>

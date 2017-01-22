@@ -22,10 +22,10 @@ export SCALA_HOME=/usr/local/scala
 export TIDY_HTML=~/.tidyrc
 export XCODE="`xcode-select --print-path`"
 export PATH="/usr/local/bin:$HOME/bin:/usr/local/sbin:${SCALA_HOME}/bin:$PATH"
-# export GOPATH="/usr/local/go/bin"
 export GOPATH="$HOME/dev/go/bin"
 export PATH="$PATH:$GOPATH/bin"
 export KEYTIMEOUT=1
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 HISTFILE=~/.zshrc.d/.zsh_history
 HISTSIZE=1024

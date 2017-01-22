@@ -22,6 +22,7 @@ alias d='cd ~/Desktop'
 alias dev='cd ~/dev'
 alias dk='docker'
 alias dkc='docker-compose'
+alias dkin="docker inspect"
 alias dkinf='docker info'
 alias dkk='docker kill'
 alias dkl='docker logs -f'
