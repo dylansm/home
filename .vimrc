@@ -67,9 +67,6 @@ syntax on
 filetype plugin indent on
 colorscheme onedark
 
-"let &colorcolumn=join(range(81,999),",")
-" use 'f' to toggle filter
-let NERDTreeIgnore = ['\.DS_Store', '\.sass-cache', 'node_modules']
 hi NERDTreeOpenable ctermfg=246
 hi NERDTreeClosable ctermfg=250
 hi Title guifg=#20b950
@@ -82,11 +79,6 @@ hi VertSplit ctermbg=247 ctermfg=236
 hi StatusLineNC ctermbg=247 ctermfg=236
 highlight Comment cterm=italic
 " hi CursorLine ctermbg=236 ctermfg=246
-
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '–'
-let g:NERDTreeHighlightCursorline = 0
-let g:NERDTreeStatusline = 1
 
 hi SyntasticWarningSign guifg=Yellow guibg=#303030
 hi SyntasticErrorSign guifg=Red guibg=#303030
@@ -157,6 +149,14 @@ au FileType go nmap <Leader>b <Plug>(go-build)
 au FileType go nmap <Leader>t <Plug>(go-test)
 au FileType go nmap <Leader>c <Plug>(go-coverage)
 
+"let &colorcolumn=join(range(81,999),",")
+" use 'f' to toggle filter
+let NERDTreeIgnore = ['\.DS_Store', '\.sass-cache', 'node_modules']
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '–'
+let g:NERDTreeHighlightCursorline = 0
+let g:NERDTreeStatusline = 1
+
 " configure syntastic
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
@@ -182,12 +182,13 @@ let g:syntastic_json_checkers = ['jsonlint']
 " let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_css_checkers = ['stylelint']
-let g:syntastic_scss_checkers = ['stylelint']
+let g:syntastic_scss_checkers = ['stylelint-scss']
 let g:syntastic_php_checkers = ['php']
 let g:syntastic_html_checkers = ['tidy']
 let g:syntastic_html_tidy_ignore_errors = [
     \  '<base> escaping malformed URI reference',
     \  '<script> escaping malformed URI reference',
+    \  '<video> proprietary attribute',
     \ ]
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
@@ -420,7 +421,6 @@ nmap <silent>;m :MarkedOpen!<CR>
 if has("autocmd")
   " if global custom variable "coffee" is set (using let)
   autocmd BufWritePost,FileWritePost *.coffee if exists("g:coffee") | :silent !coffee -c <afile>
-  autocmd BufWritePost *.swift :make
   " format hamlc files as haml
   au BufRead,BufNewFile *.hamlc set ft=haml
   au BufRead,BufNewFile *.conf set ft=apache
