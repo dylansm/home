@@ -25,6 +25,7 @@
 .dropbox*
 .dvdcss/
 .eaglerc
+.fastlane
 .fzf/
 .gem/
 .gist

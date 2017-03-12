@@ -1,4 +1,5 @@
-inoremap jk <ESC>
+" inoremap jj <ESC>
+imap jj <ESC>
 map // :xccmd commentAndUncommentCurrentLines<CR>
 "set blinkcursor
 set expandtab
