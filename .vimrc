@@ -32,6 +32,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-markdown'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'Rip-Rip/clang_complete'
 Plug 'tpope/vim-liquid'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-surround'
@@ -143,6 +144,10 @@ set fileencodings=ucs-bom,utf-8,latin1
 if has('nvim')
   set shada='1000,f1,<500,:100,/100
 endif
+
+set rtp+=/usr/local/opt/fzf
+
+let g:clang_library_path='/usr/local/opt/llvm/lib'
 
 au FileType go nmap <Leader>r <Plug>(go-run)
 au FileType go nmap <Leader>b <Plug>(go-build)
@@ -360,6 +365,7 @@ set list listchars=tab:▸\ ,trail:.
 " endfunction
 
 " nmap <silent>;c :call ToggleCoffeeCompilation()<CR>
+
 " most recently used
 " nmap <silent>;r :MRU<CR>
 nmap <silent>;r :FZFMru<CR>
@@ -419,21 +425,20 @@ nmap <silent>;m :MarkedOpen!<CR>
 " let g:javascript_conceal_super      = "Ω"
 
 if has("autocmd")
-  " if global custom variable "coffee" is set (using let)
   autocmd BufWritePost,FileWritePost *.coffee if exists("g:coffee") | :silent !coffee -c <afile>
-  " format hamlc files as haml
   au BufRead,BufNewFile *.hamlc set ft=haml
+  au BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
+  au BufEnter *.c compiler gcc
+  au BufRead,BufNewFile *.h,*.hpp,*.c,*.cpp set ts=4 sw=4 sts=4
+  " au BufRead,BufNewFile *.cpp set ts=4 sw=4 sts=4
+  " au BufRead,BufNewFile *.h set ts=4 sw=4 sts=4
+  " au BufRead,BufNewFile *.hpp set ts=4 sw=4 sts=4
   au BufRead,BufNewFile *.conf set ft=apache
-  "au BufRead,BufNewFile *.go set st=8 sw=8 sts=8
   au BufRead,BufNewFile *.go set noet ts=4 sw=4
   au BufRead,BufNewFile *.markdown set noet sts=4 sw=4
-  "au BufRead,BufNewFile *.java set st=4 sw=4 sts=4
   au BufRead,BufNewFile *.java set ts=4 sw=4 sts=4
   au BufRead,BufNewFile *.scss set sw=2 sts=2
   autocmd BufNewFile,BufRead * setlocal formatoptions-=o
-
-  " autocmd FileType javascript,css,json nmap <silent> ,; :call cosco#commaOrSemiColon()<CR>
-  " autocmd FileType javascript,css,json inoremap <silent> ,; <ESC>:call cosco#commaOrSemiColon()"<CR>
 
   "remember last position
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
