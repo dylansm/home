@@ -96,6 +96,7 @@
 .viminf*
 .yarn-cache
 .yarn/
+.yarnrc
 .zcompdump
 .zsh_history
 .zshrc.d/aliases.zsh.bak
