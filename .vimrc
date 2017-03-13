@@ -10,8 +10,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'
+Plug 'helino/vim-json'
 " Plug 'marijnh/tern_for_vim'
-Plug 'elzr/vim-json'
 Plug 'mklabs/vim-backbone'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'fatih/vim-go'
@@ -79,9 +79,6 @@ hi VertSplit ctermbg=247 ctermfg=236
 hi StatusLineNC ctermbg=247 ctermfg=236
 highlight Comment cterm=italic
 " hi CursorLine ctermbg=236 ctermfg=246
-" hi CursorColumn ctermfg=246 ctermbg=237 cterm=bold
-" hi CursorColumn ctermbg=238 cterm=bold
-hi CursorColumn ctermbg=238 cterm=bold
 
 hi SyntasticWarningSign guifg=Yellow guibg=#303030
 hi SyntasticErrorSign guifg=Red guibg=#303030
@@ -99,13 +96,12 @@ let g:netrw_banner      = 0
 let g:netrw_dirhistmax  = 10
 let g:netrw_dirhist_cnt = 0
 set viminfo=""
-set exrc
 set noswapfile
 set splitbelow
 set splitright
 set showmatch
 " set cursorline
-set cursorcolumn
+" set cursorcolumn
 set laststatus=0
 "set backspace=2
 set backspace=indent,eol,start
@@ -153,6 +149,7 @@ au FileType go nmap <Leader>b <Plug>(go-build)
 au FileType go nmap <Leader>t <Plug>(go-test)
 au FileType go nmap <Leader>c <Plug>(go-coverage)
 
+"let &colorcolumn=join(range(81,999),",")
 " use 'f' to toggle filter
 let NERDTreeIgnore = ['\.DS_Store', '\.sass-cache', 'node_modules']
 let g:NERDTreeDirArrowExpandable = '+'
@@ -476,10 +473,9 @@ let g:user_emmet_settings = {
   \}
 
 " Vim Fireplace (Clojure only)
-" autocmd this so it's only on in clojure context
-" nmap <leader>q cqq
-" nmap <leader>c cqc
-" nmap ;c :Connect nrepl://127.0.0.1:50133 .<CR>
+nmap <leader>q cqq
+nmap <leader>c cqc
+nmap ;c :Connect nrepl://127.0.0.1:50133 .<CR>
 
 " alt-shift + h,j,k,l keys
 map <silent>Ò :vertical res -10<CR>
@@ -512,20 +508,20 @@ nmap <Leader>x :!chmod a+x %<CR>
 map <Leader>g :call RopeGotoDefinition()<CR>
 let ropevim_enable_shortcuts = 1
 
-" toggle colored right border after 110 chars
-let s:color_column_old = 81
+" toggle colored right border after 80 chars
+"let s:color_column_old = 81
 
-function! s:ToggleColorColumn()
-    if s:color_column_old == 0
-        let s:color_column_old = &colorcolumn
-        windo let &colorcolumn = 0
-    else
-        windo let &colorcolumn=s:color_column_old
-        let s:color_column_old = 0
-    endif
-endfunction
+"function! s:ToggleColorColumn()
+    "if s:color_column_old == 0
+        "let s:color_column_old = &colorcolumn
+        "windo let &colorcolumn = 0
+    "else
+        "windo let &colorcolumn=s:color_column_old
+        "let s:color_column_old = 0
+    "endif
+"endfunction
 
-nnoremap <silent>;c :call <SID>ToggleColorColumn()<CR>
+"nnoremap <silent>;l :call <SID>ToggleColorColumn()<CR>
 
 
 " let g:CoffeeAutoTagDisabled=0         " Disables autotaging on save (Default: 0 [false])
