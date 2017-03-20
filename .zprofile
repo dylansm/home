@@ -27,8 +27,6 @@ export PATH="$PATH:$GOPATH/bin"
 export KEYTIMEOUT=1
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-export PATH="$HOME/.fastlane/bin:$PATH"
-
 HISTFILE=~/.zshrc.d/.zsh_history
 HISTSIZE=1024
 SAVEHIST=1024
