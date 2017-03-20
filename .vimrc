@@ -32,6 +32,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-markdown'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'rhysd/vim-clang-format'
 Plug 'Rip-Rip/clang_complete'
 Plug 'tpope/vim-liquid'
 Plug 'tpope/vim-haml'
@@ -215,7 +216,7 @@ autocmd FileType go nmap <Leader>i <Plug>(go-info)
 
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
+nnoremap <Leader>a :cclose<CR>
 
 " let g:syntastic_html_tidy_ignore_errors = [
     " \  'plain text isn''t allowed in <head> elements',
@@ -251,11 +252,15 @@ nnoremap <silent> <Plug>LocationPrevious    :<C-u>exe 'call <SID>LocationPreviou
 nnoremap <silent> <Plug>LocationNext        :<C-u>exe 'call <SID>LocationNext()'<CR>
 nmap <silent> <C-K> <Plug>LocationPrevious
 nmap <silent> <C-J> <Plug>LocationNext
-nmap <silent> <leader>s :!standard-format -w %<CR>
+nmap <silent> <Leader>s :!standard-format -w %<CR>
 
-nnoremap <silent> <leader>f :Stylefmt<CR>
-vnoremap <silent> <leader>f :StylefmtVisual<CR>
+" Clang Format
+au FileType c,cpp,objc nmap <silent> <Leader>f :ClangFormat<CR>
+nmap <Leader>m :!make<CR>
 
+" Style Format
+au FileType css nmap <silent> <Leader>f :Stylefmt<CR>
+au FileType css vnoremap <silent> <Leader>f :StylefmtVisual<CR>
 
 " let g:ycm_filetype_specific_completion_to_disable = {
       " \ 'php': 1
@@ -382,8 +387,8 @@ let MRU_Add_Menu = 0
 let g:tagbar_autofocus = 1
 nmap <silent>;; :TagbarOpenAutoClose<CR>
 " nmap <silent>;; :TagbarToggle<CR>
-" nmap <silent><leader>s :call Tab2Space()<CR>
-" nmap <silent><leader>t :call Space2Tab()<CR>
+" nmap <silent><Leader>s :call Tab2Space()<CR>
+" nmap <silent><Leader>t :call Space2Tab()<CR>
 " inoremap <C-]> <C-x><C-o>
 
 let g:tagbar_type_go = {
@@ -482,8 +487,8 @@ let g:user_emmet_settings = {
 
 " Vim Fireplace (Clojure only)
 " autocmd this so it's only on in clojure context
-" nmap <leader>q cqq
-" nmap <leader>c cqc
+" nmap <Leader>q cqq
+" nmap <Leader>c cqc
 " nmap ;c :Connect nrepl://127.0.0.1:50133 .<CR>
 
 " alt-shift + h,j,k,l keys
