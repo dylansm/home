@@ -1,4 +1,8 @@
 
+# alias dm='docker-machine'
+# alias dmip='docker-machine ip default'
+# alias dmipc='docker-machine ip default | pbcopy'
+# alias dmrc='docker-machine regenerate-certs default'
 alias ...='cd ../../'
 alias ..='cd ../'
 alias ani='ansible'
@@ -32,10 +36,6 @@ alias dks='docker stop $(docker ps -q)'
 alias dku='docker-compose up -d'
 alias dkvl="docker volume ls"
 alias dkvr="docker volume rm $(docker volume ls -f dangling=true -q)"
-# alias dm='docker-machine'
-# alias dmip='docker-machine ip default'
-# alias dmipc='docker-machine ip default | pbcopy'
-# alias dmrc='docker-machine regenerate-certs default'
 alias doc='cd ~/Dropbox/Documents'
 alias dock='cd ~/dev/Docker'
 alias down="cd ~/Downloads"
@@ -73,6 +73,7 @@ alias p='cd ~/dev/Projects'
 alias pdoc='cd ~/Dropbox/Documents/Project\ Documents'
 alias precomp="RAILS_ENV=production bundle exec rake assets:precompile"
 alias proj="cd ~/Documents/Documents/Project\ Documents/"
+alias proto="cd ~/dev/prototypes"
 alias rake='noglob rake' # allows rake and zsh to get along
 alias rakem="bundle exec rake db:migrate"
 alias rakemt="bundle exec rake db:migrate RAILS_ENV=test"
