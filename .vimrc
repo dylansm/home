@@ -10,11 +10,12 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'
-Plug 'helino/vim-json'
+Plug 'elzr/vim-json'
 " Plug 'marijnh/tern_for_vim'
 Plug 'mklabs/vim-backbone'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'fatih/vim-go'
+Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'digitaltoad/vim-pug'
 Plug 'jwalton512/vim-blade'
 Plug 'pangloss/vim-javascript'

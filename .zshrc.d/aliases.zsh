@@ -1,8 +1,3 @@
-
-# alias dm='docker-machine'
-# alias dmip='docker-machine ip default'
-# alias dmipc='docker-machine ip default | pbcopy'
-# alias dmrc='docker-machine regenerate-certs default'
 alias ...='cd ../../'
 alias ..='cd ../'
 alias ani='ansible'
@@ -23,9 +18,14 @@ alias code='cd ~/dev/Code_Library'
 alias ctag='ctags -R --exclude=.git --exclude=log --exclude=tmp *'
 alias curlh='curl -IL '
 alias d='cd ~/Desktop'
+alias ddo="doctl"
+alias ddoc="doctl compute"
+alias ddocd="doctl compute droplet"
 alias dev='cd ~/dev'
+alias dgo="docker run --rm -v /Users/dylan/dev/go:/home/app/go dylansm/golang:1.8.1"
 alias dk='docker'
 alias dkc='docker-compose'
+alias dkcu='docker-compose up -d'
 alias dkin="docker inspect"
 alias dkinf='docker info'
 alias dkk='docker kill'
@@ -33,8 +33,9 @@ alias dkl='docker logs -f'
 alias dknl="docker network ls"
 alias dkrms="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm"
 alias dks='docker stop $(docker ps -q)'
-alias dku='docker-compose up -d'
+alias dkv="docker volume ls"
 alias dkvl="docker volume ls"
+alias dkvp="docker volume prune"
 alias dkvr="docker volume rm $(docker volume ls -f dangling=true -q)"
 alias doc='cd ~/Dropbox/Documents'
 alias dock='cd ~/dev/Docker'
@@ -67,7 +68,6 @@ alias npmg='npm list -g --depth=0 2>/dev/null'
 alias npmgo="npm outdated -g --depth=0"
 alias npml="npm list --depth=0"
 alias npmlo="npm outdated --depth=0"
-alias ojp='cd ~/Dropbox/Documents/Project\ Documents/Owen\ Jones'
 alias open="open ."
 alias p='cd ~/dev/Projects'
 alias pdoc='cd ~/Dropbox/Documents/Project\ Documents'
