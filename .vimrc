@@ -11,6 +11,7 @@ Plug 'junegunn/vim-github-dashboard'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'
 Plug 'elzr/vim-json'
+Plug 'keith/swift.vim'
 " Plug 'marijnh/tern_for_vim'
 Plug 'mklabs/vim-backbone'
 Plug 'Lokaltog/vim-easymotion'
@@ -39,6 +40,7 @@ Plug 'tpope/vim-liquid'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
 Plug 'kewah/vim-stylefmt'
 Plug 'davidoc/taskpaper.vim'
 Plug 'mustache/vim-mustache-handlebars'
@@ -212,6 +214,8 @@ let g:go_highlight_build_constraints = 1
 let g:go_auto_sameids = 1
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 
+let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <Leader>a :cclose<CR>
@@ -375,7 +379,7 @@ set list listchars=tab:▸\ ,trail:.
 " most recently used
 " nmap <silent>;r :MRU<CR>
 nmap <silent>;r :FZFMru<CR>
-inoremap <expr> ;d fzf#complete('cat /usr/share/dict/web2')
+" inoremap <expr> ;d fzf#complete('cat /usr/share/dict/web2')
 
 let MRU_Max_Entries = 1000
 let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
@@ -383,8 +387,8 @@ let MRU_Add_Menu = 0
 
 " tagbar
 let g:tagbar_autofocus = 1
-nmap <silent>;; :TagbarOpenAutoClose<CR>
-" nmap <silent>;; :TagbarToggle<CR>
+" nmap <silent>;; :TagbarOpenAutoClose<CR>
+nmap <silent>;; :TagbarToggle<CR>
 " nmap <silent><Leader>s :call Tab2Space()<CR>
 " nmap <silent><Leader>t :call Space2Tab()<CR>
 " inoremap <C-]> <C-x><C-o>
@@ -435,7 +439,7 @@ if has("autocmd")
   au BufRead,BufNewFile *.hamlc set ft=haml
   au BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
   au BufEnter *.c compiler gcc
-  au BufRead,BufNewFile *.h,*.hpp,*.c,*.cpp set ts=4 sw=4 sts=4
+  au BufRead,BufNewFile *.h,*.hpp,*.c,*.cpp,*.swift set ts=4 sw=4 sts=4
   " au BufRead,BufNewFile *.cpp set ts=4 sw=4 sts=4
   " au BufRead,BufNewFile *.h set ts=4 sw=4 sts=4
   " au BufRead,BufNewFile *.hpp set ts=4 sw=4 sts=4
