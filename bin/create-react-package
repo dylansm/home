@@ -1,0 +1,47 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+  echo "Please provide a component name."
+  exit
+else
+  package_name=$1
+fi
+
+if [[ ! -d "src/components" ]]; then
+  echo "No src/components directory found. Run this command from the root of a React application..."
+  exit
+fi
+
+component_name="$(tr '[:lower:]' '[:upper:]' <<< ${package_name:0:1})${package_name:1}"
+package_dir="src/components/$package_name"
+mkdir "$package_dir"
+if [[ -d "$package_dir" ]]; then
+  cat >"$package_dir/package.json" <<EOL
+{
+  "name": "$component_name",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./$component_name.js"
+}
+EOL
+
+  cat >"$package_dir/$component_name.js" <<EOL
+import React, { Component } from 'react'
+
+export default class $component_name extends Component {
+  render() {
+    return (
+      <div className="$package_name">
+        This is the $component_name component.
+      </div>
+    )
+  }
+}
+EOL
+
+  touch "$package_dir/$component_name.css"
+
+else
+  "Couldn't create package. Does it already exist?"
+  exit
+fi
