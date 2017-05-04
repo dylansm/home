@@ -33,7 +33,7 @@ alias dkl='docker logs -f'
 alias dknl="docker network ls"
 alias dkrms="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm"
 alias dks='docker stop $(docker ps -q)'
-alias dkv="docker volume ls"
+alias dkv="docker volume"
 alias dkvl="docker volume ls"
 alias dkvp="docker volume prune"
 alias dkvr="docker volume rm $(docker volume ls -f dangling=true -q)"
