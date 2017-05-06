@@ -1,20 +1,40 @@
 #!/bin/bash
 
+if [[ ! -d src ]]; then
+  echo "No src directory found. Run this command from the root of a React application..."
+  exit
+fi
+
 if [[ -z "$1" ]]; then
   echo "Please provide a component name."
-  exit
+  read -p ": " input
+  package_name=`echo $input | sed 's/ /_/g'`
 else
   package_name=$1
 fi
 
-if [[ ! -d "src/components" ]]; then
-  echo "No src/components directory found. Run this command from the root of a React application..."
-  exit
+if [[ ! -d ./src/components ]]; then
+  echo "No components directory found in src. Creating components directory now..."
+  mkdir ./src/components
+fi
+
+if [[ -z "$2" ]]; then
+  echo "Please provide a sub-path for this component (e.g. layout, ui, page)."
+  read -p ": " input
+  component_type=`echo $input | sed 's/ /_/g'`
+else
+  component_type=$2
 fi
 
 component_name="$(tr '[:lower:]' '[:upper:]' <<< ${package_name:0:1})${package_name:1}"
-package_dir="src/components/$package_name"
-mkdir "$package_dir"
+
+if [[ -z $component_type ]]; then
+  echo "Package will be created in the root of the components directory..."
+  package_dir="src/components/$package_name"
+else
+  package_dir="src/components/$component_type/$package_name"
+fi
+mkdir -p "$package_dir"
 if [[ -d "$package_dir" ]]; then
   cat >"$package_dir/package.json" <<EOL
 {
@@ -36,6 +56,11 @@ export default class $component_name extends Component {
       </div>
     )
   }
+}
+EOL
+
+  cat >"$package_dir/$component_name.css" <<EOL
+.$package_name {
 }
 EOL
 

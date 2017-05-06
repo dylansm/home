@@ -29,11 +29,16 @@ constructor (props) {
 }${0}
 endsnippet
 
-snippet cc "Comment banner"
-//////////////////////////////////////////////////////////////////////////////
-/// ${1:comment}
-//////////////////////////////////////////////////////////////////////////////
-$0
+snippet cc "JSdoc single line comment"
+/** ${1:The the ${2:foo} function ${3:does something}}. */$0
+endsnippet
+
+snippet cc "JSdoc multiline comment"
+/**
+ * Represents a book.
+ * ${1:@${2:constructor}}
+ * ${3:@param \{${4:string}\} ${5:title} - ${6:description.}}
+ */$0
 endsnippet
 
 snippet ca "Switch case statement"
@@ -271,7 +276,7 @@ snippet irou "React IndexRoute"
 <IndexRoute component={${2:IndexComp}} />
 endsnippet
 
-snippet jsdoc "Global document for jsdom"
+snippet jsdom "Global document for jsdom"
 global.document = jsdom.jsdom('<!doctype html><html><body></body></html>')
 global.window = global.document.defaultView
 endsnippet
