@@ -47,9 +47,9 @@ bindkey "^n" down-line-or-beginning-search
 bindkey -s '^g' '^Ugit status -s^M'
 bindkey -s '^f' '^Uff^M'
 
-source ~/.zshrc.d/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zshrc.d/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-bindkey "^\\" autosuggest-execute
+# source ~/.zshrc.d/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.zshrc.d/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+# bindkey "^\\" autosuggest-execute
 
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
