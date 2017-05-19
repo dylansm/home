@@ -13,7 +13,7 @@ else
   package_name=$1
 fi
 
-if [[ ! -d ./src/components ]]; then
+if [[ -d ./src && ! -d ./src/components ]]; then
   echo "No components directory found in src. Creating components directory now..."
   mkdir ./src/components
 fi
@@ -26,6 +26,7 @@ else
   component_type=$2
 fi
 
+# uppercase first char
 component_name="$(tr '[:lower:]' '[:upper:]' <<< ${package_name:0:1})${package_name:1}"
 
 if [[ -z $component_type ]]; then
@@ -47,6 +48,7 @@ EOL
 
   cat >"$package_dir/$component_name.js" <<EOL
 import React, { Component } from 'react'
+import './$component_name.css';
 
 export default class $component_name extends Component {
   render() {

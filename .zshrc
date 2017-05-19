@@ -1,6 +1,5 @@
 ssh-add -A &> /dev/null
 
-# source $(brew --prefix
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm nvm)/nvm.sh
 
@@ -33,28 +32,31 @@ setopt hist_verify              # show before executing history commands
 setopt inc_append_history       # add commands as they are typed, don't wait until shell exit
 setopt share_history            # share hist between sessions
 bindkey -e
-bindkey '^[[1;9C' forward-word
-bindkey '^[[1;9D' backward-word
-bindkey '˙' backward-word
-bindkey '¬' forward-word
-bindkey '^h' backward-char
-bindkey '^l' forward-char
+# bindkey '^[[1;9C' forward-word
+# bindkey '^[[1;9D' backward-word
+# bindkey '˙' backward-word
+# bindkey '¬' forward-word
+bindkey '^l' forward-word
+bindkey '^h' backward-word
+# bindkey '^h' backward-char
+# bindkey '^l' forward-char
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 bindkey "^p" up-line-or-beginning-search
 bindkey "^n" down-line-or-beginning-search
 bindkey -s '^g' '^Ugit status -s^M'
 bindkey -s '^f' '^Uff^M'
+
+source ~/.zshrc.d/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zshrc.d/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+bindkey "^M" autosuggest-execute
+
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'   # case insensitive completion for cd etc *N*
 zstyle ':completion:*:*:git:*' script ~/bin/.git-completion.sh
 
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
-# [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
-
-# show full history from line 1 or grep for something
-# h() { if [ -z "$*" ]; then history; else history | egrep "$@"; fi; }
 
 # prompt stuff
 prompt_icon="%(?.%{$fg[green]%}✚ %{$reset_color%}.%{$fg[red]%}✚ %{$reset_color%})"
