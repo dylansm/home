@@ -84,7 +84,8 @@
 .sh_history
 .spark_history
 .sqlite_history
-.ssh/
+.ssh/*
+!.ssh/config
 .standard-cache/
 .subversion
 .terminfo
