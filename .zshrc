@@ -49,7 +49,7 @@ bindkey -s '^f' '^Uff^M'
 
 source ~/.zshrc.d/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zshrc.d/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-bindkey "^M" autosuggest-execute
+bindkey "^\\" autosuggest-execute
 
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
