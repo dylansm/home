@@ -33,6 +33,7 @@ alias dkl="docker logs -f"
 alias dkn="docker network"
 alias dkni="docker network inspect"
 alias dknl="docker network ls"
+alias dknp="docker network prune"
 alias dknr="docker network rm"
 alias dkrms="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm"
 alias dks='docker stop $(docker ps -q)'
@@ -43,6 +44,8 @@ alias dkvr="docker volume rm $(docker volume ls -f dangling=true -q)"
 alias doc='cd ~/Dropbox/Documents'
 alias dock='cd ~/dev/Docker'
 alias down="cd ~/Downloads"
+alias exiftool='docker run --rm -v $(PWD):/tmp dylansm/exiftool'
+alias ffmpeg='docker run --rm -v $(PWD):/tmp/workdir jrottenberg/ffmpeg:3.3-alpine'
 alias gistg='gist -l | grep '
 alias gitf='git fetch'
 alias gitm='git merge'

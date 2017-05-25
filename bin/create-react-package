@@ -26,16 +26,26 @@ else
   component_type=$2
 fi
 
-# uppercase first char
+# split words on uppercase characters then lowercase them
+comp_class_name_mixed=`echo $package_name | sed -e 's/\([A-Z][^A-Z]\)/-\1/g' -e 's/\([a-z]\)\([A-Z]\)/\1-\2/g' -e 's/^-//g' -e 's/\([A-Z]\)/\1/g'`
+comp_file_name_mixed=`echo $package_name | sed -e 's/\([A-Z][^A-Z]\)/_\1/g' -e 's/\([a-z]\)\([A-Z]\)/\1_\2/g' -e 's/^_//g'`
+comp_class_name="$(tr [A-Z] [a-z] <<< ${comp_class_name_mixed})"
+comp_file_name="$(tr [A-Z] [a-z] <<< ${comp_file_name_mixed})"
+
+# uppercase first char (just in case)
 component_name="$(tr '[:lower:]' '[:upper:]' <<< ${package_name:0:1})${package_name:1}"
 
 if [[ -z $component_type ]]; then
   echo "Package will be created in the root of the components directory..."
-  package_dir="src/components/$package_name"
+  # package_dir="src/components/$package_name"
+  package_dir="src/components/$comp_file_name"
 else
-  package_dir="src/components/$component_type/$package_name"
+  # package_dir="src/components/$component_type/$package_name"
+  package_dir="src/components/$component_type/$comp_file_name"
 fi
+
 mkdir -p "$package_dir"
+
 if [[ -d "$package_dir" ]]; then
   cat >"$package_dir/package.json" <<EOL
 {
@@ -48,12 +58,12 @@ EOL
 
   cat >"$package_dir/$component_name.js" <<EOL
 import React, { Component } from 'react'
-import './$component_name.css';
+import './$component_name.css'
 
 export default class $component_name extends Component {
   render() {
     return (
-      <div className="$package_name">
+      <div className='$comp_class_name'>
         This is the $component_name component.
       </div>
     )
@@ -62,7 +72,7 @@ export default class $component_name extends Component {
 EOL
 
   cat >"$package_dir/$component_name.css" <<EOL
-.$package_name {
+.$comp_class_name {
 }
 EOL
 

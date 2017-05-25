@@ -1,4 +1,4 @@
-compdef docker dockerd
+#compdef docker dockerd
 #
 # zsh completion for docker (http://docker.com)
 #

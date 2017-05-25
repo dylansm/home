@@ -54,7 +54,7 @@ bindkey -s '^f' '^Uff^M'
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'   # case insensitive completion for cd etc *N*
-zstyle ':completion:*:*:git:*' script ~/bin/.git-completion.sh
+# zstyle ':completion:*:*:git:*' script ~/bin/.git-completion.sh
 
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
