@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [[ $# -eq 0 ]]; then
+  echo -n "${Yellow}Please specify a tag name:${Plain} "
+  read tagname
+else
+  tagname=$1
+fi
+
+docker build --rm -t $tagname .

@@ -1,3 +1,4 @@
+# alias dkl="docker logs -f"
 alias ...='cd ../../'
 alias ..='cd ../'
 alias ani='ansible'
@@ -29,7 +30,6 @@ alias dkcu='docker-compose up -d'
 alias dkin="docker inspect"
 alias dkinf='docker info'
 alias dkk='docker kill'
-# alias dkl="docker logs -f"
 alias dkn="docker network"
 alias dkni="docker network inspect"
 alias dknl="docker network ls"
@@ -37,6 +37,7 @@ alias dknp="docker network prune"
 alias dknr="docker network rm"
 alias dkrms="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm"
 alias dks='docker stop $(docker ps -q)'
+alias dksys='docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock --name nginx-proxy jwilder/nginx-proxy:alpine; docker run -d --name dnsmasq --restart always -p 53535:53/tcp -p 53535:53/udp --cap-add NET_ADMIN andyshinn/dnsmasq --address=/dev/127.0.0.1'
 alias dkv="docker volume"
 alias dkvl="docker volume ls"
 alias dkvp="docker volume prune"
