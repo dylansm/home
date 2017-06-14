@@ -26,6 +26,7 @@ export GOPATH="$HOME/dev/go/bin"
 export PATH="$PATH:$GOPATH/bin"
 export KEYTIMEOUT=1
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
+export PIP_CONFIG_FILE="$HOME/.config/pip/pip.conf"
 
 HISTFILE=~/.zshrc.d/.zsh_history
 HISTSIZE=1024
