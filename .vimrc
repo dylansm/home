@@ -269,6 +269,10 @@ au FileType css vnoremap <silent> <Leader>f :StylefmtVisual<CR>
       " \ 'php': 1
       " \}
 
+" if exists("g:vdebug_options")
+  " let g:vdebug_options['port'] = 9001
+" endif
+
 " Utility function to echo syntax under cursor
 nmap ;y :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
@@ -286,9 +290,6 @@ let g:deoplete#enable_at_startup = 1
 
 " Toggle paste mode
 nmap <C-P> :set invpaste paste?<CR>
-
-nnoremap <F5> "=strftime("%Y-%m-%d")<CR>P
-inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
 
 " set j/k keys to treat wrapped lines as multiple rows
 nnoremap j gj
