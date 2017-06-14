@@ -81,6 +81,8 @@ alias pdoc='cd ~/Dropbox/Documents/Project\ Documents'
 alias precomp="RAILS_ENV=production bundle exec rake assets:precompile"
 alias proj="cd ~/Documents/Documents/Project\ Documents/"
 alias proto="cd ~/dev/prototypes"
+alias dpy3="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3-alpine python"
+alias dpy2="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:2-alpine python"
 alias rake='noglob rake' # allows rake and zsh to get along
 alias rakem="bundle exec rake db:migrate"
 alias rakemt="bundle exec rake db:migrate RAILS_ENV=test"
