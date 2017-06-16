@@ -1,4 +1,7 @@
 # alias dkl="docker logs -f"
+# alias pip3="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3-alpine pip3"
+# alias v='docker run --rm -it -v $HOME/.config/nvim:/root/.config/nvim -v $HOME/.config/nvim/docker_share:/root/.local/share/nvim --name neovim neovim nvim .'
+# alias vim='docker run --rm -it -v $HOME/.config/nvim:/root/.config/nvim -v $HOME/.config/nvim/docker_share:/root/.local/share/nvim --name neovim neovim'
 alias ...='cd ../../'
 alias ..='cd ../'
 alias ani='ansible'
@@ -45,6 +48,7 @@ alias dkvr="docker volume rm $(docker volume ls -f dangling=true -q)"
 alias doc='cd ~/Dropbox/Documents'
 alias dock='cd ~/dev/Docker'
 alias down="cd ~/Downloads"
+alias dpy="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:2-alpine python"
 alias exiftool='docker run --rm -v $(PWD):/tmp dylansm/exiftool'
 alias ffmpeg='docker run --rm -v $(PWD):/tmp/workdir jrottenberg/ffmpeg:3.3-alpine'
 alias gistg='gist -l | grep '
@@ -81,8 +85,7 @@ alias pdoc='cd ~/Dropbox/Documents/Project\ Documents'
 alias precomp="RAILS_ENV=production bundle exec rake assets:precompile"
 alias proj="cd ~/Documents/Documents/Project\ Documents/"
 alias proto="cd ~/dev/prototypes"
-alias dpy3="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3-alpine python"
-alias dpy2="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:2-alpine python"
+alias python3="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3-alpine python"
 alias rake='noglob rake' # allows rake and zsh to get along
 alias rakem="bundle exec rake db:migrate"
 alias rakemt="bundle exec rake db:migrate RAILS_ENV=test"
