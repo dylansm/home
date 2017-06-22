@@ -152,7 +152,7 @@ endif
 
 set rtp+=/usr/local/opt/fzf
 
-let g:clang_library_path='/usr/local/opt/llvm/lib'
+let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib/'
 
 au FileType go nmap <Leader>r <Plug>(go-run)
 au FileType go nmap <Leader>b <Plug>(go-build)
@@ -257,9 +257,6 @@ nmap <silent> <C-K> <Plug>LocationPrevious
 nmap <silent> <C-J> <Plug>LocationNext
 nmap <silent> <Leader>s :!standard-format -w %<CR>
 
-" Clang Format
-au FileType c,cpp,objc nmap <silent> <Leader>f :ClangFormat<CR>
-nmap <Leader>m :!make<CR>
 
 " Style Format
 au FileType css nmap <silent> <Leader>f :Stylefmt<CR>
@@ -435,8 +432,13 @@ nmap <silent>;m :MarkedOpen!<CR>
 " let g:javascript_conceal_static     = "•"
 " let g:javascript_conceal_super      = "Ω"
 
+" Clang Format
+" au FileType c,cpp,objc nmap <silent> <Leader>f :ClangFormat<CR>
+nmap <Leader>m :!make<CR>
+
 if has("autocmd")
-  autocmd BufWritePost,FileWritePost *.coffee if exists("g:coffee") | :silent !coffee -c <afile>
+  au BufWritePost,FileWritePost *.coffee if exists("g:coffee") | :silent !coffee -c <afile>
+  au BufWritePost *.h,*.c,*.hpp,*.cpp,*.swift ClangFormat
   au BufRead,BufNewFile *.hamlc set ft=haml
   au BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
   au BufEnter *.c compiler gcc

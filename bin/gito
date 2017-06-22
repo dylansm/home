@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 
 if Dir.exists? '.git'
-  # remote_match = `git remote -v`.match( /(?<=^origin\tgit@)(github.com|bitbucket.org).+\.git/ )
-  remote_match = `git remote -v`.match( /(?<=^origin\tgit@)|(?<=^origin\thttps:\/\/)(github.com|bitbucket.org).+\.git/ )
+  remote_match = `git remote -v`.match(/(?<=^origin\tgit@)(github.com|bitbucket.org).+\.git/)
   if remote_match.length == 2
     url = remote_match[0].gsub(":", "/")
+    puts remote_match[0]
     remote_url = "https://#{url[0..-5]}"
     `open #{remote_url}`
     puts "\nOpening #{remote_url} ..."

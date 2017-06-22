@@ -1,4 +1,5 @@
 # alias dkl="docker logs -f"
+# alias vim='~/bin/nvim'
 alias ...='cd ../../'
 alias ..='cd ../'
 alias ani='ansible'
@@ -8,6 +9,7 @@ alias be='bundle exec'
 alias bfg="java -jar ~/bin/bfg-1.12.6.jar"
 alias bin='if [ -d ./bin ]; then cd bin; else cd ~/bin; fi'
 alias brake='bundle exec rake'
+alias brewc="brew leaves | pbcopy"
 alias brewi='brew install'
 alias brewup="brew update && brew cleanup"
 alias bundled="echo '\nInstalling gems for development and test only...\n'; bundle install --without production staging"
@@ -31,11 +33,14 @@ alias dkin="docker inspect"
 alias dkinf='docker info'
 alias dkk='docker kill'
 alias dkn="docker network"
+alias dknc="docker network create"
 alias dkni="docker network inspect"
 alias dknl="docker network ls"
 alias dknp="docker network prune"
 alias dknr="docker network rm"
+alias dkrd='docker rmi $(docker images -f "dangling=true" -q)'
 alias dkrms="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm"
+alias dkrs="docker ps -aq --no-trunc | xargs docker rm"
 alias dks='docker stop $(docker ps -q)'
 alias dksys='docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock --name nginx-proxy jwilder/nginx-proxy:alpine; docker run -d --name dnsmasq --restart always -p 53535:53/tcp -p 53535:53/udp --cap-add NET_ADMIN andyshinn/dnsmasq --address=/dev/127.0.0.1'
 alias dkv="docker volume"
@@ -45,6 +50,8 @@ alias dkvr="docker volume rm $(docker volume ls -f dangling=true -q)"
 alias doc='cd ~/Dropbox/Documents'
 alias dock='cd ~/dev/Docker'
 alias down="cd ~/Downloads"
+alias dpy2="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:2-alpine python"
+alias dpy3="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3-alpine python"
 alias exiftool='docker run --rm -v $(PWD):/tmp dylansm/exiftool'
 alias ffmpeg='docker run --rm -v $(PWD):/tmp/workdir jrottenberg/ffmpeg:3.3-alpine'
 alias gistg='gist -l | grep '
@@ -81,8 +88,6 @@ alias pdoc='cd ~/Dropbox/Documents/Project\ Documents'
 alias precomp="RAILS_ENV=production bundle exec rake assets:precompile"
 alias proj="cd ~/Documents/Documents/Project\ Documents/"
 alias proto="cd ~/dev/prototypes"
-alias dpy3="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3-alpine python"
-alias dpy2="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:2-alpine python"
 alias rake='noglob rake' # allows rake and zsh to get along
 alias rakem="bundle exec rake db:migrate"
 alias rakemt="bundle exec rake db:migrate RAILS_ENV=test"
@@ -111,11 +116,11 @@ alias vagssh="vagrant ssh"
 alias vagsshc="vagrant ssh-config"
 alias vagst="vagrant global-status"
 alias vagup="vagrant up"
-alias vim='nvim'
-alias vimalias='vim ~/.zshrc.d/aliases.zsh'
 alias vimrc="vim ~/.vimrc"
+alias vim="nvim"
 alias xcode="cd ~/dev/Xcode/Projects"
 alias xplug="cd ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins"
 alias xprefs="find ~/Library/Developer/CoreSimulator/Devices -type f -name "
 alias yarng="yarn global ls"
+alias zalias='vim ~/.zshrc.d/aliases.zsh'
 alias zpro="vim ~/.zprofile"
