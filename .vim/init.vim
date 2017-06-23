@@ -153,7 +153,8 @@ endif
 
 set rtp+=/usr/local/opt/fzf
 
-let g:clang_library_path='/usr/local/opt/llvm/lib'
+" if using brew installed llvm uncomment
+" let g:clang_library_path='/usr/local/opt/llvm/lib'
 
 au FileType go nmap <Leader>r <Plug>(go-run)
 au FileType go nmap <Leader>b <Plug>(go-build)
@@ -328,6 +329,24 @@ imap jj <ESC>
 
 " yank to end of line
 nnoremap Y y$
+
+" function! ClipboardYank()
+  " call system('nc -U ~/.clipper.sock', @0)
+" endfunction
+
+" function! ClipboardPaste()
+  " let @@ = system('pbpaste')
+" endfunction
+
+" vnoremap <silent> y y:call ClipboardYank()<cr>
+" vnoremap <silent> d d:call ClipboardYank()<cr>
+" nnoremap <silent> p :call ClipboardPaste()<cr>
+" onoremap <silent> d d:call ClipboardYank()<cr>
+
+" nmap <silent><F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+" imap <silent><F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+
+" nnoremap <leader>y :call system('nc -U ~/.run/clipper.sock', @0)<CR>
 
 " Clear screen clears search highlighting.
 nnoremap <C-L> :nohl<CR><C-L>
