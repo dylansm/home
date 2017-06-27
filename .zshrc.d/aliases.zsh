@@ -8,7 +8,6 @@ alias ani='ansible'
 alias anip='ansible-playbook'
 alias awscomp="source /usr/local/bin/aws_zsh_completer.sh"
 alias be='bundle exec'
-alias bfg="java -jar ~/bin/bfg-1.12.6.jar"
 alias bin='if [ -d ./bin ]; then cd bin; else cd ~/bin; fi'
 alias brake='bundle exec rake'
 alias brewc="brew leaves | pbcopy"
