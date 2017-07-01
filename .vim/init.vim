@@ -46,6 +46,7 @@ Plug 'kewah/vim-stylefmt'
 Plug 'davidoc/taskpaper.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'dylansm/vim-jsx'
+Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdcommenter'
 Plug 'itspriddle/vim-marked'
@@ -58,13 +59,15 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'SirVer/ultisnips' | Plug 'dylansm/vim-snippets'
 
 " On-demand loading
-Plug 'scrooloose/nerdtree'
-Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+" Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+" Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+" Plug 'guns/vim-slamhound', { 'for': 'clojure' }
 Plug 'tpope/vim-dispatch', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-projectionist', { 'for': 'clojure' }
-Plug 'tpope/vim-salve', { 'for': 'clojure' }
-Plug 'guns/vim-slamhound', { 'for': 'clojure' }
+Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
+Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
+" Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'joonty/vdebug', { 'for': 'php' }
 
 " Add plugins to &runtimepath
@@ -192,6 +195,7 @@ let g:jsx_ext_required = 1
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_json_checkers = ['jsonlint']
 " let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_clojure_checkers = ['eastwood']
 let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_css_checkers = ['stylelint']
 let g:syntastic_scss_checkers = ['stylelint-scss']
