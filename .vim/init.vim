@@ -62,13 +62,13 @@ Plug 'SirVer/ultisnips' | Plug 'dylansm/vim-snippets'
 " Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 " Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 " Plug 'guns/vim-slamhound', { 'for': 'clojure' }
+Plug 'kien/rainbow_parentheses.vim'
 Plug 'tpope/vim-dispatch', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-projectionist', { 'for': 'clojure' }
 Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
 Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
 " Plug 'tpope/vim-salve', { 'for': 'clojure' }
-Plug 'joonty/vdebug', { 'for': 'php' }
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -158,6 +158,11 @@ set rtp+=/usr/local/opt/fzf
 
 " if using brew installed llvm uncomment
 " let g:clang_library_path='/usr/local/opt/llvm/lib'
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 au FileType go nmap <Leader>r <Plug>(go-run)
 au FileType go nmap <Leader>b <Plug>(go-build)
@@ -262,6 +267,8 @@ nnoremap <silent> <Plug>LocationNext        :<C-u>exe 'call <SID>LocationNext()'
 nmap <silent> <C-K> <Plug>LocationPrevious
 nmap <silent> <C-J> <Plug>LocationNext
 nmap <silent> <Leader>s :!standard-format -w %<CR>
+
+imap <C-o> <esc>o
 
 " Clang Format
 au FileType c,cpp,objc nmap <silent> <Leader>f :ClangFormat<CR>
