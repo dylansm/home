@@ -1,5 +1,6 @@
 call plug#begin()
 " Make sure you use single quotes
+" Plug 'mileszs/ack.vim'
 Plug 'cespare/vim-toml'
 Plug 'Raimondi/delimitMate'
 Plug 'mattn/emmet-vim'
@@ -477,6 +478,7 @@ if has("autocmd")
 endif
 
 map <C-F> :Ag<space>
+" map <C-F> :Ack!<Space>
 map ;f :FZF<CR>
 
 command! -nargs=1 Locate call fzf#run(
