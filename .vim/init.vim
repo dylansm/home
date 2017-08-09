@@ -47,6 +47,7 @@ Plug 'kewah/vim-stylefmt'
 Plug 'davidoc/taskpaper.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'dylansm/vim-jsx'
+Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdcommenter'
 Plug 'itspriddle/vim-marked'
@@ -59,14 +60,16 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'SirVer/ultisnips' | Plug 'dylansm/vim-snippets'
 
 " On-demand loading
-Plug 'scrooloose/nerdtree'
-Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+" Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+" Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+" Plug 'guns/vim-slamhound', { 'for': 'clojure' }
+Plug 'kien/rainbow_parentheses.vim'
 Plug 'tpope/vim-dispatch', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-projectionist', { 'for': 'clojure' }
-Plug 'tpope/vim-salve', { 'for': 'clojure' }
-Plug 'guns/vim-slamhound', { 'for': 'clojure' }
-Plug 'joonty/vdebug', { 'for': 'php' }
+Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
+Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
+" Plug 'tpope/vim-salve', { 'for': 'clojure' }
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -157,6 +160,11 @@ set rtp+=/usr/local/opt/fzf
 " if using brew installed llvm uncomment
 " let g:clang_library_path='/usr/local/opt/llvm/lib'
 
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
 au FileType go nmap <Leader>r <Plug>(go-run)
 au FileType go nmap <Leader>b <Plug>(go-build)
 au FileType go nmap <Leader>t <Plug>(go-test)
@@ -193,6 +201,7 @@ let g:jsx_ext_required = 1
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_json_checkers = ['jsonlint']
 " let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_clojure_checkers = ['eastwood']
 let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_css_checkers = ['stylelint']
 let g:syntastic_scss_checkers = ['stylelint-scss']
@@ -259,6 +268,8 @@ nnoremap <silent> <Plug>LocationNext        :<C-u>exe 'call <SID>LocationNext()'
 nmap <silent> <C-K> <Plug>LocationPrevious
 nmap <silent> <C-J> <Plug>LocationNext
 nmap <silent> <Leader>s :!standard-format -w %<CR>
+
+imap <C-o> <esc>o
 
 " Clang Format
 au FileType c,cpp,objc nmap <silent> <Leader>f :ClangFormat<CR>

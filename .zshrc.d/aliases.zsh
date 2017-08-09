@@ -10,6 +10,7 @@ alias ani='ansible'
 alias anip='ansible-playbook'
 alias awscomp="source /usr/local/bin/aws_zsh_completer.sh"
 alias bb="babel-repl"
+# alias bb="nesh -b"
 alias be='bundle exec'
 alias bin='if [ -d ./bin ]; then cd bin; else cd ~/bin; fi'
 alias brake='bundle exec rake'
@@ -54,6 +55,7 @@ alias dkvr="docker volume rm $(docker volume ls -f dangling=true -q)"
 alias doc='cd ~/Dropbox/Documents'
 alias dock='cd ~/dev/Docker'
 alias down="cd ~/Downloads"
+alias dsites="cd ~/Dropbox/Sites"
 alias exiftool='docker run --rm -v $(PWD):/tmp dylansm/exiftool'
 alias ffmpeg='docker run --rm -v $(PWD):/tmp/workdir jrottenberg/ffmpeg:3.3-alpine'
 alias gistg='gist -l | grep '
@@ -90,6 +92,9 @@ alias pdoc='cd ~/Dropbox/Documents/Project\ Documents'
 alias precomp="RAILS_ENV=production bundle exec rake assets:precompile"
 alias proj="cd ~/Documents/Documents/Project\ Documents/"
 alias proto="cd ~/dev/prototypes"
+# alias python3="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3-alpine python"
+# alias python="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:2-alpine python"
+alias quote="cd /Users/dylan/Dropbox/Documents/Quotes"
 alias rake='noglob rake' # allows rake and zsh to get along
 alias rakem="bundle exec rake db:migrate"
 alias rakemt="bundle exec rake db:migrate RAILS_ENV=test"

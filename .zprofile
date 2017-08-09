@@ -37,10 +37,12 @@ if [[ -f ~/.config/api_secrets.yml ]]; then
   eval $(parse_yaml ~/.config/api_secrets.yml)
   # export AWS_ACCESS_KEY_ID=`echo $default_aws_access_key_id`
   # export AWS_SECRET_ACCESS_KEY=`echo $default_aws_secret_access_key`
-  export AWS_ACCESS_KEY_ID=`echo $the_draw_aws_access_key`
-  export AWS_SECRET_ACCESS_KEY=`echo $the_draw_aws_secret_access_key`
-  export DIGITALOCEAN_ACCESS_TOKEN=`echo $the_program_digitalocean_access_token`
-  # export DIGITALOCEAN_ACCESS_TOKEN=`echo $default_digitalocean_access_token`
+  # export AWS_ACCESS_KEY_ID=`echo $the_draw_aws_access_key`
+  # export AWS_SECRET_ACCESS_KEY=`echo $the_draw_aws_secret_access_key`
+  export AWS_ACCESS_KEY_ID=`echo $the_program_aws_access_key_id`
+  export AWS_SECRET_ACCESS_KEY=`echo $the_program_aws_secret_access_key`
+  # export DIGITALOCEAN_ACCESS_TOKEN=`echo $the_program_digitalocean_access_token`
+  export DIGITALOCEAN_ACCESS_TOKEN=`echo $default_digitalocean_access_token`
   export GITHUB_AUTH_TOKEN=`echo $default_github_auth_token`
   export HOMEBREW_GITHUB_API_TOKEN=`echo $default_github_homebrew_token`
   export IWANTMYNAME_PASSWORD=`echo $default_iwantmyname_password`
@@ -56,4 +58,5 @@ if [[ -f ~/.config/app_secrets.yml ]]; then
   export AUTH_TEST_JWT_DEVELOPMENT=`echo $auth_test_development_jwt_secret`
   export CALDUX_JWT_DEVELOPMENT=`echo $caldux_development_jwt_secret`
   export NIKE_LOCKER_JWT_DEVELOPMENT=`echo $nike_locker_development_jwt_secret`
+  export MONGO_CONNECTION=`echo $clojure_test_development_mongo_conn`
 fi
