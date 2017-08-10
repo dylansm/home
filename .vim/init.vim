@@ -2,6 +2,7 @@ call plug#begin()
 " Make sure you use single quotes
 " Plug 'mileszs/ack.vim'
 Plug 'cespare/vim-toml'
+Plug 'chrisbra/csv.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/mru.vim'
@@ -605,4 +606,3 @@ endfunction
 " endfunction
 
 " nnoremap <silent>;h :call ToggleHiddenAll()<CR>
-
