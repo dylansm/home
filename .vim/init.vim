@@ -127,7 +127,7 @@ set ai
 set nohlsearch
 " set mouse=c
 set visualbell
-set nu
+" set nu
 set ruler
 set nowrap
 set linebreak
