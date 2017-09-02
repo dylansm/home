@@ -70,3 +70,4 @@ fi
 RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current') %{$fg[magenta]%}ruby-$(ruby_version)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
 
 # [ -f ~/.zshrc.d/fzf.zsh ] && source ~/.zshrc.d/fzf.zsh
+export PATH="/usr/local/opt/postgresql@9.4/bin:$PATH"

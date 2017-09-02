@@ -28,6 +28,9 @@ export KEYTIMEOUT=1
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export PIP_CONFIG_FILE="$HOME/.config/pip/pip.conf"
 
+export PATH="$HOME/dev/android/tools/bin:$HOME/dev/android/platforms/android-22:$PATH"
+export THE_DRAW_DEPLOY_USER="dylan_smith"
+
 HISTFILE=~/.zshrc.d/.zsh_history
 HISTSIZE=1024
 SAVEHIST=1024
@@ -42,7 +45,8 @@ if [[ -f ~/.config/api_secrets.yml ]]; then
   export AWS_ACCESS_KEY_ID=`echo $the_program_aws_access_key_id`
   export AWS_SECRET_ACCESS_KEY=`echo $the_program_aws_secret_access_key`
   # export DIGITALOCEAN_ACCESS_TOKEN=`echo $the_program_digitalocean_access_token`
-  export DIGITALOCEAN_ACCESS_TOKEN=`echo $default_digitalocean_access_token`
+  # export DIGITALOCEAN_ACCESS_TOKEN=`echo $default_digitalocean_access_token`
+  export DIGITALOCEAN_ACCESS_TOKEN=`echo $suspect_digitalocean_access_token`
   export GITHUB_AUTH_TOKEN=`echo $default_github_auth_token`
   export HOMEBREW_GITHUB_API_TOKEN=`echo $default_github_homebrew_token`
   export IWANTMYNAME_PASSWORD=`echo $default_iwantmyname_password`
