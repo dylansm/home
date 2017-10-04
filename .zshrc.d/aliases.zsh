@@ -1,6 +1,9 @@
+# alias bb="nesh -b"
 # alias dkl="docker logs -f"
 # alias pip3="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3-alpine pip3"
 # alias python3="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3-alpine python"
+# alias python3="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3-alpine python"
+# alias python="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:2-alpine python"
 # alias python="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:2-alpine python"
 # alias v='docker run --rm -it -v $HOME/.config/nvim:/root/.config/nvim -v $HOME/.config/nvim/docker_share:/root/.local/share/nvim --name neovim neovim nvim .'
 # alias vim='docker run --rm -it -v $HOME/.config/nvim:/root/.config/nvim -v $HOME/.config/nvim/docker_share:/root/.local/share/nvim --name neovim neovim'
@@ -10,7 +13,6 @@ alias ani='ansible'
 alias anip='ansible-playbook'
 alias awscomp="source /usr/local/bin/aws_zsh_completer.sh"
 alias bb="babel-repl"
-# alias bb="nesh -b"
 alias be='bundle exec'
 alias bin='if [ -d ./bin ]; then cd bin; else cd ~/bin; fi'
 alias brake='bundle exec rake'
@@ -82,6 +84,7 @@ alias mpcp="mpc playlist"
 alias mpct="mpc toggle"
 alias mpcu="mpc update"
 alias n='cd ~/Dropbox/Documents/Notes'
+alias notes="cd ~/Dropbox/Documents/Notes"
 alias npmg='npm list -g --depth=0 2>/dev/null'
 alias npmgo="npm outdated -g --depth=0"
 alias npml="npm list --depth=0"
@@ -92,8 +95,6 @@ alias pdoc='cd ~/Dropbox/Documents/Project\ Documents'
 alias precomp="RAILS_ENV=production bundle exec rake assets:precompile"
 alias proj="cd ~/Documents/Documents/Project\ Documents/"
 alias proto="cd ~/dev/prototypes"
-# alias python3="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3-alpine python"
-# alias python="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:2-alpine python"
 alias quote="cd /Users/dylan/Dropbox/Documents/Quotes"
 alias rake='noglob rake' # allows rake and zsh to get along
 alias rakem="bundle exec rake db:migrate"
