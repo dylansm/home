@@ -81,6 +81,7 @@
 .rvm/
 .sbt/
 .scala_history
+.ssh/
 .sh_history
 .spark_history
 .sqlite_history
