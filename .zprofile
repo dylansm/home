@@ -3,7 +3,6 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 export JENV_ROOT=/usr/local/var/jenv
 export PYENV_ROOT="$HOME/.pyenv"
-export NVM_DIR=~/.nvm
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
@@ -30,6 +29,8 @@ export PIP_CONFIG_FILE="$HOME/.config/pip/pip.conf"
 
 export PATH="$HOME/dev/android/tools/bin:$HOME/dev/android/platforms/android-22:$PATH"
 export THE_DRAW_DEPLOY_USER="dylan_smith"
+
+# export PATH="/usr/local/opt/postgresql@9.4/bin:$PATH"
 
 HISTFILE=~/.zshrc.d/.zsh_history
 HISTSIZE=1024
