@@ -93,6 +93,7 @@
 .tmux/
 .v8*
 .vagrant.d/
+.vim/autoload/plug.vim.old
 .vim/.init.vim-rplugin~
 .vim/plugged
 .vim_mru_files
