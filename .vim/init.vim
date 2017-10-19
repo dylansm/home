@@ -607,3 +607,13 @@ endfunction
 " endfunction
 
 " nnoremap <silent>;h :call ToggleHiddenAll()<CR>
+
+" call NERDTreeAddMenuItem({'text': '(e)xecute OS command on a childnode', 'shortcut': 'e', 'callback': 'NERDTreeOSCommand'})
+
+" function! NERDTreeOSCommand()
+    " let command = input('Command: ') . ' ' . g:NERDTreeFileNode.GetSelected().path.str()
+    " let command = command . ' ' . input('Command: ' . command . ' ')
+    " echo "\n" . system(command)
+" endfunction
+
+nnoremap <silent>;3 :set invnu<CR>

@@ -6,4 +6,5 @@ pbpaste | sed -E -e 's/^[ ]?[0-9]* //g' \
   | sed -E -e 's/\?\?/*QUESTION*/g' \
   | sed -E -e 's/\?//g' \
   | sed -E -e 's/\*QUESTION\*/?/g' \
-  | sed -E -e 's/ //g' \
+  | sed -E -e 's/ //g'
+
