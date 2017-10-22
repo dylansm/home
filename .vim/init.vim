@@ -24,6 +24,7 @@ Plug 'jwalton512/vim-blade'
 Plug 'pangloss/vim-javascript'
 Plug 'dylansm/html5.vim'
 Plug 'dylansm/one-dark.vim'
+Plug 'dylansm/one-light.vim'
 Plug 'dylansm/vim-super-retab'
 Plug 'dylansm/nginx.vim'
 Plug 'dylansm/vim-stripper'
@@ -78,7 +79,8 @@ call plug#end()
 
 syntax on
 filetype plugin indent on
-colorscheme onedark
+" colorscheme onedark
+colorscheme onelight
 
 hi NERDTreeOpenable ctermfg=246
 hi NERDTreeClosable ctermfg=250
@@ -389,7 +391,8 @@ nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<CR>
 " set filetype to Ruby with :FR
 command! FR set filetype=ruby
 
-"map ;k :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+" map ;k :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+map ;k :let &colorscheme = ( &background == "onedark"? "onelight" : "onedark" )<CR>
 
 " Shortcut to rapidly toggle `set list`
 nmap <Leader>ll :set list!<CR>
@@ -616,4 +619,4 @@ endfunction
     " echo "\n" . system(command)
 " endfunction
 
-nnoremap <silent>;3 :set invnu<CR>
+nnoremap <silent><leader>3 :set invnu<CR>

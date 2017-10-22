@@ -54,6 +54,7 @@ alias dkv="docker volume"
 alias dkvl="docker volume ls"
 alias dkvp="docker volume prune"
 alias dkvr="docker volume rm $(docker volume ls -f dangling=true -q)"
+alias dnsup="docker run -d --name dnsmasq --restart always -p 53535:53/tcp -p 53535:53/udp --cap-add NET_ADMIN andyshinn/dnsmasq --address=/dev/127.0.0.1"
 alias doc='cd ~/Dropbox/Documents'
 alias dock='cd ~/dev/Docker'
 alias down="cd ~/Downloads"
