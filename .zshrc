@@ -66,6 +66,7 @@ else
 %~
 ${prompt_icon} %{$reset_color%}'
 fi
+
 # RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current')%{$fg[green]%} py-$(python_version) %{$fg[magenta]%}ruby-$(ruby_version)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
 RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current') %{$fg[magenta]%}ruby-$(ruby_version)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
 

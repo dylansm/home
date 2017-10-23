@@ -346,24 +346,6 @@ imap jj <ESC>
 " yank to end of line
 nnoremap Y y$
 
-" function! ClipboardYank()
-  " call system('nc -U ~/.clipper.sock', @0)
-" endfunction
-
-" function! ClipboardPaste()
-  " let @@ = system('pbpaste')
-" endfunction
-
-" vnoremap <silent> y y:call ClipboardYank()<cr>
-" vnoremap <silent> d d:call ClipboardYank()<cr>
-" nnoremap <silent> p :call ClipboardPaste()<cr>
-" onoremap <silent> d d:call ClipboardYank()<cr>
-
-" nmap <silent><F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-" imap <silent><F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-
-" nnoremap <leader>y :call system('nc -U ~/.run/clipper.sock', @0)<CR>
-
 " Clear screen clears search highlighting.
 nnoremap <C-L> :nohl<CR><C-L>
 
@@ -391,8 +373,12 @@ nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<CR>
 " set filetype to Ruby with :FR
 command! FR set filetype=ruby
 
-" map ;k :let &background = ( &background == "dark"? "light" : "dark" )<CR>
-map ;k :let &colorscheme = ( &background == "onedark"? "onelight" : "onedark" )<CR>
+function! ChangeColorSchemeAndProfile(theme)
+  :execute 'colorscheme '.a:theme
+endfunction
+
+map <C-k> :call ChangeColorSchemeAndProfile('onedark')<CR>
+map <C-l> :call ChangeColorSchemeAndProfile('onelight')<CR>
 
 " Shortcut to rapidly toggle `set list`
 nmap <Leader>ll :set list!<CR>
