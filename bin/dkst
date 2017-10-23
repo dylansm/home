@@ -1,0 +1,26 @@
+#!/bin/bash
+
+printf "\n"
+running_count=$(docker info | grep Running: | awk '{print $NF}')
+paused_count=$(docker info | grep Paused: | awk '{print $NF}')
+stopped_count=$(docker info | grep Stopped: | awk '{print $NF}')
+
+if [[ $running_count == "0" && $paused_count == "0" && $stopped_count == "0" ]]; then
+  printf "\n`echo $Red`There are no containers to stop.\n"
+elif [[ ! $running_count == "0" || ! $paused_count == "0" ]]; then
+  if [[ $# -eq 0 ]]; then
+    # unset tmp
+    printf "\n"
+    echo -n "${Yellow}Are you sure you want to stop all containers? (y/n):${Plain} "
+    read response
+
+    if [[ $response =~ ^[Yy]$ ]]; then
+      docker stop $(docker ps -a -q)
+    fi
+
+  else
+    docker stop $(docker ps -a -f name=$1 -q)
+  fi
+else
+  printf "\n`echo $Red`It looks like all containers are already stopped.\n"
+fi
