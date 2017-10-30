@@ -91,6 +91,7 @@ hi LineNr ctermfg=242
 hi Normal ctermfg=251
 hi NonText ctermfg=236
 hi VertSplit ctermbg=247 ctermfg=236
+" hi VertSplit ctermbg=0 ctermfg=6
 hi StatusLineNC ctermbg=247 ctermfg=236
 highlight Comment cterm=italic
 " hi CursorLine ctermbg=236 ctermfg=246
@@ -373,18 +374,18 @@ nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<CR>
 " set filetype to Ruby with :FR
 command! FR set filetype=ruby
 
-function! ChangeColorSchemeAndProfile(theme)
-  :execute 'colorscheme '.a:theme
-  if g:colors_name == 'onedark'
-    hi VertSplit ctermbg=247 ctermfg=236
-  else
-    " hi VertSplit ctermbg=160 ctermfg=7
-    hi VertSplit ctermbg=7 ctermfg=7
-  endif
-endfunction
+" function! ChangeColorSchemeAndProfile(theme)
+  " :execute 'colorscheme '.a:theme
+  " if g:colors_name == 'onedark'
+    " hi VertSplit ctermbg=247 ctermfg=236
+  " else
+    " " hi VertSplit ctermbg=160 ctermfg=7
+    " hi VertSplit ctermbg=7 ctermfg=7
+  " endif
+" endfunction
 
-map ;k :call ChangeColorSchemeAndProfile('onedark')<CR>
-map ;l :call ChangeColorSchemeAndProfile('onelight')<CR>
+" map ;k :call ChangeColorSchemeAndProfile('onedark')<CR>
+" map ;l :call ChangeColorSchemeAndProfile('onelight')<CR>
 " map <C-k> :call ChangeColorSchemeAndProfile('onedark')<CR>
 " map <C-l> :call ChangeColorSchemeAndProfile('onelight')<CR>
 
