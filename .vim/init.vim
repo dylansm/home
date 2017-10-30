@@ -79,8 +79,7 @@ call plug#end()
 
 syntax on
 filetype plugin indent on
-" colorscheme onedark
-colorscheme onelight
+colorscheme onedark
 
 hi NERDTreeOpenable ctermfg=246
 hi NERDTreeClosable ctermfg=250
@@ -375,10 +374,18 @@ command! FR set filetype=ruby
 
 function! ChangeColorSchemeAndProfile(theme)
   :execute 'colorscheme '.a:theme
+  if g:colors_name == 'onedark'
+    hi VertSplit ctermbg=247 ctermfg=236
+  else
+    " hi VertSplit ctermbg=160 ctermfg=7
+    hi VertSplit ctermbg=7 ctermfg=7
+  endif
 endfunction
 
-map <C-k> :call ChangeColorSchemeAndProfile('onedark')<CR>
-map <C-l> :call ChangeColorSchemeAndProfile('onelight')<CR>
+map ;k :call ChangeColorSchemeAndProfile('onedark')<CR>
+map ;l :call ChangeColorSchemeAndProfile('onelight')<CR>
+" map <C-k> :call ChangeColorSchemeAndProfile('onedark')<CR>
+" map <C-l> :call ChangeColorSchemeAndProfile('onelight')<CR>
 
 " Shortcut to rapidly toggle `set list`
 nmap <Leader>ll :set list!<CR>
