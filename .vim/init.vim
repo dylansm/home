@@ -98,7 +98,7 @@ hi SyntasticWarningSign guifg=Yellow guibg=#303030
 hi SyntasticErrorSign guifg=Red guibg=#303030
 " hi SyntasticError ctermbg=28
 " hi SyntasticWarning ctermbg=28
-set fillchars=vert:⎜,diff:—,fold:—
+set fillchars=vert:\│,diff:—,fold:—
 
 let mapleader           = ","
 let html_no_rendering   = 1
