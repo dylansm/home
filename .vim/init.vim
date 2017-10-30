@@ -99,7 +99,7 @@ hi SyntasticWarningSign guifg=Yellow guibg=#303030
 hi SyntasticErrorSign guifg=Red guibg=#303030
 " hi SyntasticError ctermbg=28
 " hi SyntasticWarning ctermbg=28
-set fillchars=vert:⎜,diff:—,fold:—
+set fillchars=vert:\│,diff:—,fold:—
 
 let mapleader           = ","
 let html_no_rendering   = 1
@@ -375,10 +375,18 @@ command! FR set filetype=ruby
 
 function! ChangeColorSchemeAndProfile(theme)
   :execute 'colorscheme '.a:theme
+  if g:colors_name == 'onedark'
+    hi VertSplit ctermbg=247 ctermfg=236
+  else
+    " hi VertSplit ctermbg=160 ctermfg=7
+    hi VertSplit ctermbg=7 ctermfg=7
+  endif
 endfunction
 
-map <C-k> :call ChangeColorSchemeAndProfile('onedark')<CR>
-map <C-l> :call ChangeColorSchemeAndProfile('onelight')<CR>
+map ;k :call ChangeColorSchemeAndProfile('onedark')<CR>
+map ;l :call ChangeColorSchemeAndProfile('onelight')<CR>
+" map <C-k> :call ChangeColorSchemeAndProfile('onedark')<CR>
+" map <C-l> :call ChangeColorSchemeAndProfile('onelight')<CR>
 
 " Shortcut to rapidly toggle `set list`
 nmap <Leader>ll :set list!<CR>
