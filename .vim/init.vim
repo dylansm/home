@@ -24,7 +24,7 @@ Plug 'jwalton512/vim-blade'
 Plug 'pangloss/vim-javascript'
 Plug 'dylansm/html5.vim'
 Plug 'dylansm/one-dark.vim'
-Plug 'dylansm/one-light.vim'
+" Plug 'dylansm/one-light.vim'
 Plug 'dylansm/vim-super-retab'
 Plug 'dylansm/nginx.vim'
 Plug 'dylansm/vim-stripper'
@@ -79,8 +79,8 @@ call plug#end()
 
 syntax on
 filetype plugin indent on
-" colorscheme onedark
-colorscheme onelight
+colorscheme onedark
+" colorscheme onelight
 
 hi NERDTreeOpenable ctermfg=246
 hi NERDTreeClosable ctermfg=250
