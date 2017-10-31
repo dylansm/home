@@ -1,5 +1,6 @@
 [user]
   name = Dylan Smith
+  email = dylan@theprogrampdx.com
 [core]
   pager = less -FRSX
   excludesfile = ~/.git_excludes
