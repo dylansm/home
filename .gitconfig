@@ -1,6 +1,5 @@
 [user]
   name = Dylan Smith
-  email = dylan@rh.izo.me
 [core]
   pager = less -FRSX
   excludesfile = ~/.git_excludes
