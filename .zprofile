@@ -20,14 +20,19 @@ export NODE_PATH=/usr/local/lib/node_modules
 export SCALA_HOME=/usr/local/scala
 export TIDY_HTML=~/.tidyrc
 export XCODE="`xcode-select --print-path`"
-export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$HOME/Library/Python/2.7/bin:$PATH"
+# export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$HOME/Library/Python/2.7/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+
 # export GOPATH="$HOME/dev/go/bin"
 # export PATH="$PATH:$GOPATH/bin"
+
 export KEYTIMEOUT=1
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export PIP_CONFIG_FILE="$HOME/.config/pip/pip.conf"
 
 # export PATH="$HOME/dev/android/tools/bin:$HOME/dev/android/platforms/android-22:$PATH"
+
+export PATH="/usr/local/opt/redis@2.8/bin:$PATH"
 export THE_DRAW_DEPLOY_USER="dylan_smith"
 
 # export PATH="/usr/local/opt/postgresql@9.4/bin:$PATH"
