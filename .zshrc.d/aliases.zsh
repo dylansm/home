@@ -51,7 +51,6 @@ alias dkri="docker rmi"
 alias dkrms="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm"
 alias dkrs="docker ps -aq --no-trunc | xargs docker rm"
 alias dks='docker stop $(docker ps -q)'
-alias dksys='docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock --name nginx-proxy jwilder/nginx-proxy:alpine; docker run -d --name dnsmasq --restart always -p 53535:53/tcp -p 53535:53/udp --cap-add NET_ADMIN andyshinn/dnsmasq --address=/dev/127.0.0.1'
 alias dkv="docker volume"
 alias dkvl="docker volume ls"
 alias dkvp="docker volume prune"
