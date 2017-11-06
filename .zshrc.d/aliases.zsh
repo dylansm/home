@@ -47,6 +47,7 @@ alias dknl="docker network ls"
 alias dknp="docker network prune"
 alias dknr="docker network rm"
 alias dkrd='docker rmi $(docker images -f "dangling=true" -q)'
+alias dkri="docker rmi"
 alias dkrms="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm"
 alias dkrs="docker ps -aq --no-trunc | xargs docker rm"
 alias dks='docker stop $(docker ps -q)'
