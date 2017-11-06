@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo "Are you sure you want to delete all rails files in the current directory?"
+read -p ": " response
+response_letter="${response:0:1}"
+if [[ "$response_letter" =~ [yY] ]]; then
+  rm -rf app bin/bundle bin/rails bin/rake bin/setup bin/spring bin/update bin/yarn test/tmp vendor/ config/ db/ lib/ log/ public/ test/ tmp/
+  rm .yarnrc yarn-error.log yarn.lock package.json docker-compose.yml README.md Gemfile.lock Gemfile .postcssrc.yml .babelrc Rakefile config.ru
+  rm bin/byebug bin/coderay bin/dotenv bin/erubis bin/haml bin/html2haml bin/listen bin/nokogiri bin/pry bin/puma bin/pumactl bin/rackup bin/ruby_parse bin/ruby_parse_extract_error bin/sidekiq bin/sidekiqctl bin/sprockets bin/thor bin/tilt bin/webpack bin/webpack-dev-server
+
+  git checkout .gitignore
+  rm .ash_history
+else
+  echo ""
+  echo "Canceled. Not doing anything at all."
+fi
+
+
