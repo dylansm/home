@@ -160,6 +160,9 @@ if has('nvim')
   set shada='1000,f1,<500,:100,/100
 endif
 
+" turn off cursorline underline
+hi CursorLine term=bold cterm=bold
+
 set rtp+=/usr/local/opt/fzf
 
 " if using brew installed llvm uncomment
@@ -559,25 +562,6 @@ nmap <Leader>x :!chmod a+x %<CR>
 map <Leader>g :call RopeGotoDefinition()<CR>
 let ropevim_enable_shortcuts = 1
 
-" toggle colored right border after 80 chars
-"let s:color_column_old = 81
-
-"function! s:ToggleColorColumn()
-    "if s:color_column_old == 0
-        "let s:color_column_old = &colorcolumn
-        "windo let &colorcolumn = 0
-    "else
-        "windo let &colorcolumn=s:color_column_old
-        "let s:color_column_old = 0
-    "endif
-"endfunction
-
-"nnoremap <silent>;l :call <SID>ToggleColorColumn()<CR>
-
-
-" let g:CoffeeAutoTagDisabled=0         " Disables autotaging on save (Default: 0 [false])
-" let g:CoffeeAutoTagIncludeVars=0  " Includes variables (Default: 0 [false])
-
 " Incr function will add numbers in search and replace
 " Usage: %s/change@me/\="change@me" . Incr()/
 " \= is the special magic combo for interpolation
@@ -587,31 +571,5 @@ function! Incr()
   return g:incr
 endfunction
 
-" let s:hidden_all = 0
-" function! ToggleHiddenAll()
-    " if s:hidden_all  == 0
-        " let s:hidden_all = 1
-        " set noshowmode
-        " set noruler
-        " set laststatus=0
-        " set noshowcmd
-    " else
-        " let s:hidden_all = 0
-        " set showmode
-        " set ruler
-        " set laststatus=2
-        " set showcmd
-    " endif
-" endfunction
-
-" nnoremap <silent>;h :call ToggleHiddenAll()<CR>
-
-" call NERDTreeAddMenuItem({'text': '(e)xecute OS command on a childnode', 'shortcut': 'e', 'callback': 'NERDTreeOSCommand'})
-
-" function! NERDTreeOSCommand()
-    " let command = input('Command: ') . ' ' . g:NERDTreeFileNode.GetSelected().path.str()
-    " let command = command . ' ' . input('Command: ' . command . ' ')
-    " echo "\n" . system(command)
-" endfunction
-
 nnoremap <silent><leader>3 :set invnu<CR>
+nnoremap <silent>;l :set invcursorcolumn invcursorline<CR>

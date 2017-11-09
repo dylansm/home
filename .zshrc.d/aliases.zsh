@@ -39,6 +39,7 @@ alias dkcr="dkc run --rm --no-deps"
 alias dkcu='docker-compose up -d'
 alias dkinf='docker info'
 alias dkins="docker inspect"
+alias dkip="docker image prune"
 alias dkk='docker kill'
 alias dkn="docker network"
 alias dknc="docker network create"
