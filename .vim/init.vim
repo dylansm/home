@@ -372,7 +372,7 @@ nmap ;a <Plug>(EasyAlign)
 nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<CR>
 
 " set filetype to Ruby with :FR
-command! FR set filetype=ruby
+" command! FR set filetype=ruby
 
 " function! ChangeColorSchemeAndProfile(theme)
   " :execute 'colorscheme '.a:theme
@@ -468,25 +468,23 @@ nmap <silent>;m :MarkedOpen!<CR>
 " let g:javascript_conceal_static     = "•"
 " let g:javascript_conceal_super      = "Ω"
 
-if has("autocmd")
-  autocmd BufWritePost,FileWritePost *.coffee if exists("g:coffee") | :silent !coffee -c <afile>
-  au BufRead,BufNewFile *.hamlc set ft=haml
-  au BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
-  au BufEnter *.c compiler gcc
-  au BufRead,BufNewFile *.h,*.hpp,*.c,*.cpp,*.swift set ts=4 sw=4 sts=4
-  " au BufRead,BufNewFile *.cpp set ts=4 sw=4 sts=4
-  " au BufRead,BufNewFile *.h set ts=4 sw=4 sts=4
-  " au BufRead,BufNewFile *.hpp set ts=4 sw=4 sts=4
-  au BufRead,BufNewFile *.conf set ft=apache
-  au BufRead,BufNewFile *.go set noet ts=4 sw=4
-  au BufRead,BufNewFile *.markdown set noet sts=4 sw=4
-  au BufRead,BufNewFile *.java set ts=4 sw=4 sts=4
-  au BufRead,BufNewFile *.scss set sw=2 sts=2
-  autocmd BufNewFile,BufRead * setlocal formatoptions-=o
+" au BufWritePost,FileWritePost *.coffee if exists("g:coffee") | :silent !coffee -c <afile>
+au BufRead,BufNewFile *.hamlc set ft=haml
+au BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
+au BufEnter *.c compiler gcc
+au BufRead,BufNewFile *.h,*.hpp,*.c,*.cpp,*.swift set ts=4 sw=4 sts=4
+" au BufRead,BufNewFile *.cpp set ts=4 sw=4 sts=4
+" au BufRead,BufNewFile *.h set ts=4 sw=4 sts=4
+" au BufRead,BufNewFile *.hpp set ts=4 sw=4 sts=4
+au BufRead,BufNewFile *.conf set ft=apache
+au BufRead,BufNewFile *.go set noet ts=4 sw=4
+au BufRead,BufNewFile *.markdown set noet sts=4 sw=4
+au BufRead,BufNewFile *.java set ts=4 sw=4 sts=4
+au BufRead,BufNewFile *.scss set sw=2 sts=2
+au BufNewFile,BufRead * setlocal formatoptions-=o
 
-  "remember last position
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
+" remember last position
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 map <C-F> :Ag<space>
 " map <C-F> :Ack!<Space>

@@ -9,7 +9,13 @@ if [[ "$response_letter" =~ [yY] ]]; then
   rm bin/byebug bin/coderay bin/dotenv bin/erubis bin/haml bin/html2haml bin/listen bin/nokogiri bin/pry bin/puma bin/pumactl bin/rackup bin/ruby_parse bin/ruby_parse_extract_error bin/sidekiq bin/sidekiqctl bin/sprockets bin/thor bin/tilt bin/webpack bin/webpack-dev-server
 
   git checkout .gitignore
+  git checkout etc/rails_template.rb
+
   rm .ash_history
+  rm .ruby-version
+
+  rm .rspec
+  rm -rf spec
 else
   echo ""
   echo "Canceled. Not doing anything at all."
