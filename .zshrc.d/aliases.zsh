@@ -1,5 +1,7 @@
 # alias bb="nesh -b"
 # alias dkl="docker logs -f"
+# alias dkrms="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm"
+# alias dkrs="docker ps -aq --no-trunc | xargs docker rm"
 # alias pip3="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3-alpine pip3"
 # alias python3="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3-alpine python"
 # alias python3="docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3-alpine python"
@@ -34,6 +36,7 @@ alias ddocd="doctl compute droplet"
 alias dev='cd ~/dev'
 alias dgo="docker run --rm -v /Users/dylan/dev/go:/home/app/go dylansm/golang:1.8.1"
 alias dk='docker'
+alias dkat="docker attach"
 alias dkc='docker-compose'
 alias dkcr="dkc run --rm --no-deps"
 alias dkcu='docker-compose up -d'
@@ -49,8 +52,6 @@ alias dknp="docker network prune"
 alias dknr="docker network rm"
 alias dkrd='docker rmi $(docker images -f "dangling=true" -q)'
 alias dkri="docker rmi"
-# alias dkrms="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm"
-# alias dkrs="docker ps -aq --no-trunc | xargs docker rm"
 alias dks='docker stop $(docker ps -q)'
 alias dkv="docker volume"
 alias dkvl="docker volume ls"
