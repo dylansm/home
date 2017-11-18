@@ -279,6 +279,10 @@ nmap <silent> <Leader>s :!standard-format -w %<CR>
 
 " ctrl-enter FTW
 imap  <esc>o
+" exit pairs of all kind out-the-end
+inoremap <C-]> <C-o>a
+" the following breaks everything
+" inoremap <C-[> <C-o>B
 
 " Clang Format
 au FileType c,cpp,objc nmap <silent> <Leader>f :ClangFormat<CR>
