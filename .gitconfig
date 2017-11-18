@@ -30,6 +30,7 @@
   br = branch
   df = diff --stat
   lg = log --oneline --decorate
+  lgt = log -1 --format=%ai
   mm = commit --amend
   rp = rev-parse HEAD
   # the acronym stands for "subtree add"

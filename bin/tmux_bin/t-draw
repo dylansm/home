@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/bin/zsh
 
 # get current working directory so tmux session can be unique
 name="TheDraw"
