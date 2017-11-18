@@ -47,15 +47,15 @@ alias dkni="docker network inspect"
 alias dknl="docker network ls"
 alias dknp="docker network prune"
 alias dknr="docker network rm"
-alias dkrd='docker rmi $(docker images -f "dangling=true" -q)'
 alias dkri="docker rmi"
-# alias dkrms="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm"
-# alias dkrs="docker ps -aq --no-trunc | xargs docker rm"
+alias dkrid='docker rmi $(docker images -f "dangling=true" -q)'
 alias dks='docker stop $(docker ps -q)'
 alias dkv="docker volume"
 alias dkvl="docker volume ls"
 alias dkvp="docker volume prune"
-alias dkvr="docker volume rm $(docker volume ls -f dangling=true -q)"
+alias dkvrd="docker volume rm $(docker volume ls -f dangling=true -q)"
+# alias dkrms="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm"
+# alias dkrs="docker ps -aq --no-trunc | xargs docker rm"
 alias dnsup="docker run -d --name dnsmasq --restart always -p 53535:53/tcp -p 53535:53/udp --cap-add NET_ADMIN andyshinn/dnsmasq --address=/dev/127.0.0.1"
 alias doc='cd ~/Dropbox/Documents'
 alias dock='cd ~/dev/Docker'

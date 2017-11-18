@@ -3,10 +3,11 @@ call plug#begin()
 " Plug 'mileszs/ack.vim'
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/csv.vim'
-Plug 'Raimondi/delimitMate'
+" Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/mru.vim'
-Plug 'kchmck/vim-coffee-script'
+" Plug 'kchmck/vim-coffee-script'
 " Plug 'lfilho/cosco.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
@@ -15,7 +16,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'elzr/vim-json'
 Plug 'keith/swift.vim'
 " Plug 'marijnh/tern_for_vim'
-Plug 'mklabs/vim-backbone'
+" Plug 'mklabs/vim-backbone'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'fatih/vim-go'
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
@@ -24,7 +25,6 @@ Plug 'jwalton512/vim-blade'
 Plug 'pangloss/vim-javascript'
 Plug 'dylansm/html5.vim'
 Plug 'dylansm/one-dark.vim'
-" Plug 'dylansm/one-light.vim'
 Plug 'dylansm/vim-super-retab'
 Plug 'dylansm/nginx.vim'
 Plug 'dylansm/vim-stripper'
@@ -277,7 +277,8 @@ nmap <silent> <C-K> <Plug>LocationPrevious
 nmap <silent> <C-J> <Plug>LocationNext
 nmap <silent> <Leader>s :!standard-format -w %<CR>
 
-imap <C-o> <esc>o
+" ctrl-enter FTW
+imap  <esc>o
 
 " Clang Format
 au FileType c,cpp,objc nmap <silent> <Leader>f :ClangFormat<CR>
