@@ -3,8 +3,8 @@ call plug#begin()
 " Plug 'mileszs/ack.vim'
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/csv.vim'
-" Plug 'Raimondi/delimitMate'
-Plug 'jiangmiao/auto-pairs'
+Plug 'Raimondi/delimitMate'
+" Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/mru.vim'
 " Plug 'kchmck/vim-coffee-script'
@@ -238,7 +238,7 @@ autocmd FileType go nmap <Leader>i <Plug>(go-info)
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 
 map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
+map <C-p> :cprevious<CR>
 nnoremap <Leader>a :cclose<CR>
 
 " let g:syntastic_html_tidy_ignore_errors = [
@@ -278,7 +278,7 @@ nmap <silent> <C-J> <Plug>LocationNext
 nmap <silent> <Leader>s :!standard-format -w %<CR>
 
 " ctrl-enter FTW
-imap  <esc>o
+" imap <C-[> <esc>o
 " exit pairs of all kind out-the-end
 inoremap <C-]> <C-o>a
 " the following breaks everything
@@ -316,7 +316,7 @@ nmap ;j <Plug>UltiSnipsEdit
 let g:deoplete#enable_at_startup = 1
 
 " Toggle paste mode
-nmap <C-P> :set invpaste paste?<CR>
+nmap <C-u> :set invpaste paste?<CR>
 
 " set j/k keys to treat wrapped lines as multiple rows
 nnoremap j gj
