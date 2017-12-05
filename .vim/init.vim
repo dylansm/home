@@ -200,10 +200,12 @@ let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-let g:syntastic_error_symbol = "➣"
-let g:syntastic_warning_symbol = "➢"
-let g:syntastic_style_error_symbol = "➣"
-let g:syntastic_style_warning_symbol = "➢"
+let g:syntastic_error_symbol = "➔"
+let g:syntastic_warning_symbol = "➝"
+" let g:syntastic_style_error_symbol = "➣"
+" let g:syntastic_style_warning_symbol = "➢"
+" hi SyntasticErrorSign guifg=white guibg=red
+" hi SyntasticWarningSign guifg=white guibg=yellow
 let g:jsx_ext_required = 1
 "let g:syntastic_python_python_exec = '~/.pyenv/shims/python'
 let g:syntastic_python_checkers = ['pylint']
