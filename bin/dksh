@@ -13,17 +13,6 @@ else
     name_or_id="$id"
   fi
 
-  # docker exec -it "$name_or_id" bash || docker exec -it "$name_or_id" sh
-
-  # has_bash=`docker exec "$name_or_id" command -v sh`
-  # echo $has_bash
-
-  # has_sh=`docker exec "$name_or_id" ls /bin | grep -wo sh`
-  # if [[ $has_sh ]]; then
-    # docker exec -it "$name_or_id" sh
-  # else
-    # docker exec -it "$name_or_id" bash
-  # fi
   has_bash=`docker exec "$name_or_id" ls /bin | grep -wo bash`
   if [[ $has_bash ]]; then
     docker exec -it "$name_or_id" bash
