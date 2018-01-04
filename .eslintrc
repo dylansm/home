@@ -43,6 +43,9 @@
 
   "extends": "airbnb",
   "rules": {
-    "no-console": 1
+    "import/no-extraneous-dependencies": 0,
+    "no-console": 1,
+    "no-plusplus": 0,
+    "react/jsx-filename-extension": 0
   }
 }

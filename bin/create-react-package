@@ -57,13 +57,13 @@ if [[ -d "$package_dir" ]]; then
 EOL
 
   cat >"$package_dir/$component_name.js" <<EOL
-import React, { Component } from 'react'
-import './$component_name.css'
+import React, { Component } from 'react';
+import './$component_name.css';
 
 export default class $component_name extends Component {
   render() {
     return (
-      <div className='$comp_class_name'>
+      <div className="$comp_class_name">
         This is the $component_name component.
       </div>
     )

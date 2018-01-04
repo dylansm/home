@@ -1,31 +1,31 @@
 priority -50
 
 snippet a "Arrow ƒ"
-(${1:args}) => { ${2:body} }$0
+(${1:args}) => ${2:body};$0
 endsnippet
 
 snippet => "Arrow ƒ"
-(${1:args}) => { ${2:body} }$0
+(${1:args}) => ${2:body};$0
 endsnippet
 
 snippet bac "bindActionCreators"
-bindActionCreators({ ${1:action} }, dispatch)
+bindActionCreators({ ${1:action} }, dispatch);
 endsnippet
 
 snippet befre "TDD React beforeEach component"
 let component;
 
 beforeEach(() => {
-  component = renderComponent(${1:ComponentName})
-})
+  component = renderComponent(${1:ComponentName});
+});
 $0
 endsnippet
 
 snippet c "ES2015 Class constructor"
 constructor (props) {
-  super(props)
+  super(props);
 
-  this.state = { ${1:${2:key}: '${3:value}'} }
+  this.state = { ${1:${2:key}: '${3:value}'} };
 }${0}
 endsnippet
 
@@ -42,8 +42,8 @@ snippet cc "JSdoc multiline comment"
 endsnippet
 
 snippet ca "Switch case statement"
-case ${1:case_name}:
-  return $2
+case ${1:caseName}:
+  return $2;
 endsnippet
 
 snippet cla "ES2015 Class"
@@ -59,11 +59,11 @@ className="${1:name}"$0
 endsnippet
 
 snippet co "ES2015 constant"
-const ${1:name} = ${2:value}
+const ${1:name} = ${2:value};
 endsnippet
 
 snippet coo "ES2015 shorthand obj constant"
-const { ${1:name} } = ${2:value}
+const { ${1:name} } = ${2:value};
 endsnippet
 
 snippet comp "React component"
@@ -77,11 +77,11 @@ class ${1:ComponentName} extends Component {
   }
 }$0
 
-${3:export default $1}
+${3:export default $1;}
 endsnippet
 
 snippet csm "React createStoreWithMiddleware"
-const createStoreWithMiddleware = applyMiddleware(${1:middleware})(createStore)$0
+const createStoreWithMiddleware = applyMiddleware(${1:middleware})(createStore);$0
 endsnippet
 
 snippet cwm "React Lifecycle compWillMount"
@@ -93,8 +93,8 @@ endsnippet
 snippet desc "TDD Describe"
 describe('${1:Thing}', () => {
   it('${2:does something}', () => {
-    expect($3).to.${4:matcher}(${5:matched})
-  })$0
+    expect($3).to.${4:matcher}(${5:matched});
+  });$0
 })
 endsnippet
 
@@ -105,11 +105,11 @@ export default ${1:MyComp}${2:(${3:{
 endsnippet
 
 snippet exco "ES2015 export const"
-export const ${1:name} = '$1'
+export const ${1:name} = '$1';
 endsnippet
 
 snippet exdf "ES2015 export default function ƒ"
-export default function(${1:args}) {
+export default function (${1:args}) {
   $0
 }
 endsnippet
@@ -128,12 +128,6 @@ export default (${1:args}) => {
 }$0
 endsnippet
 
-# snippet exs "ES2015 Module.exports"
-# module.exports = function(${1:args}) {
-  # ${2}
-# }$0
-# endsnippet
-
 snippet exc "Export ES2015 class"
 export default class ${1:ClassName} {
   ${2:<$1 />}
@@ -142,12 +136,12 @@ endsnippet
 
 snippet excomp "Export React component"
 class ${1:ComponentName} extends Component {
-  render () {
+  render() {
     return (
       <div className="${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:-\l$2:$2)/g}">
         $0
       </div>
-    )
+    );
   }
 }
 
@@ -167,21 +161,21 @@ export default class ${1:ComponentName} extends Component {
       <div className="${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:-\l$2:$2)/g}">
         $0
       </div>
-    )
+    );
   }
 }
 endsnippet
 
 snippet ex "ES2015 module.exports"
-module.exports = ${1:module}
+module.exports = ${1:module};
 endsnippet
 
 snippet exconn "Redux export connected component"
-export default connect(${1:mapStateToProps}${2:, ${3:mapDispatchToProps}})${4:(${5:Component})}$0
+export default connect(${1:mapStateToProps}${2:, ${3:mapDispatchToProps}})${4:(${5:Component})};$0
 endsnippet
 
 snippet exp "TDD expect"
-expect(component${1:.find('${2:element}')}).to.${3:exist}
+expect(component${1:.find('${2:element}')}).to.${3:exist};
 endsnippet
 
 snippet exrou "Express route"
@@ -202,66 +196,61 @@ class ${1:ComponentName} extends Component {
         </fieldset>
         <button action='submit' className='btn btn-primary'>Submit</button>
       </form>
-    )
+    );
   }
 }
 
 export default reduxForm({
   form: '${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:-\l$2:$2)/g}',
-  fields: ['$2']
-})(${3:$1})
+  fields: ['$2'],
+})(${3:$1});
 endsnippet
 
 snippet im* "Import all as..."
-import * as ${1:actions} from '${2:./${3:path}}'$0
+import * as ${1:actions} from '${2:./${3:path}}';$0
 endsnippet
 
 snippet imbac "Redux bindActionCreators"
-import { bindActionCreators } from 'redux'$0
+import { bindActionCreators } from 'redux';$0
 endsnippet
 
 snippet imcomp "Import component file"
-import ${1:ComponentName} from '${2:..}/${3:components/}${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'$0
+import ${1:ComponentName} from '${2:..}/${3:components/}${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}';$0
 endsnippet
 
-# snippet imcont "Import container from file"
-# import ${1:ContainerName} from '${2:..}/containers/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'
-# $0
-# endsnippet
-
 snippet imf "Import from file"
-import ${1:module} from '${2:..}/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'$0
+import ${1:module} from '${2:..}/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}';$0
 endsnippet
 
 snippet im "ES2015 import module"
-import ${1:Module} from '${2:..}/${3:${4:path}/}${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:-\l$2:$2)/g}'$0
+import ${1:Module} from '${2:..}/${3:${4:path}/}${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:-\l$2:$2)/g}';$0
 endsnippet
 
 snippet imconn
-import { connect } from 'react-redux'$0
+import { connect } from 'react-redux';$0
 endsnippet
 
 snippet imexp "Import react testing helpers"
-import { renderComponent, expect } from '${1:..}/${2:test_helper}'$0
+import { renderComponent, expect } from '${1:..}/${2:test_helper}';$0
 endsnippet
 
 snippet imo "ES2015 import { module }"
-import { ${1:module} } from '${2:lib}'$0
+import { ${1:module} } from '${2:lib}';$0
 endsnippet
 
 snippet imre "React and { Component} import"
-import React, { Component } from 'react'$0
+import React, { Component } from 'react';$0
 endsnippet
 
 snippet imtest "React component test"
-import { renderComponent, expect } from '../test_helper'
-import ${1:ComponentName} from '${2:../../src/components}/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}'
+import { renderComponent, expect } from '../test_helper';
+import ${1:ComponentName} from '${2:../../src/components}/${1/(^[A-Z][^A-Z]+)|([A-Z][^A-Z])+/\l$1(?2:_\l$2:$2)/g}';
 
 describe('$1', () => {
   it('${3:does something}', () => {
-    const component = renderComponent($1)
-    expect(component${4:.find('${5:element}')}).to.${6:exist}
-  })$0
+    const component = renderComponent($1);
+    expect(component${4:.find('${5:element}')}).to.${6:exist};
+  });$0
 })
 endsnippet
 
@@ -269,16 +258,12 @@ snippet it "TDD it block"
 it('${1:does something}', () => {
   ${2:const component = renderComponent(${3:ComponentName})}
   expect(component${4:.find('${5:element}')}).to.${6:exist}
-})
-endsnippet
-
-snippet irou "React IndexRoute"
-<IndexRoute component={${2:IndexComp}} />
+});
 endsnippet
 
 snippet jsdom "Global document for jsdom"
-global.document = jsdom.jsdom('<!doctype html><html><body></body></html>')
-global.window = global.document.defaultView
+global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
+global.window = global.document.defaultView;
 endsnippet
 
 snippet k "React iterator key"
@@ -286,7 +271,7 @@ key={${1:value}}$0
 endsnippet
 
 snippet log "console.log"
-console.log($1)$0
+console.log($1);$0
 endsnippet
 
 snippet mdp "React-Redux mapDispatchToProps"
@@ -295,7 +280,7 @@ endsnippet
 
 snippet mdpf "React-Redux mapDispatchToProps ƒ"
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators({ ${1:${2:key}: ${3:value}} }, dispatch)
+  return bindActionCreators({ ${1:${2:key}: ${3:value}} }, dispatch);
 }$0
 endsnippet
 
@@ -305,25 +290,25 @@ endsnippet
 
 snippet mspf "React-Redux mapStateToProps ƒ"
 function mapStateToProps (state) {
-  return {$1}
+  return {$1};
 }$0
 endsnippet
 
 snippet r "Return"
-return $0
+return $0;
 endsnippet
 
 snippet rc "React return component"
 return (
   ${1:<div>$2</div>}
-)$0
+);$0
 endsnippet
 
 snippet render
 render() {
   return (
     $0
-  )
+  );
 }
 endsnippet
 
@@ -333,12 +318,14 @@ endsnippet
 
 snippet roubh "Router component, browserHist"
 <Router history={browserHistory} routes={${1:routes}} />
+  $0
+</Router>
 endsnippet
 
 snippet sw "Minimal switch statement"
 switch (${1:term}) {
-  case ${2:case_name}:
-    return $3
+  case ${2:caseName}:
+    return $3;
 }
 endsnippet
 
