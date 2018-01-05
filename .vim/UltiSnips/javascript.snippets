@@ -234,12 +234,28 @@ snippet imexp "Import react testing helpers"
 import { renderComponent, expect } from '${1:..}/${2:test_helper}';$0
 endsnippet
 
+snippet imli "Import Route from react-router-dom"
+import { Link } from 'react-router-dom';$0
+endsnippet
+
+snippet imlirou "Import Route from react-router-dom"
+import { Link, Route } from 'react-router-dom';$0
+endsnippet
+
 snippet imo "ES2015 import { module }"
 import { ${1:module} } from '${2:lib}';$0
 endsnippet
 
+snippet improp "Import PropTypes"
+import PropTypes from 'prop-types';
+endsnippet
+
 snippet imre "React and { Component} import"
 import React, { Component } from 'react';$0
+endsnippet
+
+snippet imrou "Import Route from react-router-dom"
+import { Route } from 'react-router-dom';$0
 endsnippet
 
 snippet imtest "React component test"
@@ -292,6 +308,12 @@ snippet mspf "React-Redux mapStateToProps ƒ"
 function mapStateToProps (state) {
   return {$1};
 }$0
+endsnippet
+
+snippet props "static PropTypes"
+static propTypes = {
+  ${1:prop}: PropTypes.func.isRequired,
+}
 endsnippet
 
 snippet r "Return"
