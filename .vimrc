@@ -74,6 +74,8 @@ Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
 Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
 " Plug 'tpope/vim-salve', { 'for': 'clojure' }
 
+Plug 'dansomething/vim-eclim', { 'for': 'java' }
+
 " Add plugins to &runtimepath
 call plug#end()
 

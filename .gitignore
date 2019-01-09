@@ -25,6 +25,7 @@
 .dropbox*
 .dvdcss/
 .eaglerc
+.eclipse/
 .fastlane
 .fzf/
 .gem/
@@ -44,10 +45,12 @@
 .homestead
 .irb-history
 .ivy2/
+.jenv/
 .lesshst
 .lldb
 .local
 .m2/
+.mono/
 .mysql_history
 .netrc
 .netrwhist
@@ -59,6 +62,7 @@
 .nvm/
 .oracle_jre_usage/
 .overtone/
+.p2/
 .passenger/
 .pearrc
 .pip/
@@ -91,6 +95,7 @@
 .subversion
 .terminfo
 .tmux/
+.tooling/
 .v8*
 .vagrant.d/
 .vim/autoload/plug.vim.old
@@ -127,5 +132,7 @@ Public/
 Sites
 VirtualBox VMs/
 derby.log
+eclipse-workspace/
 homestead_sites/
 mbox
+workbench.xmi

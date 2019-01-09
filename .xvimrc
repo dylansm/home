@@ -1,5 +1,7 @@
 imap jj <ESC>
-map // :xccmd commentAndUncommentCurrentLines<CR>
+map // :xcmenucmd Comment Selection<CR>
+" map ,r :xcmenucmd Run<CR>
+" map ,s :xcmenucmd Stop<CR>
 "set blinkcursor
 set expandtab
 set shiftwidth=4

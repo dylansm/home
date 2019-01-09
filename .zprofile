@@ -1,8 +1,11 @@
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-if which jenv > /dev/null; then eval "$(jenv init -)"; fi
-export JENV_ROOT=/usr/local/var/jenv
 export PYENV_ROOT="$HOME/.pyenv"
+
+export PATH="$HOME/.jenv/bin:$PATH"
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+# export JENV_ROOT=/usr/local/var/jenv
+export ECLIPSE_HOME="/Applications/Eclipse.app/Contents/Eclipse"
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
@@ -30,13 +33,6 @@ export KEYTIMEOUT=1
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export PIP_CONFIG_FILE="$HOME/.config/pip/pip.conf"
 
-# export PATH="$HOME/dev/android/tools/bin:$HOME/dev/android/platforms/android-22:$PATH"
-
-export PATH="/usr/local/opt/redis@2.8/bin:$PATH"
-export THE_DRAW_DEPLOY_USER="dylan_smith"
-
-# export PATH="/usr/local/opt/postgresql@9.4/bin:$PATH"
-
 HISTFILE=~/.zshrc.d/.zsh_history
 HISTSIZE=1024
 SAVEHIST=1024
@@ -50,9 +46,9 @@ if [[ -f ~/.config/api_secrets.yml ]]; then
   export AWS_SECRET_ACCESS_KEY=`echo $the_draw_aws_secret_access_key`
   # export AWS_ACCESS_KEY_ID=`echo $the_program_aws_access_key_id`
   # export AWS_SECRET_ACCESS_KEY=`echo $the_program_aws_secret_access_key`
-  export DIGITALOCEAN_ACCESS_TOKEN=`echo $the_program_digitalocean_access_token`
+  # export DIGITALOCEAN_ACCESS_TOKEN=`echo $the_program_digitalocean_access_token`
   # export DIGITALOCEAN_ACCESS_TOKEN=`echo $joey_digitalocean_access_token`
-  # export DIGITALOCEAN_ACCESS_TOKEN=`echo $default_digitalocean_access_token`
+  export DIGITALOCEAN_ACCESS_TOKEN=`echo $default_digitalocean_access_token`
   # export DIGITALOCEAN_ACCESS_TOKEN=`echo $suspect_digitalocean_access_token`
   export GITHUB_AUTH_TOKEN=`echo $default_github_auth_token`
   export HOMEBREW_GITHUB_API_TOKEN=`echo $default_github_homebrew_token`
