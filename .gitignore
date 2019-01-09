@@ -90,7 +90,7 @@
 .spark_history
 .sqlite_history
 .ssh/*
-!.ssh/config
+# !.ssh/config
 .standard-cache/
 .subversion
 .terminfo
@@ -110,6 +110,7 @@
 .zsh_history
 .zshrc.d/aliases.zsh.bak
 /.lein/*
+/.mono/
 /dev/*
 Applications*
 Creative Cloud Files
@@ -135,4 +136,6 @@ derby.log
 eclipse-workspace/
 homestead_sites/
 mbox
+me.izo.me.error.log
+me.izo.me.out.log
 workbench.xmi
