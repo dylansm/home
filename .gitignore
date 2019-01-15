@@ -87,6 +87,7 @@
 .scala_history
 .ssh/
 .sh_history
+.sip_V1/
 .spark_history
 .sqlite_history
 .ssh/*
