@@ -1,9 +1,9 @@
 [user]
   name = Dylan Smith
   email = dylan@theprogrampdx.com
-[core]
-  pager = less -FRSX
-  excludesfile = ~/.git_excludes
+; [core]
+  ; pager = less -FRSX
+  ; excludesfile = ~/.git_excludes
 [color]
   ui = auto
   pager = true

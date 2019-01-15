@@ -1,5 +1,6 @@
 !/.lein/profiles.clj
 .CFUserTextEncoding
+.DS_Store
 .FrontDesign/
 .NERDTreeBookmarks
 .Trash/
