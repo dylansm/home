@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [[ $# -eq 2 ]]; then
+  if [[ -f "$2" ]]; then
+    echo ""
+    echo "File exists, exiting."
+  fi
+
+  shebangs=(bash node python python3 ruby swift zsh)
+  for i in "${shebangs[@]}"
+  do
+     if [[ "$1" == "$i" ]]; then
+       if [[ "$1" == "swift" ]]; then
+         echo "#!/usr/bin/swift sh" > "$2"
+       else
+         echo "#!/usr/bin/env ${i}" > "$2"
+       fi
+       echo "" >> "$2"
+       echo "" >> "$2"
+     fi
+  done
+else
+  echo ""
+  echo "This script requires a script type (e.g. swift) and a file name.
+
+For example:
+mkscript swift hello.swift"
+fi
