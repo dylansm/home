@@ -15,7 +15,7 @@
 .byebug_hist
 .cassandra/
 .cocoapods
-.config/
+.config/*
 .conscript/
 .cordova/
 .cups/
@@ -140,4 +140,5 @@ homestead_sites/
 mbox
 me.izo.me.error.log
 me.izo.me.out.log
+repos/
 workbench.xmi

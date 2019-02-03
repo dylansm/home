@@ -11,7 +11,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # export MPD_HOST="bird.local"
 # export MPD_HOST="monk.local"
-export MPD_HOST="birdh"
+# export MPD_HOST="birdh"
 # export MPD_HOST="localhost"
 
 export FZF_DEFAULT_COMMAND='ag -g ""'
@@ -25,6 +25,7 @@ export TIDY_HTML=~/.tidyrc
 export XCODE="`xcode-select --print-path`"
 # export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$HOME/Library/Python/2.7/bin:$PATH"
 export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export RUBY_CONFIGURE_OPTS="--disable-install-doc"
 
 export GOPATH="$HOME/dev/go"
 # export PATH="$PATH:$GOPATH/bin"
