@@ -72,33 +72,36 @@ au FileType go nmap <Leader>t <Plug>(go-test)
 au FileType go nmap <Leader>c <Plug>(go-coverage)
 au FileType go nmap <Leader>i <Plug>(go-info)
 
-imap ;s <plug>SyntasticCheck
+" imap ;s <plug>SyntasticCheck
 
-function! <SID>LocationPrevious()
-  if !empty(getloclist(0))
-    try
-      lprev
-    catch /^Vim\%((\a\+)\)\=:E553/
-      llast
-    endtry
-  endif
-endfunction
+" function! <SID>LocationPrevious()
+  " if !empty(getloclist(0))
+    " try
+      " lprev
+    " catch /^Vim\%((\a\+)\)\=:E553/
+      " llast
+    " endtry
+  " endif
+" endfunction
 
-function! <SID>LocationNext()
-  if !empty(getloclist(0))
-    try
-      lnext
-    catch /^Vim\%((\a\+)\)\=:E553/
-      lfirst
-    endtry
-  endif
-endfunction
+" function! <SID>LocationNext()
+  " if !empty(getloclist(0))
+    " try
+      " lnext
+    " catch /^Vim\%((\a\+)\)\=:E553/
+      " lfirst
+    " endtry
+  " endif
+" endfunction
 
-nnoremap <silent> <Plug>LocationPrevious    :<C-u>exe 'call <SID>LocationPrevious()'<CR>
-nnoremap <silent> <Plug>LocationNext        :<C-u>exe 'call <SID>LocationNext()'<CR>
-nmap <silent> <C-K> <Plug>LocationPrevious
-nmap <silent> <C-J> <Plug>LocationNext
-nmap <silent> <Leader>s :!standard-format -w %<CR>
+" nnoremap <silent> <Plug>LocationPrevious    :<C-u>exe 'call <SID>LocationPrevious()'<CR>
+" nnoremap <silent> <Plug>LocationNext        :<C-u>exe 'call <SID>LocationNext()'<CR>
+" nmap <silent> <C-K> <Plug>LocationPrevious
+" nmap <silent> <C-J> <Plug>LocationNext
+" nmap <silent> <Leader>s :!standard-format -w %<CR>
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " Clang Format
 au FileType c,cpp,objc nmap <silent> <Leader>f :ClangFormat<CR>

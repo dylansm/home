@@ -10,7 +10,17 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_error_symbol = "➔"
 let g:syntastic_warning_symbol = "➝"
+
 let g:jsx_ext_required = 1
+
+let g:ale_sign_error = "➔"
+let g:ale_sign_warning = "➝"
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+" check jsx files two ways with ALE
+let g:ale_linter_aliases = {'jsx': ['css', 'javascript']}
+let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
+
 "let g:syntastic_python_python_exec = '~/.pyenv/shims/python'
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_json_checkers = ['jsonlint']
@@ -60,3 +70,4 @@ au BufRead,BufNewFile *.java set ts=4 sw=4 sts=4
 au BufRead,BufNewFile *.scss set sw=2 sts=2
 au BufNewFile,BufRead * setlocal formatoptions-=o
 
+au VimEnter * RainbowParenthesesToggle

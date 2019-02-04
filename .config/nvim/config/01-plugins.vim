@@ -1,29 +1,13 @@
 call plug#begin()
-" Make sure you use single quotes
-" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-" Plug 'Valloric/YouCompleteMe'
-" Plug 'dhruvasagar/vim-table-mode'
-" Plug 'dylansm/vim-es6'
-" Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
-" Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
-" Plug 'guns/vim-slamhound', { 'for': 'clojure' }
-" Plug 'jiangmiao/auto-pairs'
-" Plug 'kchmck/vim-coffee-script'
-" Plug 'lfilho/cosco.vim'
-" Plug 'marijnh/tern_for_vim'
-" Plug 'mklabs/vim-backbone'
-" Plug 'mustache/vim-mustache-handlebars'
-" Plug 'ruanyl/vim-fixmyjs'
-" Plug 'tokorom/syntastic-swiftlint.vim'
-" Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'Raimondi/delimitMate'
-Plug 'Rip-Rip/clang_complete'
+" Plug 'Rip-Rip/clang_complete'
 " Plug 'justmao945/vim-clang'
 " Plug 'tweekmonster/deoplete-clang2'
 Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete-clangx'
 Plug 'SirVer/ultisnips' | Plug 'dylansm/vim-snippets' " Group dependencies, vim-snippets depends on ultisnips
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/csv.vim'
@@ -57,7 +41,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'rhysd/vim-clang-format'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'tpope/vim-dispatch', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-fugitive'
