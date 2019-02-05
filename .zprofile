@@ -68,3 +68,5 @@ if [[ -f ~/.config/app_secrets.yml ]]; then
   export NIKE_LOCKER_JWT_DEVELOPMENT=`echo $nike_locker_development_jwt_secret`
   export MONGO_CONNECTION=`echo $clojure_test_development_mongo_conn`
 fi
+
+export PATH="$HOME/.cargo/bin:$PATH"

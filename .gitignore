@@ -13,6 +13,7 @@
 .boot2docker/
 .bundle/
 .byebug_hist
+.cargo/
 .cassandra/
 .cocoapods
 .config/*
@@ -52,6 +53,7 @@
 .local
 .m2/
 .mono/
+.multirust
 .mysql_history
 .netrc
 .netrwhist
@@ -83,6 +85,7 @@
 .rnd
 .ropeproject/
 .ruby-gemset
+.rustup/
 .rvm/
 .sbt/
 .scala_history

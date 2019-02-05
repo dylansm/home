@@ -168,3 +168,8 @@ nnoremap <Leader>sh :Slamhound<CR>
 " nmap <Leader>q cqq
 " nmap <Leader>c cqc
 " nmap ;c :Connect nrepl://127.0.0.1:50133 .<CR>
+
+au FileType rust nmap <leader>rr <Plug>(rust-doc)
+au FileType rust nmap <leader>rd <Plug>(rust-def)
+au FileType rust nmap <leader>rs <Plug>(rust-def-split)
+au FileType rust nmap rx <Plug>(rust-def-vertical)

@@ -32,6 +32,7 @@ let g:netrw_list_hide   = '.*\.swp\*,.*\.swp$,.*\.swp\s,.*/$,.*/\s'
 let g:netrw_banner      = 0
 let g:netrw_dirhistmax  = 10
 let g:netrw_dirhist_cnt = 0
+set hidden
 set viminfo=""
 set noswapfile
 set splitbelow
@@ -85,16 +86,21 @@ let MRU_Add_Menu = 0
 " tagbar
 let g:tagbar_autofocus = 1
 
+let g:deoplete#enable_at_startup = 1
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
 " if using brew installed llvm uncomment
-let g:clang_library_path='/usr/local/opt/llvm/lib/'
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/opt/llvm/lib/libclang.dylib'
+" call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/llvm/bin/clang')
+" let g:clang_library_path='/usr/local/opt/llvm/lib/'
+" let g:deoplete#sources#clang#libclang_path = '/usr/lib/opt/llvm/lib/libclang.dylib'
 " disable autocomplete by default
-let b:deoplete_disable_auto_complete=1
-let g:deoplete_disable_auto_complete=1
-let g:deoplete#sources = {}
+" let b:deoplete_disable_auto_complete=1
+" let g:deoplete_disable_auto_complete=1
+" let g:deoplete#sources = {}
 " Disable the candidates in Comment/String syntaxes.
-call deoplete#custom#source('_',
-            \ 'disabled_syntaxes', ['Comment', 'String'])
+" call deoplete#custom#source('_',
+            " \ 'disabled_syntaxes', ['Comment', 'String'])
 
 " use 'f' to toggle filter
 let NERDTreeIgnore = ['\.DS_Store', '\.sass-cache', 'node_modules']
@@ -112,9 +118,6 @@ let g:UltiSnipsExpandTrigger="<C-J>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="horizontal"
-
-let g:deoplete#enable_at_startup = 1
-let g:mustache_abbreviations = 1
 
 let NERDSpaceDelims=1
 " custom comments
@@ -169,3 +172,13 @@ let ropevim_enable_shortcuts = 1
 " let g:syntastic_c_compiler = 'clang'
 " let g:syntastic_c_checkers=['/usr/local/opt/llvm/bin/clang-check']
 
+let g:rustfmt_autosave = 1
+let g:rustfmt_command = "/Users/dylan/.cargo/bin/rustfmt"
+let g:racer_cmd = "/Users/dylan/.cargo/bin/racer"
+" let g:racer_experimental_completer = 1
+
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\   'css': ['stylelint'],
+\   'rust': ['rustfmt'],
+\}

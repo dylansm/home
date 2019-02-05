@@ -6,8 +6,9 @@ Plug 'Raimondi/delimitMate'
 " Plug 'Rip-Rip/clang_complete'
 " Plug 'justmao945/vim-clang'
 " Plug 'tweekmonster/deoplete-clang2'
-Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/deoplete-clangx'
+Plug 'Shougo/neoinclude.vim'
+Plug 'Shougo/deoplete.nvim'
 Plug 'SirVer/ultisnips' | Plug 'dylansm/vim-snippets' " Group dependencies, vim-snippets depends on ultisnips
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/csv.vim'
@@ -38,7 +39,9 @@ Plug 'mattn/emmet-vim'
 Plug 'mitsuse/autocomplete-swift'
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'pangloss/vim-javascript'
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'rhysd/vim-clang-format'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 " Plug 'scrooloose/syntastic'
