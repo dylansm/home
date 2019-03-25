@@ -108,6 +108,7 @@
 .vim/plugged
 .vim_mru_files
 .viminf*
+.vscode/
 .yarn-cache
 .yarn/
 .yarnrc

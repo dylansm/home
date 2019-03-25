@@ -3,9 +3,6 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'Raimondi/delimitMate'
-" Plug 'Rip-Rip/clang_complete'
-" Plug 'justmao945/vim-clang'
-" Plug 'tweekmonster/deoplete-clang2'
 Plug 'Shougo/deoplete-clangx'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/deoplete.nvim'
@@ -45,7 +42,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 " Plug 'scrooloose/syntastic'
-Plug 'w0rp/ale'
+Plug 'w0rp/ale' " syntax checking
 Plug 'tpope/vim-dispatch', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-fugitive'
