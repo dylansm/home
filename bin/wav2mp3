@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# leveraging docker command
+# ffmpeg -i /temp/Pat_Y_04062019.wav -codec:a libmp3lame -q:a 320k /temp/Pat_Y_04062019.mp3
+
+if [[ $# -eq 1 ]]; then
+  wavFilename=$1
+  wavFilenameWithoutExt="${1%.*}"
+  mp3Filename="${wavFilenameWithoutExt}.mp3"
+else
+  mp3Filename="$2"
+fi
+
+echo "Creating $mp3Filename..."
+# `ffmpeg -i /temp/$wavFilename -codec:a libmp3lame -q:a 320k /temp/mp3Filename`
+docker run --rm -v $PWD:/temp jrottenberg/ffmpeg:3.4-alpine \
+    -i /temp/$wavFilename -codec:a libmp3lame -q:a 320k /temp/$mp3Filename

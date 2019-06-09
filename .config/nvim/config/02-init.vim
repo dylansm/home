@@ -83,6 +83,8 @@ let MRU_Max_Entries = 1000
 let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
 let MRU_Add_Menu = 0
 
+let g:python3_host_prog = '/Users/dylan/.pyenv/versions/3.7.3/bin/python'
+
 " tagbar
 let g:tagbar_autofocus = 1
 

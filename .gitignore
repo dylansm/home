@@ -45,6 +45,7 @@
 .heroku/
 .homebrew_analytics_user_uuid
 .homestead
+.ipython
 .irb-history
 .ivy2/
 .jenv/
