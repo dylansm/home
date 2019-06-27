@@ -111,6 +111,7 @@
 .viminf*
 .vscode/
 .yarn-cache
+.yarn-config
 .yarn/
 .yarnrc
 .zcompdump
