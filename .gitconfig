@@ -29,6 +29,7 @@
   lg = log --oneline --decorate
   lgt = log -1 --format=%ai
   mm = commit --amend
+  pr = request-pull master ./
   rp = rev-parse HEAD
   # the acronym stands for "subtree add"
   sa = "!f() { git subtree add --prefix $2 $1 master --squash; }; f"
