@@ -9,6 +9,14 @@ if [ -d $HOME/.zshrc.d ]; then
   done
 fi
 
+# Check if docker is running
+docker_state=$(docker info >/dev/null 2>&1)
+if [[ $? -eq 0 ]]; then
+    for file in $HOME/.zshrc.d/docker_aliases/*.zsh; do
+      source $file
+    done
+fi
+
 autoload -Uz \
   up-line-or-beginning-search \
   down-line-or-beginning-search
