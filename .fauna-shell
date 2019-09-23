@@ -1,0 +1,6 @@
+default=cloud
+
+[cloud]
+domain=db.fauna.com
+scheme=https
+secret=fnADY78oXVACEqNzM8Cw05vSp_M5X8dj0ypaeLhT
