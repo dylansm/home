@@ -1,6 +1,7 @@
 automake
 clang-format
 doctl
+fauna-shell
 flac
 fzf
 gd
@@ -8,11 +9,9 @@ gdbm
 gnu-sed
 hub
 jemalloc
-leiningen
 libffi
 libtool
 libyaml
-maven
 mosh
 neovim
 netpbm
@@ -27,6 +26,7 @@ swiftlint
 the_silver_searcher
 tidy-html5
 tmux
+tree
 universal-ctags/universal-ctags/universal-ctags
 webkit2png
 wget

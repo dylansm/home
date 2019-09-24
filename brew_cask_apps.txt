@@ -8,6 +8,7 @@ dash
 docker
 dropbox
 fantastical
+fastlane
 firefox
 gitup
 google-chrome
