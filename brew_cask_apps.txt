@@ -3,6 +3,7 @@ acorn
 balenaetcher
 base
 charles
+clipy
 daisydisk
 dash
 docker
@@ -12,7 +13,7 @@ fastlane
 firefox
 gitup
 google-chrome
-iterm2-beta
+iterm2
 kaleidoscope
 keka
 keyboard-maestro
@@ -20,7 +21,9 @@ marked
 name-mangler
 paw
 postico
+qbittorrent
 querious
+robo-3t
 roon
 sip
 sketch
@@ -28,4 +31,5 @@ slack
 spillo
 subler
 superduper
+visual-studio-code
 xld
