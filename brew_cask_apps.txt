@@ -23,13 +23,12 @@ paw
 postico
 qbittorrent
 querious
-robo-3t
 roon
+shiori
 sip
 sketch
 slack
 spillo
 subler
 superduper
-visual-studio-code
 xld
