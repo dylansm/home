@@ -60,6 +60,7 @@ alias letterhead='cd ~/Dropbox/Documents/Letterhead'
 alias ll="ls -AlGp"
 alias mm='bundle exec middleman'
 alias mmv='noglob zmv -W'
+alias mosh='mosh --server=/usr/local/bin/mosh-server'
 alias mpcc='mpc listall | wc -l'
 alias mpcg='mpc listall | grep -Ei '
 alias mpcp="mpc playlist"
