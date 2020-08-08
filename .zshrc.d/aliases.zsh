@@ -35,7 +35,6 @@ alias ddo="doctl"
 alias ddoc="doctl compute"
 alias ddocd="doctl compute droplet"
 alias dev='cd ~/Dev'
-alias doc='cd ~/Dropbox/Documents'
 alias dock='cd ~/dev/Docker'
 alias down="cd ~/Downloads"
 alias dsites="cd ~/Dropbox/Sites"
@@ -56,7 +55,7 @@ alias ipc="curl ifconfig.me | pbcopy"
 alias kdiff="git difftool -y -t Kaleidoscope"
 alias kite='open -a Kitematic\ \(Beta\)'
 alias kmerge="git mergetool -y -t Kaleidoscope"
-alias letterhead='cd ~/Dropbox/Documents/Letterhead'
+alias letterhead='cd ~/Documents/Letterhead'
 alias ll="ls -AlGp"
 alias mm='bundle exec middleman'
 alias mmv='noglob zmv -W'
@@ -66,18 +65,18 @@ alias mpcg='mpc listall | grep -Ei '
 alias mpcp="mpc playlist"
 alias mpct="mpc toggle"
 alias mpcu="mpc update"
-alias notes="cd ~/Dropbox/Documents/Notes"
+alias notes="cd ~/Documents/Notes"
 alias npmg='npm list -g --depth=0 2>/dev/null'
 alias npmgo="npm outdated -g --depth=0"
 alias npml="npm list --depth=0"
 alias npmlo="npm outdated --depth=0"
 alias open="open ."
 alias p='cd ~/Dev/Projects'
-alias pdoc='cd ~/Dropbox/Documents/Project\ Documents'
+alias pdoc='cd ~/Documents/Project\ Documents'
 alias precomp="RAILS_ENV=production bundle exec rake assets:precompile"
 alias proj="cd ~/Documents/Documents/Project\ Documents/"
 alias proto="cd ~/Dev/prototypes"
-alias quote="cd /Users/dylan/Dropbox/Documents/Quotes"
+alias quote="cd ~/Documents/Quotes"
 alias rake='noglob rake' # allows rake and zsh to get along
 alias rakem="bundle exec rake db:migrate"
 alias rakemt="bundle exec rake db:migrate RAILS_ENV=test"
