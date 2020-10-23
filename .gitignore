@@ -115,6 +115,7 @@
 .yarn/
 .yarnrc
 .zcompdump
+.zcompcache/
 .zsh_history
 .zshrc.d/aliases.zsh.bak
 /.lein/*

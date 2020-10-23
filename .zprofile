@@ -10,7 +10,9 @@ if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 # export JENV_ROOT=/usr/local/var/jenv
 export ECLIPSE_HOME="/Applications/Eclipse.app/Contents/Eclipse"
 
+# for homebrew
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+export SYSTEM_VERSION_COMPAT=1
 
 # export MPD_HOST="bird.local"
 # export MPD_HOST="monk.local"

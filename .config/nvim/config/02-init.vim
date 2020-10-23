@@ -60,7 +60,7 @@ set nolist
 set wildmenu
 set wildmode=longest,list
 set shortmess+=I
-" set clipboard=unnamed
+set clipboard=unnamed
 set nofoldenable
 set showmode
 set omnifunc=syntaxcomplete#Complete
