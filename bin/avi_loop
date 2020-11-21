@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# for i in *.avi;
+  # do name=`echo "$i" | cut -d'.' -f1`
+  # echo "$name"
+  # docker run --rm -v "$(pwd)":/temp jrottenberg/ffmpeg:3.4-alpine -i "/temp/$i" -c:v libx264 "/temp/${name}.mp4"
+# done
+for i in *.avi; do docker run --rm -v "$(pwd)":/temp jrottenberg/ffmpeg:3.4-alpine -i "/temp/$i" -c:a aac -b:a 128k -c:v libx264 -crf 20 "/temp/${i%.avi}.mp4"; done
