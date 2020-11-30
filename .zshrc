@@ -25,7 +25,7 @@ autoload -Uz compinit && compinit -i
 autoload -Uz promptinit && promptinit -i
 autoload -Uz zmv
 
-fpath=(~/.zshrc.d/completion $fpath)
+fpath=(~/.zshrc.d/completions $fpath)
 
 setopt promptsubst
 setopt autocd
