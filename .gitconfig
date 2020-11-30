@@ -52,4 +52,4 @@
 [diff]
 	tool = Kaleidoscope
 [core]
-	excludesfile = /Users/dylan/.gitignore_global
+	excludesfile = /Users/dylan/.git_excludes

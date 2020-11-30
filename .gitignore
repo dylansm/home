@@ -117,6 +117,7 @@
 .zcompdump
 .zcompcache/
 .zsh_history
+.zsh_sessions/
 .zshrc.d/aliases.zsh.bak
 /.lein/*
 /.mono/
