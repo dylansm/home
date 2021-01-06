@@ -44,16 +44,16 @@ bindkey -e
 # bindkey '^[[1;9D' backward-word
 # bindkey '˙' backward-word
 # bindkey '¬' forward-word
-bindkey '^l' forward-word
-bindkey '^h' backward-word
+bindkey '^l' forward-word                     # ctrl-l
+bindkey '^h' backward-word                    # ctrl-h
 # bindkey '^h' backward-char
 # bindkey '^l' forward-char
-bindkey "^[[A" up-line-or-beginning-search
-bindkey "^[[B" down-line-or-beginning-search
-bindkey "^p" up-line-or-beginning-search
-bindkey "^n" down-line-or-beginning-search
-bindkey -s '^g' '^Ugit status -s^M'
-bindkey -s '^f' '^Uff^M'
+bindkey "^[[A" up-line-or-beginning-search    # ctrl-a
+bindkey "^[[B" down-line-or-beginning-search  # ctrl-b
+bindkey "^p" up-line-or-beginning-search      # ctrl-p
+bindkey "^n" down-line-or-beginning-search    # ctrl-n
+bindkey -s '^g' '^Ugit status -s^M'           # ctrl-g
+bindkey -s '^f' '^Uff^M'                      # ctrl-f
 
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search

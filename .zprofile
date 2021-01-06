@@ -14,10 +14,8 @@ export ECLIPSE_HOME="/Applications/Eclipse.app/Contents/Eclipse"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export SYSTEM_VERSION_COMPAT=1
 
-# export MPD_HOST="bird.local"
-# export MPD_HOST="monk.local"
-# export MPD_HOST="birdh"
-# export MPD_HOST="localhost"
+# for rust
+source "$HOME/.cargo/env"
 
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export EDITOR="nvim"
@@ -76,4 +74,4 @@ if [[ -f ~/.config/app_secrets.yml ]]; then
   export MONGO_CONNECTION=`echo $clojure_test_development_mongo_conn`
 fi
 
-export PATH="$HOME/.cargo/bin:$PATH"
+eval $(/opt/homebrew/bin/brew shellenv)
