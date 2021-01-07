@@ -64,16 +64,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 
 # prompt stuff
 prompt_icon="%(?.%{$fg[green]%}✚ %{$reset_color%}.%{$fg[red]%}✚ %{$reset_color%})"
-# set tmux colors on error
-# if [ "$TMUX" ]; then
-  # PROMPT='$(if [[ $? == '0' ]]; then $(tmux set status-left-bg "black"); else $(tmux set status-left-bg "red"); fi)
-# %~
-# ${prompt_icon} %{$reset_color%}'
-# else
-  # PROMPT='
-# %~
-# ${prompt_icon} %{$reset_color%}'
-# fi
+
 PROMPT='
 %~
 ${prompt_icon} %{$reset_color%}'
