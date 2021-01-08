@@ -83,12 +83,7 @@ let MRU_Max_Entries = 1000
 let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
 let MRU_Add_Menu = 0
 
-let arm64env=$ARM64
-if arm64env == '1'
-  let g:python3_host_prog = '/opt/homebrew/bin/python3'
-else
-  let g:python3_host_prog = '/usr/local/bin/python3'
-endif
+" let g:python3_host_prog = '/opt/homebrew/bin/python3'
 
 " tagbar
 let g:tagbar_autofocus = 1
