@@ -11,8 +11,8 @@ if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 export ECLIPSE_HOME="/Applications/Eclipse.app/Contents/Eclipse"
 
 # for homebrew
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export SYSTEM_VERSION_COMPAT=1
+# export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+# export SYSTEM_VERSION_COMPAT=1
 
 # for rust
 source "$HOME/.cargo/env"
@@ -74,4 +74,9 @@ if [[ -f ~/.config/app_secrets.yml ]]; then
   export MONGO_CONNECTION=`echo $clojure_test_development_mongo_conn`
 fi
 
-eval $(/opt/homebrew/bin/brew shellenv)
+arch=`uname -a`
+arm64="ARM64"
+
+if [[ "$arch" =~ "$arm64" ]]; then
+  eval $(/opt/homebrew/bin/brew shellenv)
+fi
