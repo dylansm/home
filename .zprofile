@@ -74,9 +74,9 @@ if [[ -f ~/.config/app_secrets.yml ]]; then
   export MONGO_CONNECTION=`echo $clojure_test_development_mongo_conn`
 fi
 
-arch=`uname -a`
-arm64="ARM64"
+ARCH=`uname -a`
+ARM64="ARM64"
 
-if [[ "$arch" =~ "$arm64" ]]; then
+if [[ "$ARCH" =~ "$ARM64" ]]; then
   eval $(/opt/homebrew/bin/brew shellenv)
 fi

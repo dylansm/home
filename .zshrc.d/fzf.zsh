@@ -2,15 +2,26 @@
 # ---------
 if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
   export PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
+else
+  export PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin/fzf/bin"
 fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/opt/homebrew/opt/fzf/shell/completion.zsh" 2> /dev/null
+if [[ "$ARCH" =~ "$ARM64" ]]; then
+  [[ $- == *i* ]] && source "/opt/homebrew/opt/fzf/shell/completion.zsh" 2> /dev/null
+else
+  [[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+fi
 
 # Key bindings
 # ------------
-source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
+
+if [[ "$ARCH" =~ "$ARM64" ]]; then
+  source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
+else
+  source "/usr/local/homebrew/fzf/shell/key-bindings.zsh"
+fi
 
 
 # Utilities
