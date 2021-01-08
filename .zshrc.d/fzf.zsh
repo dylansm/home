@@ -20,7 +20,7 @@ fi
 if [[ "$ARCH" =~ "$ARM64" ]]; then
   source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 else
-  source "/usr/local/homebrew/fzf/shell/key-bindings.zsh"
+  source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 fi
 
 
