@@ -1,18 +1,14 @@
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-export PYENV_ROOT="$HOME/.pyenv"
+
+# export PYENV_ROOT="$HOME/.pyenv"
+# if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
 
 # pyenv-virtualenv support
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+# if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
-export PATH="$HOME/.jenv/bin:$PATH"
-if which jenv > /dev/null; then eval "$(jenv init -)"; fi
-# export JENV_ROOT=/usr/local/var/jenv
-export ECLIPSE_HOME="/Applications/Eclipse.app/Contents/Eclipse"
-
-# for homebrew
-# export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-# export SYSTEM_VERSION_COMPAT=1
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # for rust
 source "$HOME/.cargo/env"
@@ -22,20 +18,17 @@ export EDITOR="nvim"
 export LC_CTYPE=en_US.UTF-8
 export PATH="$HOME/.rbenv/bin:$PATH"
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
-export NODE_PATH=/usr/local/lib/node_modules
-export SCALA_HOME=/usr/local/scala
+# export NODE_PATH=/usr/local/lib/node_modules
 export TIDY_HTML=~/.tidyrc
 export XCODE="`xcode-select --print-path`"
 # export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$HOME/Library/Python/2.7/bin:$PATH"
 export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export RUBY_CONFIGURE_OPTS="--disable-install-doc"
-export PATH="$HOME/.fastlane/bin:$PATH"
+# export PATH="$HOME/.fastlane/bin:$PATH"
 
 export GOPATH="$HOME/dev/go"
-# export PATH="$PATH:$GOPATH/bin"
 
 export KEYTIMEOUT=1
-export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export PIP_CONFIG_FILE="$HOME/.config/pip/pip.conf"
 
 HISTFILE=~/.zshrc.d/.zsh_history

@@ -2,7 +2,7 @@ set exrc
 set secure
 syntax on
 filetype plugin indent on
-" colorscheme onedark
+colorscheme onedark
 
 " remember last position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
