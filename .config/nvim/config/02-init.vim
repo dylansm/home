@@ -84,7 +84,7 @@ let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
 let MRU_Add_Menu = 0
 
 " let g:python3_host_prog = '/opt/homebrew/bin/python3'
-let g:python3_host_prog = '/Users/dylan/.pyenv/versions/3.9.1/bin/python'
+let g:python3_host_prog = '/Users/dylan/.pyenv/versions/3.9.5/bin/python'
 
 " tagbar
 let g:tagbar_autofocus = 1

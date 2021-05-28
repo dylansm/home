@@ -1,9 +1,5 @@
 ssh-add -A &> /dev/null
 
-# do not move these lines to .zprofile - only works here
-export PYENV_ROOT="$HOME/.pyenv"
-if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
-
 if [ -d $HOME/.zshrc.d ]; then
   for file in $HOME/.zshrc.d/*.zsh; do
     source $file
@@ -25,8 +21,6 @@ autoload -Uz colors && colors -i
 autoload -Uz compinit && compinit -i
 autoload -Uz promptinit && promptinit -i
 autoload -Uz zmv
-
-fpath=(~/.zshrc.d/completions $fpath)
 
 setopt promptsubst
 setopt autocd
@@ -70,9 +64,5 @@ PROMPT='
 %~
 ${prompt_icon} %{$reset_color%}'
 
-# nvm, pyenv, jenv, ruby
-# RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current') %{$fg[green]%}py-$(python_version) %{$fg[grey]%}java-$(jenv version-name) %{$fg[magenta]%}ruby-$(ruby_version)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
 # nvm, pyenv, rbenv
 RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current') %{$fg[green]%}py-$(python_version) %{$fg[magenta]%}ruby-$(ruby_version)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
-# nvm, python --version, rbenv
-# RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current') %{$fg[green]%}$(python3 --version) %{$fg[magenta]%}ruby-$(ruby_version)$(~/bin/git_cwd_info.rb)%{$reset_color%}'

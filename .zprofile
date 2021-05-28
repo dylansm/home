@@ -1,18 +1,11 @@
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# export PYENV_ROOT="$HOME/.pyenv"
-# if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
-
-# pyenv-virtualenv support
-# if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-
 export NVM_DIR="$HOME/.nvm"
-source $(brew --prefix nvm)/nvm.sh
+#source $(brew --prefix nvm)/nvm.sh
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # for rust
-source "$HOME/.cargo/env"
+#source "$HOME/.cargo/env"
 
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export EDITOR="nvim"
@@ -74,3 +67,4 @@ ARM64="ARM64"
 if [[ "$ARCH" =~ "$ARM64" ]]; then
   eval $(/opt/homebrew/bin/brew shellenv)
 fi
+
