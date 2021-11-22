@@ -185,3 +185,5 @@ let g:ale_fixers = {
 \   'css': ['stylelint'],
 \   'rust': ['rustfmt'],
 \}
+
+let g:tagbar_ctags_bin = '/opt/homebrew/bin/ctags'

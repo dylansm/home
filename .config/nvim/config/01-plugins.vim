@@ -9,9 +9,9 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'SirVer/ultisnips' | Plug 'dylansm/vim-snippets' " Group dependencies, vim-snippets depends on ultisnips
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/csv.vim'
-Plug 'dansomething/vim-eclim', { 'for': 'java' }
+" Plug 'dansomething/vim-eclim', { 'for': 'java' }
 Plug 'davidoc/taskpaper.vim'
-Plug 'digitaltoad/vim-pug'
+" Plug 'digitaltoad/vim-pug'
 Plug 'dylansm/html5.vim'
 Plug 'dylansm/nginx.vim'
 Plug 'dylansm/one-dark.vim'
@@ -34,7 +34,7 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
 Plug 'mitsuse/autocomplete-swift'
-Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+" Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'pangloss/vim-javascript'
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'rhysd/vim-clang-format'
@@ -43,18 +43,18 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 " Plug 'scrooloose/syntastic'
 Plug 'w0rp/ale' " syntax checking
-Plug 'tpope/vim-dispatch', { 'for': 'clojure' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+" Plug 'tpope/vim-dispatch', { 'for': 'clojure' }
+" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-liquid'
 Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-projectionist', { 'for': 'clojure' }
+" Plug 'tpope/vim-projectionist', { 'for': 'clojure' }
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
-Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
+" Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
+" Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/mru.vim'
 

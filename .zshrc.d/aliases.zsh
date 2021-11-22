@@ -35,6 +35,7 @@ alias ddo="doctl"
 alias ddoc="doctl compute"
 alias ddocd="doctl compute droplet"
 alias dev='cd ~/Dev'
+alias dk="docker"
 alias dock='cd ~/dev/Docker'
 alias down="cd ~/Downloads"
 alias dsites="cd ~/Dropbox/Sites"
