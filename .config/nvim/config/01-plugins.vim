@@ -43,18 +43,18 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 " Plug 'scrooloose/syntastic'
 Plug 'w0rp/ale' " syntax checking
-" Plug 'tpope/vim-dispatch', { 'for': 'clojure' }
-" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'tpope/vim-dispatch', { 'for': 'clojure' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-haml'
 Plug 'tpope/vim-liquid'
 Plug 'tpope/vim-markdown'
-" Plug 'tpope/vim-projectionist', { 'for': 'clojure' }
+Plug 'tpope/vim-projectionist', { 'for': 'clojure' }
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-" Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
-" Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
+Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
+Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/mru.vim'
 

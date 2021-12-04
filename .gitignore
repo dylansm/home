@@ -29,6 +29,7 @@
 .eaglerc
 .eclipse/
 .fastlane
+.fauna-shell
 .fzf/
 .gem/
 .gist

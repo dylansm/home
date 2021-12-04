@@ -1,0 +1,3 @@
+
+# fauna autocomplete setup
+FAUNA_AC_ZSH_SETUP_PATH=/Users/dylan/Library/Caches/fauna-shell/autocomplete/zsh_setup && test -f $FAUNA_AC_ZSH_SETUP_PATH && source $FAUNA_AC_ZSH_SETUP_PATH;

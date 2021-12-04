@@ -4,9 +4,6 @@ export NVM_DIR="$HOME/.nvm"
 #source $(brew --prefix nvm)/nvm.sh
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 
-# for rust
-#source "$HOME/.cargo/env"
-
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export EDITOR="nvim"
 export LC_CTYPE=en_US.UTF-8
