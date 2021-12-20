@@ -1,23 +1,14 @@
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-export NVM_DIR="$HOME/.nvm"
-#source $(brew --prefix nvm)/nvm.sh
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export EDITOR="nvim"
 export LC_CTYPE=en_US.UTF-8
 export PATH="$HOME/.rbenv/bin:$PATH"
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
-# export NODE_PATH=/usr/local/lib/node_modules
 export TIDY_HTML=~/.tidyrc
 export XCODE="`xcode-select --print-path`"
 # export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$HOME/Library/Python/2.7/bin:$PATH"
 export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export RUBY_CONFIGURE_OPTS="--disable-install-doc"
 # export PATH="$HOME/.fastlane/bin:$PATH"
-
-export GOPATH="$HOME/dev/go"
 
 export KEYTIMEOUT=1
 export PIP_CONFIG_FILE="$HOME/.config/pip/pip.conf"
