@@ -90,8 +90,9 @@ ${prompt_icon} %{$reset_color%}'
 
 # nvm, pyenv, rbenv
 #RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current') %{$fg[green]%}py-$(python_version) %{$fg[magenta]%}ruby-$(ruby_version)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
-# jenv, nvm, pyenv, rbenv
+
+# jenv, nvm
 javaversion=$(jenv version)
 javaversion=${javaversion%%[[:space:]]*}
 # echo $javaversion
-RPROMPT='%{$fg[green]%}java-$javaversion %{$fg[red]%}node-$(nvm_ls 'current') %{$fg[green]%}py-$(python_version) %{$fg[magenta]%}ruby-$(ruby_version)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
+RPROMPT='$(~/bin/git_cwd_info.rb)%{$reset_color%}'

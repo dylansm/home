@@ -57,6 +57,7 @@ Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
 Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/mru.vim'
+" Plug 'Valloric/YouCompleteMe'
 
 " Add plugins to &runtimepath
 call plug#end()
