@@ -66,7 +66,6 @@ ${prompt_icon} %{$reset_color%}'
 #RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current') %{$fg[green]%}py-$(python_version) %{$fg[magenta]%}ruby-$(ruby_version)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
 
 # jenv, nvm
-javaversion=$(jenv version)
-javaversion=${javaversion%%[[:space:]]*}
-# echo $javaversion
+# javaversion=$(jenv version)
+# javaversion=${javaversion%%[[:space:]]*}
 RPROMPT='$(~/bin/git_cwd_info.rb)%{$reset_color%}'
