@@ -1,7 +1,7 @@
 alias dgo="docker run --rm -v /Users/dylan/dev/go:/home/app/go dylansm/golang:1.8.1"
 alias dk='docker'
 alias dkat="docker attach"
-alias dkc='docker-compose'
+alias dkc='docker compose'
 alias dkcr="docker-compose run --rm --no-deps"
 alias dkcu='docker-compose up -d'
 alias dkinf='docker info'

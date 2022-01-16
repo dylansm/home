@@ -53,3 +53,5 @@
 	tool = Kaleidoscope
 [core]
 	excludesfile = /Users/dylan/.git_excludes
+[init]
+	defaultBranch = main

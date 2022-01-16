@@ -28,7 +28,7 @@ end tell
 
 tell application "Terminal"
   try
-    do script "cd " & theParentPath & "; vim '" & theFile & "'"
+    do script "cd " & theParentPath & "; vim " & theFile
   on error
     do script "cd " & thePath & "; vim ."
   end try

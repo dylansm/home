@@ -105,7 +105,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
             " \ 'disabled_syntaxes', ['Comment', 'String'])
 
 " use 'f' to toggle filter
-let NERDTreeIgnore = ['\.DS_Store', '\.sass-cache', 'node_modules']
+let NERDTreeIgnore = ['\.DS_Store', '\.sass-cache']
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '–'
 let g:NERDTreeHighlightCursorline = 0
