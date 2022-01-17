@@ -6,7 +6,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'Shougo/deoplete-clangx'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/deoplete.nvim'
-Plug 'SirVer/ultisnips' | Plug 'dylansm/vim-snippets' " Group dependencies, vim-snippets depends on ultisnips
+Plug 'SirVer/ultisnips' | Plug 'dylansm/vim-snippets', { 'branch': 'main'} " Group dependencies, vim-snippets depends on ultisnips
 Plug 'cespare/vim-toml'
 Plug 'chrisbra/csv.vim'
 " Plug 'dansomething/vim-eclim', { 'for': 'java' }
