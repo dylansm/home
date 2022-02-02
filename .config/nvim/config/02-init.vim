@@ -2,7 +2,6 @@ set exrc
 set secure
 syntax on
 filetype plugin indent on
-" colorscheme onedark
 colorscheme NeoSolarized
 
 " remember last position
