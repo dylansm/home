@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+printf "\033[32mDNS servers currently configured:\033[0m\n"
+
+networksetup -getdnsservers Wi-Fi
+
+localDNS='192.168.4.34'
+
+if [[ `networksetup -getdnsservers Wi-Fi | head -n 1` == "$localDNS" ]]; then
+  printf "\033[33m\nRemoving local DNS...\033[0m\n\n"
+  networksetup -setdnsservers Wi-Fi 8.8.8.8 8.8.4.4
+else
+  printf "\033[33m\nAdding local DNS...\033[0m\n\n"
+  `networksetup -setdnsservers Wi-Fi ${localDNS} 8.8.8.8 8.8.4.4`
+fi
+
+printf "\033[34mDNS servers now configured:\033[0m\n"
+networksetup -getdnsservers Wi-Fi
