@@ -4,6 +4,19 @@ syntax on
 filetype plugin indent on
 colorscheme NeoSolarized
 
+" The following doesn't seem to be necessary though it is cool
+" If the current iTerm tab has been
+" created using the **dark** profile:
+" if $ITERM_PROFILE == 'Solarized Dark'
+  " set background=dark
+" endif
+
+" If the current iTerm tab has been
+" created using the **light** profile:
+" if $ITERM_PROFILE == 'Solarized Light'
+  " set background=light
+" endif
+
 " remember last position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -79,9 +92,9 @@ hi CursorLine term=bold cterm=bold
 
 set rtp+=/usr/local/opt/fzf
 
-let MRU_Max_Entries = 1000
-let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
-let MRU_Add_Menu = 0
+" let MRU_Max_Entries = 1000
+" let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
+" let MRU_Add_Menu = 0
 
 if $HOMEBREW_PREFIX == ''
   let g:python3_host_prog = '/usr/local/bin/python3'
