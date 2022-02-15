@@ -4,37 +4,20 @@ syntax on
 filetype plugin indent on
 colorscheme NeoSolarized
 
-" The following doesn't seem to be necessary though it is cool
-" If the current iTerm tab has been
-" created using the **dark** profile:
-" if $ITERM_PROFILE == 'Solarized Dark'
-  " set background=dark
-" endif
-
-" If the current iTerm tab has been
-" created using the **light** profile:
-" if $ITERM_PROFILE == 'Solarized Light'
-  " set background=light
-" endif
-
 " remember last position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-hi NERDTreeOpenable ctermfg=246
-hi NERDTreeClosable ctermfg=250
+hi NERDTreeOpenable ctermfg=246 guifg=#20b950
+hi NERDTreeClosable ctermfg=250 guifg=#20b950
 hi Title guifg=#20b950
-hi NERDTreeOpenable guifg=#20b950
-hi NERDTreeClosable guifg=#20b950
-hi LineNr ctermfg=242
-hi Normal ctermfg=251
-hi NonText ctermfg=236
-hi VertSplit ctermbg=247 ctermfg=236
+hi VertSplit ctermfg=238 ctermbg=NONE cterm=NONE
 hi StatusLineNC ctermbg=247 ctermfg=236
-highlight Comment cterm=italic
+hi Comment cterm=italic gui=italic
+" set fillchars=eob:\ ,vert:\│,diff:—,fold:—
+set fillchars=eob:\ ,vert:\ ,diff:—,fold:—
 
 hi SyntasticWarningSign guifg=Yellow guibg=#303030
 hi SyntasticErrorSign guifg=Red guibg=#303030
-set fillchars=vert:\│,diff:—,fold:—
 
 let mapleader           = ","
 let html_no_rendering   = 1
@@ -92,10 +75,6 @@ hi CursorLine term=bold cterm=bold
 
 set rtp+=/usr/local/opt/fzf
 
-" let MRU_Max_Entries = 1000
-" let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
-" let MRU_Add_Menu = 0
-
 if $HOMEBREW_PREFIX == ''
   let g:python3_host_prog = '/usr/local/bin/python3'
 else
@@ -108,18 +87,6 @@ let g:tagbar_autofocus = 1
 let g:deoplete#enable_at_startup = 1
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" if using brew installed llvm uncomment
-" call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/llvm/bin/clang')
-" let g:clang_library_path='/usr/local/opt/llvm/lib/'
-" let g:deoplete#sources#clang#libclang_path = '/usr/lib/opt/llvm/lib/libclang.dylib'
-" disable autocomplete by default
-" let b:deoplete_disable_auto_complete=1
-" let g:deoplete_disable_auto_complete=1
-" let g:deoplete#sources = {}
-" Disable the candidates in Comment/String syntaxes.
-" call deoplete#custom#source('_',
-            " \ 'disabled_syntaxes', ['Comment', 'String'])
 
 " use 'f' to toggle filter
 let NERDTreeIgnore = ['\.DS_Store', '\.sass-cache']
@@ -186,10 +153,6 @@ let g:user_emmet_settings = {
   \}
 
 let ropevim_enable_shortcuts = 1
-
-" let g:syntastic_cpp_compiler = 'clang++'
-" let g:syntastic_c_compiler = 'clang'
-" let g:syntastic_c_checkers=['/usr/local/opt/llvm/bin/clang-check']
 
 let g:rustfmt_autosave = 1
 let g:rustfmt_command = "/Users/dylan/.cargo/bin/rustfmt"
