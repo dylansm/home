@@ -3,6 +3,13 @@ set secure
 syntax on
 filetype plugin indent on
 colorscheme NeoSolarized
+let g:neosolarized_vertSplitBgTrans = 1
+
+" if $ITERM_PROFILE == 'Solarized Dark'
+  " set background=dark
+" elseif $ITERM_PROFILE == 'Solarized Light'
+  " set background=light
+" endif
 
 " remember last position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -10,11 +17,12 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 hi NERDTreeOpenable ctermfg=246 guifg=#20b950
 hi NERDTreeClosable ctermfg=250 guifg=#20b950
 hi Title guifg=#20b950
-hi VertSplit ctermfg=238 ctermbg=NONE cterm=NONE
+hi VertSplit ctermfg=2 ctermbg=NONE cterm=NONE
 hi StatusLineNC ctermbg=247 ctermfg=236
-hi Comment cterm=italic gui=italic
-" set fillchars=eob:\ ,vert:\│,diff:—,fold:—
-set fillchars=eob:\ ,vert:\ ,diff:—,fold:—
+hi Comment cterm=italic
+" uncomment this to restore a line between vertical splits
+set fillchars=eob:\ ,vert:\│,diff:—,fold:—
+" set fillchars=eob:\ ,vert:\ ,diff:—,fold:—
 
 hi SyntasticWarningSign guifg=Yellow guibg=#303030
 hi SyntasticErrorSign guifg=Red guibg=#303030
@@ -28,6 +36,11 @@ let g:netrw_list_hide   = '.*\.swp\*,.*\.swp$,.*\.swp\s,.*/$,.*/\s'
 let g:netrw_banner      = 0
 let g:netrw_dirhistmax  = 10
 let g:netrw_dirhist_cnt = 0
+
+" enable italics
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+
 set hidden
 set viminfo=""
 set noswapfile

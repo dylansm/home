@@ -6,6 +6,27 @@ map // <plug>NERDCommenterToggle
 nnoremap Y y$
 " Clear screen clears search highlighting.
 nnoremap <C-L> :nohl<CR><C-L>
+" set background with same shortcut used in Keyboard Maestro
+function ChooseProfileVariant(type)
+  if a:type == "light"
+    set background=light
+    if $TERM_PROGRAM == 'iTerm.app'
+      silent execute '!$HOMEBREW_PREFIX/bin/python3 /Users/dylan/bin/iTerm2/toggle_profile.py "Solarized Light"'
+    elseif $TERM_PROGRAM == 'Apple_Terminal'
+      silent execute '!/Users/dylan/bin/Triggers/TerminalSolarizedLight'
+    endif
+  else
+    set background=dark
+    if $TERM_PROGRAM == 'iTerm.app'
+      silent execute '!$HOMEBREW_PREFIX/bin/python3 /Users/dylan/bin/iTerm2/toggle_profile.py "Solarized Dark"'
+    elseif $TERM_PROGRAM == 'Apple_Terminal'
+      silent execute '!/Users/dylan/bin/Triggers/TerminalSolarizedDark'
+    endif
+  endif
+endfunction
+
+nnoremap <silent> <M-L> :call ChooseProfileVariant("light")<CR>
+nnoremap <silent> <M-D> :call ChooseProfileVariant('')<CR>
 
 :map <F7> :setlocal spell! spelllang=en_us<CR>
 

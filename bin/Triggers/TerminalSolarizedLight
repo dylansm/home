@@ -1,0 +1,5 @@
+#!/usr/bin/osascript
+
+tell app "Terminal"
+  set current settings of tabs of windows to settings set "Solarized Light"
+end tell
