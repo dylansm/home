@@ -10,16 +10,16 @@ nnoremap <C-L> :nohl<CR><C-L>
 function ChooseProfileVariant(type)
   if a:type == "light"
     set background=light
-    if $TERM_PROGRAM == 'iTerm.app'
+    if $LC_TERMINAL == 'iTerm2'
       silent execute '!$HOMEBREW_PREFIX/bin/python3 /Users/dylan/bin/iTerm2/toggle_profile.py "Solarized Light"'
-    elseif $TERM_PROGRAM == 'Apple_Terminal'
+    elseif $LC_TERMINAL == 'Apple_Terminal'
       silent execute '!/Users/dylan/bin/Triggers/TerminalSolarizedLight'
     endif
   else
     set background=dark
-    if $TERM_PROGRAM == 'iTerm.app'
+    if $LC_TERMINAL == 'iTerm2'
       silent execute '!$HOMEBREW_PREFIX/bin/python3 /Users/dylan/bin/iTerm2/toggle_profile.py "Solarized Dark"'
-    elseif $TERM_PROGRAM == 'Apple_Terminal'
+    elseif $LC_TERMINAL == 'Apple_Terminal'
       silent execute '!/Users/dylan/bin/Triggers/TerminalSolarizedDark'
     endif
   endif

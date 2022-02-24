@@ -20,6 +20,7 @@ hi Title guifg=#20b950
 hi VertSplit ctermfg=2 ctermbg=NONE cterm=NONE
 hi StatusLineNC ctermbg=247 ctermfg=236
 hi Comment cterm=italic
+hi LineNr ctermfg=4 ctermbg=NONE cterm=NONE
 " uncomment this to restore a line between vertical splits
 set fillchars=eob:\ ,vert:\│,diff:—,fold:—
 " set fillchars=eob:\ ,vert:\ ,diff:—,fold:—
@@ -121,7 +122,7 @@ let g:UltiSnipsEditSplit="horizontal"
 let NERDSpaceDelims=1
 " custom comments
 let g:NERDCustomDelimiters = {
-    \ 'javascript.jsx': { 'left': '{/*', 'right': '*/}'}
+\ 'javascript.jsx': { 'left': '{/*', 'right': '*/}'}
 \ }
 
 " Use the same symbols as TextMate for tabstops and EOLs
@@ -129,31 +130,31 @@ set listchars=tab:▸\ ,eol:¬,trail:.
 set list listchars=tab:▸\ ,trail:.
 
 let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
+  \ 'ctagstype' : 'go',
+  \ 'kinds'     : [
+      \ 'p:package',
+      \ 'i:imports:1',
+      \ 'c:constants',
+      \ 'v:variables',
+      \ 't:types',
+      \ 'n:interfaces',
+      \ 'w:fields',
+      \ 'e:embedded',
+      \ 'm:methods',
+      \ 'r:constructor',
+      \ 'f:functions'
+  \ ],
+  \ 'sro' : '.',
+  \ 'kind2scope' : {
+      \ 't' : 'ctype',
+      \ 'n' : 'ntype'
+  \ },
+  \ 'scope2kind' : {
+      \ 'ctype' : 't',
+      \ 'ntype' : 'n'
+  \ },
+  \ 'ctagsbin'  : 'gotags',
+  \ 'ctagsargs' : '-sort -silent'
 \ }
 
 " Emmet / Zen Coding
@@ -162,8 +163,8 @@ autocmd FileType html,css,php,javascript,xml EmmetInstall
 " let g:user_emmet_leader_key = '<c-y>'
 let g:user_emmet_leader_key = '<c-m>'
 let g:user_emmet_settings = {
-  \  'indentation' : '  '
-  \}
+\  'indentation' : '  '
+\}
 
 let ropevim_enable_shortcuts = 1
 
@@ -171,6 +172,17 @@ let g:rustfmt_autosave = 1
 let g:rustfmt_command = "/Users/dylan/.cargo/bin/rustfmt"
 let g:racer_cmd = "/Users/dylan/.cargo/bin/racer"
 " let g:racer_experimental_completer = 1
+
+" if expand('%:p') =~ '^/Users/dylan/bin/linter_wrappers/'
+let g:ale_linters = ['eslint']
+let g:ale_javascript_eslint_use_global = 1
+let g:ale_javascript_eslint_executable = '/Users/dylan/bin/linter_wrappers/eslint.sh'
+let b:ale_filename_mappings = {
+\ 'eslint': [
+\   ['/User/dylan/dev/microservices/blog/client/src', '/data'],
+\ ],
+\}
+" endif
 
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
