@@ -1,36 +1,20 @@
 {
-  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
-      "binaryLiterals": false,
-      "blockBindings": false,
-      "defaultParams": false,
-      "forOf": false,
-      "generators": false,
-      "objectLiteralComputedProperties": false,
-      "objectLiteralDuplicateProperties": false,
-      "objectLiteralShorthandMethods": false,
-      "objectLiteralShorthandProperties": false,
-      "octalLiterals": false,
-      "regexUFlag": false,
-      "regexYFlag": false,
-      "templateStrings": false,
-      "unicodeCodePointEscapes": false,
       "jsx": true
-    }
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
   },
 
   "env": {
     "browser": true,
     "node": true,
-    "amd": false,
+    "es2021": true,
     "es6": true,
     "mocha": false,
     "jasmine": false,
-    "phantomjs": false,
-    "jquery": false,
-    "prototypejs": false,
-    "shelljs": false
+    "jquery": false
   },
 
   "globals": {
@@ -41,14 +25,47 @@
     "react"
   ],
 
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "eslint:recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react/recommended",
+    "react-app",
+    "react-app/jest"
+  ],
+
   "rules": {
+    "arrow-parens": [1, "as-needed", {
+      "requireForBlockBody": true
+    }],
+    "arrow-body-style": ["error", "as-needed"],
     "import/no-extraneous-dependencies": 0,
+    "jsx-a11y/label-has-associated-control": [ 2, {
+      "labelComponents": ["CustomLabel"],
+      "labelAttributes": ["inputLabel"],
+      "controlComponents": ["CustomInput"],
+      "assert": "either",
+      "depth": 3
+    }],
     "max-len": 0,
     "no-bitwise": 0,
     "no-console": 0,
+    "no-labels": 0,
+    "no-nonoctal-decimal-escape": 0,
     "no-plusplus": 0,
     "no-underscore-dangle": 0,
-    "react/jsx-filename-extension": 0
+    "no-unsafe-optional-chaining": 0,
+    "no-unused-labels": 0,
+    "no-unused-expressions": 0,
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-filename-extension": 0,
+    "react/require-default-props": 0
   }
 }
