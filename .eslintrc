@@ -29,6 +29,7 @@
     "airbnb",
     "airbnb/hooks",
     "eslint:recommended",
+    "plugin:import/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:react/recommended",
     "react-app",
@@ -41,6 +42,8 @@
     }],
     "arrow-body-style": ["error", "as-needed"],
     "import/no-extraneous-dependencies": 0,
+    "import/no-unresolved": 0,
+    "import/extensions": 0,
     "jsx-a11y/label-has-associated-control": [ 2, {
       "labelComponents": ["CustomLabel"],
       "labelAttributes": ["inputLabel"],

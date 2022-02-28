@@ -173,16 +173,17 @@ let g:rustfmt_command = "/Users/dylan/.cargo/bin/rustfmt"
 let g:racer_cmd = "/Users/dylan/.cargo/bin/racer"
 " let g:racer_experimental_completer = 1
 
-" if expand('%:p') =~ '^/Users/dylan/bin/linter_wrappers/'
-let g:ale_linters = ['eslint']
-let g:ale_javascript_eslint_use_global = 1
-let g:ale_javascript_eslint_executable = '/Users/dylan/bin/linter_wrappers/eslint.sh'
-let b:ale_filename_mappings = {
-\ 'eslint': [
-\   ['/User/dylan/dev/microservices/blog/client/src', '/data'],
-\ ],
-\}
-" endif
+if filereadable('/Users/dylan/bin/linter_wrappers/eslint.sh')
+  " let g:ale_enabled = 0
+  let g:ale_linters = ['eslint']
+  let g:ale_javascript_eslint_use_global = 1
+  let g:ale_javascript_eslint_executable = '/Users/dylan/bin/linter_wrappers/eslint.sh'
+  " let b:ale_filename_mappings = {
+  " \ 'eslint': [
+  " \   ['/User/dylan/dev/microservices/blog/client/src', '/data'],
+  " \ ],
+  " \}
+endif
 
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
