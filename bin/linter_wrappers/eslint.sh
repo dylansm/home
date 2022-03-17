@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
 CONTAINER_NAME="vim-ale-eslint"
+LINTER_CONTAINER="dylansm/eslint"
 
 RUNNING=$(docker inspect --format="{{.State.Running}}" ${CONTAINER_NAME} 2> /dev/null)
 
 # if not running run the linter
 if [ ! "${RUNNING}" ]; then
-    exec docker run -i --rm --name "${CONTAINER_NAME}" -v $(pwd):/data dylansm/eslint-react -c /data/.eslintrc "$@"
+    exec docker run -i --rm --name "${CONTAINER_NAME}" -v $(pwd):/data "${LINTER_CONTAINER}" -c /data/.eslintrc "$@"
 
 # otherwise check the state - remove it if frozen; stop and remove if running and run again
 else
@@ -19,7 +20,7 @@ else
     docker stop $(docker ps -a -f name="${CONTAINER_NAME}" -q)
     docker rm $(docker ps -a -f name="${CONTAINER_NAME}" -q)
 
-    exec docker run -i --rm --name "${CONTAINER_NAME}" -v $(pwd):/data dylansm/eslint-react -c /data/.eslintrc "$@"
+    exec docker run -i --rm --name "${CONTAINER_NAME}" -v $(pwd):/data "${LINTER_CONTAINER}" -c /data/.eslintrc "$@"
   fi
 fi
 

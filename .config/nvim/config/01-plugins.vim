@@ -1,4 +1,7 @@
 call plug#begin()
+Plug 'yuezk/vim-js'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'Lokaltog/vim-easymotion'

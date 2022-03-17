@@ -71,3 +71,6 @@ au BufRead,BufNewFile *.scss set sw=2 sts=2
 au BufNewFile,BufRead * setlocal formatoptions-=o
 
 au VimEnter * RainbowParenthesesToggle
+
+let g:vim_jsx_pretty_colorful_config = 1
+
