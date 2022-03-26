@@ -192,3 +192,7 @@ let g:ale_fixers = {
 \}
 
 let g:tagbar_ctags_bin = '/opt/homebrew/bin/ctags'
+
+" CoC extensions
+let g:coc_global_extensions = ['coc-tsserver']
+" let g:coc_node_path = 'node-ts'

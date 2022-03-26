@@ -50,6 +50,7 @@
 .irb-history
 .ivy2/
 .jenv/
+.kube/
 .lesshst
 .lldb
 .local
@@ -91,6 +92,7 @@
 .rvm/
 .sbt/
 .scala_history
+.skaffold/
 .ssh/
 .sh_history
 .sip_V1/

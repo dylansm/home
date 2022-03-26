@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [[ $# -eq 0 ]]; then
+  echo "Please pass file name to transpile to TypeScript."
+  exit 1
+else
+  docker run -i --rm --name node -v $(pwd):/home/app -w /home/app dylansm/node:ts ts-node $1
+fi

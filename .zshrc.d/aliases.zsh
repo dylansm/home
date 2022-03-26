@@ -54,7 +54,6 @@ alias history='history 0'
 alias icloud="~/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias ipc="curl ifconfig.me | pbcopy"
 alias kdiff="git difftool -y -t Kaleidoscope"
-alias kite='open -a Kitematic\ \(Beta\)'
 alias kmerge="git mergetool -y -t Kaleidoscope"
 alias letterhead='cd ~/Documents/Letterhead'
 alias ll="ls -AlGp"
@@ -115,3 +114,7 @@ alias xprefs="find ~/Library/Developer/CoreSimulator/Devices -type f -name "
 alias yarng="yarn global ls"
 alias zalias='vim ~/.zshrc.d/aliases.zsh'
 alias zpro="vim ~/.zprofile"
+
+# node() {
+  # docker run --rm -it --name node -v $1:/home/app -w /home/app dylansm/node:ts $2
+# }
