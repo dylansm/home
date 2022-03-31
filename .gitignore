@@ -22,7 +22,8 @@
 .cups/
 .dbk_info
 .dbshell
-.docker
+.docker/*
+!.docker/config.json
 .dockercfg
 .dropbox*
 .dvdcss/
