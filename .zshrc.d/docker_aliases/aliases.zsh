@@ -21,6 +21,7 @@ alias dkvl="docker volume ls"
 alias dkvp="docker volume prune"
 alias dkvrd="docker volume rm $(docker volume ls -f dangling=true -q)"
 alias dnsup="docker run -d --name dnsmasq --restart always -p 53535:53/tcp -p 53535:53/udp --cap-add NET_ADMIN andyshinn/dnsmasq --address=/dev/127.0.0.1"
+alias dkrd="docker rmi $(docker images -f "dangling=true" -q)"
 
 alias k="kubectl"
 alias kl="kubectl logs"
@@ -29,3 +30,4 @@ alias kgd="kubectl get deployments"
 alias kgs="kubectl get services"
 alias krrd="kubectl rollout restart deployment"
 
+alias nvim-sh="docker run --rm -it --name "neovim-sh" dylansm/neovim sh"

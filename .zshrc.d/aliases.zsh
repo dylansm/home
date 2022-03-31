@@ -114,7 +114,3 @@ alias xprefs="find ~/Library/Developer/CoreSimulator/Devices -type f -name "
 alias yarng="yarn global ls"
 alias zalias='vim ~/.zshrc.d/aliases.zsh'
 alias zpro="vim ~/.zprofile"
-
-# node() {
-  # docker run --rm -it --name node -v $1:/home/app -w /home/app dylansm/node:ts $2
-# }

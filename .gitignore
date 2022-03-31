@@ -102,6 +102,7 @@
 # !.ssh/config
 .standard-cache/
 .subversion
+.swiftpm/
 .terminfo
 .tmux/
 .tooling/
