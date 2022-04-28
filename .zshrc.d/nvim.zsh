@@ -29,3 +29,7 @@ nvim() {
     docker run --rm -it --name "nvim${nvim_count}" -v $(echo $dir):/home/neovim/workdir dylansm/neovim nvim "$file"
   fi
 }
+
+nvim-sh() {
+  docker run --rm -it --name "neovim-sh" -v $(pwd):/home/neovim/workdir dylansm/neovim sh
+}

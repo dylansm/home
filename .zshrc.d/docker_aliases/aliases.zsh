@@ -29,5 +29,4 @@ alias kgp="kubectl get pods"
 alias kgd="kubectl get deployments"
 alias kgs="kubectl get services"
 alias krrd="kubectl rollout restart deployment"
-
-alias nvim-sh="docker run --rm -it --name "neovim-sh" dylansm/neovim sh"
+alias kcsg="kubectl create secret generic"
