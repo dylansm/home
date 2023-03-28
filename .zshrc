@@ -1,5 +1,4 @@
 ssh-add -A &> /dev/null
-
 if [ -d $HOME/.zshrc.d ]; then
   for file in $HOME/.zshrc.d/*.zsh; do
     source $file
@@ -65,7 +64,38 @@ ${prompt_icon} %{$reset_color%}'
 # nvm, pyenv, rbenv
 #RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current') %{$fg[green]%}py-$(python_version) %{$fg[magenta]%}ruby-$(ruby_version)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
 
+# nvm, pyenv
+RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current') %{$fg[green]%}py-$(pyenv version-name)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
+
 # jenv, nvm
 # javaversion=$(jenv version)
 # javaversion=${javaversion%%[[:space:]]*}
-RPROMPT='$(~/bin/git_cwd_info.rb)%{$reset_color%}'
+#RPROMPT='$(~/bin/git_cwd_info.rb)%{$reset_color%}'
+
+#export PYENV_ROOT="$HOME/.pyenv"
+#command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
