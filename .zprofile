@@ -17,16 +17,6 @@ HISTFILE=~/.zshrc.d/.zsh_history
 HISTSIZE=1024
 SAVEHIST=1024
 
-# nvm init
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-# pyenv init
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
-echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
-echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-
 if [[ -f ~/.config/api_secrets.yml ]]; then
   . ~/.zshrc.d/parse_yaml.zsh
   eval $(parse_yaml ~/.config/api_secrets.yml)
@@ -45,10 +35,21 @@ if [[ -f ~/.config/app_secrets.yml ]]; then
   export MONGO_CONNECTION=`echo $clojure_test_development_mongo_conn`
 fi
 
+export NVM_DIR="$HOME/.nvm"
+
 ARCH=`uname -a`
 ARM64="ARM64"
 
 if [[ "$ARCH" =~ "$ARM64" ]]; then
   eval $(/opt/homebrew/bin/brew shellenv)
+
+  # nvm init
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+
+else
+  # Intel
+  # nvm init
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+
 fi
 
