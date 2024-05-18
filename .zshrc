@@ -65,13 +65,19 @@ ${prompt_icon} %{$reset_color%}'
 #RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current') %{$fg[green]%}py-$(python_version) %{$fg[magenta]%}ruby-$(ruby_version)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
 
 # nvm, pyenv
-RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current') %{$fg[green]%}py-$(pyenv version-name)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
+#RPROMPT='%{$fg[red]%}node-$(nvm_ls 'current') %{$fg[green]%}py-$(pyenv version-name)$(~/bin/git_cwd_info.rb)%{$reset_color%}'
+
+# nvm, python venv
+# node outer: replace 'v' with nothing
+# python outer: replace space with '-', next: lowercase
+RPROMPT='%{$fg[red]%}node-${${$(nvm 'current')}//v/} %{$fg[green]%}${${$(python3 --version):l}// /-}$(~/bin/git_cwd_info.rb)%{$reset_color%}'
 
 # jenv, nvm
 # javaversion=$(jenv version)
 # javaversion=${javaversion%%[[:space:]]*}
 #RPROMPT='$(~/bin/git_cwd_info.rb)%{$reset_color%}'
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# uncomment if going back to pyenv
+#export PYENV_ROOT="$HOME/.pyenv"
+#command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init -)"

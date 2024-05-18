@@ -27,7 +27,6 @@ alias calias="pcat ~/.zshrc.d/aliases.zsh"
 alias caski="brew cask install"
 alias clearlog="sudo cat /dev/null > "
 alias cloj='cd ~/dev/Clojure'
-alias code='cd ~/dev/Code_Library'
 alias ctag='ctags -R --exclude=.git --exclude=log --exclude=tmp *'
 alias curlh='curl -IL '
 alias d='cd ~/Desktop'
@@ -73,9 +72,11 @@ alias npmlo="npm outdated --depth=0"
 alias open="open ."
 alias p='cd ~/Dev/Projects'
 alias pdoc='cd ~/Documents/Project\ Documents'
+alias pip='pip3'
 alias precomp="RAILS_ENV=production bundle exec rake assets:precompile"
 alias proj="cd ~/Documents/Documents/Project\ Documents/"
 alias proto="cd ~/Dev/prototypes"
+alias python=python3
 alias quote="cd ~/Documents/Quotes"
 alias rake='noglob rake' # allows rake and zsh to get along
 alias rakem="bundle exec rake db:migrate"
