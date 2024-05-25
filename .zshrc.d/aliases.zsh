@@ -12,17 +12,31 @@
 # alias v='docker run --rm -it -v $HOME/.config/nvim:/root/.config/nvim -v $HOME/.config/nvim/docker_share:/root/.local/share/nvim --name neovim neovim nvim .'
 # alias vim='docker run --rm -it -v $HOME/.config/nvim:/root/.config/nvim -v $HOME/.config/nvim/docker_share:/root/.local/share/nvim --name neovim neovim'
 # alias vimrc="vim ~/.vimrc"
+#alias bb="babel-repl"
+#alias be='bundle exec'
+#alias brake='bundle exec rake'
+#alias brewi='brew install'
+#alias brewup="brew update && brew cleanup"
+#alias bundled="echo '\nInstalling gems for development and test only...\n'; bundle install --without production staging"
+#alias mpcc='mpc listall | wc -l'
+#alias mpcg='mpc listall | grep -Ei '
+#alias mpcp="mpc playlist"
+#alias mpct="mpc toggle"
+#alias mpcu="mpc update"
+#alias precomp="RAILS_ENV=production bundle exec rake assets:precompile"
+#alias proto="cd ~/Dev/prototypes"
+#alias python=python3
+#alias rake='noglob rake' # allows rake and zsh to get along
+#alias rakem="bundle exec rake db:migrate"
+#alias rakemt="bundle exec rake db:migrate RAILS_ENV=test"
+#alias raker="bundle exec rake db:rollback"
+#alias rakert="bundle exec rake db:rollback RAILS_ENV=test"
+#alias redis28-server="redis28-server /usr/local/etc/redis28.conf"
 alias ...='cd ../../'
 alias ..='cd ../'
 alias awscomp="source /usr/local/bin/aws_zsh_completer.sh"
-alias bb="babel-repl"
-alias be='bundle exec'
 alias bin='if [ -d ./bin ]; then cd bin; else cd ~/bin; fi'
-alias brake='bundle exec rake'
 alias brewc="brew leaves | pbcopy"
-alias brewi='brew install'
-alias brewup="brew update && brew cleanup"
-alias bundled="echo '\nInstalling gems for development and test only...\n'; bundle install --without production staging"
 alias calias="pcat ~/.zshrc.d/aliases.zsh"
 alias caski="brew cask install"
 alias clearlog="sudo cat /dev/null > "
@@ -58,12 +72,6 @@ alias letterhead='cd ~/Documents/Letterhead'
 alias ll="ls -AlGp"
 alias mm='bundle exec middleman'
 alias mmv='noglob zmv -W'
-alias mosh='mosh --server=/usr/local/bin/mosh-server'
-alias mpcc='mpc listall | wc -l'
-alias mpcg='mpc listall | grep -Ei '
-alias mpcp="mpc playlist"
-alias mpct="mpc toggle"
-alias mpcu="mpc update"
 alias notes="cd ~/Documents/Notes"
 alias npmg='npm list -g --depth=0 2>/dev/null'
 alias npmgo="npm outdated -g --depth=0"
@@ -72,18 +80,10 @@ alias npmlo="npm outdated --depth=0"
 alias open="open ."
 alias p='cd ~/Dev/Projects'
 alias pdoc='cd ~/Documents/Project\ Documents'
-alias pip='pip3'
-alias precomp="RAILS_ENV=production bundle exec rake assets:precompile"
 alias proj="cd ~/Documents/Documents/Project\ Documents/"
-alias proto="cd ~/Dev/prototypes"
-alias python=python3
+alias pva="source ./bin/activate"
+alias pvd="deactivate"
 alias quote="cd ~/Documents/Quotes"
-alias rake='noglob rake' # allows rake and zsh to get along
-alias rakem="bundle exec rake db:migrate"
-alias rakemt="bundle exec rake db:migrate RAILS_ENV=test"
-alias raker="bundle exec rake db:rollback"
-alias rakert="bundle exec rake db:rollback RAILS_ENV=test"
-alias redis28-server="redis28-server /usr/local/etc/redis28.conf"
 alias res='cd ~/Documents/Resume'
 alias rmorig="find . -name \"*.orig\" -exec rm '{}' ';'"
 alias salias="source ~/.zshrc.d/aliases.zsh"
@@ -91,9 +91,6 @@ alias secret="ruby -rsecurerandom -e 'print SecureRandom.hex(32)' | pbcopy; echo
 alias sites="cd ~/sites"
 alias spm="swift package manager"
 alias spmgx="swift package manager generate-xcodeproj"
-alias spotclear="ssh -t vagrant@10.12.13.18 \"rm -rf /home/vagrant/nike-spot-2.0/storage/framework/sessions/*\""
-alias spotfresh="spotnewdb && spotclear"
-alias spotnewdb="ssh -t vagrant@10.12.13.18 \"mysql -uroot -psecret -e 'drop database if exists nikespot; create database nikespot;' && cd /home/vagrant/nike-spot-2.0 && php artisan migrate --seed --force\""
 alias ssh='TERM=xterm-256color ssh'
 alias todo='cd ~/Documents/Todo'
 alias tree2="tree -L 2"
@@ -101,12 +98,6 @@ alias tree3="tree -L 3"
 alias tree4="tree -L 4"
 alias tree="tree -CAa"
 alias v="nvim ."
-alias vag='vagrant'
-alias vagde="vagrant destroy"
-alias vagssh="vagrant ssh"
-alias vagsshc="vagrant ssh-config"
-alias vagst="vagrant global-status"
-alias vagup="vagrant up"
 alias vim="nvim"
 alias vimrc="vim ~/.config/nvim/init.vim"
 alias xcode="cd ~/Dev/Xcode/Projects"
