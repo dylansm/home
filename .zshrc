@@ -82,3 +82,8 @@ RPROMPT='%{$fg[red]%}node-${${$(nvm 'current')}//v/} %{$fg[green]%}${${$(python3
 #command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 #eval "$(pyenv init -)"
 
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/dylan/.lmstudio/bin"
+# End of LM Studio CLI section
+

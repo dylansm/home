@@ -82,6 +82,7 @@ alias npmlo="npm outdated --depth=0"
 alias open="open ."
 alias p='cd ~/Dev/Projects'
 alias pdoc='cd ~/Documents/Project\ Documents'
+alias pip='pip3'
 alias proj="cd ~/Documents/Documents/Project\ Documents/"
 alias pva="source ./bin/activate"
 alias pvd="deactivate"
@@ -99,7 +100,7 @@ alias tree2="tree -L 2"
 alias tree3="tree -L 3"
 alias tree4="tree -L 4"
 alias tree="tree -CAa"
-alias v="nvim ."
+alias v="vim ."
 alias xcode="cd ~/Dev/Xcode/Projects"
 alias xplug="cd ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins"
 alias xprefs="find ~/Library/Developer/CoreSimulator/Devices -type f -name "

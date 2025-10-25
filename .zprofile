@@ -17,23 +17,54 @@ HISTFILE=~/.zshrc.d/.zsh_history
 HISTSIZE=1024
 SAVEHIST=1024
 
-if [[ -f ~/.config/api_secrets.yml ]]; then
-  . ~/.zshrc.d/parse_yaml.zsh
-  eval $(parse_yaml ~/.config/api_secrets.yml)
+CLAUDE_MODE_FILE="$HOME/.env_claude_payment_mode"
+[[ -f "$CLAUDE_MODE_FILE" ]] || echo "plan" > "$CLAUDE_MODE_FILE"
+CLAUDE_MODE=$(cat "$CLAUDE_MODE_FILE")
 
-  export AWS_ACCESS_KEY_ID=`echo $default_aws_access_key_id`
-  export AWS_SECRET_ACCESS_KEY=`echo $default_aws_secret_access_key`
-fi
+toggle_claude() {
+  if [[ "${CLAUDE_MODE}" = "api" ]]; then
+    PAYMENT_TYPE="plan"
+  else
+    PAYMENT_TYPE="api"
+  fi
+  echo "${PAYMENT_TYPE}" > "${CLAUDE_MODE_FILE}"
 
-if [[ -f ~/.config/app_secrets.yml ]]; then
-  . ~/.zshrc.d/parse_yaml.zsh
-  eval $(parse_yaml ~/.config/app_secrets.yml)
+  echo "Now using Claude ${PAYMENT_TYPE} mode."
+  CLAUDE_MODE=`echo ${PAYMENT_TYPE}`
+  fetch_secrets
+}
 
-  export AUTH_TEST_JWT_DEVELOPMENT=`echo $auth_test_development_jwt_secret`
-  export CALDUX_JWT_DEVELOPMENT=`echo $caldux_development_jwt_secret`
-  export NIKE_LOCKER_JWT_DEVELOPMENT=`echo $nike_locker_development_jwt_secret`
-  export MONGO_CONNECTION=`echo $clojure_test_development_mongo_conn`
-fi
+fetch_secrets() {
+  # relies on dependency ~/.zshrc.d/parse_yaml.zsh (see API Keys and Secrets management note)
+  if [[ -f ~/.config/api_secrets.yml ]]; then
+    . ~/.zshrc.d/parse_yaml.zsh
+    eval $(parse_yaml ~/.config/api_secrets.yml)
+
+
+    if [[ "${CLAUDE_MODE}" = "api" ]]; then
+      unset CLAUDE_CODE_OAUTH_TOKEN
+      export ANTHROPIC_API_KEY=`echo $default_anthropic_api_key`
+    else
+      unset ANTHROPIC_API_KEY
+      export CLAUDE_CODE_OAUTH_TOKEN=`echo $default_claude_code_oauth_token`
+    fi
+    #export ANTHROPIC_API_KEY=`echo $default_anthropic_api_key`
+    #export AWS_ACCESS_KEY_ID=`echo $default_aws_access_key_id`
+    #export AWS_SECRET_ACCESS_KEY=`echo $default_aws_secret_access_key`
+  fi
+
+  if [[ -f ~/.config/app_secrets.yml ]]; then
+    . ~/.zshrc.d/parse_yaml.zsh
+    eval $(parse_yaml ~/.config/app_secrets.yml)
+
+    #export AUTH_TEST_JWT_DEVELOPMENT=`echo $auth_test_development_jwt_secret`
+    #export CALDUX_JWT_DEVELOPMENT=`echo $caldux_development_jwt_secret`
+    #export NIKE_LOCKER_JWT_DEVELOPMENT=`echo $nike_locker_development_jwt_secret`
+    #export MONGO_CONNECTION=`echo $clojure_test_development_mongo_conn`
+  fi
+}
+
+fetch_secrets
 
 export NVM_DIR="$HOME/.nvm"
 

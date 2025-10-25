@@ -15,6 +15,7 @@
 .byebug_hist
 .cargo/
 .cassandra/
+.claude*
 .cocoapods
 .config/*
 .conscript/
@@ -22,10 +23,8 @@
 .cups/
 .dbk_info
 .dbshell
-.docker/*
-!.docker/config.json
+.docker/
 .dockercfg
-.dropbox*
 .dvdcss/
 .eaglerc
 .eclipse/
@@ -54,6 +53,7 @@
 .kube/
 .lesshst
 .lldb
+.lmstudio*
 .local
 .m2/
 .mono/

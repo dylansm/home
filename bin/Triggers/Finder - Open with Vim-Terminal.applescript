@@ -28,9 +28,9 @@ end tell
 
 tell application "Terminal"
   try
-    do script "cd " & theParentPath & "; vim " & theFile
+    do script "cd " & theParentPath & "; nvim " & theFile
   on error
-    do script "cd " & thePath & "; vim ."
+    do script "cd " & thePath & "; nvim ."
   end try
   activate
 end tell

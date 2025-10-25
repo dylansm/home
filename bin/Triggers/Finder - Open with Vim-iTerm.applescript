@@ -26,9 +26,9 @@ tell application "iTerm"
   set newWindow to (create window with default profile)
   tell current session of first window
     if dir is true then
-      write text "cd '" & thePath & "'; vim ."
+      write text "cd '" & thePath & "'; nvim ."
     else
-      write text "cd '" & thePath & "'; vim '" & theFile & "'"
+      write text "cd '" & thePath & "'; nvim '" & theFile & "'"
     end if
   end tell
 end tell

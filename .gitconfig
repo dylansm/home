@@ -38,19 +38,20 @@
 [push]
   default = simple
 
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustexitcode = true
-[merge]
-	tool = Kaleidoscope
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[difftool]
-	prompt = false
-[mergetool]
-	prompt = false
 [diff]
-	tool = Kaleidoscope
+    tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+
+[merge]
+    tool = meld
+[mergetool "meld"]
+    # Choose one of these two lines (not both!) explained below.
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+    cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+
 [core]
 	excludesfile = /Users/dylan/.git_excludes
 [init]
