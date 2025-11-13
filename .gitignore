@@ -17,6 +17,7 @@
 .cassandra/
 .claude*
 .cocoapods
+.codex/*
 .config/*
 .conscript/
 .cordova/
@@ -28,6 +29,7 @@
 .dvdcss/
 .eaglerc
 .eclipse/
+.env_claude_payment_mode
 .fastlane
 .fauna-shell
 .fzf/
