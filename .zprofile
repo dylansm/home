@@ -1,13 +1,13 @@
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export EDITOR="nvim"
 export LC_CTYPE=en_US.UTF-8
-export PATH="$HOME/.rbenv/bin:$PATH"
+#export PATH="$HOME/.rbenv/bin:$PATH"
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export TIDY_HTML=~/.tidyrc
 export XCODE="`xcode-select --print-path`"
 # export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$HOME/Library/Python/2.7/bin:$PATH"
 export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
-export RUBY_CONFIGURE_OPTS="--disable-install-doc"
+#export RUBY_CONFIGURE_OPTS="--disable-install-doc"
 # export PATH="$HOME/.fastlane/bin:$PATH"
 
 export KEYTIMEOUT=1
@@ -48,6 +48,8 @@ fetch_secrets() {
       unset ANTHROPIC_API_KEY
       export CLAUDE_CODE_OAUTH_TOKEN=`echo $default_claude_code_oauth_token`
     fi
+
+    export GEMINI_API_KEY=`echo $default_gemini_api_key`
     #export ANTHROPIC_API_KEY=`echo $default_anthropic_api_key`
     #export AWS_ACCESS_KEY_ID=`echo $default_aws_access_key_id`
     #export AWS_SECRET_ACCESS_KEY=`echo $default_aws_secret_access_key`
