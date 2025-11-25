@@ -22,11 +22,36 @@ CLAUDE_MODE_FILE="$HOME/.env_claude_payment_mode"
 CLAUDE_MODE=$(cat "$CLAUDE_MODE_FILE")
 
 toggle_claude() {
-  if [[ "${CLAUDE_MODE}" = "api" ]]; then
-    PAYMENT_TYPE="plan"
-  else
-    PAYMENT_TYPE="api"
+
+  if [[ "$#" -ne 1 ]]; then
+    echo "Error: Invalid number of arguments."
+    echo "Usage: toggle_claude <mode>"
+    echo "  <mode> can be 'api', 'plan', or 'local'."
+    return
   fi
+
+  local mode="$1"
+  case "$mode" in
+    "api")
+      # Conditional execution for 'api' mode
+      PAYMENT_TYPE="api"
+      ;;
+    "plan")
+      # Conditional execution for 'plan' mode
+      PAYMENT_TYPE="plan"
+      ;;
+    "local")
+      # Conditional execution for 'local' mode
+      PAYMENT_TYPE="local"
+      ;;
+    *)
+      echo "Error: Invalid mode '$mode'."
+      echo "Usage: toggle_claude <mode>"
+      echo "  <mode> can be 'api', 'plan', or 'local'."
+      return
+      ;;
+  esac
+
   echo "${PAYMENT_TYPE}" > "${CLAUDE_MODE_FILE}"
 
   echo "Now using Claude ${PAYMENT_TYPE} mode."
@@ -40,14 +65,29 @@ fetch_secrets() {
     . ~/.zshrc.d/parse_yaml.zsh
     eval $(parse_yaml ~/.config/api_secrets.yml)
 
-
-    if [[ "${CLAUDE_MODE}" = "api" ]]; then
-      unset CLAUDE_CODE_OAUTH_TOKEN
-      export ANTHROPIC_API_KEY=`echo $default_anthropic_api_key`
-    else
-      unset ANTHROPIC_API_KEY
-      export CLAUDE_CODE_OAUTH_TOKEN=`echo $default_claude_code_oauth_token`
-    fi
+    case "${CLAUDE_MODE}" in
+      "api")
+        # Conditional execution for 'api' mode
+        unset CLAUDE_CODE_OAUTH_TOKEN
+        export ANTHROPIC_API_KEY=`echo $default_anthropic_api_key`
+        ;;
+      "plan")
+        # Conditional execution for 'plan' mode
+        unset ANTHROPIC_API_KEY
+        export CLAUDE_CODE_OAUTH_TOKEN=`echo $default_claude_code_oauth_token`
+        ;;
+      "local")
+        # Conditional execution for 'local' mode
+        unset CLAUDE_CODE_OAUTH_TOKEN
+        export ANTHROPIC_BASE_URL=http://localhost:3456
+        export ANTHROPIC_API_KEY=sk-ant-dummy
+        ;;
+      *)
+        echo "Error: Invalid mode '$mode'."
+        echo "  <mode> can be 'api', 'plan', or 'local'."
+        return
+        ;;
+    esac
 
     export GEMINI_API_KEY=`echo $default_gemini_api_key`
     #export ANTHROPIC_API_KEY=`echo $default_anthropic_api_key`
