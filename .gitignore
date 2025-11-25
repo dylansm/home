@@ -96,6 +96,7 @@
 .rvm/
 .sbt/
 .scala_history
+.sentry /
 .skaffold/
 .ssh/
 .sh_history

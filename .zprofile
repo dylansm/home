@@ -18,7 +18,11 @@ HISTSIZE=1024
 SAVEHIST=1024
 
 CLAUDE_MODE_FILE="$HOME/.env_claude_payment_mode"
-[[ -f "$CLAUDE_MODE_FILE" ]] || echo "plan" > "$CLAUDE_MODE_FILE"
+if [ -f "$CLAUDE_MODE_FILE" ]; then
+  echo "plan" > "$CLAUDE_MODE_FILE"
+else
+  touch "$CLAUDE_MODE_FILE"
+fi
 CLAUDE_MODE=$(cat "$CLAUDE_MODE_FILE")
 
 toggle_claude() {
