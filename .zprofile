@@ -17,13 +17,10 @@ HISTFILE=~/.zshrc.d/.zsh_history
 HISTSIZE=1024
 SAVEHIST=1024
 
-CLAUDE_MODE_FILE="$HOME/.env_claude_payment_mode"
-if [ -f "$CLAUDE_MODE_FILE" ]; then
-  echo "plan" > "$CLAUDE_MODE_FILE"
-else
-  touch "$CLAUDE_MODE_FILE"
-fi
-CLAUDE_MODE=$(cat "$CLAUDE_MODE_FILE")
+local claude_mode_file="$HOME/.env_claude_payment_mode"
+# if no .env_claude_payment_mode file create it defaulting to plan
+[[ ! -f "$claude_mode_file" ]]; echo "plan" > "$claude_mode_file"
+CLAUDE_MODE=$(cat "$claude_mode_file")
 
 toggle_claude() {
 
@@ -56,7 +53,7 @@ toggle_claude() {
       ;;
   esac
 
-  echo "${PAYMENT_TYPE}" > "${CLAUDE_MODE_FILE}"
+  echo "${PAYMENT_TYPE}" > "${claude_mode_file}"
 
   echo "Now using Claude ${PAYMENT_TYPE} mode."
   CLAUDE_MODE=`echo ${PAYMENT_TYPE}`
@@ -73,11 +70,13 @@ fetch_secrets() {
       "api")
         # Conditional execution for 'api' mode
         unset CLAUDE_CODE_OAUTH_TOKEN
+        unset ANTHROPIC_BASE_URL
         export ANTHROPIC_API_KEY=`echo $default_anthropic_api_key`
         ;;
       "plan")
         # Conditional execution for 'plan' mode
         unset ANTHROPIC_API_KEY
+        unset ANTHROPIC_BASE_URL
         export CLAUDE_CODE_OAUTH_TOKEN=`echo $default_claude_code_oauth_token`
         ;;
       "local")
