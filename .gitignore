@@ -159,4 +159,6 @@ mbox
 me.izo.me.error.log
 me.izo.me.out.log
 repos/
+tmp/
+tmp_vid/
 workbench.xmi
