@@ -1,2 +1,0 @@
-clearing :on
-notification :off
