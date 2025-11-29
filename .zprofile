@@ -19,7 +19,7 @@ SAVEHIST=1024
 
 local claude_mode_file="$HOME/.env_claude_payment_mode"
 # if no .env_claude_payment_mode file create it defaulting to plan
-[[ ! -f "$claude_mode_file" ]]; echo "plan" > "$claude_mode_file"
+[[ ! -f "$claude_mode_file" ]] && echo "plan" > "$claude_mode_file"
 CLAUDE_MODE=$(cat "$claude_mode_file")
 
 toggle_claude() {
