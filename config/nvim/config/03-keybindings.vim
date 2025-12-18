@@ -7,7 +7,8 @@ map // <plug>NERDCommenterToggle
 
 " Ensure NERDCommenter knows how to comment CSS
 let g:NERDCustomDelimiters = {
-    \ 'css': { 'left': '/* ', 'right': ' */' }
+    \ 'css': { 'left': '/* ', 'right': ' */' },
+    \ 'html': { 'left': '<!-- ', 'right': ' -->' }
 \ }
 " yank to end of line
 nnoremap Y y$
