@@ -87,3 +87,8 @@ RPROMPT='%{$fg[red]%}node-${${$(nvm 'current')}//v/} %{$fg[green]%}${${$(python3
 export PATH="$PATH:/Users/dylan/.lmstudio/bin"
 # End of LM Studio CLI section
 
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/dylan/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
