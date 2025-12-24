@@ -13,6 +13,7 @@
 .boot2docker/
 .bundle/
 .byebug_hist
+.cagent/
 .cargo/
 .cassandra/
 .claude*
