@@ -70,7 +70,7 @@ ${prompt_icon} %{$reset_color%}'
 # nvm, python venv
 # node outer: replace 'v' with nothing
 # python outer: replace space with '-', next: lowercase
-RPROMPT='%{$fg[red]%}node-${${$(nvm 'current')}//v/} %{$fg[green]%}${${$(python3 --version):l}// /-}$(~/bin/git_cwd_info.rb)%{$reset_color%}'
+RPROMPT='$HOST: %{$fg[red]%}node-${${$(nvm 'current')}//v/} %{$fg[green]%}${${$(python3 --version):l}// /-}$(~/bin/git_cwd_info.rb)%{$reset_color%}'
 
 # jenv, nvm
 # javaversion=$(jenv version)
@@ -92,3 +92,5 @@ fpath=(/Users/dylan/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+. "$HOME/.local/bin/env"
