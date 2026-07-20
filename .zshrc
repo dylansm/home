@@ -94,3 +94,4 @@ compinit
 # End of Docker CLI completions
 
 . "$HOME/.local/bin/env"
+. "$HOME/.cargo/env"

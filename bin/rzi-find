@@ -1,0 +1,11 @@
+#!/bin/zsh
+# rzi-find: case-insensitive filename search for files under the current directory
+# Usage: rzi-find <search term, one or more words, unquoted>
+ 
+if (( $# == 0 )); then
+  echo "Usage: rzi-find <search term>" >&2
+  exit 1
+fi
+ 
+find . -type f -iname "*$**"
+ 

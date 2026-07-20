@@ -10,3 +10,5 @@ app_secrets.yml
 .bundle/
 node_modules/
 .syntaxes
+
+**/.claude/settings.local.json

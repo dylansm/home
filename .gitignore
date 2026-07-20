@@ -71,6 +71,7 @@
 .npm/
 .npmrc
 .nvm/
+.ollama/
 .oracle_jre_usage/
 .overtone/
 .p2/
