@@ -43,7 +43,7 @@ alias calias="pcat ~/.zshrc.d/aliases.zsh"
 alias caski="brew cask install"
 alias clearlog="sudo cat /dev/null > "
 alias cloj='cd ~/dev/Clojure'
-alias claudallow='claude --allow-dangerously-skip-permissions'
+alias claudeallow='claude --allow-dangerously-skip-permissions'
 alias ctag='ctags -R --exclude=.git --exclude=log --exclude=tmp *'
 alias curlh='curl -IL '
 alias d='cd ~/Desktop'
