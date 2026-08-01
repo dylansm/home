@@ -93,6 +93,8 @@ fetch_secrets() {
     esac
 
     export GEMINI_API_KEY=`echo $default_gemini_api_key`
+    export RHIZOME_SNIPPER_PAT=`echo $default_rhizome_snipper_pat`
+    export RHIZOME_STREAMER_PAT=`echo $default_rhizome_streamer_pat`
     #export ANTHROPIC_API_KEY=`echo $default_anthropic_api_key`
     #export AWS_ACCESS_KEY_ID=`echo $default_aws_access_key_id`
     #export AWS_SECRET_ACCESS_KEY=`echo $default_aws_secret_access_key`
