@@ -56,5 +56,3 @@
 	excludesfile = /Users/dylan/.git_excludes
 [init]
 	defaultBranch = main
-[credential]
-	helper = store
