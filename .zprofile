@@ -22,43 +22,43 @@ local claude_mode_file="$HOME/.env_claude_payment_mode"
 [[ ! -f "$claude_mode_file" ]] && echo "plan" > "$claude_mode_file"
 CLAUDE_MODE=$(cat "$claude_mode_file")
 
-toggle_claude() {
+#toggle_claude() {
 
-  if [[ "$#" -ne 1 ]]; then
-    echo "Error: Invalid number of arguments."
-    echo "Usage: toggle_claude <mode>"
-    echo "  <mode> can be 'api', 'plan', or 'local'."
-    return
-  fi
+  #if [[ "$#" -ne 1 ]]; then
+    #echo "Error: Invalid number of arguments."
+    #echo "Usage: toggle_claude <mode>"
+    #echo "  <mode> can be 'api', 'plan', or 'local'."
+    #return
+  #fi
 
-  local mode="$1"
-  case "$mode" in
-    "api")
-      # Conditional execution for 'api' mode
-      PAYMENT_TYPE="api"
-      ;;
-    "plan")
-      # Conditional execution for 'plan' mode
-      PAYMENT_TYPE="plan"
-      ;;
-    "local")
-      # Conditional execution for 'local' mode
-      PAYMENT_TYPE="local"
-      ;;
-    *)
-      echo "Error: Invalid mode '$mode'."
-      echo "Usage: toggle_claude <mode>"
-      echo "  <mode> can be 'api', 'plan', or 'local'."
-      return
-      ;;
-  esac
+  #local mode="$1"
+  #case "$mode" in
+    #"api")
+      ## Conditional execution for 'api' mode
+      #PAYMENT_TYPE="api"
+      #;;
+    #"plan")
+      ## Conditional execution for 'plan' mode
+      #PAYMENT_TYPE="plan"
+      #;;
+    #"local")
+      ## Conditional execution for 'local' mode
+      #PAYMENT_TYPE="local"
+      #;;
+    #*)
+      #echo "Error: Invalid mode '$mode'."
+      #echo "Usage: toggle_claude <mode>"
+      #echo "  <mode> can be 'api', 'plan', or 'local'."
+      #return
+      #;;
+  #esac
 
-  echo "${PAYMENT_TYPE}" > "${claude_mode_file}"
+  #echo "${PAYMENT_TYPE}" > "${claude_mode_file}"
 
-  echo "Now using Claude ${PAYMENT_TYPE} mode."
-  CLAUDE_MODE=`echo ${PAYMENT_TYPE}`
-  fetch_secrets
-}
+  #echo "Now using Claude ${PAYMENT_TYPE} mode."
+  #CLAUDE_MODE=`echo ${PAYMENT_TYPE}`
+  #fetch_secrets
+#}
 
 fetch_secrets() {
   # relies on dependency ~/.zshrc.d/parse_yaml.zsh (see API Keys and Secrets management note)
@@ -66,38 +66,39 @@ fetch_secrets() {
     . ~/.zshrc.d/parse_yaml.zsh
     eval $(parse_yaml ~/.config/api_secrets.yml)
 
-    case "${CLAUDE_MODE}" in
-      "api")
-        # Conditional execution for 'api' mode
-        unset CLAUDE_CODE_OAUTH_TOKEN
-        unset ANTHROPIC_BASE_URL
-        export ANTHROPIC_API_KEY=`echo $default_anthropic_api_key`
-        ;;
-      "plan")
-        # Conditional execution for 'plan' mode
-        unset ANTHROPIC_API_KEY
-        unset ANTHROPIC_BASE_URL
-        export CLAUDE_CODE_OAUTH_TOKEN=`echo $default_claude_code_oauth_token`
-        ;;
-      "local")
-        # Conditional execution for 'local' mode
-        unset CLAUDE_CODE_OAUTH_TOKEN
-        export ANTHROPIC_BASE_URL=http://localhost:3456
-        export ANTHROPIC_API_KEY=sk-ant-dummy
-        ;;
-      *)
-        echo "Error: Invalid mode '$mode'."
-        echo "  <mode> can be 'api', 'plan', or 'local'."
-        return
-        ;;
-    esac
+    #case "${CLAUDE_MODE}" in
+      #"api")
+        ## Conditional execution for 'api' mode
+        #unset CLAUDE_CODE_OAUTH_TOKEN
+        #unset ANTHROPIC_BASE_URL
+        #export ANTHROPIC_API_KEY=`echo $default_anthropic_api_key`
+        #;;
+      #"plan")
+        ## Conditional execution for 'plan' mode
+        #unset ANTHROPIC_API_KEY
+        #unset ANTHROPIC_BASE_URL
+        #export CLAUDE_CODE_OAUTH_TOKEN=`echo $default_claude_code_oauth_token`
+        #;;
+      #"local")
+        ## Conditional execution for 'local' mode
+        #unset CLAUDE_CODE_OAUTH_TOKEN
+        #export ANTHROPIC_BASE_URL=http://localhost:3456
+        #export ANTHROPIC_API_KEY=sk-ant-dummy
+        #;;
+      #*)
+        #echo "Error: Invalid mode '$mode'."
+        #echo "  <mode> can be 'api', 'plan', or 'local'."
+        #return
+        #;;
+    #esac
 
     export GEMINI_API_KEY=`echo $default_gemini_api_key`
     #export RHIZOME_SNIPPER_PAT=`echo $default_rhizome_snipper_pat`
     #export RHIZOME_STREAMER_PAT=`echo $default_rhizome_streamer_pat`
     #export ANTHROPIC_API_KEY=`echo $default_anthropic_api_key`
-    #export AWS_ACCESS_KEY_ID=`echo $default_aws_access_key_id`
-    #export AWS_SECRET_ACCESS_KEY=`echo $default_aws_secret_access_key`
+    export AWS_ACCESS_KEY_ID=`echo $default_aws_access_key_id`
+    export AWS_SECRET_ACCESS_KEY=`echo $default_aws_secret_access_key`
+    export AWS_DEFAULT_REGION=`echo $default_aws_region`
   fi
 
   if [[ -f ~/.config/app_secrets.yml ]]; then

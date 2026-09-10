@@ -21,12 +21,15 @@
 .codex/*
 .config/*
 .conscript/
+/.copilot/
 .cordova/
 .cups/
 .dbk_info
 .dbshell
+/.deepseek/
 .docker/
 .dockercfg
+/.dsh/
 .dvdcss/
 .eaglerc
 .eclipse/
@@ -48,8 +51,10 @@
 .gvm/
 .hcl/
 .heroku/
+.homebrew/
 .homebrew_analytics_user_uuid
 .homestead
+.ipatool/
 .ipython
 .irb-history
 .ivy2/
@@ -74,6 +79,7 @@
 .ollama/
 .oracle_jre_usage/
 .overtone/
+/.pi/
 .p2/
 .passenger/
 .pearrc
@@ -86,6 +92,7 @@
 .python-eggs/
 .python-version
 .python_history
+/.rapid-mlx/
 .rbenv/
 .rbx
 .rdebug_hist
@@ -121,6 +128,7 @@
 .vim_mru_files
 .viminf*
 .vscode/
+.vscode-shared/
 .yarn-cache
 .yarn-config
 .yarn/
@@ -160,6 +168,7 @@ homestead_sites/
 mbox
 me.izo.me.error.log
 me.izo.me.out.log
+/npm_packages.txt
 repos/
 tmp/
 tmp_vid/

@@ -1,0 +1,3 @@
+  #!/bin/sh
+
+  exec "/Applications/SF Symbols Beta.app/Contents/Executables/sfsymbols" "$@"

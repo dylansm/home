@@ -84,14 +84,23 @@ RPROMPT='$HOST: %{$fg[red]%}node-${${$(nvm 'current')}//v/} %{$fg[green]%}${${$(
 
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/dylan/.lmstudio/bin"
+#export PATH="$PATH:/Users/dylan/.lmstudio/bin"
 # End of LM Studio CLI section
 
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/dylan/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
+# add completions here
+fpath=(
+  $HOME/.zshrc.d/completions
+  $fpath
+)
+autoload -Uz compinit && compinit -i
 
 . "$HOME/.local/bin/env"
 . "$HOME/.cargo/env"
+
+# pnpm
+export PNPM_HOME="/Users/dylan/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end

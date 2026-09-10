@@ -1,4 +1,81 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+#
+# pwdc — copy an absolute path to the clipboard, escaped for the shell.
 
-printf "%s" `pwd` | pbcopy
+set -euo pipefail
 
+usage() {
+  cat <<'EOF'
+usage: pwdc [-r] [-p] [file]
+
+Copies an absolute path to the clipboard, shell-escaped so it can be pasted
+straight into a command line. With no argument, copies the current directory.
+With a file or directory argument, appends it to the current directory path
+(the argument may be relative and does not need to exist yet).
+
+  -r   raw: do not escape, for pasting into GUI fields, config files, etc.
+  -p   resolve symlinks (physical path) instead of the logical path
+  -h   show this help
+
+examples:
+  pwdc                    /Users/dylan/Documents/Project\ Documents
+  pwdc -r                 /Users/dylan/Documents/Project Documents
+  pwdc AppIcon.icon       /Users/dylan/Documents/Project\ Documents/AppIcon.icon
+EOF
+}
+
+escape=1
+physical=0
+
+while getopts ":rpeh" opt; do
+  case $opt in
+    r) escape=0 ;;
+    p) physical=1 ;;
+    e) escape=1 ;;   # accepted for muscle memory; this is the default
+    h) usage; exit 0 ;;
+    \?) printf 'pwdc: unknown option -%s\n' "$OPTARG" >&2; usage >&2; exit 2 ;;
+  esac
+done
+shift $((OPTIND - 1))
+
+if [ $# -gt 1 ]; then
+  printf 'pwdc: expected at most one path argument\n' >&2
+  exit 2
+fi
+
+resolve_dir() {
+  if [ "$physical" -eq 1 ]; then
+    (cd -- "$1" && pwd -P)
+  else
+    (cd -- "$1" && pwd)
+  fi
+}
+
+if [ $# -eq 0 ]; then
+  path=$(resolve_dir .)
+else
+  arg=$1
+  dir=$(dirname -- "$arg")
+  base=$(basename -- "$arg")
+
+  if ! parent=$(resolve_dir "$dir" 2>/dev/null); then
+    printf 'pwdc: no such directory: %s\n' "$dir" >&2
+    exit 1
+  fi
+
+  case $parent in
+    */) path="$parent$base" ;;
+    *)  path="$parent/$base" ;;
+  esac
+
+  [ -e "$path" ] || printf 'pwdc: warning: %s does not exist\n' "$path" >&2
+fi
+
+if [ "$escape" -eq 1 ]; then
+  out=$(printf '%q' "$path")
+else
+  out=$path
+fi
+
+printf '%s' "$out" | pbcopy
+printf 'copied: %s\n' "$out" >&2
